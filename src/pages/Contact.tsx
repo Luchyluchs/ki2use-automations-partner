@@ -73,11 +73,15 @@ const Contact = () => {
                 <Button 
                   variant="accent" 
                   size="lg" 
-                  className="w-full bg-white text-primary hover:bg-white/90 mb-4 hover-scale"
-                  onClick={() => {
+                  className="w-full bg-white text-primary hover:bg-white/90 mb-4 hover-scale cursor-pointer z-10 relative"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    console.log('Button clicked!'); // Debug log
                     if (window.Calendly) {
+                      console.log('Opening Calendly popup');
                       window.Calendly.initPopupWidget({url: 'https://calendly.com/luxalexander/30min'});
                     } else {
+                      console.log('Calendly not loaded, opening in new tab');
                       window.open('https://calendly.com/luxalexander/30min', '_blank');
                     }
                   }}
