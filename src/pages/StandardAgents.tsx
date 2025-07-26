@@ -160,67 +160,61 @@ const StandardAgents = () => {
       {/* Agents Grid */}
       <section className="section-padding bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {agents.map((agent, index) => (
               <div
                 key={index}
-                className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-center"
+                className="bg-card border border-card-border rounded-xl p-4 shadow-card"
               >
                 {/* Image */}
-                <div className="lg:col-span-1">
-                  <div className="relative rounded-xl overflow-hidden shadow-card">
-                    <img
-                      src={agent.image}
-                      alt={`${agent.name} Roboter-Illustration`}
-                      className="w-full h-48 object-cover"
-                    />
-                    <div className="absolute inset-0 gradient-primary opacity-10"></div>
-                  </div>
+                <div className="relative rounded-lg overflow-hidden mb-4">
+                  <img
+                    src={agent.image}
+                    alt={`${agent.name} Roboter-Illustration`}
+                    className="w-full h-32 object-cover"
+                  />
+                  <div className="absolute inset-0 gradient-primary opacity-10"></div>
                 </div>
 
                 {/* Content */}
-                <div className="lg:col-span-2">
-                  <div className="bg-card border border-card-border rounded-xl p-6 shadow-card">
-                    <h2 className="text-xl font-semibold mb-3">{agent.name}</h2>
-                    <p className="text-muted-foreground mb-4 text-sm">{agent.description}</p>
+                <div>
+                  <h2 className="text-lg font-semibold mb-2">{agent.name}</h2>
+                  <p className="text-muted-foreground mb-3 text-sm">{agent.description}</p>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                      {/* Features */}
-                      <div>
-                        <h3 className="font-semibold mb-2 text-sm">Hauptfunktionen:</h3>
-                        <ul className="space-y-1">
-                          {agent.features.slice(0, 3).map((feature, featureIndex) => (
-                            <li key={featureIndex} className="flex items-start">
-                              <CheckCircle className="w-3 h-3 text-accent mt-0.5 mr-2 flex-shrink-0" />
-                              <span className="text-xs">{feature}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      {/* Benefits */}
-                      <div>
-                        <h3 className="font-semibold mb-2 text-sm">Konkrete Vorteile:</h3>
-                        <div className="space-y-1">
-                          {agent.benefits.slice(0, 2).map((benefit, benefitIndex) => (
-                            <div
-                              key={benefitIndex}
-                              className="bg-accent/10 text-accent text-xs font-medium rounded-full px-2 py-1"
-                            >
-                              {benefit}
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-
-                    <Button variant="cta" size="sm" asChild>
-                      <Link to="/kontakt">
-                        <Calendar className="w-3 h-3 mr-2" />
-                        Beratungsgespräch vereinbaren
-                      </Link>
-                    </Button>
+                  {/* Features */}
+                  <div className="mb-3">
+                    <h3 className="font-semibold mb-2 text-sm">Hauptfunktionen:</h3>
+                    <ul className="space-y-1">
+                      {agent.features.slice(0, 2).map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-start">
+                          <CheckCircle className="w-3 h-3 text-accent mt-0.5 mr-2 flex-shrink-0" />
+                          <span className="text-xs">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
+
+                  {/* Benefits */}
+                  <div className="mb-4">
+                    <h3 className="font-semibold mb-2 text-sm">Vorteile:</h3>
+                    <div className="space-y-1">
+                      {agent.benefits.slice(0, 1).map((benefit, benefitIndex) => (
+                        <div
+                          key={benefitIndex}
+                          className="bg-accent/10 text-accent text-xs font-medium rounded-full px-2 py-1"
+                        >
+                          {benefit}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <Button variant="cta" size="sm" className="w-full" asChild>
+                    <Link to="/kontakt">
+                      <Calendar className="w-3 h-3 mr-2" />
+                      Beratung
+                    </Link>
+                  </Button>
                 </div>
               </div>
             ))}
