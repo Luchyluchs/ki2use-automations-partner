@@ -2,17 +2,17 @@ import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowLeft, CheckCircle, Calendar } from "lucide-react";
-import linkedinRobot from "@/assets/linkedin-robot.jpg";
-import chatbotRobot from "@/assets/chatbot-robot.jpg";
-import newsletterRobot from "@/assets/newsletter-robot.jpg";
-import emailRobot from "@/assets/email-robot.jpg";
-import voiceRobot from "@/assets/voice-robot.jpg";
+import linkedinWorkflow from "@/assets/linkedin-workflow.jpg";
+import chatbotWorkflow from "@/assets/chatbot-workflow.jpg";
+import newsletterWorkflow from "@/assets/newsletter-workflow.jpg";
+import emailWorkflow from "@/assets/email-workflow.jpg";
+import voiceWorkflow from "@/assets/voice-workflow.jpg";
 
 const StandardAgents = () => {
   const agents = [
     {
       name: "LinkedIn Agent",
-      image: linkedinRobot,
+      image: linkedinWorkflow,
       description: "Automatisiert Netzwerkpflege, spart wertvolle Zeit bei der Akquise und stärkt Ihre Markenpräsenz professionell.",
       features: [
         "Automatisierte Kontaktanfragen",
@@ -36,7 +36,7 @@ const StandardAgents = () => {
     },
     {
       name: "Chatbot Agent",
-      image: chatbotRobot,
+      image: chatbotWorkflow,
       description: "Verbessert den Kundenservice rund um die Uhr, entlastet Ihr Team von Routineanfragen und sorgt für schnelle Antworten.",
       features: [
         "24/7 Verfügbarkeit",
@@ -60,7 +60,7 @@ const StandardAgents = () => {
     },
     {
       name: "Newsletter Agent",
-      image: newsletterRobot,
+      image: newsletterWorkflow,
       description: "Erstellt und versendet personalisierte Newsletter-Kampagnen effizient, steigert die Kundenbindung und spart Marketingressourcen.",
       features: [
         "Automatische Content-Erstellung",
@@ -84,7 +84,7 @@ const StandardAgents = () => {
     },
     {
       name: "Email Organisator",
-      image: emailRobot,
+      image: emailWorkflow,
       description: "Automatisiert die E-Mail-Sortierung und Priorisierung, reduziert administrative Last und schafft Fokus für wichtigere Aufgaben.",
       features: [
         "Intelligente Kategorisierung",
@@ -108,7 +108,7 @@ const StandardAgents = () => {
     },
     {
       name: "Sprachbot",
-      image: voiceRobot,
+      image: voiceWorkflow,
       description: "Interagiert mit Kunden per Sprache, optimiert den telefonischen Support und schafft Erreichbarkeit – auch außerhalb der Geschäftszeiten.",
       features: [
         "Natürliche Spracherkennung",
@@ -170,7 +170,7 @@ const StandardAgents = () => {
                 <div className="relative rounded-lg overflow-hidden mb-4">
                   <img
                     src={agent.image}
-                    alt={`${agent.name} Roboter-Illustration`}
+                    alt={`${agent.name} Workflow-Interface`}
                     className="w-full h-32 object-cover"
                   />
                   <div className="absolute inset-0 gradient-primary opacity-10"></div>
