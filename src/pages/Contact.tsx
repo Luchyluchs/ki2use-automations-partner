@@ -3,7 +3,33 @@ import ContactForm from "@/components/ContactForm";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Calendar, Mail, Phone, MapPin, Clock, Users, Zap } from "lucide-react";
+import { useEffect } from "react";
+
+// Calendly type definition
+declare global {
+  interface Window {
+    Calendly?: {
+      initPopupWidget: (options: { url: string }) => void;
+    };
+  }
+}
 const Contact = () => {
+  // Load Calendly script
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    document.head.appendChild(script);
+
+    return () => {
+      // Cleanup
+      const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
+      if (existingScript) {
+        document.head.removeChild(existingScript);
+      }
+    };
+  }, []);
+
   return <Layout>
       {/* Header */}
       <section className="bg-gradient-subtle py-16">
@@ -44,7 +70,18 @@ const Contact = () => {
                   direkt einen Termin und sprechen Sie mit unseren Experten.
                 </p>
                 
-                <Button variant="accent" size="lg" className="w-full bg-white text-primary hover:bg-white/90 mb-4 hover-scale">
+                <Button 
+                  variant="accent" 
+                  size="lg" 
+                  className="w-full bg-white text-primary hover:bg-white/90 mb-4 hover-scale"
+                  onClick={() => {
+                    if (window.Calendly) {
+                      window.Calendly.initPopupWidget({url: 'https://calendly.com/your-calendly-link'});
+                    } else {
+                      window.open('https://calendly.com/your-calendly-link', '_blank');
+                    }
+                  }}
+                >
                   <Calendar className="w-5 h-5 mr-2" />
                   Jetzt kostenlosen Termin buchen
                 </Button>
