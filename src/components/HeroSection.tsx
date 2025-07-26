@@ -37,7 +37,7 @@ const HeroSection = () => {
                 alt="Moderne KI-Roboter-Illustration für Unternehmensautomatisierung"
                 className="w-full h-auto"
               />
-              <div className="absolute inset-0 gradient-primary opacity-10"></div>
+              <div className="absolute bottom-0 left-0 right-0 h-1/3 gradient-primary opacity-10"></div>
             </div>
             
             {/* Floating Stats */}
