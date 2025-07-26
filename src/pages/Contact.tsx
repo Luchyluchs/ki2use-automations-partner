@@ -7,20 +7,20 @@ const Contact = () => {
   return <Layout>
       {/* Header */}
       <section className="bg-gradient-subtle py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <Button variant="ghost" size="sm" asChild className="mb-8">
+         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center fade-in-element">
+            <Button variant="ghost" size="sm" asChild className="mb-8 hover-scale">
               <Link to="/">
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Zurück zur Startseite
               </Link>
             </Button>
             
-            <h1 className="mb-6">
+            <h1 className="mb-6 scale-in-element">
               Kontakt zu{" "}
               <span className="text-primary">KI2USE</span>
             </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
+            <p className="text-xl text-muted-foreground leading-relaxed fade-in-element">
               Vereinbaren Sie Ihr kostenloses Beratungsgespräch oder kontaktieren Sie uns 
               direkt. Wir freuen uns auf Ihre Anfrage!
             </p>
@@ -35,7 +35,7 @@ const Contact = () => {
             {/* Contact Information */}
             <div className="space-y-8">
               {/* Calendly CTA */}
-              <div className="bg-gradient-primary rounded-2xl p-8 text-primary-foreground">
+              <div className="bg-gradient-primary rounded-2xl p-8 text-primary-foreground hover-scale">
                 <h2 className="text-2xl font-semibold mb-4">
                   Kostenloses 30-minütiges Beratungsgespräch
                 </h2>
@@ -44,7 +44,7 @@ const Contact = () => {
                   direkt einen Termin und sprechen Sie mit unseren Experten.
                 </p>
                 
-                <Button variant="accent" size="lg" className="w-full bg-white text-primary hover:bg-white/90 mb-4">
+                <Button variant="accent" size="lg" className="w-full bg-white text-primary hover:bg-white/90 mb-4 hover-scale" asChild>
                   <Calendar className="w-5 h-5 mr-2" />
                   Jetzt kostenlosen Termin buchen
                 </Button>
@@ -66,7 +66,7 @@ const Contact = () => {
               </div>
 
               {/* Contact Details */}
-              <div className="bg-card border border-card-border rounded-2xl p-8 shadow-card">
+              <div className="bg-card border border-card-border rounded-2xl p-8 shadow-card hover-lift">
                 <h3 className="text-xl font-semibold mb-6">Direkter Kontakt</h3>
                 
                 <div className="space-y-4">
@@ -138,7 +138,7 @@ const Contact = () => {
       <section className="section-padding bg-muted">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <div className="bg-gradient-primary rounded-2xl p-8 text-center text-primary-foreground">
+            <div className="bg-gradient-primary rounded-2xl p-8 text-center text-primary-foreground hover-scale">
               <h3 className="text-xl font-semibold mb-4">
                 Automatisierte Effizienz von Anfang an
               </h3>
@@ -182,7 +182,7 @@ const Contact = () => {
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-card border border-card-border rounded-xl p-6 shadow-card">
+              <div className="bg-card border border-card-border rounded-xl p-6 shadow-card hover-lift">
                 <h4 className="font-semibold mb-3">Was passiert im Beratungsgespräch?</h4>
                 <p className="text-muted-foreground text-sm">
                   Wir analysieren Ihre aktuellen Prozesse, identifizieren Automatisierungspotenziale 
@@ -190,7 +190,7 @@ const Contact = () => {
                 </p>
               </div>
               
-              <div className="bg-card border border-card-border rounded-xl p-6 shadow-card">
+              <div className="bg-card border border-card-border rounded-xl p-6 shadow-card hover-lift">
                 <h4 className="font-semibold mb-3">Ist das Gespräch wirklich kostenlos?</h4>
                 <p className="text-muted-foreground text-sm">
                   Ja, absolut! Das 30-minütige Beratungsgespräch ist unverbindlich und kostenlos. 
@@ -198,7 +198,7 @@ const Contact = () => {
                 </p>
               </div>
               
-              <div className="bg-card border border-card-border rounded-xl p-6 shadow-card">
+              <div className="bg-card border border-card-border rounded-xl p-6 shadow-card hover-lift">
                 <h4 className="font-semibold mb-3">Welche Unterlagen sollte ich bereithalten?</h4>
                 <p className="text-muted-foreground text-sm">
                   Eine grobe Übersicht Ihrer wichtigsten Geschäftsprozesse reicht aus. 
@@ -206,7 +206,7 @@ const Contact = () => {
                 </p>
               </div>
               
-              <div className="bg-card border border-card-border rounded-xl p-6 shadow-card">
+              <div className="bg-card border border-card-border rounded-xl p-6 shadow-card hover-lift">
                 <h4 className="font-semibold mb-3">Wie schnell kann implementiert werden?</h4>
                 <p className="text-muted-foreground text-sm">
                   Standard-Agenten können oft binnen weniger Tage aktiviert werden. 

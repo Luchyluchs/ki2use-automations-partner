@@ -189,4 +189,25 @@ Corporate design for German KMUs - trustworthy, modern, efficient
   .shadow-primary {
     box-shadow: var(--shadow-primary);
   }
+  
+  /* Interactive Effects */
+  .hover-lift {
+    @apply transition-all duration-300 ease-smooth hover:translate-y-[-8px] hover:shadow-elevated;
+  }
+  
+  .hover-scale {
+    @apply transition-transform duration-200 hover:scale-105;
+  }
+  
+  .fade-in-element {
+    @apply animate-fade-in;
+  }
+  
+  .scale-in-element {
+    @apply animate-scale-in;
+  }
+  
+  .float-element {
+    @apply animate-float;
+  }
 }

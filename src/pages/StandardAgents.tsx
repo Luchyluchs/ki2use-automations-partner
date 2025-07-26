@@ -136,20 +136,20 @@ const StandardAgents = () => {
     <Layout>
       {/* Header */}
       <section className="bg-gradient-subtle py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <Button variant="ghost" size="sm" asChild className="mb-8">
+         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center fade-in-element">
+            <Button variant="ghost" size="sm" asChild className="mb-8 hover-scale">
               <Link to="/">
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Zurück zur Startseite
               </Link>
             </Button>
             
-            <h1 className="mb-6">
+            <h1 className="mb-6 scale-in-element">
               Sofort einsetzbare{" "}
               <span className="text-primary">KI-Agenten</span> von KI2USE
             </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
+            <p className="text-xl text-muted-foreground leading-relaxed fade-in-element">
               Direkter Nutzen und schnelle Amortisation für Ihr Kleinunternehmen. 
               Bewährte Lösungen, die sofort produktiv werden.
             </p>
@@ -164,16 +164,16 @@ const StandardAgents = () => {
             {agents.map((agent, index) => (
               <div
                 key={index}
-                className="bg-card border border-card-border rounded-xl p-4 shadow-card"
+                className="bg-card border border-card-border rounded-xl p-4 shadow-card hover-lift cursor-pointer"
               >
                 {/* Image */}
-                <div className="relative rounded-lg overflow-hidden mb-4">
+                <div className="relative rounded-lg overflow-hidden mb-4 hover-scale">
                   <img
                     src={agent.image}
                     alt={`${agent.name} Workflow-Interface`}
-                    className="w-full h-32 object-cover"
+                    className="w-full h-32 object-cover transition-transform duration-300"
                   />
-                  <div className="absolute inset-0 gradient-primary opacity-10"></div>
+                  <div className="absolute inset-0 gradient-primary opacity-10 hover:opacity-20 transition-opacity duration-300"></div>
                 </div>
 
                 {/* Content */}
@@ -209,7 +209,7 @@ const StandardAgents = () => {
                     </div>
                   </div>
 
-                  <Button variant="cta" size="sm" className="w-full" asChild>
+                  <Button variant="cta" size="sm" className="w-full hover-scale transition-all duration-200" asChild>
                     <Link to="/kontakt">
                       <Calendar className="w-3 h-3 mr-2" />
                       Kostenloser Beratungstermin
@@ -224,18 +224,18 @@ const StandardAgents = () => {
 
       {/* Important Note */}
       <section className="section-padding bg-muted">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto bg-gradient-primary rounded-2xl p-8 text-center text-primary-foreground">
-            <h3 className="text-xl font-semibold mb-4">
+         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto bg-gradient-primary rounded-2xl p-8 text-center text-primary-foreground hover-scale">
+            <h3 className="text-xl font-semibold mb-4 fade-in-element">
               Wichtiger Hinweis für KMUs
             </h3>
-            <p className="leading-relaxed mb-6">
+            <p className="leading-relaxed mb-6 fade-in-element">
               Alle Standard-Agenten von KI2USE sind über ein persönliches, kostenloses Beratungsgespräch buchbar, 
               in dem wir die unkomplizierte, schnelle und rechtssichere Integration für Ihr KMU besprechen. 
               Die internen Prozesse von der Anfrage bis zur Implementierung werden dabei ebenfalls von n8n automatisiert, 
               was unsere Effizienz und Qualität in der Kundenbetreuung beweist.
             </p>
-            <Button variant="accent" size="lg" asChild className="bg-white text-primary hover:bg-white/90">
+            <Button variant="accent" size="lg" asChild className="bg-white text-primary hover:bg-white/90 hover-scale">
               <Link to="/kontakt">Jetzt Beratungsgespräch vereinbaren</Link>
             </Button>
           </div>
