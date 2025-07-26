@@ -212,7 +212,7 @@ const StandardAgents = () => {
                   <Button variant="cta" size="sm" className="w-full" asChild>
                     <Link to="/kontakt">
                       <Calendar className="w-3 h-3 mr-2" />
-                      Beratung
+                      Kostenloser Beratungstermin
                     </Link>
                   </Button>
                 </div>
