@@ -148,19 +148,19 @@ const Training = () => {
       {/* Header */}
       <section className="bg-gradient-subtle py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <Button variant="ghost" size="sm" asChild className="mb-8">
+          <div className="max-w-4xl mx-auto text-center fade-in-element">
+            <Button variant="ghost" size="sm" asChild className="mb-8 hover-scale">
               <Link to="/">
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Zurück zur Startseite
               </Link>
             </Button>
             
-            <h1 className="mb-6">
+            <h1 className="mb-6 scale-in-element">
               KI-Wissen für Ihr Team:{" "}
               <span className="text-primary">Praktische Schulungen</span> von KI2USE
             </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
+            <p className="text-xl text-muted-foreground leading-relaxed fade-in-element">
               Zukunftssicher und praxisnah – für KMU entwickelte Schulungen, 
               die Ihr Team befähigen, KI selbst zu nutzen und Effizienz zu steigern.
             </p>
@@ -188,7 +188,7 @@ const Training = () => {
                   die speziell für kleinere Betriebsstrukturen relevant und umsetzbar sind.
                 </p>
               </div>
-              <div className="bg-gradient-primary rounded-2xl p-8 text-primary-foreground">
+              <div className="bg-gradient-primary rounded-2xl p-8 text-primary-foreground hover-scale">
                 <h3 className="font-semibold mb-4">Ihre Investition in die Zukunft</h3>
                 <div className="space-y-4">
                   <div className="flex justify-between items-center">
@@ -213,12 +213,12 @@ const Training = () => {
       {/* Training Programs */}
       <section className="section-padding bg-muted">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="mb-6">
+          <div className="text-center mb-16 fade-in-element">
+            <h2 className="mb-6 scale-in-element">
               Unsere{" "}
               <span className="text-primary">Schulungsprogramme</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto fade-in-element">
               Speziell für deutsche KMUs entwickelte Schulungsmodule mit direktem 
               Praxisbezug und sofortiger Anwendbarkeit.
             </p>
@@ -228,7 +228,7 @@ const Training = () => {
             {trainings.map((training, index) => (
               <div
                 key={index}
-                className="bg-card border border-card-border rounded-2xl p-8 shadow-card hover:shadow-elevated transition-smooth"
+                className="bg-card border border-card-border rounded-2xl p-8 shadow-card hover-lift cursor-pointer"
               >
                 <div className="mb-6">
                   <h3 className="text-xl font-semibold mb-3">{training.title}</h3>
@@ -287,7 +287,7 @@ const Training = () => {
                   </ul>
                 </div>
 
-                <Button variant="cta" className="w-full" asChild>
+                <Button variant="cta" className="w-full hover-scale transition-all duration-200" asChild>
                   <Link to="/kontakt">
                     <Calendar className="w-4 h-4 mr-2" />
                     Schulung buchen
@@ -302,8 +302,8 @@ const Training = () => {
       {/* Benefits */}
       <section className="section-padding bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="mb-6">
+          <div className="text-center mb-16 fade-in-element">
+            <h2 className="mb-6 scale-in-element">
               Warum KI2USE{" "}
               <span className="text-primary">Schulungen</span>?
             </h2>
@@ -315,9 +315,9 @@ const Training = () => {
               return (
                 <div
                   key={index}
-                  className="bg-card border border-card-border rounded-xl p-6 shadow-card hover:shadow-elevated transition-smooth text-center"
+                  className="bg-card border border-card-border rounded-xl p-6 shadow-card hover-lift cursor-pointer text-center"
                 >
-                  <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4 hover-scale">
                     <IconComponent className="w-6 h-6 text-primary-foreground" />
                   </div>
                   <h3 className="font-semibold mb-3">{benefit.title}</h3>
@@ -332,12 +332,12 @@ const Training = () => {
       {/* Target Groups */}
       <section className="section-padding bg-muted">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="mb-6">
+          <div className="text-center mb-16 fade-in-element">
+            <h2 className="mb-6 scale-in-element">
               Wer profitiert von unseren{" "}
               <span className="text-primary">Schulungen</span>?
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto fade-in-element">
               Betonung auf den direkten Mehrwert für verschiedene Rollen in deutschen KMUs.
             </p>
           </div>
@@ -346,10 +346,10 @@ const Training = () => {
             {targetGroups.map((group, index) => (
               <div
                 key={index}
-                className="bg-card border border-card-border rounded-xl p-6 shadow-card hover:shadow-elevated transition-smooth"
+                className="bg-card border border-card-border rounded-xl p-6 shadow-card hover-lift cursor-pointer"
               >
                 <div className="flex items-start space-x-4">
-                  <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center flex-shrink-0 hover-scale">
                     <Users className="w-5 h-5 text-primary-foreground" />
                   </div>
                   <div>
@@ -378,14 +378,14 @@ const Training = () => {
               Schulungskonzepte, die perfekt zu Ihrem Team und Ihren Zielen passen.
             </p>
 
-            <Button variant="accent" size="xl" asChild className="bg-white text-primary hover:bg-white/90">
+            <Button variant="accent" size="xl" asChild className="bg-white text-primary hover:bg-white/90 hover-scale">
               <Link to="/kontakt">
                 <Calendar className="w-5 h-5 mr-2" />
                 Kostenloses Beratungsgespräch für Schulungen
               </Link>
             </Button>
 
-            <div className="mt-8 bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+            <div className="mt-8 bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover-scale">
               <p className="text-sm leading-relaxed opacity-90">
                 <strong>Praxis von Anfang an:</strong> Bereits bei der Schulungsplanung erleben Sie 
                 unsere n8n-gestützten Prozesse in Aktion – von der Bedarfsanalyse bis zur 
