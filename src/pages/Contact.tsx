@@ -3,10 +3,8 @@ import ContactForm from "@/components/ContactForm";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Calendar, Mail, Phone, MapPin, Clock, Users, Zap } from "lucide-react";
-
 const Contact = () => {
-  return (
-    <Layout>
+  return <Layout>
       {/* Header */}
       <section className="bg-gradient-subtle py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -60,10 +58,7 @@ const Contact = () => {
                     <Users className="w-6 h-6 mx-auto mb-2" />
                     <div className="text-sm">Persönlich</div>
                   </div>
-                  <div>
-                    <Zap className="w-6 h-6 mx-auto mb-2" />
-                    <div className="text-sm">Kostenlos</div>
-                  </div>
+                  
                 </div>
               </div>
 
@@ -219,8 +214,6 @@ const Contact = () => {
           </div>
         </div>
       </section>
-    </Layout>
-  );
+    </Layout>;
 };
-
 export default Contact;
