@@ -48,7 +48,7 @@ const Contact = () => {
                 
                 <Button variant="accent" size="lg" className="w-full bg-white text-primary hover:bg-white/90 mb-4">
                   <Calendar className="w-5 h-5 mr-2" />
-                  Jetzt Termin buchen (Calendly)
+                  Jetzt kostenlosen Termin buchen
                 </Button>
                 
                 <div className="grid grid-cols-3 gap-4 text-center">
