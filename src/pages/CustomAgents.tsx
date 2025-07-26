@@ -96,19 +96,19 @@ const CustomAgents = () => {
       {/* Header */}
       <section className="bg-gradient-subtle py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <Button variant="ghost" size="sm" asChild className="mb-8">
+          <div className="max-w-4xl mx-auto text-center fade-in-element">
+            <Button variant="ghost" size="sm" asChild className="mb-8 hover-scale">
               <Link to="/">
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Zurück zur Startseite
               </Link>
             </Button>
             
-            <h1 className="mb-6">
+            <h1 className="mb-6 scale-in-element">
               Ihre einzigartige Herausforderung:{" "}
               <span className="text-primary">Individuelle KI-Lösungen</span> von KI2USE
             </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
+            <p className="text-xl text-muted-foreground leading-relaxed fade-in-element">
               Passgenau für den Mittelstand entwickelte KI-Agenten und Automatisierungsworkflows, 
               die perfekt auf Ihre individuellen Prozesse zugeschnitten sind.
             </p>
@@ -136,7 +136,7 @@ const CustomAgents = () => {
                   Transparenz und eine kalkulierbare Projektumsetzung zu gewährleisten.
                 </p>
               </div>
-              <div className="bg-card border border-card-border rounded-2xl p-8 shadow-card">
+              <div className="bg-card border border-card-border rounded-2xl p-8 shadow-card hover-lift">
                 <h3 className="font-semibold mb-4">Ihre Vorteile auf einen Blick:</h3>
                 <ul className="space-y-3">
                   {[
@@ -162,12 +162,12 @@ const CustomAgents = () => {
       {/* Process Steps */}
       <section className="section-padding bg-muted">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="mb-6">
+          <div className="text-center mb-16 fade-in-element">
+            <h2 className="mb-6 scale-in-element">
               Unser strukturierter{" "}
               <span className="text-primary">Entwicklungsprozess</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto fade-in-element">
               Ein klarer, schrittweiser Ablauf, der Planungssicherheit bietet und 
               den strukturierten, kalkulierbaren Ansatz von KI2USE unterstreicht.
             </p>
@@ -179,14 +179,14 @@ const CustomAgents = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                   {/* Step Number */}
                   <div className="lg:col-span-2 text-center lg:text-left">
-                    <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-primary rounded-full text-primary-foreground font-bold text-xl">
+                    <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-primary rounded-full text-primary-foreground font-bold text-xl hover-scale">
                       {step.step}
                     </div>
                   </div>
 
                   {/* Content */}
                   <div className="lg:col-span-7">
-                    <div className="bg-card border border-card-border rounded-xl p-6 shadow-card">
+                    <div className="bg-card border border-card-border rounded-xl p-6 shadow-card hover-lift">
                       <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
                       <p className="text-muted-foreground mb-4">{step.description}</p>
                       <div className="flex flex-wrap gap-2">
@@ -204,7 +204,7 @@ const CustomAgents = () => {
 
                   {/* Duration */}
                   <div className="lg:col-span-3">
-                    <div className="bg-muted border border-card-border rounded-xl p-4 text-center">
+                    <div className="bg-muted border border-card-border rounded-xl p-4 text-center hover-lift">
                       <div className="text-sm text-muted-foreground mb-1">Dauer</div>
                       <div className="font-semibold">{step.duration}</div>
                     </div>
@@ -226,8 +226,8 @@ const CustomAgents = () => {
       {/* Advantages */}
       <section className="section-padding bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="mb-6">
+          <div className="text-center mb-16 fade-in-element">
+            <h2 className="mb-6 scale-in-element">
               Warum maßgeschneiderte{" "}
               <span className="text-primary">KI-Lösungen</span>?
             </h2>
@@ -239,9 +239,9 @@ const CustomAgents = () => {
               return (
                 <div
                   key={index}
-                  className="bg-card border border-card-border rounded-xl p-6 shadow-card hover:shadow-elevated transition-smooth text-center"
+                  className="bg-card border border-card-border rounded-xl p-6 shadow-card hover-lift cursor-pointer text-center"
                 >
-                  <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4 hover-scale">
                     <IconComponent className="w-6 h-6 text-primary-foreground" />
                   </div>
                   <h3 className="font-semibold mb-3">{advantage.title}</h3>
@@ -256,12 +256,12 @@ const CustomAgents = () => {
       {/* Examples */}
       <section className="section-padding bg-muted">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="mb-6">
+          <div className="text-center mb-16 fade-in-element">
+            <h2 className="mb-6 scale-in-element">
               Erfolgreiche{" "}
               <span className="text-primary">Praxisbeispiele</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto fade-in-element">
               Sehen Sie, wie andere KMUs von maßgeschneiderten KI-Lösungen profitieren 
               und messbare Ergebnisse erzielen.
             </p>
@@ -271,7 +271,7 @@ const CustomAgents = () => {
             {examples.map((example, index) => (
               <div
                 key={index}
-                className="bg-card border border-card-border rounded-xl p-6 shadow-card hover:shadow-elevated transition-smooth"
+                className="bg-card border border-card-border rounded-xl p-6 shadow-card hover-lift cursor-pointer"
               >
                 <div className="mb-4">
                   <div className="text-xs font-medium text-accent bg-accent/10 rounded-full px-3 py-1 inline-block mb-3">
@@ -311,14 +311,14 @@ const CustomAgents = () => {
               Umsetzung für Ihr KMU.
             </p>
 
-            <Button variant="accent" size="xl" asChild className="bg-white text-primary hover:bg-white/90">
+            <Button variant="accent" size="xl" asChild className="bg-white text-primary hover:bg-white/90 hover-scale">
               <Link to="/kontakt">
                 <Calendar className="w-5 h-5 mr-2" />
                 Kostenloses Beratungsgespräch vereinbaren
               </Link>
             </Button>
 
-            <div className="mt-8 bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+            <div className="mt-8 bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover-scale">
               <p className="text-sm leading-relaxed opacity-90">
                 <strong>Transparenz von Anfang an:</strong> Ihre Anfrage wird automatisch über n8n verarbeitet, 
                 kategorisiert und an unseren Experten für maßgeschneiderte Lösungen weitergeleitet. 
