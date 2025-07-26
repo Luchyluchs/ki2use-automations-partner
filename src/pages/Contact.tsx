@@ -76,9 +76,9 @@ const Contact = () => {
                   className="w-full bg-white text-primary hover:bg-white/90 mb-4 hover-scale"
                   onClick={() => {
                     if (window.Calendly) {
-                      window.Calendly.initPopupWidget({url: 'https://calendly.com/your-calendly-link'});
+                      window.Calendly.initPopupWidget({url: 'https://calendly.com/luxalexander/30min'});
                     } else {
-                      window.open('https://calendly.com/your-calendly-link', '_blank');
+                      window.open('https://calendly.com/luxalexander/30min', '_blank');
                     }
                   }}
                 >
