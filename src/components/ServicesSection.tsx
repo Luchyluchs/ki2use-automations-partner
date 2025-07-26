@@ -51,12 +51,12 @@ const ServicesSection = () => {
   return (
     <section className="section-padding bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="mb-6">
+        <div className="text-center mb-16 fade-in-element">
+          <h2 className="mb-6 scale-in-element">
             Unsere Kernkompetenzen für{" "}
             <span className="text-primary">KMUs</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto fade-in-element">
             Drei speziell entwickelte Bereiche, die Ihr Unternehmen effizienter 
             und zukunftssicherer machen – mit bewährten Automatisierungslösungen.
           </p>
@@ -68,10 +68,10 @@ const ServicesSection = () => {
             return (
               <div
                 key={index}
-                className="bg-card border border-card-border rounded-2xl p-8 shadow-card hover:shadow-elevated transition-smooth"
+                className="bg-card border border-card-border rounded-2xl p-8 shadow-card hover-lift cursor-pointer"
               >
                 <div className="mb-6">
-                  <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mb-4 hover-scale">
                     <IconComponent className="w-6 h-6 text-primary-foreground" />
                   </div>
                   <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
@@ -87,7 +87,7 @@ const ServicesSection = () => {
                   ))}
                 </ul>
 
-                <Button variant="outline" className="w-full" asChild>
+                <Button variant="outline" className="w-full hover-scale transition-all duration-200" asChild>
                   <Link to={service.link}>{service.cta}</Link>
                 </Button>
               </div>

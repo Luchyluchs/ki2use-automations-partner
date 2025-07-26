@@ -43,12 +43,12 @@ const StandardAgentsPreview = () => {
   return (
     <section className="section-padding bg-muted">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="mb-6">
+        <div className="text-center mb-16 fade-in-element">
+          <h2 className="mb-6 scale-in-element">
             Ausgewählte{" "}
             <span className="text-primary">Standard-Agenten</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto fade-in-element">
             Sofort einsetzbare KI-Lösungen mit messbarem Nutzen für deutsche Kleinunternehmen. 
             Jeder Agent reduziert Arbeitsaufwand und steigert die Effizienz.
           </p>
@@ -58,13 +58,13 @@ const StandardAgentsPreview = () => {
           {agents.map((agent, index) => (
             <div
               key={index}
-              className="bg-card border border-card-border rounded-xl p-6 shadow-card hover:shadow-elevated transition-smooth text-center"
+              className="bg-card border border-card-border rounded-xl p-6 shadow-card hover-lift cursor-pointer text-center"
             >
-              <div className="mb-4">
+              <div className="mb-4 hover-scale">
                 <img
                   src={agent.image}
                   alt={`${agent.name} Roboter-Icon`}
-                  className="w-16 h-16 mx-auto rounded-lg object-cover"
+                  className="w-16 h-16 mx-auto rounded-lg object-cover transition-transform duration-300"
                 />
               </div>
               <h3 className="font-semibold mb-2">{agent.name}</h3>
@@ -76,13 +76,13 @@ const StandardAgentsPreview = () => {
           ))}
         </div>
 
-        <div className="text-center">
-          <Button variant="cta" size="lg" asChild>
+        <div className="text-center fade-in-element">
+          <Button variant="cta" size="lg" asChild className="hover-scale">
             <Link to="/standard-agenten">Alle Standard-Agenten ansehen</Link>
           </Button>
         </div>
 
-        <div className="mt-12 bg-gradient-primary rounded-2xl p-8 text-center text-primary-foreground">
+        <div className="mt-12 bg-gradient-primary rounded-2xl p-8 text-center text-primary-foreground hover-scale">
           <h3 className="text-xl font-semibold mb-4">
             Wichtiger Hinweis für KMUs
           </h3>

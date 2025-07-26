@@ -34,11 +34,11 @@ const TestimonialsSection = () => {
   }];
   return <section className="section-padding bg-muted">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="mb-6">
+        <div className="text-center mb-16 fade-in-element">
+          <h2 className="mb-6 scale-in-element">
             Was unsere <span className="text-primary">Kunden sagen</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto fade-in-element">
             Vertrauen Sie auf die Erfahrungen deutscher Unternehmen, 
             die bereits erfolgreich mit KI2USE automatisieren.
           </p>
@@ -46,7 +46,7 @@ const TestimonialsSection = () => {
 
         {/* Testimonials */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          {testimonials.map((testimonial, index) => <div key={index} className="bg-card border border-card-border rounded-xl p-6 shadow-card hover:shadow-elevated transition-smooth">
+          {testimonials.map((testimonial, index) => <div key={index} className="bg-card border border-card-border rounded-xl p-6 shadow-card hover-lift cursor-pointer">
               <div className="flex items-center mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />)}
               </div>
@@ -70,7 +70,7 @@ const TestimonialsSection = () => {
         
 
         {/* Trust Indicators */}
-        <div className="mt-12 bg-gradient-primary rounded-2xl p-8 text-center text-primary-foreground">
+        <div className="mt-12 bg-gradient-primary rounded-2xl p-8 text-center text-primary-foreground hover-scale">
           <h3 className="text-xl font-semibold mb-4">
             Höchste Sicherheitsstandards für deutsche Unternehmen
           </h3>

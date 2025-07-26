@@ -1,36 +1,40 @@
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
-import heroRobot from "@/assets/hero-robot.jpg";
+import humanRobotHandshake from "@/assets/human-robot-handshake.jpg";
 const HeroSection = () => {
   return <section className="gradient-subtle section-padding">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
-          <div className="text-center lg:text-left">
-            <h1 className="mb-6 leading-tight">
+          <div className="text-center lg:text-left fade-in-element">
+            <h1 className="mb-6 leading-tight scale-in-element">
               KI-Agenten & Schulungen von{" "}
               <span className="text-primary">KI2USE</span>
             </h1>
-            <div className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
+            <div className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed fade-in-element">
               Ihre effiziente Lösung für deutsche KMU.{" "}
               <span className="text-accent font-semibold">
                 Prozesse automatisiert mit n8n – auch bei uns!
               </span>
             </div>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button variant="cta" size="xl" asChild>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start fade-in-element">
+              <Button variant="cta" size="xl" asChild className="hover-scale">
                 <Link to="/kontakt">Kostenloses Beratungsgespräch vereinbaren</Link>
               </Button>
-              <Button variant="outline" size="xl" asChild>
+              <Button variant="outline" size="xl" asChild className="hover-scale">
                 <Link to="/standard-agenten">Standard-Agenten ansehen</Link>
               </Button>
             </div>
           </div>
 
           {/* Hero Image */}
-          <div className="relative">
-            <div className="relative rounded-2xl overflow-hidden shadow-elevated">
-              
+          <div className="relative fade-in-element">
+            <div className="relative rounded-2xl overflow-hidden shadow-elevated hover-scale">
+              <img
+                src={humanRobotHandshake}
+                alt="Erfolgreiche Zusammenarbeit zwischen Mensch und KI - Partnerschaftlicher Handschlag"
+                className="w-full h-auto object-cover"
+              />
               <div className="absolute bottom-0 left-0 right-0 h-1/3 gradient-primary opacity-10"></div>
             </div>
             
