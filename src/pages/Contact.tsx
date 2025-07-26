@@ -49,7 +49,7 @@ const Contact = () => {
                   Jetzt kostenlosen Termin buchen
                 </Button>
                 
-                <div className="grid grid-cols-2 gap-4 text-center max-w-xs mx-auto">
+                <div className="grid grid-cols-3 gap-4 text-center max-w-md mx-auto">
                   <div>
                     <Clock className="w-6 h-6 mx-auto mb-2" />
                     <div className="text-sm">30 Minuten</div>
@@ -57,6 +57,10 @@ const Contact = () => {
                   <div>
                     <Users className="w-6 h-6 mx-auto mb-2" />
                     <div className="text-sm">Persönlich</div>
+                  </div>
+                  <div>
+                    <Zap className="w-6 h-6 mx-auto mb-2" />
+                    <div className="text-sm">Online</div>
                   </div>
                 </div>
               </div>
