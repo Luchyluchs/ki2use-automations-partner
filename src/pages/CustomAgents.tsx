@@ -25,7 +25,7 @@ const CustomAgents = () => {
     step: "04",
     title: "Implementierung",
     description: "Nahtlose Integration in Ihre bestehenden Systeme mit minimalem Betriebsaufwand.",
-    duration: "4 Wochen",
+    duration: "1-2 Wochen",
     deliverables: ["Live-Deployment", "Mitarbeiterschulung", "Go-Live Support"]
   }, {
     step: "05",
