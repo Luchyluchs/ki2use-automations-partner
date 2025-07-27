@@ -7,6 +7,7 @@ import chatbotWorkflow from "@/assets/chatbot-workflow.jpg";
 import newsletterWorkflow from "@/assets/newsletter-workflow.jpg";
 import emailWorkflow from "@/assets/email-workflow.jpg";
 import voiceWorkflow from "@/assets/voice-workflow.jpg";
+import applicationWorkflow from "@/assets/application-workflow.jpg";
 
 const StandardAgents = () => {
   const agents = [
@@ -128,6 +129,30 @@ const StandardAgents = () => {
         "Kundenservice-Hotline",
         "Notfall-Support",
         "Informations-Hotline"
+      ]
+    },
+    {
+      name: "Bewerbungsagent",
+      image: applicationWorkflow,
+      description: "Filtert und bewertet Bewerbungen automatisch, identifiziert die besten Kandidaten und beschleunigt den Recruiting-Prozess erheblich.",
+      features: [
+        "Automatisches CV-Screening",
+        "Intelligentes Scoring",
+        "Skill-Matching",
+        "Bias-freie Bewertung",
+        "Integration in HR-Systeme"
+      ],
+      benefits: [
+        "90% Zeitersparnis beim Bewerbungsscreening",
+        "Objektive Kandidatenbewertung",
+        "Schnellere Time-to-Hire",
+        "Bessere Kandidatenqualität"
+      ],
+      useCases: [
+        "Massenbewerbungen filtern",
+        "Fachkräfte-Recruiting",
+        "Praktikanten-Auswahl",
+        "Freelancer-Bewertung"
       ]
     }
   ];
