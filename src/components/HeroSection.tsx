@@ -14,7 +14,7 @@ const HeroSection = () => {
             <div className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed fade-in-element">
               Ihre effiziente Lösung für deutsche KMU.{" "}
               <span className="text-accent font-semibold">
-                Prozesse automatisiert mit n8n – auch bei uns!
+                KI Agenten nach deutschen Normen.
               </span>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start fade-in-element">
