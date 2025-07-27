@@ -19,7 +19,7 @@ const CustomAgents = () => {
     step: "03",
     title: "Entwicklung",
     description: "Agile Entwicklung Ihres individuellen KI-Agenten mit regelmäßigen Updates und Tests.",
-    duration: "1-2 Wochen",
+    duration: "1-2 Wochen, je nach Datenlieferung des Kunden",
     deliverables: ["Funktionsprototyp", "Testing & QA", "Dokumentation"]
   }, {
     step: "04",
