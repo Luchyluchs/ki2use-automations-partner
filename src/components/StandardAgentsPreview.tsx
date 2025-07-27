@@ -32,6 +32,53 @@ const StandardAgentsPreview = () => {
     description: "Interagiert mit Kunden per Sprache, auch außerhalb der Geschäftszeiten.",
     benefits: "Erreichbarkeit rund um die Uhr"
   }];
-  return;
+  
+  return (
+    <section className="section-padding bg-muted/30">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="mb-6">
+            Standard <span className="text-primary">KI-Agenten</span>
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            Sofort einsetzbare KI-Agenten für häufige Geschäftsprozesse
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {agents.map((agent, index) => (
+            <div key={index} className="bg-card border border-card-border rounded-xl p-6 shadow-card hover-lift">
+              <div className="mb-4">
+                <img 
+                  src={agent.image} 
+                  alt={agent.name}
+                  className="w-full h-48 object-cover rounded-lg"
+                />
+              </div>
+              <h3 className="font-semibold mb-2 text-foreground">
+                {agent.name}
+              </h3>
+              <p className="text-muted-foreground text-sm mb-4">
+                {agent.description}
+              </p>
+              <div className="mb-4">
+                <span className="text-primary font-semibold text-sm">
+                  {agent.benefits}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+        
+        <div className="text-center mt-12">
+          <Button asChild size="lg">
+            <Link to="/standard-agents">
+              Alle Standard-Agenten ansehen
+            </Link>
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
 };
 export default StandardAgentsPreview;

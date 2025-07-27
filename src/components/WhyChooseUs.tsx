@@ -7,7 +7,7 @@ const WhyChooseUs = () => {
   }, {
     icon: Users,
     title: "Umfassendes Know-how",
-    description: "Praktische Erfahrung aus hunderten KMU-Projekten und bewährten Automatisierungsstrategien."
+    description: "Praktische Erfahrung aus verschiedensten Projekten und bewährten Automatisierungsstrategien."
   }, {
     icon: HeartHandshake,
     title: "Persönliche Betreuung",
