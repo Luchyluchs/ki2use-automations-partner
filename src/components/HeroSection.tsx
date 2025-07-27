@@ -4,10 +4,10 @@ import humanRobotHandshake from "@/assets/human-robot-handshake.jpg";
 const HeroSection = () => {
   return <section className="gradient-subtle section-padding">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start lg:items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
           {/* Content */}
-          <div className="text-center lg:text-left fade-in-element order-2 lg:order-1">
-            <h1 className="mb-6 leading-tight scale-in-element">
+          <div className="text-center lg:text-left fade-in-element order-2 lg:order-1 lg:pr-8">
+            <h1 className="mb-6 leading-tight scale-in-element text-3xl md:text-4xl lg:text-5xl">
               KI-Agenten & Schulungen von{" "}
               <span className="text-primary">KI2USE</span>
             </h1>
@@ -28,8 +28,8 @@ const HeroSection = () => {
           </div>
 
           {/* Hero Image */}
-          <div className="relative fade-in-element order-1 lg:order-2">
-            <div className="relative rounded-2xl overflow-hidden shadow-elevated hover-scale">
+          <div className="relative fade-in-element order-1 lg:order-2 lg:pl-8">
+            <div className="relative rounded-2xl overflow-hidden shadow-elevated hover-scale max-w-lg mx-auto lg:max-w-none">
               <img
                 src={humanRobotHandshake}
                 alt="Erfolgreiche Zusammenarbeit zwischen Mensch und KI - Partnerschaftlicher Handschlag"
