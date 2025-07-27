@@ -8,7 +8,7 @@ const CTASection = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center text-primary-foreground fade-in-element">
           <h2 className="mb-6 scale-in-element">
-            Bereit für mehr Effizienz in Ihrem KMU?
+            Bereit für mehr Effizienz in Ihrem Unternehmen?
           </h2>
           <p className="text-xl mb-8 opacity-90 leading-relaxed fade-in-element">
             Vereinbaren Sie jetzt Ihr kostenloses 30-minütiges Beratungsgespräch und 
@@ -24,7 +24,7 @@ const CTASection = () => {
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover-scale">
               <MessageCircle className="w-8 h-8 mx-auto mb-4" />
               <h3 className="font-semibold mb-2">Konkrete Lösungen</h3>
-              <p className="text-sm opacity-80">Maßgeschneiderte Empfehlungen für Ihr KMU</p>
+              <p className="text-sm opacity-80">Maßgeschneiderte Empfehlungen für Ihr Unternehmen</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover-scale">
               <Phone className="w-8 h-8 mx-auto mb-4" />

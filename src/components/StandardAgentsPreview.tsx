@@ -84,11 +84,11 @@ const StandardAgentsPreview = () => {
 
         <div className="mt-12 bg-gradient-primary rounded-2xl p-8 text-center text-primary-foreground hover-scale">
           <h3 className="text-xl font-semibold mb-4">
-            Wichtiger Hinweis für KMUs
+            Wichtiger Hinweis für Unternehmen
           </h3>
           <p className="max-w-4xl mx-auto leading-relaxed">
             Alle Standard-Agenten von KI2USE sind über ein persönliches, kostenloses Beratungsgespräch buchbar, 
-            in dem wir die unkomplizierte, schnelle und rechtssichere Integration für Ihr KMU besprechen. 
+            in dem wir die unkomplizierte, schnelle und rechtssichere Integration für Ihr Unternehmen besprechen. 
             Die internen Prozesse von der Anfrage bis zur Implementierung werden dabei automatisiert, 
             was unsere Effizienz und Qualität in der Kundenbetreuung beweist.
           </p>

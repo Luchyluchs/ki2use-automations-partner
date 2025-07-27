@@ -5,7 +5,7 @@ const ServicesSection = () => {
   const services = [{
     icon: Bot,
     title: "Standard-KI-Agenten",
-    description: "Effizienz und Wachstum für Ihr KMU mit sofort einsetzbaren Lösungen von KI2USE.",
+    description: "Effizienz und Wachstum für Ihr Unternehmen mit sofort einsetzbaren Lösungen von KI2USE.",
     features: ["LinkedIn Agent für Netzwerkpflege", "Chatbot für 24/7 Kundenservice", "Newsletter-Automatisierung", "E-Mail-Organisation", "Sprachbot für Telefonsupport"],
     link: "/standard-agenten",
     cta: "Standard-Agenten entdecken"
@@ -20,7 +20,7 @@ const ServicesSection = () => {
     icon: GraduationCap,
     title: "KI-Schulungen & Beratung",
     description: "Praktisches KI-Wissen, das Ihr Team sofort anwenden kann – spezifisch für den Mittelstand.",
-    features: ["Grundlagen der KI für KMU", "Automatisierungsstrategien", "Workflow-Design", "Implementierungsberatung", "Langfristige Begleitung"],
+    features: ["Grundlagen der KI für Unternehmen", "Automatisierungsstrategien", "Workflow-Design", "Implementierungsberatung", "Langfristige Begleitung"],
     link: "/ki-schulungen",
     cta: "Schulungen buchen"
   }];

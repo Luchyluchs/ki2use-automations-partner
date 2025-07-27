@@ -39,7 +39,7 @@ const WhyChooseUs = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 fade-in-element">
           <h2 className="mb-6 scale-in-element">
-            Warum <span className="text-primary">KI2USE</span> für Ihr KMU?
+            Warum <span className="text-primary">KI2USE</span> für Ihr Unternehmen?
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto fade-in-element">
             Unsere Alleinstellungsmerkmale machen uns zum idealen Partner für 
