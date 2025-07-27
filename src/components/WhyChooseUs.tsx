@@ -25,7 +25,7 @@ const WhyChooseUs = () => {
     title: "Wir leben, was wir lehren",
     description: "Unsere Prozesse sind selbst automatisiert – für maximale Effizienz und Zuverlässigkeit in unserer Zusammenarbeit mit Ihnen."
   }];
-  return <section className="section-padding bg-background">
+  return <section className="section-padding bg-gradient-card">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 fade-in-element">
           <h2 className="mb-6 scale-in-element">

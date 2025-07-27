@@ -2,7 +2,7 @@ import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
 import humanRobotHandshake from "@/assets/human-robot-handshake.jpg";
 const HeroSection = () => {
-  return <section className="gradient-subtle section-padding">
+  return <section className="gradient-hero section-padding">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Content */}
