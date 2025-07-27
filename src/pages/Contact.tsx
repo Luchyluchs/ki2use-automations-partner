@@ -3,10 +3,8 @@ import ContactForm from "@/components/ContactForm";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Calendar, Mail, Phone, MapPin, Clock, Users, Zap } from "lucide-react";
-import { PopupWidget } from "react-calendly";
-import { useState } from "react";
+import CalendlyButton from "@/components/CalendlyButton";
 const Contact = () => {
-  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
   return <Layout>
       {/* Header */}
       <section className="bg-gradient-subtle py-16">
@@ -47,15 +45,12 @@ const Contact = () => {
                   direkt einen Termin und sprechen Sie mit unseren Experten.
                 </p>
                 
-                <Button 
-                  variant="accent" 
-                  size="lg" 
-                  className="w-full bg-white text-primary hover:bg-white/90 mb-4 hover-scale cursor-pointer z-10 relative" 
-                  onClick={() => setIsCalendlyOpen(true)}
-                >
-                  <Calendar className="w-5 h-5 mr-2" />
-                  Jetzt kostenlosen Termin buchen
-                </Button>
+                <CalendlyButton 
+                  text="Jetzt kostenlosen Termin buchen"
+                  variant="accent"
+                  size="lg"
+                  className="w-full bg-white text-primary hover:bg-white/90 mb-4"
+                />
                 
                 <div className="grid grid-cols-3 gap-4 text-center max-w-md mx-auto">
                   <div>
@@ -213,15 +208,8 @@ const Contact = () => {
           </div>
         </div>
       </section>
-      
-      {/* Calendly Popup Widget */}
-      {isCalendlyOpen && (
-        <PopupWidget
-          url="https://calendly.com/luxalexander/30min"
-          text="Termin buchen"
-          rootElement={document.getElementById("root")!}
-        />
-      )}
-    </Layout>;
+    </Layout>
+  );
 };
+
 export default Contact;

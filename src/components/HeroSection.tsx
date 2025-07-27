@@ -1,6 +1,7 @@
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
 import humanRobotHandshake from "@/assets/human-robot-handshake.jpg";
+import CalendlyButton from "./CalendlyButton";
 const HeroSection = () => {
   return <section className="gradient-subtle section-padding">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -18,9 +19,12 @@ const HeroSection = () => {
               </span>
             </div>
             <div className="flex flex-col gap-4 justify-center lg:justify-start fade-in-element max-w-md mx-auto lg:mx-0">
-              <Button variant="cta" size="xl" asChild className="hover-scale w-full">
-                <Link to="/kontakt">Kostenloses Beratungsgespräch vereinbaren</Link>
-              </Button>
+              <CalendlyButton 
+                text="Kostenloses Beratungsgespräch vereinbaren"
+                variant="cta"
+                size="xl"
+                className="w-full"
+              />
               <Button variant="outline" size="xl" asChild className="hover-scale w-full">
                 <Link to="/standard-agenten">Standard-Agenten</Link>
               </Button>

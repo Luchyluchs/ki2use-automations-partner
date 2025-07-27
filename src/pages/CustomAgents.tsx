@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowLeft, CheckCircle, ArrowRight, Calendar, Users, Zap, Target, Shield, TrendingUp } from "lucide-react";
 import CustomROICalculator from "@/components/CustomROICalculator";
+import CalendlyButton from "@/components/CalendlyButton";
 const CustomAgents = () => {
   const processSteps = [{
     step: "01",
@@ -258,12 +259,12 @@ const CustomAgents = () => {
               Umsetzung für Ihr KMU.
             </p>
 
-            <Button variant="accent" size="xl" asChild className="bg-white text-primary hover:bg-white/90 hover-scale">
-              <Link to="/kontakt">
-                <Calendar className="w-5 h-5 mr-2" />
-                Kostenloses Beratungsgespräch vereinbaren
-              </Link>
-            </Button>
+            <CalendlyButton 
+              text="Kostenloses Beratungsgespräch vereinbaren"
+              variant="accent"
+              size="xl"
+              className="bg-white text-primary hover:bg-white/90"
+            />
 
             <div className="mt-8 bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover-scale">
               <p className="text-sm leading-relaxed opacity-90">

@@ -1,6 +1,7 @@
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
 import { Calendar, MessageCircle, Phone } from "lucide-react";
+import CalendlyButton from "./CalendlyButton";
 
 const CTASection = () => {
   return (
@@ -34,11 +35,12 @@ const CTASection = () => {
           </div>
 
           <div className="space-y-4">
-            <Button variant="accent" size="xl" asChild className="bg-white text-primary hover:bg-white/90 hover-scale">
-              <Link to="/kontakt">
-                Jetzt kostenloses Beratungsgespräch vereinbaren
-              </Link>
-            </Button>
+            <CalendlyButton 
+              text="Jetzt kostenloses Beratungsgespräch vereinbaren"
+              variant="accent"
+              size="xl"
+              className="bg-white text-primary hover:bg-white/90"
+            />
             <p className="text-sm opacity-75">
               ✓ Unverbindlich ✓ Kostenlos ✓ Sofort verfügbar
             </p>
