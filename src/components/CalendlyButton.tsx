@@ -28,16 +28,8 @@ const CalendlyButton = ({
   }, []);
 
   const openCalendly = () => {
-    // @ts-ignore
-    if (window.Calendly) {
-      // @ts-ignore
-      window.Calendly.initPopupWidget({
-        url: 'https://calendly.com/luxalexander/30min'
-      });
-    } else {
-      // Fallback if Calendly not loaded
-      window.open('https://calendly.com/luxalexander/30min', '_blank');
-    }
+    // Open in new tab to avoid CSS conflicts and hanging issues
+    window.open('https://calendly.com/luxalexander/30min', '_blank');
   };
 
   return (
