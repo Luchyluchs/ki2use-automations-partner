@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
 import { Calendar } from "lucide-react";
 
@@ -8,6 +8,7 @@ interface CalendlyButtonProps {
   size?: "sm" | "lg" | "xl";
   className?: string;
   icon?: boolean;
+  asChild?: boolean;
 }
 
 // Calendly type definition
@@ -26,34 +27,50 @@ const CalendlyButton = ({
   variant = "cta",
   size = "lg",
   className = "",
-  icon = true
+  icon = true,
+  asChild = false
 }: CalendlyButtonProps) => {
   
   // Load Calendly script
   useEffect(() => {
-    // Check if script is already loaded
-    if (document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]')) {
-      return;
-    }
-    
     const script = document.createElement('script');
     script.src = 'https://assets.calendly.com/assets/external/widget.js';
     script.async = true;
     document.head.appendChild(script);
+    
+    return () => {
+      // Cleanup on unmount
+      const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
+      if (existingScript) {
+        document.head.removeChild(existingScript);
+      }
+    };
   }, []);
 
   const handleCalendlyClick = () => {
-    // Simple approach - wait a bit for Calendly to be ready, then open
-    setTimeout(() => {
+    const openCalendly = () => {
       if (window.Calendly) {
-        window.Calendly.initPopupWidget({
-          url: 'https://calendly.com/luxalexander/30min'
-        });
+        try {
+          window.Calendly.initPopupWidget({
+            url: 'https://calendly.com/luxalexander/30min'
+          });
+        } catch (error) {
+          console.error('Calendly popup error:', error);
+          // Fallback: open in new tab
+          window.open('https://calendly.com/luxalexander/30min', '_blank');
+        }
       } else {
-        // Fallback: open in new tab
+        // Fallback: open in new tab if Calendly not loaded
         window.open('https://calendly.com/luxalexander/30min', '_blank');
       }
-    }, 100);
+    };
+    
+    // Try immediately, if it fails, wait and try again
+    if (window.Calendly) {
+      openCalendly();
+    } else {
+      setTimeout(openCalendly, 300);
+    }
   };
 
   return (
