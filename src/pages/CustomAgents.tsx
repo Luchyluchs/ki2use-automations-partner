@@ -50,8 +50,8 @@ const CustomAgents = () => {
     },
     {
       icon: Zap,
-      title: "n8n-gestützte Entwicklung",
-      description: "Auch bei Custom-Projekten nutzen wir n8n für effizientes Projektmanagement und Workflow-Automatisierung."
+      title: "Effiziente Entwicklung",
+      description: "Agile Entwicklungsmethoden für schnelle und kosteneffiziente Projektumsetzung."
     },
     {
       icon: Users,
@@ -131,9 +131,8 @@ const CustomAgents = () => {
                   individuellen Prozesse zugeschnitten sind.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  Auch bei diesen Projekten wird n8n intensiv für das Projektmanagement und die 
-                  Workflow-Automatisierung im Hintergrund eingesetzt, um höchste Effizienz, 
-                  Transparenz und eine kalkulierbare Projektumsetzung zu gewährleisten.
+                  Durch agile Entwicklungsmethoden und bewährte Standards gewährleisten wir 
+                  höchste Effizienz, Transparenz und eine kalkulierbare Projektumsetzung.
                 </p>
               </div>
               <div className="bg-card border border-card-border rounded-2xl p-8 shadow-card hover-lift">
@@ -144,7 +143,7 @@ const CustomAgents = () => {
                     "Nahtlose Integration in bestehende Systeme",
                     "Skalierbar und zukunftssicher",
                     "DSGVO-konform und sicher",
-                    "Transparentes Projektmanagement mit n8n",
+                    "DSGVO-konform und sicher",
                     "Persönlicher Ansprechpartner"
                   ].map((benefit, index) => (
                     <li key={index} className="flex items-start">
@@ -320,7 +319,7 @@ const CustomAgents = () => {
 
             <div className="mt-8 bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover-scale">
               <p className="text-sm leading-relaxed opacity-90">
-                <strong>Transparenz von Anfang an:</strong> Ihre Anfrage wird automatisch über n8n verarbeitet, 
+                <strong>Transparenz von Anfang an:</strong> Ihre Anfrage wird automatisch verarbeitet, 
                 kategorisiert und an unseren Experten für maßgeschneiderte Lösungen weitergeleitet. 
                 So erleben Sie bereits im ersten Kontakt unsere Automatisierungs-Kompetenz.
               </p>
