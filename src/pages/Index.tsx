@@ -5,7 +5,6 @@ import StandardAgentsPreview from "@/components/StandardAgentsPreview";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import CTASection from "@/components/CTASection";
-import Chatbot from "@/components/Chatbot";
 
 const Index = () => {
   return (
@@ -16,7 +15,6 @@ const Index = () => {
       <WhyChooseUs />
       <TestimonialsSection />
       <CTASection />
-      <Chatbot />
     </Layout>
   );
 };

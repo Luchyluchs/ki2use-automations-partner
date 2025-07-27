@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "./ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import Chatbot from "./Chatbot";
 const Layout = ({
   children
 }: {
@@ -107,6 +108,7 @@ const Layout = ({
           </div>
         </div>
       </footer>
+      <Chatbot />
     </div>;
 };
 export default Layout;
