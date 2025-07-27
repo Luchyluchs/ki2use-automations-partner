@@ -61,7 +61,7 @@ const Contact = () => {
             {/* Contact Information */}
             <div className="space-y-8">
               {/* Calendly CTA */}
-              <div className="bg-gradient-primary rounded-2xl p-8 text-primary-foreground hover-scale">
+              <div className="bg-gradient-primary rounded-2xl p-8 py-12 text-primary-foreground hover-scale">
                 <h2 className="text-2xl font-semibold mb-4">
                   Kostenloses 30-minütiges Beratungsgespräch
                 </h2>
