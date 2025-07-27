@@ -12,7 +12,7 @@ const HeroSection = () => {
               <span className="text-primary">KI2USE</span>
             </h1>
             <div className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed fade-in-element">
-              Ihre effiziente Lösung für deutsche KMU.{" "}
+              Für KMUs, Startups, Gastronomie und Friseurbetriebe.{" "}
               <span className="text-accent font-semibold">
                 KI Agenten nach deutschen Normen.
               </span>
