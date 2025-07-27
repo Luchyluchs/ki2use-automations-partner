@@ -51,12 +51,6 @@ const CalendlyButton = ({
   }, []);
 
   const handleCalendlyClick = () => {
-    // Log the customer input for your records
-    if (customerInput.trim()) {
-      console.log('Customer Interest/Expectations:', customerInput);
-      // Here you could send this to your backend/CRM system
-    }
-    
     const openCalendly = () => {
       if (window.Calendly) {
         try {
@@ -120,7 +114,7 @@ const CalendlyButton = ({
                   placeholder="z.B. LinkedIn Automatisierung, E-Mail Agent, Kostenschätzung für maßgeschneiderte Lösung..."
                   value={customerInput}
                   onChange={(e) => setCustomerInput(e.target.value)}
-                  className="min-h-[100px] resize-none bg-background text-foreground placeholder:text-muted-foreground border-border"
+                  className="min-h-[100px] resize-none"
                 />
               </div>
               
