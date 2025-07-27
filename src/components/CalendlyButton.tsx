@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
 import { Calendar } from "lucide-react";
 
@@ -8,18 +7,6 @@ interface CalendlyButtonProps {
   size?: "sm" | "lg" | "xl";
   className?: string;
   icon?: boolean;
-  asChild?: boolean;
-}
-
-// Calendly type definition
-declare global {
-  interface Window {
-    Calendly?: {
-      initPopupWidget: (options: {
-        url: string;
-      }) => void;
-    };
-  }
 }
 
 const CalendlyButton = ({ 
@@ -27,49 +14,50 @@ const CalendlyButton = ({
   variant = "cta",
   size = "lg",
   className = "",
-  icon = true,
-  asChild = false
+  icon = true
 }: CalendlyButtonProps) => {
   
-  // Load Calendly script
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://assets.calendly.com/assets/external/widget.js';
-    script.async = true;
-    document.head.appendChild(script);
-    
-    return () => {
-      // Cleanup on unmount
-      const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
-      if (existingScript) {
-        document.head.removeChild(existingScript);
-      }
-    };
-  }, []);
-
   const handleCalendlyClick = () => {
-    const openCalendly = () => {
-      if (window.Calendly) {
-        try {
-          window.Calendly.initPopupWidget({
-            url: 'https://calendly.com/luxalexander/30min'
-          });
-        } catch (error) {
-          console.error('Calendly popup error:', error);
-          // Fallback: open in new tab
-          window.open('https://calendly.com/luxalexander/30min', '_blank');
-        }
-      } else {
-        // Fallback: open in new tab if Calendly not loaded
+    // Load Calendly widget script dynamically when needed
+    const loadCalendlyAndOpen = () => {
+      // Remove any existing Calendly scripts
+      const existingScripts = document.querySelectorAll('script[src*="calendly"]');
+      existingScripts.forEach(script => script.remove());
+      
+      // Create and load fresh script
+      const script = document.createElement('script');
+      script.src = 'https://assets.calendly.com/assets/external/widget.js';
+      script.async = true;
+      
+      script.onload = () => {
+        // Wait a moment for Calendly to initialize
+        setTimeout(() => {
+          if (window.Calendly) {
+            window.Calendly.initPopupWidget({
+              url: 'https://calendly.com/luxalexander/30min'
+            });
+          } else {
+            // Fallback to new tab
+            window.open('https://calendly.com/luxalexander/30min', '_blank');
+          }
+        }, 100);
+      };
+      
+      script.onerror = () => {
+        // Fallback to new tab if script fails
         window.open('https://calendly.com/luxalexander/30min', '_blank');
-      }
+      };
+      
+      document.head.appendChild(script);
     };
     
-    // Try immediately, if it fails, wait and try again
+    // Check if Calendly is already available
     if (window.Calendly) {
-      openCalendly();
+      window.Calendly.initPopupWidget({
+        url: 'https://calendly.com/luxalexander/30min'
+      });
     } else {
-      setTimeout(openCalendly, 300);
+      loadCalendlyAndOpen();
     }
   };
 
@@ -85,5 +73,16 @@ const CalendlyButton = ({
     </Button>
   );
 };
+
+// Calendly type definition
+declare global {
+  interface Window {
+    Calendly?: {
+      initPopupWidget: (options: {
+        url: string;
+      }) => void;
+    };
+  }
+}
 
 export default CalendlyButton;
