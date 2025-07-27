@@ -1,5 +1,4 @@
-import { PopupWidget } from "react-calendly";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
 import { Calendar } from "lucide-react";
 
@@ -12,6 +11,17 @@ interface CalendlyButtonProps {
   asChild?: boolean;
 }
 
+// Calendly type definition
+declare global {
+  interface Window {
+    Calendly?: {
+      initPopupWidget: (options: {
+        url: string;
+      }) => void;
+    };
+  }
+}
+
 const CalendlyButton = ({ 
   text = "Kostenloses Beratungsgespräch vereinbaren", 
   variant = "cta",
@@ -20,35 +30,59 @@ const CalendlyButton = ({
   icon = true,
   asChild = false
 }: CalendlyButtonProps) => {
-  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
+  
+  // Load Calendly script
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    document.head.appendChild(script);
+    
+    return () => {
+      // Cleanup on unmount
+      const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
+      if (existingScript) {
+        document.head.removeChild(existingScript);
+      }
+    };
+  }, []);
+
+  const handleCalendlyClick = () => {
+    const openCalendly = () => {
+      if (window.Calendly) {
+        try {
+          window.Calendly.initPopupWidget({
+            url: 'https://calendly.com/luxalexander/30min'
+          });
+        } catch (error) {
+          console.error('Calendly popup error:', error);
+          // Fallback: open in new tab
+          window.open('https://calendly.com/luxalexander/30min', '_blank');
+        }
+      } else {
+        // Fallback: open in new tab if Calendly not loaded
+        window.open('https://calendly.com/luxalexander/30min', '_blank');
+      }
+    };
+    
+    // Try immediately, if it fails, wait and try again
+    if (window.Calendly) {
+      openCalendly();
+    } else {
+      setTimeout(openCalendly, 300);
+    }
+  };
 
   return (
-    <>
-      <Button
-        variant={variant}
-        size={size}
-        className={`hover-scale ${className}`}
-        onClick={() => setIsCalendlyOpen(true)}
-      >
-        {icon && <Calendar className="w-4 h-4 mr-2" />}
-        {text}
-      </Button>
-
-      {/* Calendly Popup Widget */}
-      {isCalendlyOpen && (
-        <div className="calendly-overlay fixed inset-0 z-[9999]">
-          <PopupWidget
-            url="https://calendly.com/luxalexander/30min"
-            text="Termin buchen"
-            rootElement={document.getElementById("root")!}
-          />
-          <div 
-            className="absolute inset-0 bg-black/50 cursor-pointer"
-            onClick={() => setIsCalendlyOpen(false)}
-          />
-        </div>
-      )}
-    </>
+    <Button
+      variant={variant}
+      size={size}
+      className={`hover-scale ${className}`}
+      onClick={handleCalendlyClick}
+    >
+      {icon && <Calendar className="w-4 h-4 mr-2" />}
+      {text}
+    </Button>
   );
 };
 
