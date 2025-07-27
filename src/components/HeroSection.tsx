@@ -22,7 +22,7 @@ const HeroSection = () => {
                 <Link to="/kontakt">Kostenloses Beratungsgespräch vereinbaren</Link>
               </Button>
               <Button variant="outline" size="xl" asChild className="hover-scale">
-                <Link to="/standard-agenten">Standard-Agenten ansehen</Link>
+                <Link to="/massgeschneiderte-agenten">Maßgeschneiderte Lösungen</Link>
               </Button>
             </div>
           </div>
