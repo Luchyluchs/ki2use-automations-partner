@@ -143,6 +143,7 @@ const CustomAgents = () => {
                     "Nahtlose Integration in bestehende Systeme",
                     "Skalierbar und zukunftssicher",
                     "DSGVO-konform und sicher",
+                    "Wartungsverträge verfügbar",
                     "Persönlicher Ansprechpartner"
                   ].map((benefit, index) => (
                     <li key={index} className="flex items-start">
