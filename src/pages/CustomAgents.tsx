@@ -25,7 +25,7 @@ const CustomAgents = () => {
     step: "04",
     title: "Implementierung",
     description: "Nahtlose Integration in Ihre bestehenden Systeme mit minimalem Betriebsaufwand.",
-    duration: "1-2 Wochen",
+    duration: "4 Wochen",
     deliverables: ["Live-Deployment", "Mitarbeiterschulung", "Go-Live Support"]
   }, {
     step: "05",
@@ -138,43 +138,43 @@ const CustomAgents = () => {
             </p>
           </div>
 
-          <div className="space-y-8">
-            {processSteps.map((step, index) => <div key={index} className="relative">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+            {processSteps.map((step, index) => 
+              <div key={index} className="relative">
+                <div className="bg-card border border-card-border rounded-xl p-6 shadow-card hover-lift text-center h-full">
                   {/* Step Number */}
-                  <div className="lg:col-span-2 text-center lg:text-left">
-                    <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-primary rounded-full text-primary-foreground font-bold text-xl hover-scale">
-                      {step.step}
-                    </div>
+                  <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 hover-scale">
+                    <span className="text-primary-foreground font-bold text-lg">{step.step}</span>
                   </div>
-
+                  
                   {/* Content */}
-                  <div className="lg:col-span-7">
-                    <div className="bg-card border border-card-border rounded-xl p-6 shadow-card hover-lift">
-                      <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-                      <p className="text-muted-foreground mb-4">{step.description}</p>
-                      <div className="flex flex-wrap gap-2">
-                        {step.deliverables.map((deliverable, deliverableIndex) => <span key={deliverableIndex} className="bg-accent/10 text-accent text-xs font-medium rounded-full px-3 py-1">
-                            {deliverable}
-                          </span>)}
-                      </div>
-                    </div>
-                  </div>
-
+                  <h3 className="text-lg font-semibold mb-2">{step.title}</h3>
+                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{step.description}</p>
+                  
                   {/* Duration */}
-                  <div className="lg:col-span-3">
-                    <div className="bg-muted border border-card-border rounded-xl p-4 text-center hover-lift">
-                      <div className="text-sm text-muted-foreground mb-1">Dauer</div>
-                      <div className="font-semibold">{step.duration}</div>
-                    </div>
+                  <div className="bg-accent/10 rounded-lg p-3 mb-4">
+                    <div className="text-xs text-muted-foreground mb-1">Dauer</div>
+                    <div className="font-semibold text-sm">{step.duration}</div>
+                  </div>
+                  
+                  {/* Deliverables */}
+                  <div className="space-y-1">
+                    {step.deliverables.map((deliverable, deliverableIndex) => 
+                      <div key={deliverableIndex} className="bg-muted rounded px-2 py-1">
+                        <span className="text-xs text-muted-foreground">{deliverable}</span>
+                      </div>
+                    )}
                   </div>
                 </div>
 
                 {/* Arrow (except for last item) */}
-                {index < processSteps.length - 1 && <div className="flex justify-center mt-8">
-                    <ArrowRight className="w-6 h-6 text-muted-foreground" />
-                  </div>}
-              </div>)}
+                {index < processSteps.length - 1 && 
+                  <div className="hidden lg:block absolute top-1/2 -right-3 transform -translate-y-1/2 z-10">
+                    <ArrowRight className="w-6 h-6 text-muted-foreground bg-background rounded-full p-1" />
+                  </div>
+                }
+              </div>
+            )}
           </div>
         </div>
       </section>
