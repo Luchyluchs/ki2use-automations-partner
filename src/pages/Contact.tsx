@@ -59,7 +59,7 @@ const Contact = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Information */}
-            <div className="space-y-8">
+            <div className="space-y-4">
               {/* Calendly CTA */}
               <div className="bg-gradient-primary rounded-2xl p-8 py-12 text-primary-foreground hover-scale">
                 <h2 className="text-2xl font-semibold mb-4">
