@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Button } from "./ui/button";
 import { Calendar } from "lucide-react";
 
@@ -17,48 +16,33 @@ const CalendlyButton = ({
   className = "",
   icon = true
 }: CalendlyButtonProps) => {
-  
-  useEffect(() => {
-    // Load Calendly widget script
+
+  const handleClick = () => {
+    // Create Calendly script element
     const script = document.createElement('script');
     script.src = 'https://assets.calendly.com/assets/external/widget.js';
-    script.type = 'text/javascript';
-    script.async = true;
-    document.body.appendChild(script);
-    
-    // Add CSS to ensure Calendly popup displays correctly
-    const style = document.createElement('style');
-    style.textContent = `
-      .calendly-overlay {
-        z-index: 9999 !important;
-      }
-      .calendly-popup {
-        z-index: 10000 !important;
-      }
-    `;
-    document.head.appendChild(style);
-  }, []);
-
-  const openCalendly = () => {
-    // @ts-ignore
-    if (window.Calendly) {
-      // @ts-ignore
-      window.Calendly.initPopupWidget({
-        url: 'https://calendly.com/luxalexander/30min'
-      });
-    } else {
-      // Wait a moment and try again
-      setTimeout(() => {
+    script.onload = () => {
+      // @ts-ignore - Calendly will be available after script loads
+      if (window.Calendly) {
         // @ts-ignore
-        if (window.Calendly) {
-          // @ts-ignore
-          window.Calendly.initPopupWidget({
-            url: 'https://calendly.com/luxalexander/30min'
-          });
-        } else {
-          window.open('https://calendly.com/luxalexander/30min', '_blank');
-        }
-      }, 500);
+        window.Calendly.initPopupWidget({
+          url: 'https://calendly.com/luxalexander/30min'
+        });
+      }
+    };
+    
+    // Only add script if it doesn't exist
+    if (!document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]')) {
+      document.head.appendChild(script);
+    } else {
+      // Script already exists, just open popup
+      // @ts-ignore
+      if (window.Calendly) {
+        // @ts-ignore
+        window.Calendly.initPopupWidget({
+          url: 'https://calendly.com/luxalexander/30min'
+        });
+      }
     }
   };
 
@@ -67,7 +51,7 @@ const CalendlyButton = ({
       variant={variant}
       size={size}
       className={`hover-scale ${className}`}
-      onClick={openCalendly}
+      onClick={handleClick}
     >
       {icon && <Calendar className="w-4 h-4 mr-2" />}
       {text}
