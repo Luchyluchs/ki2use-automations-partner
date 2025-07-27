@@ -12,12 +12,12 @@ const ROICalculator = () => {
   const [agentType, setAgentType] = useState("email");
 
   const agentCosts = {
-    email: { monthly: 75, setup: 1200 },
-    linkedin: { monthly: 85, setup: 1500 },
-    voice: { monthly: 95, setup: 1800 },
-    newsletter: { monthly: 65, setup: 1000 },
-    chatbot: { monthly: 80, setup: 1300 },
-    socialmedia: { monthly: 90, setup: 1400 }
+    email: { monthly: 50, setup: 1000 },
+    linkedin: { monthly: 50, setup: 1300 },
+    voice: { monthly: 50, setup: 1600 },
+    newsletter: { monthly: 50, setup: 800 },
+    chatbot: { monthly: 50, setup: 1100 },
+    socialmedia: { monthly: 50, setup: 1200 }
   };
 
   const currentCosts = {
@@ -92,12 +92,12 @@ const ROICalculator = () => {
                 <SelectValue />
               </SelectTrigger>
               <SelectContent className="bg-card border border-card-border">
-                <SelectItem value="email">E-Mail Agent (ab €75/Monat + €1.200 Setup)*</SelectItem>
-                <SelectItem value="linkedin">LinkedIn Agent (ab €85/Monat + €1.500 Setup)*</SelectItem>
-                <SelectItem value="voice">Voice Agent (ab €95/Monat + €1.800 Setup)*</SelectItem>
-                <SelectItem value="newsletter">Newsletter Agent (ab €65/Monat + €1.000 Setup)*</SelectItem>
-                <SelectItem value="chatbot">Chatbot (ab €80/Monat + €1.300 Setup)*</SelectItem>
-                <SelectItem value="socialmedia">Social Media Agent (ab €90/Monat + €1.400 Setup)*</SelectItem>
+                <SelectItem value="email">E-Mail Agent (€50/Monat + €1.000 Setup)*</SelectItem>
+                <SelectItem value="linkedin">LinkedIn Agent (€50/Monat + €1.300 Setup)*</SelectItem>
+                <SelectItem value="voice">Voice Agent (€50/Monat + €1.600 Setup)*</SelectItem>
+                <SelectItem value="newsletter">Newsletter Agent (€50/Monat + €800 Setup)*</SelectItem>
+                <SelectItem value="chatbot">Chatbot (€50/Monat + €1.100 Setup)*</SelectItem>
+                <SelectItem value="socialmedia">Social Media Agent (€50/Monat + €1.200 Setup)*</SelectItem>
               </SelectContent>
             </Select>
           </div>
