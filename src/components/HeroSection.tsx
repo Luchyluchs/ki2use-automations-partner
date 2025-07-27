@@ -4,9 +4,9 @@ import humanRobotHandshake from "@/assets/human-robot-handshake.jpg";
 const HeroSection = () => {
   return <section className="gradient-subtle section-padding">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start lg:items-center">
           {/* Content */}
-          <div className="text-center lg:text-left fade-in-element">
+          <div className="text-center lg:text-left fade-in-element order-2 lg:order-1">
             <h1 className="mb-6 leading-tight scale-in-element">
               KI-Agenten & Schulungen von{" "}
               <span className="text-primary">KI2USE</span>
@@ -28,7 +28,7 @@ const HeroSection = () => {
           </div>
 
           {/* Hero Image */}
-          <div className="relative fade-in-element">
+          <div className="relative fade-in-element order-1 lg:order-2">
             <div className="relative rounded-2xl overflow-hidden shadow-elevated hover-scale">
               <img
                 src={humanRobotHandshake}
