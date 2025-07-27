@@ -12,12 +12,12 @@ const ROICalculator = () => {
   const [agentType, setAgentType] = useState("email");
 
   const agentCosts = {
-    email: { monthly: 299, setup: 0 },
-    linkedin: { monthly: 399, setup: 0 },
-    voice: { monthly: 499, setup: 0 },
-    newsletter: { monthly: 199, setup: 0 },
-    chatbot: { monthly: 349, setup: 0 },
-    application: { monthly: 799, setup: 1500 }
+    email: { monthly: 75, setup: 1200 },
+    linkedin: { monthly: 85, setup: 1500 },
+    voice: { monthly: 95, setup: 1800 },
+    newsletter: { monthly: 65, setup: 1000 },
+    chatbot: { monthly: 80, setup: 1300 },
+    application: { monthly: 100, setup: 2000 }
   };
 
   const currentCosts = {
@@ -89,12 +89,12 @@ const ROICalculator = () => {
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="email">E-Mail Agent (€299/Monat)</SelectItem>
-                <SelectItem value="linkedin">LinkedIn Agent (€399/Monat)</SelectItem>
-                <SelectItem value="voice">Voice Agent (€499/Monat)</SelectItem>
-                <SelectItem value="newsletter">Newsletter Agent (€199/Monat)</SelectItem>
-                <SelectItem value="chatbot">Chatbot (€349/Monat)</SelectItem>
-                <SelectItem value="application">Antragsbearbeitung (€799/Monat)</SelectItem>
+                <SelectItem value="email">E-Mail Agent (€75/Monat + €1.200 Setup)</SelectItem>
+                <SelectItem value="linkedin">LinkedIn Agent (€85/Monat + €1.500 Setup)</SelectItem>
+                <SelectItem value="voice">Voice Agent (€95/Monat + €1.800 Setup)</SelectItem>
+                <SelectItem value="newsletter">Newsletter Agent (€65/Monat + €1.000 Setup)</SelectItem>
+                <SelectItem value="chatbot">Chatbot (€80/Monat + €1.300 Setup)</SelectItem>
+                <SelectItem value="application">Antragsbearbeitung (€100/Monat + €2.000 Setup)</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -129,7 +129,11 @@ const ROICalculator = () => {
             </div>
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
-                <span>Agent Kosten:</span>
+                <span>Setup-Kosten:</span>
+                <span>€{selectedAgent.setup}</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Monatliche Wartung:</span>
                 <span>€{selectedAgent.monthly}/Monat</span>
               </div>
               <div className="flex justify-between">
@@ -138,7 +142,7 @@ const ROICalculator = () => {
               </div>
               <div className="flex justify-between">
                 <span>Jährliche Einsparung:</span>
-                <span className="text-accent font-semibold">€{(monthlySavings * 12).toFixed(0)}</span>
+                <span className="text-accent font-semibold">€{(monthlySavings * 12 - selectedAgent.setup).toFixed(0)}</span>
               </div>
             </div>
           </Card>
