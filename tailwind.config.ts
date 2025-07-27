@@ -129,6 +129,20 @@ export default {
 					'50%': {
 						transform: 'translateY(-4px)'
 					}
+				},
+				'slide-progress': {
+					'0%': {
+						width: '0%',
+						opacity: '0.3'
+					},
+					'50%': {
+						width: '100%',
+						opacity: '1'
+					},
+					'100%': {
+						width: '100%',
+						opacity: '0.3'
+					}
 				}
 			},
 			animation: {
@@ -136,7 +150,8 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.3s ease-out',
 				'scale-in': 'scale-in 0.2s ease-out',
-				'float': 'float 2s ease-in-out infinite'
+				'float': 'float 2s ease-in-out infinite',
+				'slide-progress': 'slide-progress 3s ease-in-out infinite'
 			}
 		}
 	},

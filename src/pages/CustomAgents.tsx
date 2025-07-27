@@ -138,43 +138,71 @@ const CustomAgents = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-            {processSteps.map((step, index) => 
-              <div key={index} className="relative">
-                <div className="bg-card border border-card-border rounded-xl p-6 shadow-card hover-lift text-center h-full">
-                  {/* Step Number */}
-                  <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 hover-scale">
-                    <span className="text-primary-foreground font-bold text-lg">{step.step}</span>
-                  </div>
-                  
-                  {/* Content */}
-                  <h3 className="text-lg font-semibold mb-2">{step.title}</h3>
-                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{step.description}</p>
-                  
-                  {/* Duration */}
-                  <div className="bg-accent/10 rounded-lg p-3 mb-4">
-                    <div className="text-xs text-muted-foreground mb-1">Dauer</div>
-                    <div className="font-semibold text-sm">{step.duration}</div>
-                  </div>
-                  
-                  {/* Deliverables */}
-                  <div className="space-y-1">
-                    {step.deliverables.map((deliverable, deliverableIndex) => 
-                      <div key={deliverableIndex} className="bg-muted rounded px-2 py-1">
-                        <span className="text-xs text-muted-foreground">{deliverable}</span>
+          {/* Interactive Timeline */}
+          <div className="relative">
+            {/* Animated Connection Line */}
+            <div className="absolute top-20 left-0 right-0 h-0.5 bg-gradient-to-r from-primary via-accent to-primary opacity-30 hidden lg:block"></div>
+            <div className="absolute top-20 left-0 h-0.5 bg-gradient-to-r from-primary to-accent animate-pulse hidden lg:block" style={{width: '100%', animation: 'slide-progress 3s ease-in-out infinite'}}></div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 relative z-10">
+              {processSteps.map((step, index) => 
+                <div key={index} className="group relative">
+                  <div className="bg-card border border-card-border rounded-xl p-6 shadow-card hover:shadow-xl transition-all duration-500 text-center h-full transform hover:scale-105 hover:-translate-y-2 cursor-pointer group-hover:bg-gradient-subtle">
+                    {/* Floating Step Number */}
+                    <div className="relative -mt-10 mb-4">
+                      <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto shadow-lg transform transition-all duration-300 group-hover:rotate-12 group-hover:scale-110">
+                        <span className="text-primary-foreground font-bold text-xl">{step.step}</span>
                       </div>
-                    )}
-                  </div>
-                </div>
+                      {/* Pulse Ring */}
+                      <div className="absolute inset-0 w-16 h-16 mx-auto rounded-full border-2 border-primary/30 animate-ping opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    
+                    {/* Content with Reveal Animation */}
+                    <div className="transform transition-all duration-300 group-hover:translate-y-1">
+                      <h3 className="text-lg font-semibold mb-3 group-hover:text-primary transition-colors duration-300">{step.title}</h3>
+                      <p className="text-muted-foreground text-sm mb-4 leading-relaxed opacity-80 group-hover:opacity-100 transition-opacity duration-300">{step.description}</p>
+                      
+                      {/* Animated Duration Badge */}
+                      <div className="bg-accent/10 group-hover:bg-accent/20 rounded-lg p-3 mb-4 transition-all duration-300 transform group-hover:scale-105">
+                        <div className="text-xs text-muted-foreground mb-1">Dauer</div>
+                        <div className="font-semibold text-sm group-hover:text-accent transition-colors duration-300">{step.duration}</div>
+                      </div>
+                      
+                      {/* Deliverables with Stagger Animation */}
+                      <div className="space-y-1">
+                        {step.deliverables.map((deliverable, deliverableIndex) => 
+                          <div key={deliverableIndex} 
+                               className="bg-muted group-hover:bg-primary/5 rounded px-2 py-1 transition-all duration-300 transform group-hover:translate-x-1" 
+                               style={{transitionDelay: `${deliverableIndex * 50}ms`}}>
+                            <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors duration-300">{deliverable}</span>
+                          </div>
+                        )}
+                      </div>
+                    </div>
 
-                {/* Arrow (except for last item) */}
-                {index < processSteps.length - 1 && 
-                  <div className="hidden lg:block absolute top-1/2 -right-3 transform -translate-y-1/2 z-10">
-                    <ArrowRight className="w-6 h-6 text-muted-foreground bg-background rounded-full p-1" />
+                    {/* Hidden overlay for extra effect */}
+                    <div className="absolute inset-0 bg-gradient-primary/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                   </div>
-                }
-              </div>
-            )}
+
+                  {/* Animated Connection Arrow */}
+                  {index < processSteps.length - 1 && 
+                    <div className="hidden lg:block absolute top-8 -right-3 transform -translate-y-1/2 z-20">
+                      <div className="relative">
+                        <ArrowRight className="w-8 h-8 text-accent/60 bg-background rounded-full p-1.5 shadow-md transform transition-all duration-300 group-hover:text-accent group-hover:scale-110 group-hover:translate-x-1" />
+                        <div className="absolute inset-0 w-8 h-8 rounded-full border-2 border-accent/30 animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      </div>
+                    </div>
+                  }
+
+                  {/* Step Connection Line (Mobile) */}
+                  {index < processSteps.length - 1 && 
+                    <div className="lg:hidden flex justify-center mt-6 mb-2">
+                      <div className="w-px h-8 bg-gradient-to-b from-primary to-accent"></div>
+                    </div>
+                  }
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </section>
