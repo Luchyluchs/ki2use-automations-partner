@@ -2,6 +2,7 @@ import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowLeft, CheckCircle, Calendar } from "lucide-react";
+import ROICalculator from "@/components/ROICalculator";
 import linkedinWorkflow from "@/assets/linkedin-workflow.jpg";
 import chatbotWorkflow from "@/assets/chatbot-workflow.jpg";
 import newsletterWorkflow from "@/assets/newsletter-workflow.jpg";
@@ -122,6 +123,13 @@ const StandardAgents = () => {
                 </div>
               </div>)}
           </div>
+        </div>
+      </section>
+
+      {/* ROI Calculator */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <ROICalculator />
         </div>
       </section>
 
