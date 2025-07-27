@@ -89,7 +89,7 @@ const StandardAgentsPreview = () => {
           <p className="max-w-4xl mx-auto leading-relaxed">
             Alle Standard-Agenten von KI2USE sind über ein persönliches, kostenloses Beratungsgespräch buchbar, 
             in dem wir die unkomplizierte, schnelle und rechtssichere Integration für Ihr KMU besprechen. 
-            Die internen Prozesse von der Anfrage bis zur Implementierung werden dabei ebenfalls von n8n automatisiert, 
+            Die internen Prozesse von der Anfrage bis zur Implementierung werden dabei automatisiert, 
             was unsere Effizienz und Qualität in der Kundenbetreuung beweist.
           </p>
         </div>

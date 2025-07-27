@@ -30,7 +30,7 @@ const WhyChooseUs = () => {
     {
       icon: Zap,
       title: "Wir leben, was wir lehren",
-      description: "Unsere Prozesse sind selbst mit n8n automatisiert – für maximale Effizienz und Zuverlässigkeit in unserer Zusammenarbeit mit Ihnen.",
+      description: "Unsere Prozesse sind selbst automatisiert – für maximale Effizienz und Zuverlässigkeit in unserer Zusammenarbeit mit Ihnen.",
     },
   ];
 

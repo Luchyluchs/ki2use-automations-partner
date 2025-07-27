@@ -8,7 +8,7 @@ import { Loader2, Send } from "lucide-react";
 
 const ContactForm = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [webhookUrl, setWebhookUrl] = useState("https://your-n8n-instance.com/webhook/form-submission");
+  const [webhookUrl, setWebhookUrl] = useState("https://your-automation-instance.com/webhook/form-submission");
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -39,7 +39,7 @@ const ContactForm = () => {
 
       toast({
         title: "Nachricht erfolgreich versendet!",
-        description: "Wir werden uns innerhalb von 24 Stunden bei Ihnen melden. Ihre Anfrage wird automatisch über n8n verarbeitet.",
+        description: "Wir werden uns innerhalb von 24 Stunden bei Ihnen melden. Ihre Anfrage wird automatisch verarbeitet.",
       });
 
       // Reset form
@@ -63,7 +63,7 @@ const ContactForm = () => {
       {/* Webhook Configuration (for demo purposes) */}
       <div className="mb-6 p-4 bg-muted rounded-lg">
         <Label htmlFor="webhook" className="text-sm font-medium">
-          n8n Webhook URL (konfigurierbar):
+          Webhook URL (konfigurierbar):
         </Label>
         <Input
           id="webhook"
@@ -71,7 +71,7 @@ const ContactForm = () => {
           value={webhookUrl}
           onChange={(e) => setWebhookUrl(e.target.value)}
           className="mt-2"
-          placeholder="https://your-n8n-instance.com/webhook/form-submission"
+          placeholder="https://your-automation-instance.com/webhook/form-submission"
         />
         <p className="text-xs text-muted-foreground mt-2">
           Diese URL wird für die automatisierte Verarbeitung Ihrer Anfrage verwendet.
@@ -141,7 +141,7 @@ const ContactForm = () => {
             🤖 Automatisierung in Aktion
           </p>
           <p className="text-xs text-muted-foreground">
-            Diese Nachricht wird automatisch über n8n verarbeitet, kategorisiert und an den 
+            Diese Nachricht wird automatisch verarbeitet, kategorisiert und an den 
             passenden Experten weitergeleitet. So demonstrieren wir live unsere Effizienz 
             und Zuverlässigkeit in der Kundenbetreuung.
           </p>

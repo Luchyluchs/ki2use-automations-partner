@@ -26,13 +26,13 @@ const Training = () => {
       ]
     },
     {
-      title: "n8n Automatisierung Workshop",
+      title: "Workflow-Automatisierung Workshop",
       duration: "2 Tage (16 Stunden)",
       participants: "Max. 6 Teilnehmer",
       format: "Hands-on Workshop",
-      description: "Praktischer Workshop zur Erstellung eigener Automatisierungsworkflows mit n8n – vom Einsteiger zum Profi.",
+      description: "Praktischer Workshop zur Erstellung eigener Automatisierungsworkflows – vom Einsteiger zum Profi.",
       content: [
-        "n8n Installation und Grundlagen",
+        "Automatisierungs-Tools Installation und Grundlagen",
         "Workflow-Design und Best Practices",
         "API-Integrationen und Datenverarbeitung",
         "Fehlerbehandlung und Monitoring",
@@ -116,7 +116,7 @@ const Training = () => {
     {
       icon: Zap,
       title: "Live-Beispiele",
-      description: "Praktische Demonstrationen unserer eigenen n8n-Automatisierungen."
+      description: "Praktische Demonstrationen unserer eigenen Automatisierungen."
     }
   ];
 
@@ -183,7 +183,7 @@ const Training = () => {
                   Effizienz nachhaltig zu steigern.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  In unseren Schulungen zeigen wir auch praktische Beispiele, wie wir n8n 
+                  In unseren Schulungen zeigen wir auch praktische Beispiele, wie wir Automatisierung 
                   intern zur Effizienzsteigerung einsetzen und vermitteln Best Practices, 
                   die speziell für kleinere Betriebsstrukturen relevant und umsetzbar sind.
                 </p>
@@ -388,7 +388,7 @@ const Training = () => {
             <div className="mt-8 bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover-scale">
               <p className="text-sm leading-relaxed opacity-90">
                 <strong>Praxis von Anfang an:</strong> Bereits bei der Schulungsplanung erleben Sie 
-                unsere n8n-gestützten Prozesse in Aktion – von der Bedarfsanalyse bis zur 
+                unsere automatisierten Prozesse in Aktion – von der Bedarfsanalyse bis zur 
                 individuellen Lernpfad-Erstellung.
               </p>
             </div>

@@ -181,7 +181,7 @@ const Contact = () => {
                 Automatisierte Effizienz von Anfang an
               </h3>
               <p className="leading-relaxed mb-6">
-                Die Daten aus diesem Formular und dem Kalender werden direkt über n8n verarbeitet, 
+                Die Daten aus diesem Formular und dem Kalender werden direkt automatisch verarbeitet, 
                 um einen schnellen, effizienten und transparenten Ablauf zu gewährleisten. 
                 Dies unterstreicht unsere eigene Automatisierungs-Kompetenz von KI2USE und 
                 zeigt Ihnen bereits im ersten Kontakt, wie professionell und zuverlässig 

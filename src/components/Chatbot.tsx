@@ -130,7 +130,7 @@ const Chatbot = () => {
               </div>
               <div>
                 <h3 className="font-semibold">KI2USE Support</h3>
-                <p className="text-xs opacity-80">Powered by n8n Automation</p>
+                <p className="text-xs opacity-80">Powered by KI2USE Automation</p>
               </div>
             </div>
           </div>

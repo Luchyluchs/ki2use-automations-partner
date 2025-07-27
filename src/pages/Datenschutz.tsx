@@ -68,9 +68,9 @@ const Datenschutz = () => {
                   Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert.
                 </p>
 
-                <h3 className="mt-6">n8n Webhook-Integration</h3>
+                <h3 className="mt-6">Automatisierte Datenverarbeitung</h3>
                 <p className="text-muted-foreground text-sm">
-                  Ihre über das Kontaktformular eingegebenen Daten werden automatisch an unser n8n-Automatisierungssystem weitergeleitet. Dies dient der effizienten Bearbeitung Ihrer Anfrage und der automatischen Zuweisung an den zuständigen Mitarbeiter. Die Datenübertragung erfolgt verschlüsselt und DSGVO-konform.
+                  Ihre über das Kontaktformular eingegebenen Daten werden automatisch an unser Automatisierungssystem weitergeleitet. Dies dient der effizienten Bearbeitung Ihrer Anfrage und der automatischen Zuweisung an den zuständigen Mitarbeiter. Die Datenübertragung erfolgt verschlüsselt und DSGVO-konform.
                 </p>
 
                 <h2 className="mt-8">5. Ihre Rechte</h2>
@@ -103,7 +103,7 @@ const Datenschutz = () => {
                   <h4 className="font-semibold text-accent mb-2">KI2USE - Automatisierung auch beim Datenschutz</h4>
                   <p className="text-sm text-muted-foreground">
                     Auch unsere Datenschutzprozesse sind automatisiert: Ihre Anfragen bezüglich Ihrer Rechte werden 
-                    über n8n automatisch bearbeitet und an die zuständigen Stellen weitergeleitet, um Ihnen 
+                    automatisch bearbeitet und an die zuständigen Stellen weitergeleitet, um Ihnen 
                     schnellstmöglich zu helfen.
                   </p>
                 </div>

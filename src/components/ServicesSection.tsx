@@ -20,7 +20,7 @@ const ServicesSection = () => {
     icon: GraduationCap,
     title: "KI-Schulungen & Beratung",
     description: "Praktisches KI-Wissen, das Ihr Team sofort anwenden kann – spezifisch für den Mittelstand.",
-    features: ["Grundlagen der KI für KMU", "Automatisierungsstrategien", "n8n Workshop", "Implementierungsberatung", "Langfristige Begleitung"],
+    features: ["Grundlagen der KI für KMU", "Automatisierungsstrategien", "Workflow-Design", "Implementierungsberatung", "Langfristige Begleitung"],
     link: "/ki-schulungen",
     cta: "Schulungen buchen"
   }];

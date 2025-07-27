@@ -29,7 +29,7 @@ const TestimonialsSection = () => {
     name: "AWS Partner",
     logo: "🔶"
   }, {
-    name: "n8n Certified",
+    name: "Automation Certified",
     logo: "⚡"
   }];
   return <section className="section-padding bg-muted">
