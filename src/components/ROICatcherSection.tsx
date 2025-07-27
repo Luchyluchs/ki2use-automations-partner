@@ -31,7 +31,7 @@ const ROICatcherSection = () => {
   ];
 
   return (
-    <section className="py-8 lg:py-12 bg-gradient-to-br from-primary/5 via-background to-accent/5">
+    <section className="pt-2 pb-8 lg:pt-4 lg:pb-12 bg-gradient-to-br from-primary/5 via-background to-accent/5">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 fade-in-element">
           <div className="inline-flex items-center gap-2 bg-destructive/10 text-destructive px-4 py-2 rounded-full text-sm font-medium mb-6">
