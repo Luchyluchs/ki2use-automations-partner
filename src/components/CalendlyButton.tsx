@@ -114,7 +114,7 @@ const CalendlyButton = ({
                   placeholder="z.B. LinkedIn Automatisierung, E-Mail Agent, Kostenschätzung für maßgeschneiderte Lösung..."
                   value={customerInput}
                   onChange={(e) => setCustomerInput(e.target.value)}
-                  className="min-h-[100px] resize-none"
+                  className="min-h-[100px] resize-none bg-background text-foreground placeholder:text-muted-foreground border-border"
                 />
               </div>
               
