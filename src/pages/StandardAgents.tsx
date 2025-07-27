@@ -9,6 +9,8 @@ import newsletterWorkflow from "@/assets/newsletter-workflow.jpg";
 import emailWorkflow from "@/assets/email-workflow.jpg";
 import voiceWorkflow from "@/assets/voice-workflow.jpg";
 import socialMediaWorkflow from "@/assets/social-media-workflow.jpg";
+import salesWorkflow from "@/assets/sales-workflow.jpg";
+import appointmentWorkflow from "@/assets/appointment-workflow.jpg";
 const StandardAgents = () => {
   const agents = [{
     name: "LinkedIn Agent",
@@ -52,6 +54,20 @@ const StandardAgents = () => {
     features: ["Automatisches Posting", "Content-Generierung", "Hashtag-Optimierung", "Engagement-Tracking", "Multi-Platform-Management"],
     benefits: ["Konsistente Social Media Präsenz", "70% Zeitersparnis beim Content Management", "Verbesserte Reichweite und Engagement", "Automatisierte Kundeninteraktion"],
     useCases: ["Regelmäßige Posts", "Kundenkommunikation", "Markenaufbau", "Lead-Generierung über Social Media"]
+  }, {
+    name: "Sales Agent",
+    image: salesWorkflow,
+    description: "Automatisiert Lead-Qualifizierung und Verkaufsprozesse, identifiziert potenzielle Kunden und unterstützt den Abschluss von Geschäften.",
+    features: ["Lead-Scoring", "Automatische Follow-ups", "Verkaufspipeline-Management", "CRM-Integration", "Verkaufsanalytics"],
+    benefits: ["60% höhere Conversion-Rate", "Automatisierte Lead-Qualifizierung", "Kürzere Sales-Zyklen", "Erhöhte Verkaufseffizienz"],
+    useCases: ["B2B-Verkauf", "Lead-Nurturing", "Cross-Selling", "Verkaufsprozess-Automatisierung"]
+  }, {
+    name: "Terminbuchungsagent",
+    image: appointmentWorkflow,
+    description: "Vereinfacht die Terminplanung durch automatische Buchungen, Erinnerungen und Kalenderintegration für optimierte Arbeitsabläufe.",
+    features: ["Automatische Terminbuchung", "Kalender-Synchronisation", "SMS/E-Mail-Erinnerungen", "Konflikt-Vermeidung", "Multi-Standort-Support"],
+    benefits: ["90% weniger manueller Aufwand", "Keine Terminüberschneidungen", "Automatische Erinnerungen", "24/7 Buchungsmöglichkeit"],
+    useCases: ["Arzttermine", "Beratungsgespräche", "Service-Termine", "Schulungsbuchungen"]
   }];
   return <Layout>
       {/* Header */}
