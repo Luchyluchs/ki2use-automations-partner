@@ -74,7 +74,7 @@ const CustomAgents = () => {
   }];
   return <Layout>
       {/* Header */}
-      <section className="bg-gradient-hero py-16">
+      <section className="bg-gradient-subtle py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center fade-in-element">
             <Button variant="ghost" size="sm" asChild className="mb-8 hover-scale">
@@ -202,7 +202,7 @@ const CustomAgents = () => {
       </section>
 
       {/* Advantages */}
-      <section className="section-padding bg-gradient-card">
+      <section className="section-padding bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 fade-in-element">
             <h2 className="mb-6 scale-in-element">
