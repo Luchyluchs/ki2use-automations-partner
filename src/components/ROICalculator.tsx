@@ -29,8 +29,11 @@ const ROICalculator = () => {
 
   const selectedAgent = agentCosts[agentType as keyof typeof agentCosts];
   const monthlySavings = currentCosts.monthlyCost - selectedAgent.monthly;
-  const yearlyROI = (monthlySavings * 12 - selectedAgent.setup) / (selectedAgent.monthly * 12 + selectedAgent.setup) * 100;
-  const paybackMonths = (selectedAgent.monthly * 12 + selectedAgent.setup) / (monthlySavings * 12);
+  const totalInvestmentFirstYear = selectedAgent.setup + (selectedAgent.monthly * 12);
+  const totalSavingsFirstYear = monthlySavings * 12;
+  const netSavingsFirstYear = totalSavingsFirstYear - totalInvestmentFirstYear;
+  const yearlyROI = totalInvestmentFirstYear > 0 ? (netSavingsFirstYear / totalInvestmentFirstYear) * 100 : 0;
+  const paybackMonths = monthlySavings > 0 ? totalInvestmentFirstYear / monthlySavings : 0;
 
   return (
     <div className="bg-card border border-card-border rounded-2xl p-8">
@@ -137,12 +140,22 @@ const ROICalculator = () => {
                 <span>€{selectedAgent.monthly}/Monat</span>
               </div>
               <div className="flex justify-between">
+                <span>Gesamtinvestition (1. Jahr):</span>
+                <span className="font-semibold">€{totalInvestmentFirstYear}</span>
+              </div>
+              <div className="flex justify-between">
                 <span>Monatliche Einsparung:</span>
                 <span className="text-accent font-semibold">€{monthlySavings.toFixed(0)}</span>
               </div>
               <div className="flex justify-between">
                 <span>Jährliche Einsparung:</span>
-                <span className="text-accent font-semibold">€{(monthlySavings * 12 - selectedAgent.setup).toFixed(0)}</span>
+                <span className="text-accent font-semibold">€{totalSavingsFirstYear.toFixed(0)}</span>
+              </div>
+              <div className="flex justify-between border-t pt-2">
+                <span>Netto-Einsparung (1. Jahr):</span>
+                <span className={`font-semibold ${netSavingsFirstYear >= 0 ? 'text-green-600' : 'text-red-600'}`}>
+                  €{netSavingsFirstYear.toFixed(0)}
+                </span>
               </div>
             </div>
           </Card>
