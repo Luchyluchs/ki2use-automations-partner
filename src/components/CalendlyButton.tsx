@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Button } from "./ui/button";
 import { Calendar } from "lucide-react";
 
@@ -8,7 +8,6 @@ interface CalendlyButtonProps {
   size?: "sm" | "lg" | "xl";
   className?: string;
   icon?: boolean;
-  asChild?: boolean;
 }
 
 // Calendly type definition
@@ -27,8 +26,7 @@ const CalendlyButton = ({
   variant = "cta",
   size = "lg",
   className = "",
-  icon = true,
-  asChild = false
+  icon = true
 }: CalendlyButtonProps) => {
   
   // Load Calendly script
@@ -41,46 +39,21 @@ const CalendlyButton = ({
     const script = document.createElement('script');
     script.src = 'https://assets.calendly.com/assets/external/widget.js';
     script.async = true;
-    script.onload = () => console.log('Calendly script loaded');
-    script.onerror = () => console.error('Failed to load Calendly script');
     document.head.appendChild(script);
   }, []);
 
   const handleCalendlyClick = () => {
-    console.log('Calendly button clicked');
-    console.log('window.Calendly available:', !!window.Calendly);
-    
-    const openCalendly = () => {
-      console.log('Attempting to open Calendly...');
+    // Simple approach - wait a bit for Calendly to be ready, then open
+    setTimeout(() => {
       if (window.Calendly) {
-        console.log('Calendly object found, trying popup');
-        try {
-          window.Calendly.initPopupWidget({
-            url: 'https://calendly.com/luxalexander/30min'
-          });
-          console.log('Calendly popup initiated');
-        } catch (error) {
-          console.error('Calendly popup error:', error);
-          console.log('Falling back to new tab');
-          window.open('https://calendly.com/luxalexander/30min', '_blank');
-        }
+        window.Calendly.initPopupWidget({
+          url: 'https://calendly.com/luxalexander/30min'
+        });
       } else {
-        console.log('Calendly object not found, opening in new tab');
+        // Fallback: open in new tab
         window.open('https://calendly.com/luxalexander/30min', '_blank');
       }
-    };
-    
-    // Try immediately, if it fails, wait and try again
-    if (window.Calendly) {
-      console.log('Calendly immediately available');
-      openCalendly();
-    } else {
-      console.log('Calendly not available, waiting 300ms');
-      setTimeout(() => {
-        console.log('Retry after timeout');
-        openCalendly();
-      }, 300);
-    }
+    }, 100);
   };
 
   return (
