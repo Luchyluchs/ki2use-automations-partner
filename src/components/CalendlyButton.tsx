@@ -33,18 +33,17 @@ const CalendlyButton = ({
   
   // Load Calendly script
   useEffect(() => {
+    // Check if script is already loaded
+    if (document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]')) {
+      return;
+    }
+    
     const script = document.createElement('script');
     script.src = 'https://assets.calendly.com/assets/external/widget.js';
     script.async = true;
+    script.onload = () => console.log('Calendly script loaded');
+    script.onerror = () => console.error('Failed to load Calendly script');
     document.head.appendChild(script);
-    
-    return () => {
-      // Cleanup on unmount
-      const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
-      if (existingScript) {
-        document.head.removeChild(existingScript);
-      }
-    };
   }, []);
 
   const handleCalendlyClick = () => {
