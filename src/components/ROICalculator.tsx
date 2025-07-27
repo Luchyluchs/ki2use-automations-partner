@@ -89,12 +89,12 @@ const ROICalculator = () => {
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="email">E-Mail Agent (€75/Monat + €1.200 Setup)</SelectItem>
-                <SelectItem value="linkedin">LinkedIn Agent (€85/Monat + €1.500 Setup)</SelectItem>
-                <SelectItem value="voice">Voice Agent (€95/Monat + €1.800 Setup)</SelectItem>
-                <SelectItem value="newsletter">Newsletter Agent (€65/Monat + €1.000 Setup)</SelectItem>
-                <SelectItem value="chatbot">Chatbot (€80/Monat + €1.300 Setup)</SelectItem>
-                <SelectItem value="application">Antragsbearbeitung (€100/Monat + €2.000 Setup)</SelectItem>
+                <SelectItem value="email">E-Mail Agent (ab €75/Monat + Setup)</SelectItem>
+                <SelectItem value="linkedin">LinkedIn Agent (ab €85/Monat + Setup)</SelectItem>
+                <SelectItem value="voice">Voice Agent (ab €95/Monat + Setup)</SelectItem>
+                <SelectItem value="newsletter">Newsletter Agent (ab €65/Monat + Setup)</SelectItem>
+                <SelectItem value="chatbot">Chatbot (ab €80/Monat + Setup)</SelectItem>
+                <SelectItem value="application">Antragsbearbeitung (ab €100/Monat + Setup)</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -172,8 +172,9 @@ const ROICalculator = () => {
 
       <div className="mt-6 p-4 bg-muted rounded-lg">
         <p className="text-sm text-muted-foreground">
-          <strong>Berechnung basiert auf:</strong> Durchschnittliche Zeitersparnis von 80% für automatisierbare Aufgaben. 
-          Reale Ergebnisse können je nach Implementierung und Anwendungsfall variieren.
+          <strong>Berechnung basiert auf:</strong> Beispielhafte Preise und durchschnittliche Zeitersparnis von 80% für automatisierbare Aufgaben. 
+          Reale Kosten und Ergebnisse können je nach Projektkomplexität, Implementierung und Anwendungsfall variieren. 
+          Genaue Preise erhalten Sie in einem kostenlosen Beratungsgespräch.
         </p>
       </div>
     </div>
