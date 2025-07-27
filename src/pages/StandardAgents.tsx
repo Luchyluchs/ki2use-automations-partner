@@ -77,7 +77,7 @@ const StandardAgents = () => {
       </section>
 
       {/* Agents Grid */}
-      <section className="section-padding bg-background">
+      <section className="pb-16 pt-4 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {agents.map((agent, index) => <div key={index} className="bg-card border border-card-border rounded-xl p-4 shadow-card hover-lift cursor-pointer">
