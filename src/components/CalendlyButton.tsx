@@ -48,9 +48,29 @@ const CalendlyButton = ({
   }, []);
 
   const handleCalendlyClick = () => {
-    // Direct approach - open Calendly in new tab
-    // This bypasses any popup blockers or CSS conflicts
-    window.open('https://calendly.com/luxalexander/30min', '_blank');
+    const openCalendly = () => {
+      if (window.Calendly) {
+        try {
+          window.Calendly.initPopupWidget({
+            url: 'https://calendly.com/luxalexander/30min'
+          });
+        } catch (error) {
+          console.error('Calendly popup error:', error);
+          // Fallback: open in new tab
+          window.open('https://calendly.com/luxalexander/30min', '_blank');
+        }
+      } else {
+        // Fallback: open in new tab if Calendly not loaded
+        window.open('https://calendly.com/luxalexander/30min', '_blank');
+      }
+    };
+    
+    // Try immediately, if it fails, wait and try again
+    if (window.Calendly) {
+      openCalendly();
+    } else {
+      setTimeout(openCalendly, 300);
+    }
   };
 
   return (
