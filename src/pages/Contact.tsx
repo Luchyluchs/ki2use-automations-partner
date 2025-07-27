@@ -9,7 +9,9 @@ import { useEffect } from "react";
 declare global {
   interface Window {
     Calendly?: {
-      initPopupWidget: (options: { url: string }) => void;
+      initPopupWidget: (options: {
+        url: string;
+      }) => void;
     };
   }
 }
@@ -20,7 +22,6 @@ const Contact = () => {
     script.src = 'https://assets.calendly.com/assets/external/widget.js';
     script.async = true;
     document.head.appendChild(script);
-
     return () => {
       // Cleanup
       const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
@@ -29,7 +30,6 @@ const Contact = () => {
       }
     };
   }, []);
-
   return <Layout>
       {/* Header */}
       <section className="bg-gradient-subtle py-16">
@@ -70,22 +70,19 @@ const Contact = () => {
                   direkt einen Termin und sprechen Sie mit unseren Experten.
                 </p>
                 
-                <Button 
-                  variant="accent" 
-                  size="lg" 
-                  className="w-full bg-white text-primary hover:bg-white/90 mb-4 hover-scale cursor-pointer z-10 relative"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    console.log('Button clicked!'); // Debug log
-                    if (window.Calendly) {
-                      console.log('Opening Calendly popup');
-                      window.Calendly.initPopupWidget({url: 'https://calendly.com/luxalexander/30min'});
-                    } else {
-                      console.log('Calendly not loaded, opening in new tab');
-                      window.open('https://calendly.com/luxalexander/30min', '_blank');
-                    }
-                  }}
-                >
+                <Button variant="accent" size="lg" className="w-full bg-white text-primary hover:bg-white/90 mb-4 hover-scale cursor-pointer z-10 relative" onClick={e => {
+                e.preventDefault();
+                console.log('Button clicked!'); // Debug log
+                if (window.Calendly) {
+                  console.log('Opening Calendly popup');
+                  window.Calendly.initPopupWidget({
+                    url: 'https://calendly.com/luxalexander/30min'
+                  });
+                } else {
+                  console.log('Calendly not loaded, opening in new tab');
+                  window.open('https://calendly.com/luxalexander/30min', '_blank');
+                }
+              }}>
                   <Calendar className="w-5 h-5 mr-2" />
                   Jetzt kostenlosen Termin buchen
                 </Button>
@@ -225,34 +222,22 @@ const Contact = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="bg-card border border-card-border rounded-xl p-6 shadow-card hover-lift">
                 <h4 className="font-semibold mb-3">Was passiert im Beratungsgespräch?</h4>
-                <p className="text-muted-foreground text-sm">
-                  Wir analysieren Ihre aktuellen Prozesse, identifizieren Automatisierungspotenziale 
-                  und entwickeln konkrete Lösungsvorschläge speziell für Ihr KMU.
-                </p>
+                <p className="text-muted-foreground text-sm">Wir analysieren Ihre aktuellen Prozesse, identifizieren Automatisierungspotenziale und entwickeln konkrete Lösungsvorschläge speziell für Ihr Unternehmen.</p>
               </div>
               
               <div className="bg-card border border-card-border rounded-xl p-6 shadow-card hover-lift">
                 <h4 className="font-semibold mb-3">Ist das Gespräch wirklich kostenlos?</h4>
-                <p className="text-muted-foreground text-sm">
-                  Ja, absolut! Das 30-minütige Beratungsgespräch ist unverbindlich und kostenlos. 
-                  Sie erhalten bereits wertvolle Insights für Ihr Unternehmen.
-                </p>
+                <p className="text-muted-foreground text-sm">Ja, absolut! Das 30-minütige Beratungsgespräch ist unverbindlich und kostenlos. Sie erhalten bereits wertvolle Insights für Ihr Unternehmen und das weitere Vorgehen.</p>
               </div>
               
               <div className="bg-card border border-card-border rounded-xl p-6 shadow-card hover-lift">
                 <h4 className="font-semibold mb-3">Welche Unterlagen sollte ich bereithalten?</h4>
-                <p className="text-muted-foreground text-sm">
-                  Eine grobe Übersicht Ihrer wichtigsten Geschäftsprozesse reicht aus. 
-                  Wir besprechen alles Weitere gemeinsam im Gespräch.
-                </p>
+                <p className="text-muted-foreground text-sm">Eine grobe Übersicht Ihrer gewünschten zu automatisierenden Geschäftsprozesse reicht aus. Wir besprechen alles Weitere gemeinsam im Gespräch.</p>
               </div>
               
               <div className="bg-card border border-card-border rounded-xl p-6 shadow-card hover-lift">
                 <h4 className="font-semibold mb-3">Wie schnell kann implementiert werden?</h4>
-                <p className="text-muted-foreground text-sm">
-                  Standard-Agenten können oft binnen weniger Tage aktiviert werden. 
-                  Individuelle Lösungen benötigen je nach Komplexität 2-8 Wochen.
-                </p>
+                <p className="text-muted-foreground text-sm">Standard-Agenten können oft binnen weniger Tage aktiviert werden. Individuelle Lösungen benötigen je nach Komplexität 2-4 Wochen.</p>
               </div>
             </div>
           </div>
