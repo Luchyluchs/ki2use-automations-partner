@@ -210,7 +210,7 @@ const Chatbot = () => {
               </Button>
             </div>
             <p className="text-xs text-muted-foreground mt-2 text-center">
-              🤖 Automatisiert mit n8n - Live-Demo unserer KI-Kompetenz
+              🤖 Automatisiert - Live-Demo unserer KI-Kompetenz
             </p>
           </div>
         </div>
