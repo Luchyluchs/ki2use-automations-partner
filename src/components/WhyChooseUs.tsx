@@ -57,22 +57,7 @@ const WhyChooseUs = () => {
         })}
         </div>
 
-        <div className="mt-16 bg-gradient-subtle border border-card-border rounded-2xl p-8 lg:p-12 hover-scale">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 text-center">
-            <div>
-              <div className="text-3xl font-bold text-primary mb-2">500+</div>
-              <div className="text-muted-foreground">Automatisierte Prozesse</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-accent mb-2">95%</div>
-              <div className="text-muted-foreground">Kundenzufriedenheit</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-secondary mb-2">24h</div>
-              <div className="text-muted-foreground">Durchschnittliche Antwortzeit</div>
-            </div>
-          </div>
-        </div>
+        
       </div>
     </section>;
 };
