@@ -44,15 +44,18 @@ Corporate design for German KMUs - trustworthy, modern, efficient
     --input: 220 15% 96%;
     --ring: 220 85% 25%;
     
-    /* Professional Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(220 85% 25%), hsl(220 85% 35%));
-    --gradient-hero: linear-gradient(135deg, hsl(220 85% 25%) 0%, hsl(220 60% 30%) 50%, hsl(155 65% 35%) 100%);
-    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(220 15% 98%) 100%);
+    /* Professional Gradients mit subtilen Effekten */
+    --gradient-primary: linear-gradient(135deg, hsl(220 85% 25%) 0%, hsl(220 85% 35%) 50%, hsl(220 70% 45%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(220 85% 25%) 0%, hsl(220 70% 30%) 30%, hsl(155 65% 35%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(220 20% 97%) 50%, hsl(220 15% 95%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(220 15% 98%) 100%);
+    --gradient-text: linear-gradient(135deg, hsl(220 85% 25%) 0%, hsl(155 65% 35%) 100%);
     
-    /* Professional Shadows */
-    --shadow-card: 0 4px 24px -8px hsl(220 25% 15% / 0.08);
-    --shadow-elevated: 0 8px 32px -12px hsl(220 25% 15% / 0.12);
-    --shadow-primary: 0 8px 32px -12px hsl(220 85% 25% / 0.25);
+    /* Elegante Schattierungen */
+    --shadow-card: 0 8px 32px -8px hsl(220 25% 15% / 0.12), 0 4px 16px -4px hsl(220 25% 15% / 0.08);
+    --shadow-elevated: 0 16px 48px -12px hsl(220 25% 15% / 0.18), 0 8px 24px -8px hsl(220 25% 15% / 0.12);
+    --shadow-primary: 0 12px 40px -8px hsl(220 85% 25% / 0.3), 0 4px 16px -4px hsl(220 85% 25% / 0.15);
+    --shadow-soft: 0 4px 16px -4px hsl(220 25% 15% / 0.06);
     
     /* Typography Scale */
     --font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -181,6 +184,17 @@ Corporate design for German KMUs - trustworthy, modern, efficient
     background: var(--gradient-subtle);
   }
   
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+  
+  .gradient-text {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
   .shadow-card {
     box-shadow: var(--shadow-card);
   }
@@ -191,6 +205,10 @@ Corporate design for German KMUs - trustworthy, modern, efficient
   
   .shadow-primary {
     box-shadow: var(--shadow-primary);
+  }
+  
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
   }
   
   /* Interactive Effects */
