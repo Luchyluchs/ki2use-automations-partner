@@ -2,6 +2,7 @@ import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowLeft, CheckCircle, ArrowRight, Calendar, Users, Zap, Target, Shield, TrendingUp } from "lucide-react";
+import CustomROICalculator from "@/components/CustomROICalculator";
 const CustomAgents = () => {
   const processSteps = [{
     step: "01",
@@ -222,6 +223,22 @@ const CustomAgents = () => {
                 </div>;
           })}
           </div>
+        </div>
+      </section>
+
+      {/* ROI Calculator */}
+      <section className="section-padding bg-muted">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="mb-6 scale-in-element">
+              Berechnen Sie Ihre{" "}
+              <span className="text-primary">Kosteneinsparungen</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Unser ROI-Rechner zeigt Ihnen das Einsparpotential einer maßgeschneiderten KI-Lösung für Ihr Unternehmen
+            </p>
+          </div>
+          <CustomROICalculator />
         </div>
       </section>
 
