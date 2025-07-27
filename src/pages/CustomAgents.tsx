@@ -142,11 +142,13 @@ const CustomAgents = () => {
           <div className="relative">
             {/* Animated Connection Line */}
             <div className="absolute top-20 left-0 right-0 h-0.5 bg-gradient-to-r from-primary via-accent to-primary opacity-30 hidden lg:block"></div>
-            <div className="absolute top-20 left-0 h-0.5 bg-gradient-to-r from-primary to-accent animate-pulse hidden lg:block" style={{width: '100%', animation: 'slide-progress 3s ease-in-out infinite'}}></div>
+            <div className="absolute top-20 left-0 h-0.5 bg-gradient-to-r from-primary to-accent animate-pulse hidden lg:block" style={{
+            width: '100%',
+            animation: 'slide-progress 3s ease-in-out infinite'
+          }}></div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 relative z-10">
-              {processSteps.map((step, index) => 
-                <div key={index} className="group relative">
+              {processSteps.map((step, index) => <div key={index} className="group relative">
                   <div className="bg-card border border-card-border rounded-xl p-6 shadow-card hover:shadow-xl transition-all duration-500 text-center h-full transform hover:scale-105 hover:-translate-y-2 cursor-pointer group-hover:bg-gradient-subtle">
                     {/* Floating Step Number */}
                     <div className="relative -mt-10 mb-4">
@@ -170,13 +172,11 @@ const CustomAgents = () => {
                       
                       {/* Deliverables with Stagger Animation */}
                       <div className="space-y-1">
-                        {step.deliverables.map((deliverable, deliverableIndex) => 
-                          <div key={deliverableIndex} 
-                               className="bg-muted group-hover:bg-primary/5 rounded px-2 py-1 transition-all duration-300 transform group-hover:translate-x-1" 
-                               style={{transitionDelay: `${deliverableIndex * 50}ms`}}>
+                        {step.deliverables.map((deliverable, deliverableIndex) => <div key={deliverableIndex} className="bg-muted group-hover:bg-primary/5 rounded px-2 py-1 transition-all duration-300 transform group-hover:translate-x-1" style={{
+                      transitionDelay: `${deliverableIndex * 50}ms`
+                    }}>
                             <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors duration-300">{deliverable}</span>
-                          </div>
-                        )}
+                          </div>)}
                       </div>
                     </div>
 
@@ -185,23 +185,16 @@ const CustomAgents = () => {
                   </div>
 
                   {/* Animated Connection Arrow */}
-                  {index < processSteps.length - 1 && 
-                    <div className="hidden lg:block absolute top-8 -right-3 transform -translate-y-1/2 z-20">
+                  {index < processSteps.length - 1 && <div className="hidden lg:block absolute top-8 -right-3 transform -translate-y-1/2 z-20">
                       <div className="relative">
                         <ArrowRight className="w-8 h-8 text-accent/60 bg-background rounded-full p-1.5 shadow-md transform transition-all duration-300 group-hover:text-accent group-hover:scale-110 group-hover:translate-x-1" />
                         <div className="absolute inset-0 w-8 h-8 rounded-full border-2 border-accent/30 animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       </div>
-                    </div>
-                  }
+                    </div>}
 
                   {/* Step Connection Line (Mobile) */}
-                  {index < processSteps.length - 1 && 
-                    <div className="lg:hidden flex justify-center mt-6 mb-2">
-                      <div className="w-px h-8 bg-gradient-to-b from-primary to-accent"></div>
-                    </div>
-                  }
-                </div>
-              )}
+                  {index < processSteps.length - 1}
+                </div>)}
             </div>
           </div>
         </div>
