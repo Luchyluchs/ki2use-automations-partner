@@ -73,14 +73,30 @@ const Contact = () => {
                 <Button variant="accent" size="lg" className="w-full bg-white text-primary hover:bg-white/90 mb-4 hover-scale cursor-pointer z-10 relative" onClick={e => {
                 e.preventDefault();
                 console.log('Button clicked!'); // Debug log
+                
+                // Check if Calendly is loaded and wait a bit if not
+                const openCalendly = () => {
+                  if (window.Calendly) {
+                    console.log('Opening Calendly popup');
+                    try {
+                      window.Calendly.initPopupWidget({
+                        url: 'https://calendly.com/luxalexander/30min'
+                      });
+                    } catch (error) {
+                      console.error('Calendly popup error:', error);
+                      window.open('https://calendly.com/luxalexander/30min', '_blank');
+                    }
+                  } else {
+                    console.log('Calendly not loaded, opening in new tab');
+                    window.open('https://calendly.com/luxalexander/30min', '_blank');
+                  }
+                };
+                
+                // Try immediately, if it fails, wait and try again
                 if (window.Calendly) {
-                  console.log('Opening Calendly popup');
-                  window.Calendly.initPopupWidget({
-                    url: 'https://calendly.com/luxalexander/30min'
-                  });
+                  openCalendly();
                 } else {
-                  console.log('Calendly not loaded, opening in new tab');
-                  window.open('https://calendly.com/luxalexander/30min', '_blank');
+                  setTimeout(openCalendly, 500);
                 }
               }}>
                   <Calendar className="w-5 h-5 mr-2" />
