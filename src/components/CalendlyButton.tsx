@@ -25,11 +25,41 @@ const CalendlyButton = ({
     script.type = 'text/javascript';
     script.async = true;
     document.body.appendChild(script);
+    
+    // Add CSS to ensure Calendly popup displays correctly
+    const style = document.createElement('style');
+    style.textContent = `
+      .calendly-overlay {
+        z-index: 9999 !important;
+      }
+      .calendly-popup {
+        z-index: 10000 !important;
+      }
+    `;
+    document.head.appendChild(style);
   }, []);
 
   const openCalendly = () => {
-    // Open in new tab to avoid CSS conflicts and hanging issues
-    window.open('https://calendly.com/luxalexander/30min', '_blank');
+    // @ts-ignore
+    if (window.Calendly) {
+      // @ts-ignore
+      window.Calendly.initPopupWidget({
+        url: 'https://calendly.com/luxalexander/30min'
+      });
+    } else {
+      // Wait a moment and try again
+      setTimeout(() => {
+        // @ts-ignore
+        if (window.Calendly) {
+          // @ts-ignore
+          window.Calendly.initPopupWidget({
+            url: 'https://calendly.com/luxalexander/30min'
+          });
+        } else {
+          window.open('https://calendly.com/luxalexander/30min', '_blank');
+        }
+      }, 500);
+    }
   };
 
   return (
