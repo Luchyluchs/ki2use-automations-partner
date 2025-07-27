@@ -226,42 +226,7 @@ const CustomAgents = () => {
       </section>
 
       {/* Examples */}
-      <section className="section-padding bg-muted">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 fade-in-element">
-            <h2 className="mb-6 scale-in-element">
-              Erfolgreiche{" "}
-              <span className="text-primary">Praxisbeispiele</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto fade-in-element">
-              Sehen Sie, wie andere KMUs von maßgeschneiderten KI-Lösungen profitieren 
-              und messbare Ergebnisse erzielen.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {examples.map((example, index) => <div key={index} className="bg-card border border-card-border rounded-xl p-6 shadow-card hover-lift cursor-pointer">
-                <div className="mb-4">
-                  <div className="text-xs font-medium text-accent bg-accent/10 rounded-full px-3 py-1 inline-block mb-3">
-                    {example.industry}
-                  </div>
-                  <h3 className="font-semibold mb-2">{example.title}</h3>
-                  <p className="text-muted-foreground text-sm mb-4">{example.description}</p>
-                </div>
-
-                <div>
-                  <h4 className="font-medium mb-2 text-sm">Messbare Ergebnisse:</h4>
-                  <ul className="space-y-1">
-                    {example.results.map((result, resultIndex) => <li key={resultIndex} className="flex items-start">
-                        <CheckCircle className="w-3 h-3 text-accent mt-0.5 mr-2 flex-shrink-0" />
-                        <span className="text-xs text-muted-foreground">{result}</span>
-                      </li>)}
-                  </ul>
-                </div>
-              </div>)}
-          </div>
-        </div>
-      </section>
+      
 
       {/* CTA */}
       <section className="section-padding bg-gradient-primary">
