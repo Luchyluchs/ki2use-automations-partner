@@ -47,28 +47,39 @@ const CalendlyButton = ({
   }, []);
 
   const handleCalendlyClick = () => {
+    console.log('Calendly button clicked');
+    console.log('window.Calendly available:', !!window.Calendly);
+    
     const openCalendly = () => {
+      console.log('Attempting to open Calendly...');
       if (window.Calendly) {
+        console.log('Calendly object found, trying popup');
         try {
           window.Calendly.initPopupWidget({
             url: 'https://calendly.com/luxalexander/30min'
           });
+          console.log('Calendly popup initiated');
         } catch (error) {
           console.error('Calendly popup error:', error);
-          // Fallback: open in new tab
+          console.log('Falling back to new tab');
           window.open('https://calendly.com/luxalexander/30min', '_blank');
         }
       } else {
-        // Fallback: open in new tab if Calendly not loaded
+        console.log('Calendly object not found, opening in new tab');
         window.open('https://calendly.com/luxalexander/30min', '_blank');
       }
     };
     
     // Try immediately, if it fails, wait and try again
     if (window.Calendly) {
+      console.log('Calendly immediately available');
       openCalendly();
     } else {
-      setTimeout(openCalendly, 300);
+      console.log('Calendly not available, waiting 300ms');
+      setTimeout(() => {
+        console.log('Retry after timeout');
+        openCalendly();
+      }, 300);
     }
   };
 
