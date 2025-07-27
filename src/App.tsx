@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import StandardAgents from "./pages/StandardAgents";
 import CustomAgents from "./pages/CustomAgents";
+import ROICalculatorPage from "./pages/ROICalculator";
 import Training from "./pages/Training";
 import Contact from "./pages/Contact";
 import Impressum from "./pages/Impressum";
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/standard-agenten" element={<StandardAgents />} />
           <Route path="/massgeschneiderte-agenten" element={<CustomAgents />} />
+          <Route path="/roi-rechner" element={<ROICalculatorPage />} />
           <Route path="/ki-schulungen" element={<Training />} />
           <Route path="/kontakt" element={<Contact />} />
           <Route path="/impressum" element={<Impressum />} />
