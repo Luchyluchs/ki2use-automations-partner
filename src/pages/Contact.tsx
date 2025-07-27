@@ -3,33 +3,10 @@ import ContactForm from "@/components/ContactForm";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Calendar, Mail, Phone, MapPin, Clock, Users, Zap } from "lucide-react";
-import { useEffect } from "react";
-
-// Calendly type definition
-declare global {
-  interface Window {
-    Calendly?: {
-      initPopupWidget: (options: {
-        url: string;
-      }) => void;
-    };
-  }
-}
+import { PopupWidget } from "react-calendly";
+import { useState } from "react";
 const Contact = () => {
-  // Load Calendly script
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://assets.calendly.com/assets/external/widget.js';
-    script.async = true;
-    document.head.appendChild(script);
-    return () => {
-      // Cleanup
-      const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
-      if (existingScript) {
-        document.head.removeChild(existingScript);
-      }
-    };
-  }, []);
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
   return <Layout>
       {/* Header */}
       <section className="bg-gradient-subtle py-16">
@@ -70,35 +47,12 @@ const Contact = () => {
                   direkt einen Termin und sprechen Sie mit unseren Experten.
                 </p>
                 
-                <Button variant="accent" size="lg" className="w-full bg-white text-primary hover:bg-white/90 mb-4 hover-scale cursor-pointer z-10 relative" onClick={e => {
-                e.preventDefault();
-                console.log('Button clicked!'); // Debug log
-                
-                // Check if Calendly is loaded and wait a bit if not
-                const openCalendly = () => {
-                  if (window.Calendly) {
-                    console.log('Opening Calendly popup');
-                    try {
-                      window.Calendly.initPopupWidget({
-                        url: 'https://calendly.com/luxalexander/30min'
-                      });
-                    } catch (error) {
-                      console.error('Calendly popup error:', error);
-                      window.open('https://calendly.com/luxalexander/30min', '_blank');
-                    }
-                  } else {
-                    console.log('Calendly not loaded, opening in new tab');
-                    window.open('https://calendly.com/luxalexander/30min', '_blank');
-                  }
-                };
-                
-                // Try immediately, if it fails, wait and try again
-                if (window.Calendly) {
-                  openCalendly();
-                } else {
-                  setTimeout(openCalendly, 500);
-                }
-              }}>
+                <Button 
+                  variant="accent" 
+                  size="lg" 
+                  className="w-full bg-white text-primary hover:bg-white/90 mb-4 hover-scale cursor-pointer z-10 relative" 
+                  onClick={() => setIsCalendlyOpen(true)}
+                >
                   <Calendar className="w-5 h-5 mr-2" />
                   Jetzt kostenlosen Termin buchen
                 </Button>
@@ -259,6 +213,15 @@ const Contact = () => {
           </div>
         </div>
       </section>
+      
+      {/* Calendly Popup Widget */}
+      {isCalendlyOpen && (
+        <PopupWidget
+          url="https://calendly.com/luxalexander/30min"
+          text="Termin buchen"
+          rootElement={document.getElementById("root")!}
+        />
+      )}
     </Layout>;
 };
 export default Contact;
