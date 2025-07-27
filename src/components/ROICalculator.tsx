@@ -16,7 +16,8 @@ const ROICalculator = () => {
     linkedin: { monthly: 85, setup: 1500 },
     voice: { monthly: 95, setup: 1800 },
     newsletter: { monthly: 65, setup: 1000 },
-    chatbot: { monthly: 80, setup: 1300 }
+    chatbot: { monthly: 80, setup: 1300 },
+    socialmedia: { monthly: 90, setup: 1400 }
   };
 
   const currentCosts = {
@@ -93,6 +94,7 @@ const ROICalculator = () => {
                 <SelectItem value="voice">Voice Agent (ab €95/Monat + €1.800 Setup)*</SelectItem>
                 <SelectItem value="newsletter">Newsletter Agent (ab €65/Monat + €1.000 Setup)*</SelectItem>
                 <SelectItem value="chatbot">Chatbot (ab €80/Monat + €1.300 Setup)*</SelectItem>
+                <SelectItem value="socialmedia">Social Media Agent (ab €90/Monat + €1.400 Setup)*</SelectItem>
               </SelectContent>
             </Select>
           </div>

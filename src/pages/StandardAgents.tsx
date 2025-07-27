@@ -8,7 +8,7 @@ import chatbotWorkflow from "@/assets/chatbot-workflow.jpg";
 import newsletterWorkflow from "@/assets/newsletter-workflow.jpg";
 import emailWorkflow from "@/assets/email-workflow.jpg";
 import voiceWorkflow from "@/assets/voice-workflow.jpg";
-import applicationWorkflow from "@/assets/application-workflow.jpg";
+import socialMediaWorkflow from "@/assets/social-media-workflow.jpg";
 const StandardAgents = () => {
   const agents = [{
     name: "LinkedIn Agent",
@@ -46,12 +46,12 @@ const StandardAgents = () => {
     benefits: ["24/7 telefonische Erreichbarkeit", "Professionelle Kundenbetreuung", "Entlastung der Mitarbeiter", "Höhere Kundenzufriedenheit"],
     useCases: ["Telefonische Terminbuchungen", "Kundenservice-Hotline", "Notfall-Support", "Informations-Hotline"]
   }, {
-    name: "Bewerbungsagent",
-    image: applicationWorkflow,
-    description: "Filtert und bewertet Bewerbungen automatisch, identifiziert die besten Kandidaten und beschleunigt den Recruiting-Prozess erheblich.",
-    features: ["Automatisches CV-Screening", "Intelligentes Scoring", "Skill-Matching", "Bias-freie Bewertung", "Integration in HR-Systeme"],
-    benefits: ["90% Zeitersparnis beim Bewerbungsscreening", "Objektive Kandidatenbewertung", "Schnellere Time-to-Hire", "Bessere Kandidatenqualität"],
-    useCases: ["Massenbewerbungen filtern", "Fachkräfte-Recruiting", "Praktikanten-Auswahl", "Freelancer-Bewertung"]
+    name: "Social Media Agent",
+    image: socialMediaWorkflow,
+    description: "Automatisiert Social Media Posting, Interaktionen und Content-Erstellung für eine konsistente Online-Präsenz und bessere Reichweite.",
+    features: ["Automatisches Posting", "Content-Generierung", "Hashtag-Optimierung", "Engagement-Tracking", "Multi-Platform-Management"],
+    benefits: ["Konsistente Social Media Präsenz", "70% Zeitersparnis beim Content Management", "Verbesserte Reichweite und Engagement", "Automatisierte Kundeninteraktion"],
+    useCases: ["Regelmäßige Posts", "Kundenkommunikation", "Markenaufbau", "Lead-Generierung über Social Media"]
   }];
   return <Layout>
       {/* Header */}

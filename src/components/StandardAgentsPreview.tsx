@@ -5,6 +5,7 @@ import chatbotRobot from "@/assets/chatbot-robot.jpg";
 import newsletterRobot from "@/assets/newsletter-robot.jpg";
 import emailRobot from "@/assets/email-robot.jpg";
 import voiceRobot from "@/assets/voice-robot.jpg";
+import socialMediaRobot from "@/assets/social-media-robot.jpg";
 const StandardAgentsPreview = () => {
   const agents = [{
     name: "LinkedIn Agent",
@@ -31,6 +32,11 @@ const StandardAgentsPreview = () => {
     image: voiceRobot,
     description: "Interagiert mit Kunden per Sprache, auch außerhalb der Geschäftszeiten.",
     benefits: "Erreichbarkeit rund um die Uhr"
+  }, {
+    name: "Social Media Agent",
+    image: socialMediaRobot,
+    description: "Automatisiert Posts und Interaktionen für konsistente Online-Präsenz.",
+    benefits: "70% Zeitersparnis beim Content Management"
   }];
 
   return (
