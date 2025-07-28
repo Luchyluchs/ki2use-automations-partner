@@ -13,7 +13,7 @@ const StandardAgentsPreview = () => {
     name: "LinkedIn Agent",
     image: linkedinRobot,
     description: "Automatisiert Netzwerkpflege, spart wertvolle Zeit bei der Akquise.",
-    benefits: "Bis zu 70% Zeitersparnis beim Networking"
+    benefits: "Bis zu 40% Zeitersparnis beim Networking"
   }, {
     name: "Chatbot Agent",
     image: chatbotRobot,
@@ -28,7 +28,7 @@ const StandardAgentsPreview = () => {
     name: "Email Organisator",
     image: emailRobot,
     description: "Automatisiert E-Mail-Sortierung und reduziert administrative Last.",
-    benefits: "50% weniger Zeit für E-Mail-Verwaltung"
+    benefits: "30% weniger Zeit für E-Mail-Verwaltung"
   }, {
     name: "Sprachbot",
     image: voiceRobot,
@@ -38,17 +38,17 @@ const StandardAgentsPreview = () => {
     name: "Social Media Agent",
     image: socialMediaRobot,
     description: "Automatisiert Posts und Interaktionen für konsistente Online-Präsenz.",
-    benefits: "70% Zeitersparnis beim Content Management"
+    benefits: "40% Zeitersparnis beim Content Management"
   }, {
     name: "Sales Agent",
     image: salesRobot,
     description: "Automatisiert Lead-Qualifizierung und unterstützt Verkaufsprozesse.",
-    benefits: "60% höhere Conversion-Rate"
+    benefits: "30% höhere Conversion-Rate"
   }, {
     name: "Terminbuchungsagent",
     image: appointmentRobot,
     description: "Vereinfacht Terminplanung durch automatische Buchungen und Erinnerungen.",
-    benefits: "90% weniger manueller Aufwand"
+    benefits: "60% weniger manueller Aufwand"
   }];
 
   return (
