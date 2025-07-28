@@ -23,7 +23,7 @@ const HeroSection = () => {
                 text="Kostenloses Beratungsgespräch vereinbaren"
                 variant="cta"
                 size="xl"
-                className="w-full"
+                className="w-full text-xl"
                 icon={false}
               />
               <Button variant="outline" size="xl" asChild className="hover-scale w-full">
