@@ -24,6 +24,7 @@ const HeroSection = () => {
                 variant="cta"
                 size="xl"
                 className="w-full"
+                icon={false}
               />
               <Button variant="outline" size="xl" asChild className="hover-scale w-full">
                 <Link to="/standard-agenten">Standard-Agenten</Link>
