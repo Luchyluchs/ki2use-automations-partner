@@ -62,11 +62,13 @@ const Chatbot = () => {
       });
 
       if (response.ok) {
-        const data = await response.text();
+        // Gesamten HTTP Body als Text lesen, unabhängig vom Content-Type
+        const responseBody = await response.text();
         
+        // Den gesamten Body als direkte Textnachricht verwenden
         const botMessage: Message = {
           id: (Date.now() + 1).toString(),
-          text: data || "Vielen Dank für Ihre Nachricht! Unser Team wird sich schnellstmöglich bei Ihnen melden.",
+          text: responseBody.trim() || "Vielen Dank für Ihre Nachricht! Unser Team wird sich schnellstmöglich bei Ihnen melden.",
           isUser: false,
           timestamp: new Date()
         };
