@@ -39,7 +39,8 @@ const CTASection = () => {
               text="Jetzt kostenloses Beratungsgespräch vereinbaren"
               variant="accent"
               size="xl"
-              className="bg-white text-primary hover:bg-white/90"
+              className="bg-white text-primary hover:bg-white/90 text-lg"
+              icon={false}
             />
             <p className="text-sm opacity-75">
               ✓ Unverbindlich ✓ Kostenlos ✓ Sofort verfügbar
