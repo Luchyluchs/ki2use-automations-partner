@@ -25,7 +25,7 @@ const HomepageCreation = () => {
       price: "8.500€",
       description: "Erweiterte Website mit Automatisierungen",
       features: [
-        "Bis zu 20 Seiten",
+        "Bis zu 15 Seiten",
         "Premium Design",
         "KI-Chatbot + Lead-Qualifizierung",
         "Erweiterte SEO-Optimierung",
@@ -112,7 +112,7 @@ const HomepageCreation = () => {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                 {packages.map((pkg, index) => (
                   <Card key={index} className={`relative ${pkg.popular ? 'border-primary shadow-lg scale-105' : ''} hover-lift`}>
                     {pkg.popular && (
