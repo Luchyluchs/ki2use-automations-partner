@@ -9,7 +9,7 @@ const HomepageCreation = () => {
   const packages = [
     {
       name: "Starter Website",
-      price: "5.000€",
+      price: "ab 5.000€",
       description: "Professionelle Website mit KI-Integration",
       features: [
         "Bis zu 10 Seiten",
@@ -22,7 +22,7 @@ const HomepageCreation = () => {
     },
     {
       name: "Business Website",
-      price: "8.500€",
+      price: "ab 8.000€",
       description: "Erweiterte Website mit Automatisierungen",
       features: [
         "Bis zu 15 Seiten",
@@ -122,7 +122,7 @@ const HomepageCreation = () => {
                 <div className="w-32 h-1 bg-gradient-primary mx-auto rounded-full mt-6"></div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto pt-8">
                 {packages.map((pkg, index) => (
                   <Card key={index} className={`group relative overflow-hidden ${pkg.popular ? 'border-primary shadow-elegant scale-105 bg-gradient-subtle' : 'border-card-border'} hover-lift transition-all duration-300`}>
                     {pkg.popular && (
