@@ -23,13 +23,6 @@ const ServicesSection = () => {
     features: ["Grundlagen der KI für Unternehmen", "Automatisierungsstrategien", "Workflow-Design", "Implementierungsberatung", "Langfristige Begleitung"],
     link: "/ki-schulungen",
     cta: "Schulungen buchen"
-  }, {
-    icon: Globe,
-    title: "Professionelle Homepage mit KI",
-    description: "Moderne, responsive Websites mit integrierten KI-Automatisierungen für maximale Effizienz – ab 5.000€.",
-    features: ["Responsive Design für alle Geräte", "SEO-optimierte Struktur", "KI-Chatbot Integration", "Automatisierte Lead-Generierung", "Content Management System", "Analytics & Conversion-Tracking"],
-    link: "/homepage-erstellung",
-    cta: "Website-Angebot erhalten"
   }];
   return <section className="section-padding bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -38,12 +31,12 @@ const ServicesSection = () => {
             Unsere Kernkompetenzen
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto fade-in-element">
-            Vier speziell entwickelte Bereiche, die Ihr Unternehmen effizienter 
+            Drei speziell entwickelte Bereiche, die Ihr Unternehmen effizienter 
             und zukunftssicherer machen – mit bewährten Automatisierungslösungen.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => {
           const IconComponent = service.icon;
           return <div key={index} className="bg-card border border-card-border rounded-2xl p-8 shadow-card hover-lift cursor-pointer">
