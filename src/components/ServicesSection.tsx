@@ -38,7 +38,7 @@ const ServicesSection = () => {
             Unsere Kernkompetenzen
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto fade-in-element">
-            Drei speziell entwickelte Bereiche, die Ihr Unternehmen effizienter 
+            Vier speziell entwickelte Bereiche, die Ihr Unternehmen effizienter 
             und zukunftssicherer machen – mit bewährten Automatisierungslösungen.
           </p>
         </div>
