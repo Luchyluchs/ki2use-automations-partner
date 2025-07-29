@@ -130,7 +130,7 @@ const HomepageCreation = () => {
                     )}
                     {pkg.popular && (
                       <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-primary shadow-glow">
-                        ⭐ Beliebteste Wahl
+                        Beliebteste Wahl
                       </Badge>
                     )}
                     <CardHeader className="text-center pb-6">
@@ -183,35 +183,28 @@ const HomepageCreation = () => {
                     {
                       step: "1",
                       title: "Beratung & Konzept",
-                      description: "Ausführliche Analyse Ihrer Anforderungen und Zielgruppe",
-                      icon: "💡"
+                      description: "Ausführliche Analyse Ihrer Anforderungen und Zielgruppe"
                     },
                     {
                       step: "2", 
                       title: "Design & Prototyp",
-                      description: "Modernes, responsives Design passend zu Ihrer Marke",
-                      icon: "🎨"
+                      description: "Modernes, responsives Design passend zu Ihrer Marke"
                     },
                     {
                       step: "3",
                       title: "Entwicklung & KI-Integration",
-                      description: "Technische Umsetzung mit integrierten Automatisierungen",
-                      icon: "⚡"
+                      description: "Technische Umsetzung mit integrierten Automatisierungen"
                     },
                     {
                       step: "4",
                       title: "Launch & Support",
-                      description: "Go-Live Ihrer Website mit kontinuierlichem Support",
-                      icon: "🚀"
+                      description: "Go-Live Ihrer Website mit kontinuierlichem Support"
                     }
                   ].map((process, index) => (
                     <div key={index} className="group text-center fade-in-element">
                       <div className="relative">
                         <div className="w-20 h-20 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-6 text-primary-foreground font-bold text-xl shadow-glow group-hover:scale-110 transition-transform duration-300">
                           {process.step}
-                        </div>
-                        <div className="absolute top-2 left-1/2 transform -translate-x-1/2 text-2xl">
-                          {process.icon}
                         </div>
                       </div>
                       <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">{process.title}</h3>
@@ -232,7 +225,7 @@ const HomepageCreation = () => {
                   Kontaktieren Sie uns für ein unverbindliches Beratungsgespräch.
                 </p>
                 <Button size="lg" className="bg-gradient-primary hover:shadow-glow transition-all duration-300 px-12 py-6 text-lg" asChild>
-                  <Link to="/kontakt">💬 Kostenloses Beratungsgespräch</Link>
+                  <Link to="/kontakt">Kostenloses Beratungsgespräch</Link>
                 </Button>
               </div>
             </div>
