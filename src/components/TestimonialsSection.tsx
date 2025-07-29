@@ -70,25 +70,7 @@ const TestimonialsSection = () => {
         
 
         {/* Trust Indicators */}
-        <div className="mt-12 bg-gradient-primary rounded-2xl p-8 text-center text-primary-foreground hover-scale">
-          <h3 className="text-xl font-semibold mb-4">
-            Höchste Sicherheitsstandards für deutsche Unternehmen
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div>
-              <div className="text-2xl mb-2">🔒</div>
-              <div className="font-medium">DSGVO-konform</div>
-            </div>
-            <div>
-              <div className="text-2xl mb-2">🇩🇪</div>
-              <div className="font-medium">Deutsche Server</div>
-            </div>
-            <div>
-              <div className="text-2xl mb-2">📋</div>
-              <div className="font-medium">ISO 27001</div>
-            </div>
-          </div>
-        </div>
+        
       </div>
     </section>;
 };
