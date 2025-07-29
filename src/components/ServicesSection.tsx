@@ -26,7 +26,7 @@ const ServicesSection = () => {
   }, {
     icon: Globe,
     title: "Professionelle Homepage mit KI",
-    description: "Moderne, responsive Websites mit integrierten KI-Automatisierungen für maximale Effizienz – ab 5.000€.",
+    description: "Moderne, responsive Websites mit integrierten KI-Automatisierungen für maximale Effizienz.",
     features: ["Responsive Design für alle Geräte", "SEO-optimierte Struktur", "KI-Chatbot Integration", "Automatisierte Lead-Generierung", "Content Management System", "Analytics & Conversion-Tracking"],
     link: "/homepage-erstellung",
     cta: "Website-Angebot erhalten"
