@@ -35,20 +35,6 @@ const HomepageCreation = () => {
       ],
       popular: true
     },
-    {
-      name: "Enterprise Website",
-      price: "15.000€",
-      description: "Vollständige digitale Lösung",
-      features: [
-        "Unbegrenzte Seiten",
-        "Maßgeschneidertes Design",
-        "Vollständige KI-Automatisierung",
-        "Premium SEO & Marketing",
-        "CRM-Integration",
-        "Personalisierte User Experience",
-        "24/7 Support"
-      ]
-    }
   ];
 
   const features = [
