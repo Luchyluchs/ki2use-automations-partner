@@ -218,9 +218,6 @@ const HomepageCreation = () => {
                 <Button size="lg" asChild>
                   <Link to="/kontakt">Kostenloses Beratungsgespräch</Link>
                 </Button>
-                <Button variant="outline" size="lg" asChild>
-                  <Link to="/roi-rechner">ROI berechnen</Link>
-                </Button>
               </div>
             </div>
           </div>
