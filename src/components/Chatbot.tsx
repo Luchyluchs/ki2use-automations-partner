@@ -92,21 +92,28 @@ const Chatbot = () => {
       const contentType = response.headers.get('content-type');
       console.log('📄 Content-Type:', contentType);
 
-      if (contentType && contentType.includes('application/json')) {
-        responseData = await response.json();
-        console.log('📥 JSON Response:', responseData);
-      } else {
-        const textResponse = await response.text();
-        console.log('📥 Text Response:', textResponse);
-        
-        // Check if response contains an iframe with srcdoc
-        const iframeMatch = textResponse.match(/srcdoc="([^"]+)"/);
-        if (iframeMatch && iframeMatch[1]) {
-          console.log('🎯 Extracted from iframe srcdoc:', iframeMatch[1]);
-          responseData = { message: iframeMatch[1] };
+      try {
+        if (contentType && contentType.includes('application/json')) {
+          responseData = await response.json();
+          console.log('📥 JSON Response:', responseData);
         } else {
-          responseData = { message: textResponse };
+          const textResponse = await response.text();
+          console.log('📥 Text Response:', textResponse);
+          
+          // Check if response contains an iframe with srcdoc
+          const iframeMatch = textResponse.match(/srcdoc="([^"]+)"/);
+          if (iframeMatch && iframeMatch[1]) {
+            console.log('🎯 Extracted from iframe srcdoc:', iframeMatch[1]);
+            responseData = { message: iframeMatch[1] };
+          } else {
+            responseData = { message: textResponse };
+          }
         }
+      } catch (parseError) {
+        console.log('🔍 JSON Parse Error, fallback to text:', parseError);
+        const fallbackText = await response.text();
+        console.log('📥 Fallback Text Response:', fallbackText);
+        responseData = { message: fallbackText || "Antwort erhalten, aber konnte nicht verarbeitet werden." };
       }
       
       // Extract bot message
