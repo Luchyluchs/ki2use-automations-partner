@@ -3,6 +3,86 @@ import { Button } from "./ui/button";
 import { MessageCircle, X, Send, Bot, User } from "lucide-react";
 import { useToast } from "./ui/use-toast";
 
+// Function to parse markdown links and URLs in text
+const parseLinksInText = (text: string): JSX.Element => {
+  // Regular expression to match markdown links [text](url) and plain URLs
+  const markdownLinkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+  const urlRegex = /(https?:\/\/[^\s<>"{}|\\^`[\]]+)/g;
+  
+  let parts: (string | JSX.Element)[] = [];
+  let lastIndex = 0;
+  
+  // First, replace markdown links
+  let match;
+  const markdownMatches: Array<{start: number, end: number, text: string, url: string}> = [];
+  
+  while ((match = markdownLinkRegex.exec(text)) !== null) {
+    markdownMatches.push({
+      start: match.index!,
+      end: match.index! + match[0].length,
+      text: match[1],
+      url: match[2]
+    });
+  }
+  
+  // Process text with markdown links
+  let processedText = text;
+  let offset = 0;
+  
+  markdownMatches.forEach((linkMatch, index) => {
+    const beforeLink = processedText.slice(lastIndex, linkMatch.start - offset);
+    if (beforeLink) {
+      parts.push(beforeLink);
+    }
+    
+    parts.push(
+      <a
+        key={`md-link-${index}`}
+        href={linkMatch.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-400 hover:text-blue-300 underline decoration-dotted transition-colors"
+      >
+        {linkMatch.text}
+      </a>
+    );
+    
+    lastIndex = linkMatch.end - offset;
+    
+    // Update the processed text by removing the markdown syntax
+    const newText = processedText.slice(0, linkMatch.start - offset) + linkMatch.text + processedText.slice(linkMatch.end - offset);
+    const lengthDiff = linkMatch.end - linkMatch.start - linkMatch.text.length;
+    offset += lengthDiff;
+    processedText = newText;
+  });
+  
+  // Add remaining text and process plain URLs
+  const remainingText = processedText.slice(lastIndex);
+  if (remainingText) {
+    // Split by URLs and create links for plain URLs
+    const urlParts = remainingText.split(urlRegex);
+    urlParts.forEach((part, index) => {
+      if (part.match(urlRegex)) {
+        parts.push(
+          <a
+            key={`url-link-${index}`}
+            href={part}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-400 hover:text-blue-300 underline decoration-dotted transition-colors"
+          >
+            {part}
+          </a>
+        );
+      } else if (part) {
+        parts.push(part);
+      }
+    });
+  }
+  
+  return <>{parts}</>;
+};
+
 interface Message {
   id: string;
   text: string;
@@ -244,17 +324,19 @@ const Chatbot = () => {
                     {message.isUser && (
                       <User className="w-4 h-4 mt-0.5 text-primary-foreground flex-shrink-0" />
                     )}
-                    <div>
-                      <p className="text-sm leading-relaxed">{message.text}</p>
-                      <p className={`text-xs mt-1 ${
-                        message.isUser ? 'text-primary-foreground/70' : 'text-muted-foreground'
-                      }`}>
-                        {message.timestamp.toLocaleTimeString('de-DE', { 
-                          hour: '2-digit', 
-                          minute: '2-digit' 
-                        })}
-                      </p>
-                    </div>
+                     <div>
+                       <div className="text-sm leading-relaxed">
+                         {parseLinksInText(message.text)}
+                       </div>
+                       <p className={`text-xs mt-1 ${
+                         message.isUser ? 'text-primary-foreground/70' : 'text-muted-foreground'
+                       }`}>
+                         {message.timestamp.toLocaleTimeString('de-DE', { 
+                           hour: '2-digit', 
+                           minute: '2-digit' 
+                         })}
+                       </p>
+                     </div>
                   </div>
                 </div>
               </div>
