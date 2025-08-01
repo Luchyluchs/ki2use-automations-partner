@@ -3,23 +3,42 @@ import { Button } from "./ui/button";
 import { MessageCircle, X, Send, Bot, User } from "lucide-react";
 import { useToast } from "./ui/use-toast";
 
-// Function to parse markdown links and URLs in text
-const parseLinksInText = (text: string) => {
-  // Simple replacement for markdown links [text](url)
+// Function to render text with links as React components
+const renderMessageWithLinks = (text: string) => {
+  // Split text by markdown links [text](url)
   const markdownLinkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+  const parts = [];
+  let lastIndex = 0;
+  let match;
+
+  while ((match = markdownLinkRegex.exec(text)) !== null) {
+    // Add text before the link
+    if (match.index > lastIndex) {
+      parts.push(text.slice(lastIndex, match.index));
+    }
+    
+    // Add the link as a React component
+    parts.push(
+      <a 
+        key={`link-${match.index}`}
+        href={match[2]} 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        className="text-primary hover:text-primary/80 underline"
+      >
+        {match[1]}
+      </a>
+    );
+    
+    lastIndex = match.index + match[0].length;
+  }
   
-  // Replace markdown links with HTML
-  let result = text.replace(markdownLinkRegex, (match, linkText, url) => {
-    return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline decoration-dotted transition-colors">${linkText}</a>`;
-  });
+  // Add remaining text
+  if (lastIndex < text.length) {
+    parts.push(text.slice(lastIndex));
+  }
   
-  // Replace plain URLs
-  const urlRegex = /(https?:\/\/[^\s<>"{}|\\^`[\]]+)/g;
-  result = result.replace(urlRegex, (url) => {
-    return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline decoration-dotted transition-colors">${url}</a>`;
-  });
-  
-  return <span dangerouslySetInnerHTML={{ __html: result }} />;
+  return parts.length > 1 ? <>{parts}</> : text;
 };
 
 interface Message {
@@ -265,7 +284,7 @@ const Chatbot = () => {
                     )}
                      <div>
                        <div className="text-sm leading-relaxed">
-                         {parseLinksInText(message.text)}
+                         {renderMessageWithLinks(message.text)}
                        </div>
                        <p className={`text-xs mt-1 ${
                          message.isUser ? 'text-primary-foreground/70' : 'text-muted-foreground'
