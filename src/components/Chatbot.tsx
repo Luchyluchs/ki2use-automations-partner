@@ -94,8 +94,16 @@ const Chatbot = () => {
 
       try {
         if (contentType && contentType.includes('application/json')) {
-          responseData = await response.json();
-          console.log('📥 JSON Response:', responseData);
+          const rawResponse = await response.text();
+          console.log('📥 Raw Response Text:', rawResponse);
+          
+          try {
+            responseData = JSON.parse(rawResponse);
+            console.log('📥 JSON Response:', responseData);
+          } catch (jsonError) {
+            console.log('🔍 JSON Parse failed, treating as text:', jsonError);
+            responseData = { message: rawResponse };
+          }
         } else {
           const textResponse = await response.text();
           console.log('📥 Text Response:', textResponse);
@@ -110,10 +118,8 @@ const Chatbot = () => {
           }
         }
       } catch (parseError) {
-        console.log('🔍 JSON Parse Error, fallback to text:', parseError);
-        const fallbackText = await response.text();
-        console.log('📥 Fallback Text Response:', fallbackText);
-        responseData = { message: fallbackText || "Antwort erhalten, aber konnte nicht verarbeitet werden." };
+        console.log('🔍 Response Parse Error, using fallback:', parseError);
+        responseData = { message: "Antwort erhalten, aber konnte nicht verarbeitet werden." };
       }
       
       // Extract bot message
