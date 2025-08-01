@@ -4,7 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
-import Chatbot from "./components/Chatbot";
+// import Chatbot from "./components/Chatbot";
 import Index from "./pages/Index";
 import StandardAgents from "./pages/StandardAgents";
 import CustomAgents from "./pages/CustomAgents";
@@ -37,7 +37,7 @@ const App = () => (
           <Route path="/datenschutz" element={<Datenschutz />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-        <Chatbot />
+        {/* <Chatbot /> */}
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
