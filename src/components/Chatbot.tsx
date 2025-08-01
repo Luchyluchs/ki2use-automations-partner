@@ -5,16 +5,35 @@ import { useToast } from "./ui/use-toast";
 
 // Function to parse markdown links and URLs in text
 const parseLinksInText = (text: string) => {
-  // Simple replacement for markdown links [text](url)
+  const parts: string[] = [];
+  let lastIndex = 0;
+  
+  // First handle markdown links [text](url)
   const markdownLinkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+  let match;
   
-  // Replace markdown links with HTML
-  let result = text.replace(markdownLinkRegex, (match, linkText, url) => {
-    return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline decoration-dotted transition-colors">${linkText}</a>`;
-  });
+  while ((match = markdownLinkRegex.exec(text)) !== null) {
+    // Add text before the link
+    if (match.index > lastIndex) {
+      parts.push(text.slice(lastIndex, match.index));
+    }
+    
+    // Add the link as HTML
+    parts.push(`<a href="${match[2]}" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline decoration-dotted transition-colors">${match[1]}</a>`);
+    
+    lastIndex = match.index + match[0].length;
+  }
   
-  // Replace plain URLs
-  const urlRegex = /(https?:\/\/[^\s<>"{}|\\^`[\]]+)/g;
+  // Add remaining text
+  if (lastIndex < text.length) {
+    parts.push(text.slice(lastIndex));
+  }
+  
+  // Join all parts and then handle plain URLs in the result
+  let result = parts.join('');
+  
+  // Replace plain URLs that are not already in links
+  const urlRegex = /(?<!href=")(?<!href=')(https?:\/\/[^\s<>"{}|\\^`[\]]+)(?![^<]*<\/a>)/g;
   result = result.replace(urlRegex, (url) => {
     return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline decoration-dotted transition-colors">${url}</a>`;
   });
