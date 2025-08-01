@@ -4,7 +4,7 @@ import { MessageCircle, X, Send, Bot, User } from "lucide-react";
 import { useToast } from "./ui/use-toast";
 
 // Function to parse markdown links and URLs in text
-const parseLinksInText = (text: string): JSX.Element => {
+const parseLinksInText = (text: string) => {
   // Regular expression to match markdown links [text](url) and plain URLs
   const markdownLinkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
   const urlRegex = /(https?:\/\/[^\s<>"{}|\\^`[\]]+)/g;
