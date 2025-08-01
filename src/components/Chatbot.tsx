@@ -5,14 +5,21 @@ import { useToast } from "./ui/use-toast";
 
 // Function to parse markdown links and URLs in text
 const parseLinksInText = (text: string) => {
-  // Simple text processing without complex regex that might cause MIME issues
-  if (!text || typeof text !== 'string') {
-    return text;
-  }
+  // Simple replacement for markdown links [text](url)
+  const markdownLinkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
   
-  // For now, just return plain text to avoid MIME type issues
-  // Links will be displayed as text but still clickable if they're URLs
-  return text;
+  // Replace markdown links with HTML
+  let result = text.replace(markdownLinkRegex, (match, linkText, url) => {
+    return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline decoration-dotted transition-colors">${linkText}</a>`;
+  });
+  
+  // Replace plain URLs
+  const urlRegex = /(https?:\/\/[^\s<>"{}|\\^`[\]]+)/g;
+  result = result.replace(urlRegex, (url) => {
+    return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline decoration-dotted transition-colors">${url}</a>`;
+  });
+  
+  return <span dangerouslySetInnerHTML={{ __html: result }} />;
 };
 
 interface Message {
