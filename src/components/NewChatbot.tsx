@@ -119,7 +119,14 @@ const NewChatbot = () => {
         }
       } else {
         const textResponse = await response.text();
-        responseData = { message: textResponse };
+        
+        // Check if response contains an iframe with srcdoc
+        const iframeMatch = textResponse.match(/srcdoc="([^"]+)"/);
+        if (iframeMatch && iframeMatch[1]) {
+          responseData = { message: iframeMatch[1] };
+        } else {
+          responseData = { message: textResponse };
+        }
       }
       
       const botMessage: Message = {
