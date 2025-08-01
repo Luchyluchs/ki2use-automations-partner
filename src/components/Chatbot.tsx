@@ -49,47 +49,109 @@ const Chatbot = () => {
     setInputMessage("");
     setIsLoading(true);
 
+    // Enhanced debugging and error handling
+    console.log('🚀 Chatbot: Sending message to webhook:', webhookUrl);
+    console.log('📤 Message payload:', { 
+      message: userMessage.text, 
+      timestamp: userMessage.timestamp.toISOString() 
+    });
+
     try {
+      // Enhanced fetch with CORS handling and timeout
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+
       const response = await fetch(webhookUrl, {
         method: 'POST',
+        mode: 'cors',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json',
         },
         body: JSON.stringify({
           message: userMessage.text,
           timestamp: userMessage.timestamp.toISOString()
-        })
+        }),
+        signal: controller.signal
       });
 
-      if (response.ok) {
-        // JSON-Antwort parsen
-        const responseData = await response.json();
-        
-        // Message-Property aus JSON extrahieren
-        const botMessage: Message = {
-          id: (Date.now() + 1).toString(),
-          text: responseData.message?.trim() || "Vielen Dank für Ihre Nachricht! Unser Team wird sich schnellstmöglich bei Ihnen melden.",
-          isUser: false,
-          timestamp: new Date()
-        };
-        
-        setMessages(prev => [...prev, botMessage]);
-      } else {
-        throw new Error('Netzwerkfehler');
+      clearTimeout(timeoutId);
+
+      console.log('📡 Response status:', response.status);
+      console.log('📡 Response headers:', Object.fromEntries(response.headers.entries()));
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
       }
+
+      // Try to parse JSON response
+      let responseData;
+      const contentType = response.headers.get('content-type');
+      console.log('📄 Content-Type:', contentType);
+
+      if (contentType && contentType.includes('application/json')) {
+        responseData = await response.json();
+        console.log('📥 JSON Response:', responseData);
+      } else {
+        const textResponse = await response.text();
+        console.log('📥 Text Response:', textResponse);
+        responseData = { message: textResponse };
+      }
+      
+      // Extract bot message
+      const botMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        text: responseData.message?.trim() || responseData?.trim() || "Vielen Dank für Ihre Nachricht! Unser Team wird sich schnellstmöglich bei Ihnen melden.",
+        isUser: false,
+        timestamp: new Date()
+      };
+      
+      setMessages(prev => [...prev, botMessage]);
+      console.log('✅ Message successfully processed');
+
     } catch (error) {
-      console.error('Chatbot error:', error);
+      console.error('❌ Chatbot error details:', {
+        error: error,
+        message: error instanceof Error ? error.message : 'Unknown error',
+        name: error instanceof Error ? error.name : 'Unknown',
+        stack: error instanceof Error ? error.stack : undefined
+      });
+
+      let errorText = "Entschuldigung, es gab ein technisches Problem.";
+      let toastTitle = "Verbindungsfehler";
+      let toastDescription = "Nachricht konnte nicht gesendet werden.";
+
+      if (error instanceof Error) {
+        if (error.name === 'AbortError') {
+          errorText = "Die Anfrage wurde aufgrund einer Zeitüberschreitung abgebrochen. Bitte versuchen Sie es erneut.";
+          toastTitle = "Zeitüberschreitung";
+          toastDescription = "Die Anfrage hat zu lange gedauert.";
+        } else if (error.message.includes('CORS')) {
+          errorText = "Es gibt ein Problem mit der Cross-Origin-Anfrage. Bitte kontaktieren Sie den Support.";
+          toastTitle = "CORS-Fehler";
+          toastDescription = "Cross-Origin-Request blockiert.";
+        } else if (error.message.includes('NetworkError') || error.message.includes('Failed to fetch')) {
+          errorText = "Netzwerkfehler. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.";
+          toastTitle = "Netzwerkfehler";
+          toastDescription = "Verbindung zum Server fehlgeschlagen.";
+        } else if (error.message.includes('HTTP')) {
+          errorText = `Server-Fehler (${error.message}). Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt.`;
+          toastTitle = "Server-Fehler";
+          toastDescription = error.message;
+        }
+      }
+
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
-        text: "Entschuldigung, es gab ein technisches Problem. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt.",
+        text: errorText + " Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt.",
         isUser: false,
         timestamp: new Date()
       };
       setMessages(prev => [...prev, errorMessage]);
       
       toast({
-        title: "Verbindungsfehler",
-        description: "Nachricht konnte nicht gesendet werden.",
+        title: toastTitle,
+        description: toastDescription,
         variant: "destructive"
       });
     } finally {
