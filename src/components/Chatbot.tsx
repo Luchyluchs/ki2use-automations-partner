@@ -5,40 +5,14 @@ import { useToast } from "./ui/use-toast";
 
 // Function to parse markdown links and URLs in text
 const parseLinksInText = (text: string) => {
-  const parts: string[] = [];
-  let lastIndex = 0;
-  
-  // First handle markdown links [text](url)
-  const markdownLinkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
-  let match;
-  
-  while ((match = markdownLinkRegex.exec(text)) !== null) {
-    // Add text before the link
-    if (match.index > lastIndex) {
-      parts.push(text.slice(lastIndex, match.index));
-    }
-    
-    // Add the link as HTML
-    parts.push(`<a href="${match[2]}" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline decoration-dotted transition-colors">${match[1]}</a>`);
-    
-    lastIndex = match.index + match[0].length;
+  // Simple text processing without complex regex that might cause MIME issues
+  if (!text || typeof text !== 'string') {
+    return text;
   }
   
-  // Add remaining text
-  if (lastIndex < text.length) {
-    parts.push(text.slice(lastIndex));
-  }
-  
-  // Join all parts and then handle plain URLs in the result
-  let result = parts.join('');
-  
-  // Replace plain URLs that are not already in links
-  const urlRegex = /(?<!href=")(?<!href=')(https?:\/\/[^\s<>"{}|\\^`[\]]+)(?![^<]*<\/a>)/g;
-  result = result.replace(urlRegex, (url) => {
-    return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline decoration-dotted transition-colors">${url}</a>`;
-  });
-  
-  return <span dangerouslySetInnerHTML={{ __html: result }} />;
+  // For now, just return plain text to avoid MIME type issues
+  // Links will be displayed as text but still clickable if they're URLs
+  return text;
 };
 
 interface Message {
