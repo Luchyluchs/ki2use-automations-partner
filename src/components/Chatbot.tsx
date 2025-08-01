@@ -12,6 +12,7 @@ interface Message {
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [sessionId] = useState(() => crypto.randomUUID());
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "welcome",
@@ -53,6 +54,7 @@ const Chatbot = () => {
     console.log('🚀 Chatbot: Sending message to webhook:', webhookUrl);
     console.log('📤 Message payload:', { 
       message: userMessage.text, 
+      sessionId: sessionId,
       timestamp: userMessage.timestamp.toISOString() 
     });
 
@@ -70,6 +72,7 @@ const Chatbot = () => {
         },
         body: JSON.stringify({
           message: userMessage.text,
+          sessionId: sessionId,
           timestamp: userMessage.timestamp.toISOString()
         }),
         signal: controller.signal
