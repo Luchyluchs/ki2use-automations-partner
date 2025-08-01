@@ -5,67 +5,48 @@ import { useToast } from "./ui/use-toast";
 
 // Function to parse markdown links and URLs in text
 const parseLinksInText = (text: string) => {
-  // Regular expression to match markdown links [text](url) and plain URLs
+  const parts: React.ReactNode[] = [];
+  
+  // Replace markdown links [text](url)
   const markdownLinkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
-  const urlRegex = /(https?:\/\/[^\s<>"{}|\\^`[\]]+)/g;
-  
-  let parts: (string | JSX.Element)[] = [];
   let lastIndex = 0;
-  
-  // First, replace markdown links
   let match;
-  const markdownMatches: Array<{start: number, end: number, text: string, url: string}> = [];
   
   while ((match = markdownLinkRegex.exec(text)) !== null) {
-    markdownMatches.push({
-      start: match.index!,
-      end: match.index! + match[0].length,
-      text: match[1],
-      url: match[2]
-    });
-  }
-  
-  // Process text with markdown links
-  let processedText = text;
-  let offset = 0;
-  
-  markdownMatches.forEach((linkMatch, index) => {
-    const beforeLink = processedText.slice(lastIndex, linkMatch.start - offset);
-    if (beforeLink) {
-      parts.push(beforeLink);
+    // Add text before the link
+    if (match.index > lastIndex) {
+      parts.push(text.slice(lastIndex, match.index));
     }
     
+    // Add the link
     parts.push(
       <a
-        key={`md-link-${index}`}
-        href={linkMatch.url}
+        key={match.index}
+        href={match[2]}
         target="_blank"
         rel="noopener noreferrer"
         className="text-blue-400 hover:text-blue-300 underline decoration-dotted transition-colors"
       >
-        {linkMatch.text}
+        {match[1]}
       </a>
     );
     
-    lastIndex = linkMatch.end - offset;
-    
-    // Update the processed text by removing the markdown syntax
-    const newText = processedText.slice(0, linkMatch.start - offset) + linkMatch.text + processedText.slice(linkMatch.end - offset);
-    const lengthDiff = linkMatch.end - linkMatch.start - linkMatch.text.length;
-    offset += lengthDiff;
-    processedText = newText;
-  });
+    lastIndex = match.index + match[0].length;
+  }
   
-  // Add remaining text and process plain URLs
-  const remainingText = processedText.slice(lastIndex);
-  if (remainingText) {
-    // Split by URLs and create links for plain URLs
+  // Add remaining text
+  if (lastIndex < text.length) {
+    const remainingText = text.slice(lastIndex);
+    
+    // Process plain URLs in remaining text
+    const urlRegex = /(https?:\/\/[^\s<>"{}|\\^`[\]]+)/g;
     const urlParts = remainingText.split(urlRegex);
+    
     urlParts.forEach((part, index) => {
       if (part.match(urlRegex)) {
         parts.push(
           <a
-            key={`url-link-${index}`}
+            key={`url-${lastIndex}-${index}`}
             href={part}
             target="_blank"
             rel="noopener noreferrer"
