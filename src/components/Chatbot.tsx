@@ -26,7 +26,7 @@ const Chatbot = () => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
 
-  const webhookUrl = "https://n8n.srv929188.hstgr.cloud/webhook-test/8e2e75fc-67cd-4eda-9588-f6bb753d6aa4";
+  const webhookUrl = "https://n8n.srv929188.hstgr.cloud/webhook/8e2e75fc-67cd-4eda-9588-f6bb753d6aa4";
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
