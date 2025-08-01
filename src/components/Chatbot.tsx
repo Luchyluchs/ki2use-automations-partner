@@ -84,7 +84,7 @@ const Chatbot = () => {
         throw new Error(`HTTP ${response.status}: ${response.statusText}`);
       }
 
-      // Try to parse JSON response
+      // Try to parse response (JSON, HTML, or plain text)
       let responseData;
       const contentType = response.headers.get('content-type');
       console.log('📄 Content-Type:', contentType);
@@ -95,13 +95,21 @@ const Chatbot = () => {
       } else {
         const textResponse = await response.text();
         console.log('📥 Text Response:', textResponse);
-        responseData = { message: textResponse };
+        
+        // Check if response contains an iframe with srcdoc
+        const iframeMatch = textResponse.match(/srcdoc="([^"]+)"/);
+        if (iframeMatch && iframeMatch[1]) {
+          console.log('🎯 Extracted from iframe srcdoc:', iframeMatch[1]);
+          responseData = { message: iframeMatch[1] };
+        } else {
+          responseData = { message: textResponse };
+        }
       }
       
       // Extract bot message
       const botMessage: Message = {
         id: (Date.now() + 1).toString(),
-        text: responseData.message?.trim() || responseData?.trim() || "Vielen Dank für Ihre Nachricht! Unser Team wird sich schnellstmöglich bei Ihnen melden.",
+        text: responseData.message?.trim() || "Vielen Dank für Ihre Nachricht! Unser Team wird sich schnellstmöglich bei Ihnen melden.",
         isUser: false,
         timestamp: new Date()
       };
