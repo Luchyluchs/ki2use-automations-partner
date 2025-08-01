@@ -212,7 +212,7 @@ const Chatbot = () => {
   return (
     <>
       {/* Floating Chat Button */}
-      <div className="fixed bottom-6 right-6 z-40">
+      <div className="fixed bottom-6 right-6 z-40">{/* Chatbot toggle */}
         <Button
           onClick={() => setIsOpen(!isOpen)}
           className="w-14 h-14 rounded-full bg-gradient-primary text-primary-foreground shadow-primary hover-scale float-element"
