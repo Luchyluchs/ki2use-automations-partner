@@ -5,63 +5,21 @@ import { useToast } from "./ui/use-toast";
 
 // Function to parse markdown links and URLs in text
 const parseLinksInText = (text: string) => {
-  const parts: React.ReactNode[] = [];
-  
-  // Replace markdown links [text](url)
+  // Simple replacement for markdown links [text](url)
   const markdownLinkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
-  let lastIndex = 0;
-  let match;
   
-  while ((match = markdownLinkRegex.exec(text)) !== null) {
-    // Add text before the link
-    if (match.index > lastIndex) {
-      parts.push(text.slice(lastIndex, match.index));
-    }
-    
-    // Add the link
-    parts.push(
-      <a
-        key={match.index}
-        href={match[2]}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-blue-400 hover:text-blue-300 underline decoration-dotted transition-colors"
-      >
-        {match[1]}
-      </a>
-    );
-    
-    lastIndex = match.index + match[0].length;
-  }
+  // Replace markdown links with HTML
+  let result = text.replace(markdownLinkRegex, (match, linkText, url) => {
+    return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline decoration-dotted transition-colors">${linkText}</a>`;
+  });
   
-  // Add remaining text
-  if (lastIndex < text.length) {
-    const remainingText = text.slice(lastIndex);
-    
-    // Process plain URLs in remaining text
-    const urlRegex = /(https?:\/\/[^\s<>"{}|\\^`[\]]+)/g;
-    const urlParts = remainingText.split(urlRegex);
-    
-    urlParts.forEach((part, index) => {
-      if (part.match(urlRegex)) {
-        parts.push(
-          <a
-            key={`url-${lastIndex}-${index}`}
-            href={part}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-400 hover:text-blue-300 underline decoration-dotted transition-colors"
-          >
-            {part}
-          </a>
-        );
-      } else if (part) {
-        parts.push(part);
-      }
-    });
-  }
+  // Replace plain URLs
+  const urlRegex = /(https?:\/\/[^\s<>"{}|\\^`[\]]+)/g;
+  result = result.replace(urlRegex, (url) => {
+    return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline decoration-dotted transition-colors">${url}</a>`;
+  });
   
-  return <>{parts}</>;
+  return <span dangerouslySetInnerHTML={{ __html: result }} />;
 };
 
 interface Message {
