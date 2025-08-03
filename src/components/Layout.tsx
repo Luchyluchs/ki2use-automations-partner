@@ -84,33 +84,33 @@ const Layout = ({
 
       {/* Footer */}
       <footer className="bg-muted border-t border-card-border">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="md:col-span-2">
-              <div className="text-2xl font-bold text-primary mb-4">KI2USE</div>
-              <p className="text-muted-foreground max-w-md">KI-Agenten & Schulungen für deutsche Unternehmen. Prozesse automatisieren! Ihre effiziente Lösung für mehr Produktivität.</p>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            <div className="sm:col-span-2 lg:col-span-2">
+              <div className="text-xl sm:text-2xl font-bold text-primary mb-3 sm:mb-4">KI2USE</div>
+              <p className="text-sm sm:text-base text-muted-foreground max-w-md leading-relaxed">KI-Agenten & Schulungen für deutsche Unternehmen. Prozesse automatisieren! Ihre effiziente Lösung für mehr Produktivität.</p>
             </div>
             
             <div>
-              <h3 className="font-semibold text-foreground mb-4">Dienstleistungen</h3>
-              <ul className="space-y-2 text-muted-foreground">
-                <li><Link to="/standard-agenten" className="hover:text-foreground transition-smooth">Standard-KI-Agenten</Link></li>
-                <li><Link to="/massgeschneiderte-agenten" className="hover:text-foreground transition-smooth">Maßgeschneiderte Agenten</Link></li>
-                <li><Link to="/ki-schulungen" className="hover:text-foreground transition-smooth">KI-Schulungen</Link></li>
+              <h3 className="font-semibold text-foreground mb-3 sm:mb-4 text-sm sm:text-base">Dienstleistungen</h3>
+              <ul className="space-y-2 text-muted-foreground text-sm sm:text-base">
+                <li><Link to="/standard-agenten" className="hover:text-foreground transition-smooth block py-1">Standard-KI-Agenten</Link></li>
+                <li><Link to="/massgeschneiderte-agenten" className="hover:text-foreground transition-smooth block py-1">Maßgeschneiderte Agenten</Link></li>
+                <li><Link to="/ki-schulungen" className="hover:text-foreground transition-smooth block py-1">KI-Schulungen</Link></li>
               </ul>
             </div>
             
             <div>
-              <h3 className="font-semibold text-foreground mb-4">Rechtliches</h3>
-              <ul className="space-y-2 text-muted-foreground">
-                <li><Link to="/impressum" className="hover:text-foreground transition-smooth">Impressum</Link></li>
-                <li><Link to="/datenschutz" className="hover:text-foreground transition-smooth">Datenschutzerklärung</Link></li>
+              <h3 className="font-semibold text-foreground mb-3 sm:mb-4 text-sm sm:text-base">Rechtliches</h3>
+              <ul className="space-y-2 text-muted-foreground text-sm sm:text-base">
+                <li><Link to="/impressum" className="hover:text-foreground transition-smooth block py-1">Impressum</Link></li>
+                <li><Link to="/datenschutz" className="hover:text-foreground transition-smooth block py-1">Datenschutzerklärung</Link></li>
               </ul>
             </div>
           </div>
           
-          <div className="border-t border-card-border mt-8 pt-8 text-center text-muted-foreground">
-            <p>&copy; 2024 KI2USE. Alle Rechte vorbehalten.</p>
+          <div className="border-t border-card-border mt-6 sm:mt-8 pt-6 sm:pt-8 text-center text-muted-foreground">
+            <p className="text-xs sm:text-sm">&copy; 2024 KI2USE. Alle Rechte vorbehalten.</p>
           </div>
         </div>
       </footer>
