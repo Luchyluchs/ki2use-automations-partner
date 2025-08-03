@@ -19,6 +19,7 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
     strictPort: true,
+    historyApiFallback: true,
   },
   build: {
     outDir: 'dist',
