@@ -9,6 +9,7 @@ export default defineConfig(({ mode }) => ({
     react(),
     mode === 'development' && componentTagger(),
   ].filter(Boolean),
+  base: mode === 'production' ? '/' : '/',
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
@@ -17,27 +18,14 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
-    strictPort: true,
-    hmr: {
-      port: 8080,
-    },
+    historyApiFallback: true,
   },
   build: {
     outDir: 'dist',
-    assetsDir: 'assets',
-    sourcemap: false,
     rollupOptions: {
-      input: {
-        main: path.resolve(__dirname, 'index.html')
-      },
       output: {
-        entryFileNames: 'assets/[name]-[hash].js',
-        chunkFileNames: 'assets/[name]-[hash].js',
-        assetFileNames: 'assets/[name]-[hash].[ext]'
+        manualChunks: undefined,
       }
     }
-  },
-  esbuild: {
-    logOverride: { 'this-is-undefined-in-esm': 'silent' }
   }
 }));
