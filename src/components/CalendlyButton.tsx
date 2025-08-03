@@ -19,7 +19,7 @@ const CalendlyButton = ({
 
   // Map our button variants to CSS classes
   const getButtonClasses = () => {
-    const baseClasses = "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium transition-smooth focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover-scale";
+    const baseClasses = "inline-flex items-center justify-center gap-2 rounded-lg text-sm font-medium transition-smooth focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 w-full";
     
     let variantClasses = "";
     let sizeClasses = "";
@@ -39,16 +39,16 @@ const CalendlyButton = ({
         variantClasses = "bg-primary text-primary-foreground hover:bg-primary-hover shadow-card";
     }
     
-    // Apply size styles
+    // Apply size styles with mobile responsiveness
     switch (size) {
       case "sm":
-        sizeClasses = "h-9 px-4 py-2 text-sm";
+        sizeClasses = "h-10 px-4 py-2 text-sm";
         break;
       case "lg":
-        sizeClasses = "h-14 px-8 py-4 text-base";
+        sizeClasses = "h-12 sm:h-14 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base";
         break;
       case "xl":
-        sizeClasses = "h-16 px-10 py-5 text-lg";
+        sizeClasses = "h-14 sm:h-16 px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-lg";
         break;
       default:
         sizeClasses = "h-11 px-6 py-3";
@@ -58,12 +58,14 @@ const CalendlyButton = ({
   };
 
   return (
-    <PopupButton
-      url="https://calendly.com/luxalexander/30min"
-      rootElement={document.getElementById("root")!}
-      text={`${icon ? "📅 " : ""}${text}`}
-      className={getButtonClasses()}
-    />
+    <div className="w-full max-w-md mx-auto">
+      <PopupButton
+        url="https://calendly.com/luxalexander/30min"
+        rootElement={document.getElementById("root")!}
+        text={`${icon ? "📅 " : ""}${text}`}
+        className={getButtonClasses()}
+      />
+    </div>
   );
 };
 
