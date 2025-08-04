@@ -2,39 +2,45 @@ import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
 import { Calendar, MessageCircle, Phone } from "lucide-react";
 import CalendlyButton from "./CalendlyButton";
+import { useScrollReveal } from "@/hooks/useScrollAnimations";
 
 const CTASection = () => {
+  useScrollReveal();
   return (
-    <section className="section-padding bg-primary">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center text-primary-foreground fade-in-element">
-          <h2 className="mb-6 scale-in-element">
+    <section className="section-padding bg-primary relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl parallax-slow"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-white/3 rounded-full blur-3xl parallax-slow"></div>
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div className="max-w-4xl mx-auto text-center text-primary-foreground">
+          <h2 className="scroll-reveal mb-6">
             Bereit für mehr Effizienz in Ihrem Unternehmen?
           </h2>
-          <p className="text-xl mb-8 opacity-90 leading-relaxed fade-in-element">
+          <p className="scroll-reveal stagger-delay-1 text-xl mb-8 opacity-90 leading-relaxed">
             Vereinbaren Sie jetzt Ihr kostenloses 30-minütiges Beratungsgespräch und 
             entdecken Sie, wie KI-Automatisierung Ihr Unternehmen voranbringen kann.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover-scale">
+          <div className="scroll-scale grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div className="stagger-delay-1 bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover-scale transform hover:scale-105 transition-all duration-500">
               <Calendar className="w-8 h-8 mx-auto mb-4" />
               <h3 className="font-semibold mb-2">Kostenlose Beratung</h3>
               <p className="text-sm opacity-80">30 Minuten individuelle Analyse Ihrer Prozesse</p>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover-scale">
+            <div className="stagger-delay-2 bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover-scale transform hover:scale-105 transition-all duration-500">
               <MessageCircle className="w-8 h-8 mx-auto mb-4" />
               <h3 className="font-semibold mb-2">Konkrete Lösungen</h3>
               <p className="text-sm opacity-80">Maßgeschneiderte Empfehlungen für Ihr Unternehmen</p>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover-scale">
+            <div className="stagger-delay-3 bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover-scale transform hover:scale-105 transition-all duration-500">
               <Phone className="w-8 h-8 mx-auto mb-4" />
               <h3 className="font-semibold mb-2">Direkte Umsetzung</h3>
               <p className="text-sm opacity-80">Schnelle Integration ohne Umwege</p>
             </div>
           </div>
 
-          <div className="space-y-4">
+          <div className="scroll-reveal stagger-delay-2 space-y-4">
             <CalendlyButton 
               text="Jetzt kostenloses Beratungsgespräch vereinbaren"
               variant="accent"
@@ -47,7 +53,7 @@ const CTASection = () => {
             </p>
           </div>
 
-          <div className="mt-12 bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover-scale">
+          <div className="scroll-fade-in mt-12 bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover-scale transform hover:scale-105 transition-all duration-500">
             <p className="text-sm leading-relaxed opacity-90">
               <strong>Automatisierung in Aktion:</strong> Diese Anfrage wird automatisch verarbeitet, 
               kategorisiert und an den passenden Experten weitergeleitet – so demonstrieren wir live unsere 

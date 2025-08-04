@@ -1,7 +1,10 @@
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
 import { Bot, Zap, GraduationCap, Globe } from "lucide-react";
+import { useScrollReveal } from "@/hooks/useScrollAnimations";
+
 const ServicesSection = () => {
+  useScrollReveal();
   const services = [{
     icon: Bot,
     title: "Standard-KI-Agenten",
@@ -31,13 +34,17 @@ const ServicesSection = () => {
     link: "/homepage-erstellung",
     cta: "Website-Angebot erhalten"
   }];
-  return <section className="section-padding bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 fade-in-element">
-          <h2 className="mb-6 scale-in-element">
+  return <section className="section-padding bg-background relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute top-0 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl parallax-slow"></div>
+      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-accent/5 rounded-full blur-3xl parallax-slow"></div>
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div className="text-center mb-16">
+          <h2 className="scroll-reveal mb-6">
             Unsere Kernkompetenzen
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto fade-in-element">
+          <p className="scroll-reveal stagger-delay-1 text-xl text-muted-foreground max-w-3xl mx-auto">
             Vier speziell entwickelte Bereiche, die Ihr Unternehmen effizienter 
             und zukunftssicherer machen – mit bewährten Automatisierungslösungen.
           </p>
@@ -46,7 +53,7 @@ const ServicesSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => {
           const IconComponent = service.icon;
-          return <div key={index} className="bg-card border border-card-border rounded-2xl p-8 shadow-card hover-lift cursor-pointer">
+          return <div key={index} className={`scroll-scale stagger-delay-${index + 1} bg-card border border-card-border rounded-2xl p-8 shadow-card hover-lift cursor-pointer transform hover:scale-105 transition-all duration-500`}>
                 <div className="mb-6">
                   <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mb-4 hover-scale">
                     <IconComponent className="w-6 h-6 text-primary-foreground" />
