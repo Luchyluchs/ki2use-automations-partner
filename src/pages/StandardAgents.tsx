@@ -75,9 +75,12 @@ const StandardAgents = () => {
   }];
   return <Layout>
       {/* Header */}
-      <section className="bg-gradient-subtle py-16">
-         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center fade-in-element">
+      <section className="relative overflow-hidden bg-gradient-subtle py-16">
+        <div className="absolute top-0 right-1/4 w-72 h-72 bg-primary/5 rounded-full blur-3xl parallax-slow"></div>
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl parallax-slow"></div>
+        
+         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="max-w-4xl mx-auto text-center scroll-reveal">
             <Button variant="ghost" size="sm" asChild className="mb-8 hover-scale">
               <Link to="/">
                 <ArrowLeft className="w-4 h-4 mr-2" />
@@ -85,11 +88,11 @@ const StandardAgents = () => {
               </Link>
             </Button>
             
-            <h1 className="mb-6 scale-in-element">
+            <h1 className="scroll-reveal stagger-delay-1 mb-6">
               Sofort einsetzbare{" "}
               <span className="text-primary">KI-Agenten</span> von KI2USE
             </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed fade-in-element">
+            <p className="scroll-reveal stagger-delay-2 text-xl text-muted-foreground leading-relaxed">
               Direkter Nutzen und schnelle Amortisation für Ihr Kleinunternehmen. 
               Bewährte Lösungen, die sofort produktiv werden.
             </p>
@@ -98,10 +101,13 @@ const StandardAgents = () => {
       </section>
 
       {/* Agents Grid */}
-      <section className="pb-16 pt-4 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="pb-16 pt-4 bg-background relative overflow-hidden">
+        <div className="absolute top-1/3 left-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl parallax-slow"></div>
+        <div className="absolute bottom-1/3 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl parallax-slow"></div>
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {agents.map((agent, index) => <div key={index} className="bg-card border border-card-border rounded-xl p-4 shadow-card hover-lift cursor-pointer">
+            {agents.map((agent, index) => <div key={index} className={`scroll-scale stagger-delay-${(index % 4) + 1} bg-card border border-card-border rounded-xl p-4 shadow-card hover-lift cursor-pointer transform hover:scale-105 transition-all duration-500`}>
                 {/* Image */}
                 <div className="relative rounded-lg overflow-hidden mb-4 hover-scale">
                   <img src={agent.image} alt={`${agent.name} Workflow-Interface`} className="w-full h-32 object-cover transition-transform duration-300" />
@@ -157,10 +163,10 @@ const StandardAgents = () => {
       <section className="section-padding bg-muted">
          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto bg-gradient-primary rounded-2xl p-8 text-center text-primary-foreground hover-scale">
-            <h3 className="text-xl font-semibold mb-4 fade-in-element">
+            <h3 className="scroll-reveal text-xl font-semibold mb-4">
               Wichtiger Hinweis für KMUs
             </h3>
-            <p className="leading-relaxed mb-6 fade-in-element">Alle Standard-Agenten von KI2USE sind über ein persönliches, kostenloses Beratungsgespräch buchbar, in dem wir die unkomplizierte, schnelle und rechtssichere Integration für Ihr Unternehmen besprechen. Die internen Prozesse von der Anfrage bis zur Implementierung werden dabei automatisiert, was unsere Effizienz und Qualität in der Kundenbetreuung beweist.</p>
+            <p className="scroll-reveal stagger-delay-1 leading-relaxed mb-6">Alle Standard-Agenten von KI2USE sind über ein persönliches, kostenloses Beratungsgespräch buchbar, in dem wir die unkomplizierte, schnelle und rechtssichere Integration für Ihr Unternehmen besprechen. Die internen Prozesse von der Anfrage bis zur Implementierung werden dabei automatisiert, was unsere Effizienz und Qualität in der Kundenbetreuung beweist.</p>
             <Button variant="accent" size="lg" asChild className="bg-white text-primary hover:bg-white/90 hover-scale">
               <Link to="/kontakt">Jetzt Beratungsgespräch vereinbaren</Link>
             </Button>
