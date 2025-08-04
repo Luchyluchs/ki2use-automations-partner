@@ -1,9 +1,13 @@
+import { useScrollReveal, useParallax, useScrollFade } from "@/hooks/useScrollAnimations";
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowLeft, CheckCircle, Calendar, Users, BookOpen, Award, Target, TrendingUp, Zap } from "lucide-react";
 
 const Training = () => {
+  useScrollReveal();
+  useParallax();
+  useScrollFade();
   const trainings = [
     {
       title: "KI-Grundlagen für KMU-Geschäftsführer",

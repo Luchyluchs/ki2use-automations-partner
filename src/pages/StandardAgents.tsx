@@ -1,3 +1,4 @@
+import { useScrollReveal, useParallax, useScrollFade } from "@/hooks/useScrollAnimations";
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -12,6 +13,9 @@ import socialMediaWorkflow from "@/assets/social-media-workflow.jpg";
 import salesWorkflow from "@/assets/sales-workflow.jpg";
 import appointmentWorkflow from "@/assets/appointment-workflow.jpg";
 const StandardAgents = () => {
+  useScrollReveal();
+  useParallax();
+  useScrollFade();
   const agents = [{
     name: "LinkedIn Agent",
     image: linkedinWorkflow,

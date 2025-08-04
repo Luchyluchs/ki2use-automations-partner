@@ -1,3 +1,4 @@
+import { useScrollReveal, useParallax, useScrollFade } from "@/hooks/useScrollAnimations";
 import Layout from "@/components/Layout";
 import ROICalculator from "@/components/ROICalculator";
 import { Button } from "@/components/ui/button";
@@ -6,6 +7,9 @@ import { ArrowLeft, Calculator, TrendingUp, Euro, Clock } from "lucide-react";
 import CalendlyButton from "@/components/CalendlyButton";
 
 const ROICalculatorPage = () => {
+  useScrollReveal();
+  useParallax();
+  useScrollFade();
   return (
     <Layout>
       {/* Header */}

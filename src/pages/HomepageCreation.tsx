@@ -1,3 +1,4 @@
+import { useScrollReveal, useParallax, useScrollFade } from "@/hooks/useScrollAnimations";
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -6,6 +7,9 @@ import { CheckCircle, Globe, Smartphone, Search, Bot, TrendingUp, Shield } from 
 import { Link } from "react-router-dom";
 
 const HomepageCreation = () => {
+  useScrollReveal();
+  useParallax();
+  useScrollFade();
   const packages = [
     {
       name: "Starter Website",

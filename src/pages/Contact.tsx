@@ -1,3 +1,4 @@
+import { useScrollReveal, useParallax, useScrollFade } from "@/hooks/useScrollAnimations";
 import Layout from "@/components/Layout";
 import ContactForm from "@/components/ContactForm";
 import { Button } from "@/components/ui/button";
@@ -6,6 +7,9 @@ import { ArrowLeft, Calendar, Mail, Phone, MapPin, Clock, Users, Zap } from "luc
 import CalendlyButton from "@/components/CalendlyButton";
 
 const Contact = () => {
+  useScrollReveal();
+  useParallax();
+  useScrollFade();
   return (
     <Layout>
       {/* Header */}

@@ -1,3 +1,4 @@
+import { useScrollReveal, useParallax, useScrollFade } from "@/hooks/useScrollAnimations";
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -5,6 +6,9 @@ import { ArrowLeft, CheckCircle, ArrowRight, Calendar, Users, Zap, Target, Shiel
 import CustomROICalculator from "@/components/CustomROICalculator";
 import CalendlyButton from "@/components/CalendlyButton";
 const CustomAgents = () => {
+  useScrollReveal();
+  useParallax();
+  useScrollFade();
   const processSteps = [{
     step: "01",
     title: "Bedarfsanalyse",
