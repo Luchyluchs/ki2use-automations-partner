@@ -19,7 +19,7 @@ export const useScrollReveal = () => {
       }
     );
 
-    const elements = document.querySelectorAll('.scroll-reveal, .scroll-scale');
+    const elements = document.querySelectorAll('.scroll-reveal, .scroll-scale, .fade-in-element, .scale-in-element');
     elements.forEach((el) => observer.observe(el));
 
     return () => {
@@ -48,7 +48,7 @@ export const useParallax = () => {
 export const useScrollFade = () => {
   useEffect(() => {
     const handleScroll = () => {
-      const elements = document.querySelectorAll('.scroll-fade-in');
+      const elements = document.querySelectorAll('.scroll-fade-in, .fade-in-element, .scale-in-element');
       
       elements.forEach((element) => {
         const elementTop = element.getBoundingClientRect().top;

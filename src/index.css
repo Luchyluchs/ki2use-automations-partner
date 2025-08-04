@@ -234,32 +234,28 @@ Corporate design for German KMUs - trustworthy, modern, efficient
     @apply transition-all duration-300 hover:shadow-glow;
   }
   
-  .fade-in-element {
-    @apply animate-fade-in;
+  .fade-in-element, .scale-in-element {
+    opacity: 0;
+    transform: translateY(60px) rotateX(10deg);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  
-  .scale-in-element {
-    @apply animate-scale-in;
+
+  .fade-in-element.revealed, .scale-in-element.revealed,
+  .fade-in-element.visible, .scale-in-element.visible {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
   }
-  
-  .float-element {
-    @apply animate-float;
+
+  .hover-lift {
+    @apply transition-all duration-500 ease-smooth hover:translate-y-[-8px] hover:shadow-elevated;
   }
-  
-  .pulse-glow {
-    @apply animate-pulse-glow;
+
+  .hover-scale {
+    @apply transition-transform duration-500 hover:scale-105;
   }
-  
-  .gradient-text {
-    @apply bg-gradient-primary bg-clip-text text-transparent;
-  }
-  
-  .glass-card {
-    @apply bg-card/80 backdrop-blur-sm border border-card-border/50;
-  }
-  
-  .neon-border {
-    @apply border border-primary/30 shadow-[0_0_15px_hsl(var(--primary)/0.3)];
+
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-glow;
   }
   
   .interactive-card {
