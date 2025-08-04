@@ -7,12 +7,15 @@ export const useScrollReveal = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('revealed');
+          } else {
+            // Optional: Remove class when element goes out of view for repeat animations
+            entry.target.classList.remove('revealed');
           }
         });
       },
       {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.15,
+        rootMargin: '0px 0px -100px 0px',
       }
     );
 
@@ -32,7 +35,7 @@ export const useParallax = () => {
       const parallaxElements = document.querySelectorAll('.parallax-slow');
       
       parallaxElements.forEach((element) => {
-        const rate = scrolled * -0.3;
+        const rate = scrolled * -0.5; // Increased parallax effect
         (element as HTMLElement).style.setProperty('--scroll-y', `${rate}px`);
       });
     };

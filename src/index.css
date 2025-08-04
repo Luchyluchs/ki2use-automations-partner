@@ -11,10 +11,10 @@ Corporate design for German KMUs - trustworthy, modern, efficient
 
 @layer base {
   :root {
-    /* Modern Sophisticated Colors */
-    --primary: 230 25% 40%;
+    /* Modern Dark Blue */
+    --primary: 220 50% 30%;
     --primary-foreground: 0 0% 98%;
-    --primary-hover: 230 25% 35%;
+    --primary-hover: 220 50% 25%;
     
     /* Contemporary Slate */
     --secondary: 210 20% 25%;
@@ -42,19 +42,19 @@ Corporate design for German KMUs - trustworthy, modern, efficient
     /* Clean Interactive Elements */
     --border: 215 15% 92%;
     --input: 0 0% 100%;
-    --ring: 230 25% 40%;
+    --ring: 220 50% 30%;
     
-    /* Sophisticated Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(230 25% 40%) 0%, hsl(220 25% 50%) 50%, hsl(210 30% 60%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(215 20% 15%) 0%, hsl(230 25% 40%) 50%, hsl(160 45% 45%) 100%);
+    /* Bold Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(220 50% 30%) 0%, hsl(220 60% 40%) 50%, hsl(220 70% 50%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(220 50% 30%) 0%, hsl(220 60% 35%) 50%, hsl(160 45% 45%) 100%);
     --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(215 20% 98%) 50%, hsl(215 15% 97%) 100%);
     --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(215 15% 99%) 100%);
-    --gradient-text: linear-gradient(135deg, hsl(230 25% 40%) 0%, hsl(160 45% 45%) 100%);
+    --gradient-text: linear-gradient(135deg, hsl(220 50% 30%) 0%, hsl(160 45% 45%) 100%);
     
     /* Modern Shadows */
     --shadow-card: 0 1px 3px 0 hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
     --shadow-elevated: 0 20px 25px -5px hsl(0 0% 0% / 0.1), 0 8px 10px -6px hsl(0 0% 0% / 0.1);
-    --shadow-primary: 0 10px 25px -5px hsl(230 25% 40% / 0.25), 0 8px 10px -6px hsl(230 25% 40% / 0.1);
+    --shadow-primary: 0 10px 25px -5px hsl(220 50% 30% / 0.25), 0 8px 10px -6px hsl(220 50% 30% / 0.1);
     --shadow-soft: 0 1px 2px 0 hsl(0 0% 0% / 0.05);
     
     /* Typography Scale */
@@ -266,44 +266,48 @@ Corporate design for German KMUs - trustworthy, modern, efficient
     @apply glass-card hover-lift hover-glow transition-all duration-300 hover:border-primary/50;
   }
 
-  /* Scroll Animation Classes */
+  /* Enhanced Scroll Animation Classes */
   .scroll-reveal {
     opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(60px) rotateX(10deg);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .scroll-reveal.revealed {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) rotateX(0deg);
   }
 
   .scroll-scale {
-    transform: scale(0.9);
+    transform: scale(0.8) rotateY(5deg);
     opacity: 0;
-    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .scroll-scale.revealed {
-    transform: scale(1);
+    transform: scale(1) rotateY(0deg);
     opacity: 1;
   }
 
   .parallax-slow {
-    transform: translateY(var(--scroll-y, 0));
+    transform: translateY(var(--scroll-y, 0)) translateZ(0);
+    will-change: transform;
   }
 
   .scroll-fade-in {
     opacity: 0;
-    transition: opacity 1s ease-out;
+    transform: translateY(40px) scale(0.95);
+    transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .scroll-fade-in.visible {
     opacity: 1;
+    transform: translateY(0) scale(1);
   }
 
-  .stagger-delay-1 { transition-delay: 0.1s; }
-  .stagger-delay-2 { transition-delay: 0.2s; }
-  .stagger-delay-3 { transition-delay: 0.3s; }
-  .stagger-delay-4 { transition-delay: 0.4s; }
+  /* Enhanced Stagger Delays */
+  .stagger-delay-1 { transition-delay: 0.2s; }
+  .stagger-delay-2 { transition-delay: 0.4s; }
+  .stagger-delay-3 { transition-delay: 0.6s; }
+  .stagger-delay-4 { transition-delay: 0.8s; }
 }
