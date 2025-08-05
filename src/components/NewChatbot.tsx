@@ -51,6 +51,7 @@ interface Message {
 const NewChatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [sessionId] = useState(() => crypto.randomUUID());
+  const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "welcome",
@@ -73,6 +74,27 @@ const NewChatbot = () => {
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
+
+  // iOS viewport height tracking for keyboard handling
+  useEffect(() => {
+    const handleResize = () => {
+      setViewportHeight(window.innerHeight);
+    };
+
+    window.addEventListener('resize', handleResize);
+    
+    // For iOS Safari, also listen to orientationchange and visual viewport changes
+    if ('visualViewport' in window) {
+      window.visualViewport?.addEventListener('resize', handleResize);
+    }
+    
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      if ('visualViewport' in window) {
+        window.visualViewport?.removeEventListener('resize', handleResize);
+      }
+    };
+  }, []);
 
   const sendMessage = async () => {
     if (!inputMessage.trim() || isLoading) return;
@@ -197,11 +219,10 @@ const NewChatbot = () => {
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed left-1 right-1 sm:right-6 sm:left-auto sm:w-96 bg-card border border-card-border rounded-2xl shadow-elevated z-50 flex flex-col animate-scale-in" 
+        <div className="fixed bottom-2 left-2 right-2 sm:right-6 sm:left-auto sm:w-80 bg-card border border-card-border rounded-2xl shadow-elevated z-50 flex flex-col animate-scale-in" 
              style={{
-               bottom: '4px',
-               height: 'clamp(300px, 75vh, 600px)',
-               maxHeight: '75vh'
+               height: Math.min(400, viewportHeight - 100) + 'px',
+               maxHeight: Math.min(400, viewportHeight - 100) + 'px'
              }}>
           {/* Header */}
           <div className="bg-gradient-primary text-primary-foreground p-3 sm:p-4 rounded-t-2xl">
