@@ -51,7 +51,7 @@ const Layout = ({
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-8">
+            <nav className="hidden lg:flex items-center space-x-8 ml-12">
               {navigation.map(item => <Link key={item.name} to={item.href} className={`text-sm font-medium transition-all duration-200 px-3 py-2 rounded-lg ${isActive(item.href) ? "text-primary bg-primary/10" : "text-muted-foreground hover:text-foreground hover:bg-muted/50"}`}>
                   {item.name}
                 </Link>)}
