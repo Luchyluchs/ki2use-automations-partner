@@ -56,7 +56,7 @@ const Layout = ({
                   {item.name}
                 </Link>)}
               <Button variant="hero" size="sm" asChild className="ml-4">
-                <Link to="/kontakt">Beratung starten</Link>
+                <Link to="/kontakt">Kostenloses Beratungsgespräch</Link>
               </Button>
             </nav>
 
@@ -75,7 +75,7 @@ const Layout = ({
                 <div className="px-4 pt-2">
                   <Button variant="hero" size="sm" asChild className="w-full">
                     <Link to="/kontakt" onClick={() => setIsMenuOpen(false)}>
-                      Beratung starten
+                      Kostenloses Beratungsgespräch
                     </Link>
                   </Button>
                 </div>
