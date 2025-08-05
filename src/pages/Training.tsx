@@ -384,7 +384,6 @@ const Training = () => {
 
             <Button variant="accent" size="xl" asChild className="bg-white text-primary hover:bg-white/90 hover-scale">
               <Link to="/kontakt">
-                <Calendar className="w-5 h-5 mr-2" />
                 Kostenloses Beratungsgespräch für Schulungen
               </Link>
             </Button>
