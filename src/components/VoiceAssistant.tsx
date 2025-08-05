@@ -46,10 +46,10 @@ const VoiceAssistant: React.FC = () => {
       {/* Speech Bubble */}
       <div 
         className={`
-          relative bg-white border-2 rounded-2xl px-4 py-3 shadow-card cursor-pointer
-          transition-all duration-300 hover:shadow-primary hover-lift
-          ${isConnected ? 'border-accent bg-accent/10' : 'border-primary/20'}
-          ${conversation.isSpeaking ? 'animate-pulse border-green-500 bg-green-50' : ''}
+          relative bg-white/80 backdrop-blur-sm border-2 rounded-2xl px-4 py-3 shadow-card cursor-pointer
+          transition-all duration-300 hover:shadow-primary hover-lift opacity-90
+          ${isConnected ? 'border-accent bg-accent/20' : 'border-primary/20'}
+          ${conversation.isSpeaking ? 'animate-pulse border-green-500 bg-green-50/80' : ''}
         `}
         onClick={handleConversationToggle}
       >
