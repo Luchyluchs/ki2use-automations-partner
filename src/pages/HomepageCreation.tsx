@@ -133,7 +133,7 @@ const HomepageCreation = () => {
                       <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-primary"></div>
                     )}
                     {pkg.popular && (
-                      <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-primary shadow-glow text-xs sm:text-sm">
+                      <Badge className="absolute top-2 left-1/2 transform -translate-x-1/2 bg-gradient-primary shadow-glow text-xs sm:text-sm z-10">
                         Beliebteste Wahl
                       </Badge>
                     )}
