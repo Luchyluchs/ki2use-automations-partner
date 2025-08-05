@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { useConversation } from '@11labs/react';
 import { Mic, MicOff, Volume2 } from 'lucide-react';
-import voiceRobotIcon from '@/assets/voice-robot-icon.jpg';
+import robotHeadIcon from '@/assets/robot-head-icon.jpg';
 
 const VoiceAssistant: React.FC = () => {
   const conversation = useConversation({
@@ -65,7 +65,7 @@ const VoiceAssistant: React.FC = () => {
           {/* Robot Avatar */}
           <div className="relative">
             <img 
-              src={voiceRobotIcon} 
+              src={robotHeadIcon} 
               alt="AI Robot" 
               className={`
                 w-10 h-10 rounded-full object-cover ring-2
