@@ -56,6 +56,7 @@ const Contact = () => {
                   variant="accent"
                   size="lg"
                   className="w-full bg-white text-primary hover:bg-white/90 mb-4"
+                  icon={false}
                 />
                 
                 <div className="grid grid-cols-3 gap-4 text-center max-w-md mx-auto">
