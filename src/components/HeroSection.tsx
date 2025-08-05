@@ -2,6 +2,7 @@ import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
 import humanRobotHandshake from "@/assets/human-robot-handshake.jpg";
 import CalendlyButton from "./CalendlyButton";
+import VoiceAssistant from "./VoiceAssistant";
 import { useScrollReveal, useParallax } from "@/hooks/useScrollAnimations";
 import { useEffect } from "react";
 
@@ -56,6 +57,11 @@ const HeroSection = () => {
                   className="w-full h-auto object-cover rounded-xl transform hover:scale-105 transition-transform duration-700"
                 />
               </div>
+            </div>
+            
+            {/* Voice Assistant - positioned near robot face */}
+            <div className="absolute top-1/4 right-1/4 z-10">
+              <VoiceAssistant />
             </div>
             
             {/* Floating Trust Indicators */}
