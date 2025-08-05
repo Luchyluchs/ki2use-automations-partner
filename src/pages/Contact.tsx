@@ -3,7 +3,7 @@ import Layout from "@/components/Layout";
 import ContactForm from "@/components/ContactForm";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowLeft, Calendar, Mail, Phone, MapPin, Clock, Users, Zap } from "lucide-react";
+import { ArrowLeft, Calendar, Mail, Phone, Clock, Users, Zap } from "lucide-react";
 import CalendlyButton from "@/components/CalendlyButton";
 
 const Contact = () => {
@@ -102,19 +102,6 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  <div className="flex items-start space-x-4">
-                    <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
-                      <MapPin className="w-5 h-5 text-primary-foreground" />
-                    </div>
-                    <div>
-                      <div className="font-medium">Adresse</div>
-                      <div className="text-muted-foreground">
-                        Musterstraße 123<br />
-                        12345 Musterstadt<br />
-                        Deutschland
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
 
