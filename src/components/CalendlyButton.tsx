@@ -60,7 +60,7 @@ const CalendlyButton = ({
   return (
     <div className="w-full px-1 sm:px-0">
       <PopupButton
-        url="https://calendly.com/luxalexander/30min"
+        url="https://calendly.com/ki2use-info/30min"
         rootElement={document.getElementById("root")!}
         text={`${icon ? "📅 " : ""}${text}`}
         className={getButtonClasses()}
