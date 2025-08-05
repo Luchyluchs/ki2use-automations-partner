@@ -25,7 +25,7 @@ const Datenschutz = () => {
                 <p className="text-muted-foreground text-sm">
                   Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:<br />
                   Alexander Lux<br />
-                  KI2Use<br />
+                  KI2USE<br />
                   Kaiser-Wilhelm-Ring 44<br />
                   50672 Köln<br />
                   Deutschland<br />

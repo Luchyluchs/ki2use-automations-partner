@@ -25,7 +25,7 @@ const AGB = () => {
 
                 <h2>§ 1 Geltungsbereich und Anbieter</h2>
                 <p className="text-muted-foreground text-sm">
-                  (1) Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Verträge zwischen KI2Use, Inhaber Alexander Lux, Kaiser-Wilhelm-Ring 44, 50672 Köln (nachfolgend „Anbieter") und seinen Kunden (nachfolgend „Kunde").
+                  (1) Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Verträge zwischen KI2USE, Inhaber Alexander Lux, Kaiser-Wilhelm-Ring 44, 50672 Köln (nachfolgend „Anbieter") und seinen Kunden (nachfolgend „Kunde").
                 </p>
                 <p className="text-muted-foreground text-sm">
                   (2) Das Angebot des Anbieters richtet sich ausschließlich an Unternehmer im Sinne des § 14 BGB, also an natürliche oder juristische Personen oder eine rechtsfähige Personengesellschaft, die bei Abschluss eines Rechtsgeschäfts in Ausübung ihrer gewerblichen oder selbständigen beruflichen Tätigkeit handeln.
