@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "./ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Brain } from "lucide-react";
 import { useState } from "react";
 import Chatbot from "./Chatbot";
 const Layout = ({
@@ -45,7 +45,7 @@ const Layout = ({
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-3">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                <span className="text-white font-bold text-lg">K</span>
+                <Brain className="w-6 h-6 text-white" />
               </div>
               <div className="text-2xl font-bold gradient-text">KI2USE</div>
             </Link>
