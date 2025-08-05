@@ -126,7 +126,7 @@ const HomepageCreation = () => {
                 <div className="w-24 sm:w-32 h-1 bg-gradient-primary mx-auto rounded-full mt-4 sm:mt-6"></div>
               </div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 max-w-5xl mx-auto pt-4 sm:pt-6 lg:pt-8">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 max-w-5xl mx-auto pt-8 sm:pt-10 lg:pt-12">
                 {packages.map((pkg, index) => (
                   <Card key={index} className={`group relative overflow-hidden ${pkg.popular ? 'border-primary shadow-elegant lg:scale-105 bg-gradient-subtle' : 'border-card-border'} hover-lift transition-all duration-300`}>
                     {pkg.popular && (
