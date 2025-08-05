@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Button } from "./ui/button";
 import { MessageCircle, X, Send, Bot, User } from "lucide-react";
-import { useToast } from "./ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 
 // Function to render text with links as React components
 const renderMessageWithLinks = (text: string) => {
