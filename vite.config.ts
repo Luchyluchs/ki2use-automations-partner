@@ -25,13 +25,22 @@ export default defineConfig(({ mode }) => ({
     port: 8080,
     strictPort: true,
     historyApiFallback: true,
+    fs: {
+      allow: ['..']
+    }
   },
   build: {
     outDir: 'dist',
     rollupOptions: {
       output: {
-        manualChunks: undefined,
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          elevenlabs: ['@11labs/react']
+        },
       }
     }
+  },
+  define: {
+    global: 'globalThis',
   }
 }));
