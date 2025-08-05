@@ -40,7 +40,7 @@ const ServicesSection = () => {
       <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-accent/5 rounded-full blur-3xl parallax-slow"></div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8">
           <h2 className="scroll-reveal mb-6">
             Unsere Kernkompetenzen
           </h2>
@@ -50,10 +50,10 @@ const ServicesSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {services.map((service, index) => {
           const IconComponent = service.icon;
-          return <div key={index} className={`scroll-scale stagger-delay-${index + 1} bg-card border border-card-border rounded-2xl p-8 shadow-card hover-lift cursor-pointer transform hover:scale-105 transition-all duration-500`}>
+          return <div key={index} className={`scroll-scale stagger-delay-${index + 1} bg-card border border-card-border rounded-2xl p-6 shadow-card hover-lift cursor-pointer transform hover:scale-105 transition-all duration-500`}>
                 <div className="mb-6">
                   <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mb-4 hover-scale">
                     <IconComponent className="w-6 h-6 text-primary-foreground" />
@@ -62,7 +62,7 @@ const ServicesSection = () => {
                   <p className="text-muted-foreground">{service.description}</p>
                 </div>
 
-                <ul className="space-y-2 mb-8">
+                <ul className="space-y-1 mb-6">
                   {service.features.map((feature, featureIndex) => <li key={featureIndex} className="flex items-start">
                       <div className="w-2 h-2 bg-accent rounded-full mt-2 mr-3 flex-shrink-0"></div>
                       <span className="text-sm text-muted-foreground">{feature}</span>
