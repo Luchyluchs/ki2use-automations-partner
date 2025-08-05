@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { useConversation } from '@11labs/react';
 import { Mic, MicOff, Volume2 } from 'lucide-react';
-import robotHeadIcon from '@/assets/robot-head-icon.jpg';
+import humanRobotHandshake from '@/assets/human-robot-handshake.jpg';
 
 const VoiceAssistant: React.FC = () => {
   const conversation = useConversation({
@@ -42,68 +42,61 @@ const VoiceAssistant: React.FC = () => {
   const isConnected = conversation.status === 'connected';
 
   return (
-    <div className="relative">
-      {/* Speech Bubble */}
+    <div className="relative w-80 h-60">
+      {/* Background Image */}
+      <img 
+        src={humanRobotHandshake} 
+        alt="Mensch-Roboter Handschlag" 
+        className="w-full h-full object-cover rounded-lg shadow-lg"
+      />
+      
+      {/* Speech Bubble - positioned in front of robot's face */}
       <div 
         className={`
-          relative bg-white border-2 rounded-2xl px-4 py-3 shadow-card cursor-pointer
-          transition-all duration-300 hover:shadow-primary hover-lift
+          absolute top-8 right-12 bg-white border-2 rounded-2xl px-4 py-3 shadow-card cursor-pointer
+          transition-all duration-300 hover:shadow-primary hover-lift max-w-40
           ${isConnected ? 'border-accent bg-accent/10' : 'border-primary/20'}
           ${conversation.isSpeaking ? 'animate-pulse border-green-500 bg-green-50' : ''}
         `}
         onClick={handleConversationToggle}
       >
-        {/* Speech Bubble Arrow */}
+        {/* Speech Bubble Arrow pointing to robot */}
         <div className={`
-          absolute -bottom-2 left-6 w-4 h-4 rotate-45 
+          absolute -bottom-2 left-4 w-4 h-4 rotate-45 
           ${isConnected ? 'bg-accent/10 border-r-2 border-b-2 border-accent' : 'bg-white border-r-2 border-b-2 border-primary/20'}
           ${conversation.isSpeaking ? 'bg-green-50 border-green-500' : ''}
         `} />
         
-        {/* Robot Avatar & Content */}
-        <div className="flex items-center gap-3">
-          {/* Robot Avatar */}
-          <div className="relative">
-            <img 
-              src={robotHeadIcon} 
-              alt="AI Robot" 
-              className={`
-                w-10 h-10 rounded-full object-cover ring-2
-                ${isConnected ? 'ring-accent' : 'ring-primary/30'}
-                ${conversation.isSpeaking ? 'ring-green-500 animate-pulse' : ''}
-              `}
-            />
-            {/* Status Indicator */}
-            <div className={`
-              absolute -top-1 -right-1 w-4 h-4 rounded-full flex items-center justify-center
-              ${isConnected ? 'bg-accent' : 'bg-primary'}
-              ${conversation.isSpeaking ? 'bg-green-500' : ''}
-            `}>
-              {conversation.isSpeaking ? (
-                <Volume2 className="w-2.5 h-2.5 text-white" />
-              ) : isConnected ? (
-                <MicOff className="w-2.5 h-2.5 text-white" />
-              ) : (
-                <Mic className="w-2.5 h-2.5 text-white" />
-              )}
-            </div>
+        {/* Content */}
+        <div className="text-center">
+          {/* Status Icon */}
+          <div className={`
+            w-8 h-8 rounded-full flex items-center justify-center mx-auto mb-2
+            ${isConnected ? 'bg-accent' : 'bg-primary'}
+            ${conversation.isSpeaking ? 'bg-green-500' : ''}
+          `}>
+            {conversation.isSpeaking ? (
+              <Volume2 className="w-4 h-4 text-white" />
+            ) : isConnected ? (
+              <MicOff className="w-4 h-4 text-white" />
+            ) : (
+              <Mic className="w-4 h-4 text-white" />
+            )}
           </div>
           
           {/* Text Content */}
-          <div className="flex-1">
-            <div className={`
-              text-sm font-medium
-              ${isConnected ? 'text-accent-foreground' : 'text-foreground'}
-              ${conversation.isSpeaking ? 'text-green-700' : ''}
-            `}>
-              {getButtonText()}
-            </div>
-            {!isConnected && (
-              <div className="text-xs text-muted-foreground">
-                Klicken zum Sprechen
-              </div>
-            )}
+          <div className={`
+            text-xs font-medium text-center
+            ${isConnected ? 'text-accent-foreground' : 'text-foreground'}
+            ${conversation.isSpeaking ? 'text-green-700' : ''}
+          `}>
+            {getButtonText()}
           </div>
+          {!isConnected && (
+            <div className="text-xs text-muted-foreground mt-1">
+              Klicken
+            </div>
+          )}
         </div>
       </div>
     </div>
