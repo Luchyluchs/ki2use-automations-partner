@@ -268,6 +268,7 @@ const CustomAgents = () => {
               variant="accent"
               size="xl"
               className="bg-white text-primary hover:bg-white/90"
+              icon={false}
             />
 
             <div className="mt-8 bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover-scale">
