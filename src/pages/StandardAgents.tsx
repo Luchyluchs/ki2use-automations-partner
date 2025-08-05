@@ -108,11 +108,7 @@ const StandardAgents = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {agents.map((agent, index) => <div key={index} className={`scroll-scale stagger-delay-${(index % 4) + 1} bg-card border border-card-border rounded-xl p-4 shadow-card hover-lift cursor-pointer transform hover:scale-105 transition-all duration-500`}>
-                {/* Image */}
-                <div className="relative rounded-lg overflow-hidden mb-4 hover-scale">
-                  <img src={agent.image} alt={`${agent.name} Workflow-Interface`} className="w-full h-32 object-cover transition-transform duration-300" />
-                  <div className="absolute inset-0 gradient-primary opacity-10 hover:opacity-20 transition-opacity duration-300"></div>
-                </div>
+                {/* Removed Image Section */}
 
                 {/* Content */}
                 <div>

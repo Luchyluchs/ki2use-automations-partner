@@ -70,13 +70,7 @@ const StandardAgentsPreview = () => {
               className="group bg-card/80 backdrop-blur-sm rounded-lg p-6 shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 border border-card-border hover:border-primary/30 animate-fade-in"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="aspect-square rounded-lg overflow-hidden mb-4 bg-gradient-primary/10">
-                <img
-                  src={agent.image}
-                  alt={agent.name}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-              </div>
+              {/* Removed Image Section */}
               <h3 className="text-lg font-semibold mb-2 text-card-foreground group-hover:text-primary transition-colors">
                 {agent.name}
               </h3>
