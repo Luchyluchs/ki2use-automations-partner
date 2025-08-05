@@ -293,27 +293,27 @@ const NewChatbot = () => {
           </div>
 
           {/* Input */}
-          <div className="p-3 sm:p-4 border-t border-card-border bg-card rounded-b-2xl">
-            <div className="flex space-x-1 sm:space-x-2">
+          <div className="p-2 sm:p-4 border-t border-card-border bg-card rounded-b-2xl">
+            <div className="flex gap-2 items-center">
               <input
                 type="text"
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder="Ihre Frage zu KI-Lösungen..."
-                className="flex-1 px-2 sm:px-3 py-2 border border-input rounded-lg sm:rounded-xl bg-background text-foreground text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-ring transition-smooth"
+                className="flex-1 min-w-0 px-2 py-2 border border-input rounded-lg bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-ring transition-smooth"
                 disabled={isLoading}
               />
               <Button
                 onClick={sendMessage}
                 disabled={!inputMessage.trim() || isLoading}
-                className="bg-gradient-primary text-primary-foreground hover-scale"
+                className="bg-gradient-primary text-primary-foreground hover-scale flex-shrink-0 w-10 h-10 p-0"
                 size="sm"
               >
-                <Send className="w-3 h-3 sm:w-4 sm:h-4" />
+                <Send className="w-4 h-4" />
               </Button>
             </div>
-            <p className="text-xs text-muted-foreground mt-1 sm:mt-2 text-center">
+            <p className="text-xs text-muted-foreground mt-2 text-center">
               🤖 Das könnte der Chatbot Ihrer Unternehmenswebsite sein
             </p>
           </div>
