@@ -60,7 +60,7 @@ const HeroSection = () => {
             </div>
             
             {/* Voice Assistant - positioned between the heads, above robot's eye level */}
-            <div className="absolute top-[15%] left-[50%] z-10 transform -translate-x-1/2 scale-50">
+            <div className="absolute top-[8%] left-[50%] z-10 transform -translate-x-1/2 scale-50">
               <VoiceAssistant />
             </div>
             
