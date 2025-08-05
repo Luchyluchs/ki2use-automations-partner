@@ -3,7 +3,7 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Label } from "./ui/label";
-import { useToast } from "@/hooks/use-toast";
+import { useToast } from "./ui/use-toast";
 import { Loader2, Send } from "lucide-react";
 
 const ContactForm = () => {
