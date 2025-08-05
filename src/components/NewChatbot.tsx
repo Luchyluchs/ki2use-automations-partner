@@ -197,43 +197,43 @@ const NewChatbot = () => {
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-24 right-6 w-96 h-[500px] bg-card border border-card-border rounded-2xl shadow-elevated z-50 flex flex-col animate-scale-in">
+        <div className="fixed bottom-24 right-2 sm:right-6 w-[calc(100vw-1rem)] sm:w-96 max-w-sm sm:max-w-none h-[70vh] sm:h-[500px] bg-card border border-card-border rounded-2xl shadow-elevated z-50 flex flex-col animate-scale-in">
           {/* Header */}
-          <div className="bg-gradient-primary text-primary-foreground p-4 rounded-t-2xl">
+          <div className="bg-gradient-primary text-primary-foreground p-3 sm:p-4 rounded-t-2xl">
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
                 <Bot className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="font-semibold">KI2USE Support</h3>
+                <h3 className="font-semibold text-sm sm:text-base">KI2USE Support</h3>
                 <p className="text-xs opacity-80">Powered by KI2USE Automation</p>
               </div>
             </div>
           </div>
 
           {/* Messages */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-muted/20">
+          <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-3 sm:space-y-4 bg-muted/20">
             {messages.map((message) => (
               <div
                 key={message.id}
                 className={`flex ${message.isUser ? 'justify-end' : 'justify-start'} animate-fade-in`}
               >
                 <div
-                  className={`max-w-[80%] p-3 rounded-2xl ${
+                  className={`max-w-[85%] sm:max-w-[80%] p-2 sm:p-3 rounded-xl sm:rounded-2xl text-xs sm:text-sm ${
                     message.isUser
                       ? 'bg-gradient-primary text-primary-foreground'
                       : 'bg-card border border-card-border text-foreground'
                   }`}
                 >
-                  <div className="flex items-start space-x-2">
+                  <div className="flex items-start space-x-1 sm:space-x-2">
                     {!message.isUser && (
-                      <Bot className="w-4 h-4 mt-0.5 text-accent flex-shrink-0" />
+                      <Bot className="w-3 h-3 sm:w-4 sm:h-4 mt-0.5 text-accent flex-shrink-0" />
                     )}
                     {message.isUser && (
-                      <User className="w-4 h-4 mt-0.5 text-primary-foreground flex-shrink-0" />
+                      <User className="w-3 h-3 sm:w-4 sm:h-4 mt-0.5 text-primary-foreground flex-shrink-0" />
                     )}
                      <div>
-                       <div className="text-sm leading-relaxed">
+                       <div className="text-xs sm:text-sm leading-relaxed">
                          {renderMessageWithLinks(message.text)}
                        </div>
                        <p className={`text-xs mt-1 ${
@@ -267,15 +267,15 @@ const NewChatbot = () => {
           </div>
 
           {/* Input */}
-          <div className="p-4 border-t border-card-border bg-card rounded-b-2xl">
-            <div className="flex space-x-2">
+          <div className="p-3 sm:p-4 border-t border-card-border bg-card rounded-b-2xl">
+            <div className="flex space-x-1 sm:space-x-2">
               <input
                 type="text"
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder="Ihre Frage zu KI-Lösungen..."
-                className="flex-1 px-3 py-2 border border-input rounded-xl bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-ring transition-smooth"
+                className="flex-1 px-2 sm:px-3 py-2 border border-input rounded-lg sm:rounded-xl bg-background text-foreground text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-ring transition-smooth"
                 disabled={isLoading}
               />
               <Button
@@ -284,10 +284,10 @@ const NewChatbot = () => {
                 className="bg-gradient-primary text-primary-foreground hover-scale"
                 size="sm"
               >
-                <Send className="w-4 h-4" />
+                <Send className="w-3 h-3 sm:w-4 sm:h-4" />
               </Button>
             </div>
-            <p className="text-xs text-muted-foreground mt-2 text-center">
+            <p className="text-xs text-muted-foreground mt-1 sm:mt-2 text-center">
               🤖 Das könnte der Chatbot Ihrer Unternehmenswebsite sein
             </p>
           </div>
