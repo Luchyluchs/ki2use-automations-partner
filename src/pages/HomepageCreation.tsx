@@ -133,9 +133,9 @@ const HomepageCreation = () => {
                       <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-primary"></div>
                     )}
                     {pkg.popular && (
-                      <Badge className="absolute top-2 left-1/2 transform -translate-x-1/2 bg-gradient-primary shadow-glow text-xs sm:text-sm z-10">
+                      <div className="absolute top-4 -right-2 bg-gradient-primary text-white text-xs px-3 py-1 transform rotate-12 shadow-lg">
                         Beliebteste Wahl
-                      </Badge>
+                      </div>
                     )}
                     <CardHeader className="text-center pb-4 sm:pb-6 px-4 sm:px-6">
                       <CardTitle className="text-xl sm:text-2xl mb-2 group-hover:text-primary transition-colors">{pkg.name}</CardTitle>
