@@ -15,7 +15,7 @@ const HeroSection = () => {
       <div className="absolute bottom-20 left-10 w-[500px] h-[500px] bg-accent/8 rounded-full blur-3xl parallax-slow"></div>
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl parallax-slow"></div>
       
-      <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Content */}
           <div className="text-center lg:text-left">

@@ -68,7 +68,7 @@ Corporate design for German KMUs - trustworthy, modern, efficient
     --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
     
     /* Spacing System */
-    --section-padding: 5rem;
+    --section-padding: 3rem;
     --container-padding: 2rem;
     
     --radius: 0.75rem;
