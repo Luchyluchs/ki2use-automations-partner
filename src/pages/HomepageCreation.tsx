@@ -3,7 +3,7 @@ import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, Globe, Smartphone, Search, Bot, TrendingUp, Shield } from "lucide-react";
+import { CheckCircle, Globe, Smartphone, Search, Bot, TrendingUp, Shield, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const HomepageCreation = () => {
@@ -81,6 +81,12 @@ const HomepageCreation = () => {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             {/* Hero Section with Background */}
             <div className="relative text-center mb-12 sm:mb-16 lg:mb-20 fade-in-element">
+              <Button variant="ghost" size="sm" asChild className="mb-8 hover-scale">
+                <Link to="/">
+                  <ArrowLeft className="w-4 h-4 mr-2" />
+                  Zurück zur Startseite
+                </Link>
+              </Button>
               <div className="absolute inset-0 bg-gradient-primary opacity-5 rounded-3xl"></div>
               <div className="relative z-10 py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 sm:mb-8 scale-in-element bg-gradient-primary bg-clip-text text-transparent leading-tight">
