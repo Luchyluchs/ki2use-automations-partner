@@ -1,5 +1,7 @@
 import React, { useCallback } from 'react';
 import { useConversation } from '@11labs/react';
+import { Mic, MicOff, Volume2 } from 'lucide-react';
+import voiceRobotIcon from '@/assets/voice-robot-icon.jpg';
 
 const VoiceAssistant: React.FC = () => {
   const conversation = useConversation({
@@ -40,53 +42,70 @@ const VoiceAssistant: React.FC = () => {
   const isConnected = conversation.status === 'connected';
 
   return (
-    <div className="voice-assistant-container">
-      <style>
-        {`
-          #voice-agent-button {
-            cursor: pointer;
-            padding: 12px 20px;
-            border: 1px solid #ccc;
-            border-radius: 20px;
-            font-size: 16px;
-            transition: all 0.2s ease;
-            background-color: white;
-            color: #333;
-          }
-          #voice-agent-button.connected {
-            background-color: #e60000;
-            color: white;
-            border-color: #e60000;
-          }
-          #voice-agent-button.speaking {
-            background-color: #00a000;
-            color: white;
-            border-color: #00a000;
-            animation: pulse 1.5s infinite;
-          }
-          #voice-agent-button:hover {
-            opacity: 0.9;
-          }
-          #voice-agent-button:disabled {
-            cursor: not-allowed;
-            opacity: 0.6;
-          }
-          @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-          }
+    <div className="relative">
+      {/* Speech Bubble */}
+      <div 
+        className={`
+          relative bg-white border-2 rounded-2xl px-4 py-3 shadow-card cursor-pointer
+          transition-all duration-300 hover:shadow-primary hover-lift
+          ${isConnected ? 'border-accent bg-accent/10' : 'border-primary/20'}
+          ${conversation.isSpeaking ? 'animate-pulse border-green-500 bg-green-50' : ''}
         `}
-      </style>
-      
-      <button
-        id="voice-agent-button"
-        className={`${isConnected ? 'connected' : ''} ${conversation.isSpeaking ? 'speaking' : ''}`}
         onClick={handleConversationToggle}
-        disabled={conversation.status === 'connecting'}
       >
-        {getButtonText()}
-      </button>
+        {/* Speech Bubble Arrow */}
+        <div className={`
+          absolute -bottom-2 left-6 w-4 h-4 rotate-45 
+          ${isConnected ? 'bg-accent/10 border-r-2 border-b-2 border-accent' : 'bg-white border-r-2 border-b-2 border-primary/20'}
+          ${conversation.isSpeaking ? 'bg-green-50 border-green-500' : ''}
+        `} />
+        
+        {/* Robot Avatar & Content */}
+        <div className="flex items-center gap-3">
+          {/* Robot Avatar */}
+          <div className="relative">
+            <img 
+              src={voiceRobotIcon} 
+              alt="AI Robot" 
+              className={`
+                w-10 h-10 rounded-full object-cover ring-2
+                ${isConnected ? 'ring-accent' : 'ring-primary/30'}
+                ${conversation.isSpeaking ? 'ring-green-500 animate-pulse' : ''}
+              `}
+            />
+            {/* Status Indicator */}
+            <div className={`
+              absolute -top-1 -right-1 w-4 h-4 rounded-full flex items-center justify-center
+              ${isConnected ? 'bg-accent' : 'bg-primary'}
+              ${conversation.isSpeaking ? 'bg-green-500' : ''}
+            `}>
+              {conversation.isSpeaking ? (
+                <Volume2 className="w-2.5 h-2.5 text-white" />
+              ) : isConnected ? (
+                <MicOff className="w-2.5 h-2.5 text-white" />
+              ) : (
+                <Mic className="w-2.5 h-2.5 text-white" />
+              )}
+            </div>
+          </div>
+          
+          {/* Text Content */}
+          <div className="flex-1">
+            <div className={`
+              text-sm font-medium
+              ${isConnected ? 'text-accent-foreground' : 'text-foreground'}
+              ${conversation.isSpeaking ? 'text-green-700' : ''}
+            `}>
+              {getButtonText()}
+            </div>
+            {!isConnected && (
+              <div className="text-xs text-muted-foreground">
+                Klicken zum Sprechen
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
