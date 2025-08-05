@@ -97,7 +97,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <div className="font-medium">Telefon</div>
-                      <div className="text-muted-foreground">+49 (0) 123 456 789</div>
+                      <div className="text-muted-foreground">+49 162 63 19 474</div>
                       <div className="text-sm text-accent">Mo-Fr: 9:00-18:00 Uhr</div>
                     </div>
                   </div>
