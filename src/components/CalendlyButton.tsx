@@ -59,12 +59,12 @@ const CalendlyButton = ({
 
   return (
     <div className="w-full px-1 sm:px-0">
-      <a
-        href="mailto:info@ki2use.de?subject=Terminanfrage&body=Hallo, ich möchte gerne einen Termin für ein kostenloses Beratungsgespräch vereinbaren."
+      <PopupButton
+        url="https://calendly.com/luxalexander/30min"
+        rootElement={document.getElementById("root")!}
+        text={`${icon ? "📅 " : ""}${text}`}
         className={getButtonClasses()}
-      >
-        {`${icon ? "📅 " : ""}${text}`}
-      </a>
+      />
     </div>
   );
 };
