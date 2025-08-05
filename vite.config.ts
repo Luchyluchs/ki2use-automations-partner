@@ -15,6 +15,11 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  assetsInclude: ['**/*.jpg', '**/*.jpeg', '**/*.png', '**/*.svg', '**/*.gif', '**/*.webp'],
+  optimizeDeps: {
+    include: ['@11labs/react'],
+    exclude: [],
+  },
   server: {
     host: "::",
     port: 8080,
