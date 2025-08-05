@@ -59,13 +59,6 @@ const HeroSection = () => {
             </div>
             
             {/* Floating Trust Indicators */}
-            <div className="scroll-fade-in absolute -top-6 -right-6 bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-elevated border border-white/50 hover:shadow-primary transition-all duration-300">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-primary">500+</div>
-                <div className="text-sm text-muted-foreground">Zufriedene Kunden</div>
-              </div>
-            </div>
-            
             <div className="scroll-fade-in absolute -bottom-6 -left-6 bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-elevated border border-white/50 hover:shadow-primary transition-all duration-300">
               <div className="text-center">
                 <div className="text-2xl font-bold text-accent">DSGVO</div>
