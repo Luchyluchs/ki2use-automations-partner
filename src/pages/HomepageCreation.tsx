@@ -89,7 +89,7 @@ const HomepageCreation = () => {
               </Button>
               <div className="absolute inset-0 bg-gradient-primary opacity-5 rounded-3xl"></div>
               <div className="relative z-10 py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 sm:mb-8 scale-in-element bg-gradient-primary bg-clip-text text-transparent leading-normal">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 sm:mb-8 scale-in-element text-primary leading-normal pb-2">
                   Professionelle Homepage mit KI-Integration
                 </h1>
                 <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto fade-in-element leading-relaxed">
