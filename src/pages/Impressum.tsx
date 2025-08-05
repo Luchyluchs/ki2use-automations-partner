@@ -1,3 +1,4 @@
+
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -22,65 +23,52 @@ const Impressum = () => {
               <div className="prose prose-sm max-w-none">
                 <h2>Angaben gemäß § 5 TMG</h2>
                 <p className="text-muted-foreground">
-                  <strong>KI2USE</strong><br />
-                  [Vollständiger Firmenname]<br />
-                  [Straße und Hausnummer]<br />
-                  [PLZ und Ort]<br />
+                  <strong>Alexander Lux</strong><br />
+                  KI2USE<br />
+                  Kaiser-Wilhelm-Ring 44<br />
+                  50672 Köln<br />
                   Deutschland
-                </p>
-
-                <h3 className="mt-8">Vertreten durch</h3>
-                <p className="text-muted-foreground">
-                  [Name des Geschäftsführers/Inhabers]
                 </p>
 
                 <h3 className="mt-8">Kontakt</h3>
                 <p className="text-muted-foreground">
-                  Telefon: +49 (0) 123 456 789<br />
+                  Telefon: +49 162 63 19 474<br />
                   E-Mail: info@ki2use.de
-                </p>
-
-                <h3 className="mt-8">Registereintrag</h3>
-                <p className="text-muted-foreground">
-                  Eintragung im Handelsregister.<br />
-                  Registergericht: [Registergericht]<br />
-                  Registernummer: [Registernummer]
                 </p>
 
                 <h3 className="mt-8">Umsatzsteuer-ID</h3>
                 <p className="text-muted-foreground">
-                  Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br />
-                  [USt-IdNr.]
+                  Sobald vom Finanzamt zugeteilt, hier die Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz eintragen. Falls Sie die Kleinunternehmerregelung nach § 19 UStG in Anspruch nehmen, stattdessen hier folgenden Satz einfügen: "Gemäß § 19 UStG wird keine Umsatzsteuer berechnet."
                 </p>
 
-                <h3 className="mt-8">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h3>
+                <h3 className="mt-8">Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h3>
                 <p className="text-muted-foreground">
-                  [Name und Anschrift des Verantwortlichen]
+                  Alexander Lux<br />
+                  Kaiser-Wilhelm-Ring 44<br />
+                  50672 Köln
                 </p>
 
-                <h3 className="mt-8">Haftungsausschluss</h3>
-                <h4 className="mt-6">Haftung für Inhalte</h4>
+                <h3 className="mt-8">EU-Streitschlichtung</h3>
                 <p className="text-muted-foreground text-sm">
-                  Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht unter der Verpflichtung, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
+                  Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: 
+                  <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline"> https://ec.europa.eu/consumers/odr/</a>.<br />
+                  Unsere E-Mail-Adresse finden Sie oben im Impressum.
                 </p>
 
-                <h4 className="mt-6">Haftung für Links</h4>
+                <h3 className="mt-8">Verbraucherstreitbeilegung/Universalschlichtungsstelle</h3>
                 <p className="text-muted-foreground text-sm">
-                  Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.
+                  Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
                 </p>
 
-                <h4 className="mt-6">Urheberrecht</h4>
+                <h3 className="mt-8">Haftung für Inhalte</h3>
                 <p className="text-muted-foreground text-sm">
-                  Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
+                  Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
                 </p>
 
-                <div className="mt-8 p-4 bg-muted rounded-lg">
-                  <p className="text-sm text-muted-foreground">
-                    <strong>Hinweis:</strong> Dies ist ein Muster-Impressum. Bitte ersetzen Sie alle Platzhalter 
-                    durch Ihre korrekten Unternehmensdaten und lassen Sie das Impressum von einem Rechtsanwalt 
-                    prüfen, um rechtliche Konformität sicherzustellen.
-                  </p>
-                </div>
+                <h3 className="mt-8">Hosting</h3>
+                <p className="text-muted-foreground text-sm">
+                  Diese Website wird bei Firebase und GitHub gehostet. Die von uns genutzten Server befinden sich in Deutschland. Die Verarbeitung personenbezogener Daten im Rahmen des Hostings erfolgt auf Grundlage unseres berechtigten Interesses an einer sicheren und effizienten Bereitstellung unseres Online-Angebots gemäß Art. 6 Abs. 1 lit. f DSGVO.
+                </p>
               </div>
             </div>
           </div>

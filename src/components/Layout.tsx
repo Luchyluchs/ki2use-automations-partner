@@ -110,6 +110,7 @@ const Layout = ({
               <ul className="space-y-2 text-muted-foreground text-sm sm:text-base">
                 <li><Link to="/impressum" className="hover:text-foreground transition-smooth block py-1">Impressum</Link></li>
                 <li><Link to="/datenschutz" className="hover:text-foreground transition-smooth block py-1">Datenschutzerklärung</Link></li>
+                <li><Link to="/agb" className="hover:text-foreground transition-smooth block py-1">AGB</Link></li>
               </ul>
             </div>
           </div>
