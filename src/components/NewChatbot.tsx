@@ -293,8 +293,8 @@ const NewChatbot = () => {
           </div>
 
           {/* Input */}
-          <div className="p-2 sm:p-4 border-t border-card-border bg-card rounded-b-2xl">
-            <div className="flex gap-2 items-center">
+          <div className="p-2 border-t border-card-border bg-card rounded-b-2xl">
+            <div className="flex gap-1 items-center">
               <input
                 type="text"
                 value={inputMessage}
@@ -303,11 +303,12 @@ const NewChatbot = () => {
                 placeholder="Ihre Frage zu KI-Lösungen..."
                 className="flex-1 min-w-0 px-2 py-2 border border-input rounded-lg bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-ring transition-smooth"
                 disabled={isLoading}
+                style={{ maxWidth: 'calc(100% - 50px)' }}
               />
               <Button
                 onClick={sendMessage}
                 disabled={!inputMessage.trim() || isLoading}
-                className="bg-gradient-primary text-primary-foreground hover-scale flex-shrink-0 w-10 h-10 p-0"
+                className="bg-gradient-primary text-primary-foreground hover-scale flex-shrink-0 w-10 h-10 p-0 ml-1"
                 size="sm"
               >
                 <Send className="w-4 h-4" />
