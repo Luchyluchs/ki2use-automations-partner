@@ -9,8 +9,8 @@ const VoiceAssistant: React.FC = () => {
   const audioPlayerRef = useRef<HTMLAudioElement | null>(null);
   const audioChunksRef = useRef<Blob[]>([]);
 
-  // Backend-Endpunkt - Hier die eigene n8n URL einfügen
-  const BACKEND_URL = 'IHRE_N8N_TEST_URL_HIER_EINFUEGEN';
+  // Backend-Endpunkt - n8n Webhook URL
+  const BACKEND_URL = 'https://n8n.srv929188.hstgr.cloud/webhook-test/8e2e75fc-67cd-4eda-9588-f6bb753d6aa4';
 
   const handleButtonClick = useCallback(async () => {
     if (isProcessing) return;
