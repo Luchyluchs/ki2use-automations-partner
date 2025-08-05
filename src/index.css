@@ -9,6 +9,13 @@ Corporate design for German KMUs - trustworthy, modern, efficient
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
+/* iOS Safari viewport fix for keyboard handling */
+@supports (height: 100dvh) {
+  :root {
+    --vh: 100dvh;
+  }
+}
+
 @layer base {
   :root {
     /* Modern Dark Blue */
