@@ -94,14 +94,6 @@ const Datenschutz = () => {
                   Diese Datenschutzerklärung ist aktuell gültig und hat den Stand August 2025. Durch die Weiterentwicklung unserer Website und Angebote oder aufgrund geänderter gesetzlicher bzw. behördlicher Vorgaben kann es notwendig werden, diese Datenschutzerklärung zu ändern.
                 </p>
 
-                <div className="mt-8 p-4 bg-accent/10 rounded-lg">
-                  <h4 className="font-semibold text-accent mb-2">KI2USE - Automatisierung auch beim Datenschutz</h4>
-                  <p className="text-sm text-muted-foreground">
-                    Auch unsere Datenschutzprozesse sind automatisiert: Ihre Anfragen bezüglich Ihrer Rechte werden 
-                    automatisch bearbeitet und an die zuständigen Stellen weitergeleitet, um Ihnen 
-                    schnellstmöglich zu helfen.
-                  </p>
-                </div>
               </div>
             </div>
           </div>
