@@ -16,16 +16,13 @@ const VoiceAssistantFallback: React.FC = () => {
     try {
       setStatus('connecting');
       
-      // Erst prüfen ob ElevenLabs verfügbar ist
-      const { useConversation } = await import('@11labs/react');
-      
-      // Wenn erfolgreich geladen, zur echten Komponente wechseln
-      console.log('ElevenLabs erfolgreich geladen');
+      // Web Speech API verwenden
+      console.log('WebSpeech API wird verwendet');
       
       setStatus('connected');
       setIsRecording(true);
     } catch (error) {
-      console.error('ElevenLabs nicht verfügbar:', error);
+      console.error('WebSpeech API nicht verfügbar:', error);
       setStatus('disconnected');
       
       // Fallback-Verhalten
