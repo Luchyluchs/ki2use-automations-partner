@@ -1,6 +1,6 @@
 import React from 'react';
 import ErrorBoundary from './ErrorBoundary';
-import WebSpeechVoiceAssistant from './WebSpeechVoiceAssistant';
+import ElevenLabsVoiceAssistant from './ElevenLabsVoiceAssistant';
 
 const LazyVoiceAssistant: React.FC = () => {
   return (
@@ -9,7 +9,7 @@ const LazyVoiceAssistant: React.FC = () => {
         {/* Unsichtbarer Platzhalter falls Komponente nicht lädt */}
       </div>
     }>
-      <WebSpeechVoiceAssistant />
+      <ElevenLabsVoiceAssistant />
     </ErrorBoundary>
   );
 };
