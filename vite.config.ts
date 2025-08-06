@@ -21,12 +21,22 @@ export default defineConfig(({ mode }) => ({
     strictPort: true,
     historyApiFallback: true,
   },
+  optimizeDeps: {
+    include: ['@11labs/react'],
+    esbuildOptions: {
+      target: 'es2020'
+    }
+  },
   build: {
     outDir: 'dist',
+    target: 'es2020',
     rollupOptions: {
       output: {
         manualChunks: undefined,
       }
     }
+  },
+  define: {
+    global: 'globalThis',
   }
 }));
