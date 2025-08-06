@@ -36,8 +36,48 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Voice Agent Section */}
+      {/* Calendly CTA Section */}
       <section className="pt-2 pb-6 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto mb-8">
+            <div className="bg-gradient-primary rounded-2xl p-8 py-12 text-primary-foreground hover-scale">
+              <h2 className="text-2xl font-semibold mb-4">
+                Kostenloses 30-minütiges Beratungsgespräch
+              </h2>
+              <p className="mb-6 opacity-90">
+                Der schnellste Weg zu Ihrer individuellen KI-Lösung. Vereinbaren Sie 
+                direkt einen Termin und sprechen Sie mit unseren Experten.
+              </p>
+              
+              <CalendlyButton 
+                text="Jetzt kostenlosen Termin buchen"
+                variant="accent"
+                size="lg"
+                className="w-full bg-white text-primary hover:bg-white/90 mb-4"
+                icon={false}
+              />
+              
+              <div className="grid grid-cols-3 gap-4 text-center max-w-md mx-auto">
+                <div>
+                  <Clock className="w-6 h-6 mx-auto mb-2" />
+                  <div className="text-sm">30 Minuten</div>
+                </div>
+                <div>
+                  <Users className="w-6 h-6 mx-auto mb-2" />
+                  <div className="text-sm">Persönlich</div>
+                </div>
+                <div>
+                  <Zap className="w-6 h-6 mx-auto mb-2" />
+                  <div className="text-sm">Online</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Voice Agent Section */}
+      <section className="pb-6 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto mb-8">
             <div className="bg-gradient-primary rounded-2xl p-6 text-center text-primary-foreground">
@@ -63,40 +103,6 @@ const Contact = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Information */}
             <div className="space-y-4">
-              {/* Calendly CTA */}
-              <div className="bg-gradient-primary rounded-2xl p-8 py-12 text-primary-foreground hover-scale">
-                <h2 className="text-2xl font-semibold mb-4">
-                  Kostenloses 30-minütiges Beratungsgespräch
-                </h2>
-                <p className="mb-6 opacity-90">
-                  Der schnellste Weg zu Ihrer individuellen KI-Lösung. Vereinbaren Sie 
-                  direkt einen Termin und sprechen Sie mit unseren Experten.
-                </p>
-                
-                <CalendlyButton 
-                  text="Jetzt kostenlosen Termin buchen"
-                  variant="accent"
-                  size="lg"
-                  className="w-full bg-white text-primary hover:bg-white/90 mb-4"
-                  icon={false}
-                />
-                
-                <div className="grid grid-cols-3 gap-4 text-center max-w-md mx-auto">
-                  <div>
-                    <Clock className="w-6 h-6 mx-auto mb-2" />
-                    <div className="text-sm">30 Minuten</div>
-                  </div>
-                  <div>
-                    <Users className="w-6 h-6 mx-auto mb-2" />
-                    <div className="text-sm">Persönlich</div>
-                  </div>
-                  <div>
-                    <Zap className="w-6 h-6 mx-auto mb-2" />
-                    <div className="text-sm">Online</div>
-                  </div>
-                </div>
-              </div>
-
               {/* Contact Details */}
               <div className="bg-card border border-card-border rounded-2xl p-8 shadow-card hover-lift">
                 <h3 className="text-xl font-semibold mb-6">Direkter Kontakt</h3>
