@@ -51,42 +51,6 @@ const ROICalculator = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div className="space-y-6">
-          <div className="space-y-3">
-            <Label>Anzahl Mitarbeiter: {employees[0]}</Label>
-            <Slider
-              value={employees}
-              onValueChange={setEmployees}
-              max={100}
-              min={1}
-              step={1}
-              className="w-full"
-            />
-          </div>
-
-          <div className="space-y-3">
-            <Label>Durchschnittliches Jahresgehalt: €{avgSalary[0].toLocaleString()}</Label>
-            <Slider
-              value={avgSalary}
-              onValueChange={setAvgSalary}
-              max={100000}
-              min={25000}
-              step={5000}
-              className="w-full"
-            />
-          </div>
-
-          <div className="space-y-3">
-            <Label>Stunden pro Woche für Aufgaben: {hoursPerWeek[0]}</Label>
-            <Slider
-              value={hoursPerWeek}
-              onValueChange={setHoursPerWeek}
-              max={20}
-              min={1}
-              step={1}
-              className="w-full"
-            />
-          </div>
-
           <div className="space-y-3 p-4 border-2 border-primary/20 rounded-lg bg-gradient-to-br from-primary/5 to-accent/5">
             <Label className="text-lg font-semibold text-primary flex items-center gap-2">
               <Calculator className="w-5 h-5" />
@@ -150,6 +114,42 @@ const ROICalculator = () => {
                 </SelectItem>
               </SelectContent>
             </Select>
+          </div>
+
+          <div className="space-y-3">
+            <Label>Anzahl Mitarbeiter: {employees[0]}</Label>
+            <Slider
+              value={employees}
+              onValueChange={setEmployees}
+              max={100}
+              min={1}
+              step={1}
+              className="w-full"
+            />
+          </div>
+
+          <div className="space-y-3">
+            <Label>Durchschnittliches Jahresgehalt: €{avgSalary[0].toLocaleString()}</Label>
+            <Slider
+              value={avgSalary}
+              onValueChange={setAvgSalary}
+              max={100000}
+              min={25000}
+              step={5000}
+              className="w-full"
+            />
+          </div>
+
+          <div className="space-y-3">
+            <Label>Stunden pro Woche für Aufgaben: {hoursPerWeek[0]}</Label>
+            <Slider
+              value={hoursPerWeek}
+              onValueChange={setHoursPerWeek}
+              max={20}
+              min={1}
+              step={1}
+              className="w-full"
+            />
           </div>
         </div>
 
