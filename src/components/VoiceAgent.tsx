@@ -1,4 +1,5 @@
-import React, { useState, useCallback, useRef } from 'react';
+import React, { useState } from 'react';
+import { useConversation } from '@11labs/react';
 import { Button } from '@/components/ui/button';
 import { Mic, MicOff, Phone, PhoneOff } from 'lucide-react';
 
@@ -8,67 +9,31 @@ interface VoiceAgentProps {
 
 const VoiceAgent: React.FC<VoiceAgentProps> = ({ className = '' }) => {
   const [isConnected, setIsConnected] = useState(false);
-  const [isSpeaking, setIsSpeaking] = useState(false);
-  const [status, setStatus] = useState<'connected' | 'disconnected'>('disconnected');
-  const conversationRef = useRef<any>(null);
   
-  const initializeConversation = useCallback(async () => {
-    try {
-      // Dynamic import für @11labs/react
-      const { useConversation } = await import('@11labs/react');
-      
-      // Mock für useConversation wenn nicht verfügbar
-      const conversation = {
-        startSession: async (config: any) => {
-          setIsConnected(true);
-          setStatus('connected');
-          console.log('ElevenLabs Conversation gestartet mit Agent:', config.agentId);
-        },
-        endSession: async () => {
-          setIsConnected(false);
-          setStatus('disconnected');
-          setIsSpeaking(false);
-          console.log('ElevenLabs Conversation beendet');
-        }
-      };
-      
-      conversationRef.current = conversation;
-      return conversation;
-    } catch (error) {
-      console.warn('ElevenLabs Package nicht verfügbar, verwende Fallback:', error);
-      
-      // Fallback ohne ElevenLabs
-      const fallbackConversation = {
-        startSession: async (config: any) => {
-          setIsConnected(true);
-          setStatus('connected');
-          console.log('Fallback Voice Agent gestartet');
-        },
-        endSession: async () => {
-          setIsConnected(false);
-          setStatus('disconnected');
-          setIsSpeaking(false);
-          console.log('Fallback Voice Agent beendet');
-        }
-      };
-      
-      conversationRef.current = fallbackConversation;
-      return fallbackConversation;
+  const conversation = useConversation({
+    onConnect: () => {
+      console.log('Verbindung hergestellt');
+      setIsConnected(true);
+    },
+    onDisconnect: () => {
+      console.log('Verbindung beendet');
+      setIsConnected(false);
+    },
+    onError: (error) => {
+      console.error('Fehler:', error);
+    },
+    onMessage: (message) => {
+      console.log('Nachricht:', message);
     }
-  }, []);
+  });
 
   const startConversation = async () => {
     try {
       // Mikrofon-Zugriff anfordern
       await navigator.mediaDevices.getUserMedia({ audio: true });
       
-      // Conversation initialisieren falls noch nicht geschehen
-      if (!conversationRef.current) {
-        await initializeConversation();
-      }
-      
       // Gespräch mit Agent-ID starten
-      await conversationRef.current?.startSession({
+      await conversation.startSession({
         agentId: 'agent_5901k1zj5fqee3fv7fxjaa7vhrv9'
       });
     } catch (error) {
@@ -79,7 +44,7 @@ const VoiceAgent: React.FC<VoiceAgentProps> = ({ className = '' }) => {
 
   const endConversation = async () => {
     try {
-      await conversationRef.current?.endSession();
+      await conversation.endSession();
     } catch (error) {
       console.error('Fehler beim Beenden der Konversation:', error);
     }
@@ -92,12 +57,12 @@ const VoiceAgent: React.FC<VoiceAgentProps> = ({ className = '' }) => {
           <div className={`w-16 h-16 rounded-full flex items-center justify-center transition-all duration-300 ${
             isConnected 
               ? 'bg-green-100 border-4 border-green-500' 
-              : status === 'connected' 
+              : conversation.status === 'connected' 
                 ? 'bg-blue-100 border-4 border-blue-500' 
                 : 'bg-gray-100 border-4 border-gray-300'
           }`}>
             {isConnected ? (
-              <Mic className={`w-6 h-6 ${isSpeaking ? 'text-green-600 animate-pulse' : 'text-green-600'}`} />
+              <Mic className={`w-6 h-6 ${conversation.isSpeaking ? 'text-green-600 animate-pulse' : 'text-green-600'}`} />
             ) : (
               <MicOff className="w-6 h-6 text-gray-400" />
             )}
@@ -108,7 +73,7 @@ const VoiceAgent: React.FC<VoiceAgentProps> = ({ className = '' }) => {
           <h3 className="text-lg font-semibold mb-2">KI Sprachagent</h3>
           <p className="text-muted-foreground text-sm mb-3">
             {isConnected 
-              ? isSpeaking 
+              ? conversation.isSpeaking 
                 ? 'Der Agent spricht...' 
                 : 'Bereit zum Sprechen - einfach lossprechen!'
               : 'Klicken Sie auf Start, um mit dem KI-Agenten zu sprechen'
@@ -116,7 +81,7 @@ const VoiceAgent: React.FC<VoiceAgentProps> = ({ className = '' }) => {
           </p>
           
           <div className="text-xs text-muted-foreground mb-4">
-            Status: {status === 'connected' ? 'Verbunden' : 'Getrennt'}
+            Status: {conversation.status === 'connected' ? 'Verbunden' : 'Getrennt'}
           </div>
         </div>
 
