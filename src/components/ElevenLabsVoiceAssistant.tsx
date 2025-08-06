@@ -1,26 +1,18 @@
-import React, { useState, useCallback } from 'react';
-import { useConversation } from '@11labs/react';
+import React, { useState, useCallback, useRef, useEffect } from 'react';
 import { Mic, MicOff, Volume2 } from 'lucide-react';
 import robotHeadIcon from '@/assets/robot-head-icon.jpg';
 
 const ElevenLabsVoiceAssistant: React.FC = () => {
   const [apiKey, setApiKey] = useState<string>('');
   const [showApiInput, setShowApiInput] = useState(true);
+  const [status, setStatus] = useState<'disconnected' | 'connecting' | 'connected'>('disconnected');
+  const [isSpeaking, setIsSpeaking] = useState(false);
   
-  const conversation = useConversation({
-    onConnect: () => {
-      console.log('ElevenLabs connected');
-    },
-    onDisconnect: () => {
-      console.log('ElevenLabs disconnected');
-    },
-    onMessage: (message) => {
-      console.log('ElevenLabs message:', message);
-    },
-    onError: (error) => {
-      console.error('ElevenLabs error:', error);
-    }
-  });
+  const websocketRef = useRef<WebSocket | null>(null);
+  const mediaRecorderRef = useRef<MediaRecorder | null>(null);
+  const audioContextRef = useRef<AudioContext | null>(null);
+
+  const AGENT_ID = 'agent_9201k1xfxkxrepj9q3zqrekwfkvs';
 
   const handleStartConversation = useCallback(async () => {
     if (!apiKey.trim()) {
@@ -29,12 +21,14 @@ const ElevenLabsVoiceAssistant: React.FC = () => {
     }
 
     try {
+      setStatus('connecting');
+      
       // Request microphone permission
-      await navigator.mediaDevices.getUserMedia({ audio: true });
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       
       // Generate signed URL with the API key
       const response = await fetch(
-        `https://api.elevenlabs.io/v1/convai/conversation/get_signed_url?agent_id=your_agent_id_here`,
+        `https://api.elevenlabs.io/v1/convai/conversation/get_signed_url?agent_id=${AGENT_ID}`,
         {
           method: 'GET',
           headers: {
@@ -48,27 +42,83 @@ const ElevenLabsVoiceAssistant: React.FC = () => {
       }
 
       const { signed_url } = await response.json();
-      await conversation.startSession({ agentId: signed_url });
+      
+      // Connect to WebSocket
+      const ws = new WebSocket(signed_url);
+      websocketRef.current = ws;
+
+      ws.onopen = () => {
+        console.log('ElevenLabs WebSocket connected');
+        setStatus('connected');
+        
+        // Start recording
+        const mediaRecorder = new MediaRecorder(stream);
+        mediaRecorderRef.current = mediaRecorder;
+        
+        mediaRecorder.ondataavailable = (event) => {
+          if (event.data.size > 0 && ws.readyState === WebSocket.OPEN) {
+            ws.send(event.data);
+          }
+        };
+        
+        mediaRecorder.start(100); // Send chunks every 100ms
+      };
+
+      ws.onmessage = (event) => {
+        if (event.data instanceof Blob) {
+          // Audio response from ElevenLabs
+          setIsSpeaking(true);
+          const audioUrl = URL.createObjectURL(event.data);
+          const audio = new Audio(audioUrl);
+          audio.onended = () => setIsSpeaking(false);
+          audio.play();
+        }
+      };
+
+      ws.onclose = () => {
+        console.log('ElevenLabs WebSocket disconnected');
+        setStatus('disconnected');
+        setIsSpeaking(false);
+        
+        // Clean up
+        if (mediaRecorderRef.current) {
+          mediaRecorderRef.current.stop();
+        }
+        stream.getTracks().forEach(track => track.stop());
+      };
+
+      ws.onerror = (error) => {
+        console.error('ElevenLabs WebSocket error:', error);
+        setStatus('disconnected');
+        alert('Fehler beim Verbinden mit ElevenLabs.');
+      };
       
     } catch (error) {
       console.error('Error starting ElevenLabs conversation:', error);
+      setStatus('disconnected');
       alert('Fehler beim Starten des Gesprächs. Bitte überprüfen Sie Ihren API Key.');
     }
-  }, [apiKey, conversation]);
+      
+  }, [apiKey]);
 
-  const handleEndConversation = useCallback(async () => {
-    await conversation.endSession();
-  }, [conversation]);
+  const handleEndConversation = useCallback(() => {
+    if (websocketRef.current) {
+      websocketRef.current.close();
+    }
+    if (mediaRecorderRef.current) {
+      mediaRecorderRef.current.stop();
+    }
+  }, []);
 
   const getButtonText = () => {
-    if (conversation.status === 'connecting') return 'Verbinde...';
-    if (conversation.status === 'connected') {
-      return conversation.isSpeaking ? 'Agent spricht...' : 'Gespräch beenden';
+    if (status === 'connecting') return 'Verbinde...';
+    if (status === 'connected') {
+      return isSpeaking ? 'Agent spricht...' : 'Gespräch beenden';
     }
     return 'Mit ElevenLabs Assistent sprechen';
   };
 
-  const isConnected = conversation.status === 'connected';
+  const isConnected = status === 'connected';
 
   if (showApiInput) {
     return (
@@ -120,8 +170,8 @@ const ElevenLabsVoiceAssistant: React.FC = () => {
           relative bg-white/80 backdrop-blur-sm border-2 rounded-2xl px-4 py-3 shadow-card cursor-pointer
           transition-all duration-300 hover:shadow-primary hover-lift opacity-90
           ${isConnected ? 'border-accent bg-accent/20' : 'border-primary/20'}
-          ${conversation.isSpeaking ? 'animate-pulse border-green-500 bg-green-50/80' : ''}
-          ${conversation.status === 'connecting' ? 'border-yellow-500 bg-yellow-50/80' : ''}
+          ${isSpeaking ? 'animate-pulse border-green-500 bg-green-50/80' : ''}
+          ${status === 'connecting' ? 'border-yellow-500 bg-yellow-50/80' : ''}
         `}
         onClick={isConnected ? handleEndConversation : handleStartConversation}
       >
@@ -129,8 +179,8 @@ const ElevenLabsVoiceAssistant: React.FC = () => {
         <div className={`
           absolute -bottom-2 left-6 w-4 h-4 rotate-45 
           ${isConnected ? 'bg-accent/10 border-r-2 border-b-2 border-accent' : 'bg-white border-r-2 border-b-2 border-primary/20'}
-          ${conversation.isSpeaking ? 'bg-green-50 border-green-500' : ''}
-          ${conversation.status === 'connecting' ? 'bg-yellow-50 border-yellow-500' : ''}
+          ${isSpeaking ? 'bg-green-50 border-green-500' : ''}
+          ${status === 'connecting' ? 'bg-yellow-50 border-yellow-500' : ''}
         `} />
         
         {/* Robot Avatar & Content */}
@@ -143,18 +193,18 @@ const ElevenLabsVoiceAssistant: React.FC = () => {
               className={`
                 w-10 h-10 rounded-full object-cover ring-2
                 ${isConnected ? 'ring-accent' : 'ring-primary/30'}
-                ${conversation.isSpeaking ? 'ring-green-500 animate-pulse' : ''}
-                ${conversation.status === 'connecting' ? 'ring-yellow-500' : ''}
+                ${isSpeaking ? 'ring-green-500 animate-pulse' : ''}
+                ${status === 'connecting' ? 'ring-yellow-500' : ''}
               `}
             />
             {/* Status Indicator */}
             <div className={`
               absolute -top-1 -right-1 w-4 h-4 rounded-full flex items-center justify-center
               ${isConnected ? 'bg-accent' : 'bg-primary'}
-              ${conversation.isSpeaking ? 'bg-green-500' : ''}
-              ${conversation.status === 'connecting' ? 'bg-yellow-500' : ''}
+              ${isSpeaking ? 'bg-green-500' : ''}
+              ${status === 'connecting' ? 'bg-yellow-500' : ''}
             `}>
-              {conversation.isSpeaking ? (
+              {isSpeaking ? (
                 <Volume2 className="w-2.5 h-2.5 text-white" />
               ) : isConnected ? (
                 <MicOff className="w-2.5 h-2.5 text-white" />
@@ -169,12 +219,12 @@ const ElevenLabsVoiceAssistant: React.FC = () => {
             <div className={`
               text-sm font-medium
               ${isConnected ? 'text-accent-foreground' : 'text-foreground'}
-              ${conversation.isSpeaking ? 'text-green-700' : ''}
-              ${conversation.status === 'connecting' ? 'text-yellow-700' : ''}
+              ${isSpeaking ? 'text-green-700' : ''}
+              ${status === 'connecting' ? 'text-yellow-700' : ''}
             `}>
               {getButtonText()}
             </div>
-            {conversation.status === 'disconnected' && (
+            {status === 'disconnected' && (
               <div className="text-xs text-muted-foreground">
                 Klicken zum Sprechen
               </div>
