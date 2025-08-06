@@ -1,0 +1,13 @@
+# GitHub Pages Headers
+/assets/*.js
+  Content-Type: application/javascript
+
+/assets/*.css
+  Content-Type: text/css
+
+/assets/*.json
+  Content-Type: application/json
+
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
