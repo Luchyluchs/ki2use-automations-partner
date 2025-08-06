@@ -64,49 +64,49 @@ const ROICalculator = () => {
                 <SelectValue placeholder="Agent auswählen..." />
               </SelectTrigger>
               <SelectContent className="bg-card border-2 border-primary/30 shadow-2xl z-50">
-                <SelectItem value="email" className="py-3 px-4 text-base">
+                <SelectItem value="email" className="py-3 pl-10 pr-4 text-base">
                   <div className="flex flex-col">
                     <span className="font-semibold">E-Mail Agent</span>
                     <span className="text-sm text-muted-foreground">€50/Monat + €1.000 Setup*</span>
                   </div>
                 </SelectItem>
-                <SelectItem value="linkedin" className="py-3 px-4 text-base">
+                <SelectItem value="linkedin" className="py-3 pl-10 pr-4 text-base">
                   <div className="flex flex-col">
                     <span className="font-semibold">LinkedIn Agent</span>
                     <span className="text-sm text-muted-foreground">€50/Monat + €1.300 Setup*</span>
                   </div>
                 </SelectItem>
-                <SelectItem value="voice" className="py-3 px-4 text-base">
+                <SelectItem value="voice" className="py-3 pl-10 pr-4 text-base">
                   <div className="flex flex-col">
                     <span className="font-semibold">Voice Agent</span>
                     <span className="text-sm text-muted-foreground">€50/Monat + €1.600 Setup*</span>
                   </div>
                 </SelectItem>
-                <SelectItem value="newsletter" className="py-3 px-4 text-base">
+                <SelectItem value="newsletter" className="py-3 pl-10 pr-4 text-base">
                   <div className="flex flex-col">
                     <span className="font-semibold">Newsletter Agent</span>
                     <span className="text-sm text-muted-foreground">€50/Monat + €800 Setup*</span>
                   </div>
                 </SelectItem>
-                <SelectItem value="chatbot" className="py-3 px-4 text-base">
+                <SelectItem value="chatbot" className="py-3 pl-10 pr-4 text-base">
                   <div className="flex flex-col">
                     <span className="font-semibold">Chatbot</span>
                     <span className="text-sm text-muted-foreground">€50/Monat + €1.100 Setup*</span>
                   </div>
                 </SelectItem>
-                <SelectItem value="socialmedia" className="py-3 px-4 text-base">
+                <SelectItem value="socialmedia" className="py-3 pl-10 pr-4 text-base">
                   <div className="flex flex-col">
                     <span className="font-semibold">Social Media Agent</span>
                     <span className="text-sm text-muted-foreground">€50/Monat + €1.200 Setup*</span>
                   </div>
                 </SelectItem>
-                <SelectItem value="sales" className="py-3 px-4 text-base">
+                <SelectItem value="sales" className="py-3 pl-10 pr-4 text-base">
                   <div className="flex flex-col">
                     <span className="font-semibold">Sales Agent</span>
                     <span className="text-sm text-muted-foreground">€50/Monat + €1.400 Setup*</span>
                   </div>
                 </SelectItem>
-                <SelectItem value="appointment" className="py-3 px-4 text-base">
+                <SelectItem value="appointment" className="py-3 pl-10 pr-4 text-base">
                   <div className="flex flex-col">
                     <span className="font-semibold">Terminbuchungsagent</span>
                     <span className="text-sm text-muted-foreground">€50/Monat + €900 Setup*</span>
