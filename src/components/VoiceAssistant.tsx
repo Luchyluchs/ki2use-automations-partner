@@ -2,7 +2,11 @@ import React from 'react';
 
 const VoiceAssistant: React.FC = () => {
   const handleVoiceClick = () => {
-    window.open('https://elevenlabs.io/app/talk-to?agent_id=agent_9201k1xfxkxrepj9q3zqrekwfkvs', '_blank');
+    window.open(
+      'https://elevenlabs.io/app/talk-to?agent_id=agent_9201k1xfxkxrepj9q3zqrekwfkvs', 
+      'voiceAssistant',
+      'width=800,height=600,scrollbars=yes,resizable=yes,location=no,menubar=no,toolbar=no'
+    );
   };
 
   return (
