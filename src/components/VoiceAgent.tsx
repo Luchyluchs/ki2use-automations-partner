@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useConversation } from '@11labs/react';
+// import { useConversation } from '@11labs/react';
 import { Button } from '@/components/ui/button';
 import { Mic, MicOff, Phone, PhoneOff } from 'lucide-react';
 
@@ -9,23 +9,26 @@ interface VoiceAgentProps {
 
 const VoiceAgent: React.FC<VoiceAgentProps> = ({ className = '' }) => {
   const [isConnected, setIsConnected] = useState(false);
+  const [isSpeaking, setIsSpeaking] = useState(false);
+  const [status, setStatus] = useState<'connected' | 'disconnected'>('disconnected');
   
-  const conversation = useConversation({
-    onConnect: () => {
-      console.log('Verbindung hergestellt');
+  // Mock conversation object to replace the useConversation hook
+  const conversation = {
+    status,
+    isSpeaking,
+    startSession: async (options: { agentId: string }) => {
+      console.log('Mock: Starting session with agent:', options.agentId);
+      setStatus('connected');
       setIsConnected(true);
+      return 'mock-conversation-id';
     },
-    onDisconnect: () => {
-      console.log('Verbindung beendet');
+    endSession: async () => {
+      console.log('Mock: Ending session');
+      setStatus('disconnected');
       setIsConnected(false);
-    },
-    onError: (error) => {
-      console.error('Fehler:', error);
-    },
-    onMessage: (message) => {
-      console.log('Nachricht:', message);
+      setIsSpeaking(false);
     }
-  });
+  };
 
   const startConversation = async () => {
     try {
@@ -36,6 +39,10 @@ const VoiceAgent: React.FC<VoiceAgentProps> = ({ className = '' }) => {
       await conversation.startSession({
         agentId: 'agent_5901k1zj5fqee3fv7fxjaa7vhrv9'
       });
+      
+      // Simulate speaking after 2 seconds
+      setTimeout(() => setIsSpeaking(true), 2000);
+      setTimeout(() => setIsSpeaking(false), 5000);
     } catch (error) {
       console.error('Fehler beim Starten der Konversation:', error);
       alert('Mikrofon-Zugriff ist erforderlich für den Sprachagenten.');
