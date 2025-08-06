@@ -1,9 +1,10 @@
 import { useScrollReveal, useParallax, useScrollFade } from "@/hooks/useScrollAnimations";
 import Layout from "@/components/Layout";
 import ContactForm from "@/components/ContactForm";
+import VoiceAgent from "@/components/VoiceAgent";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowLeft, Calendar, Mail, Phone, Clock, Users, Zap } from "lucide-react";
+import { ArrowLeft, Calendar, Mail, Phone, Clock, Users, Zap, Mic } from "lucide-react";
 import CalendlyButton from "@/components/CalendlyButton";
 
 const Contact = () => {
@@ -35,9 +36,30 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Main Contact Section */}
+      {/* Voice Agent Section */}
       <section className="pt-2 pb-8 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto mb-12">
+            <div className="bg-gradient-primary rounded-2xl p-8 text-center text-primary-foreground">
+              <div className="flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mr-3">
+                  <Mic className="w-6 h-6 text-primary-foreground" />
+                </div>
+                <h2 className="text-2xl font-semibold">
+                  Sprechen Sie direkt mit unserem KI-Agenten
+                </h2>
+              </div>
+              <p className="mb-6 opacity-90 max-w-2xl mx-auto">
+                Unser intelligenter Sprachagent beantwortet Ihre Fragen in Echtzeit und kann 
+                Sie bei der ersten Beratung unterstützen. Einfach auf das Mikrofon klicken und lossprechen!
+              </p>
+            </div>
+            
+            <div className="mt-8">
+              <VoiceAgent height="500px" />
+            </div>
+          </div>
+          
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Information */}
             <div className="space-y-4">

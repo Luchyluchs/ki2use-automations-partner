@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import NewChatbot from "./components/NewChatbot";
+import FloatingVoiceAgent from "./components/FloatingVoiceAgent";
 import Index from "./pages/Index";
 import StandardAgents from "./pages/StandardAgents";
 import CustomAgents from "./pages/CustomAgents";
@@ -41,6 +42,7 @@ const App = () => (
           <Route path="*" element={<NotFound />} />
         </Routes>
         <NewChatbot />
+        <FloatingVoiceAgent />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
