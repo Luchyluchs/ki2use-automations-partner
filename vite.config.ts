@@ -23,20 +23,35 @@ export default defineConfig(({ mode }) => ({
   },
   optimizeDeps: {
     include: ['@11labs/react'],
+    exclude: [],
     esbuildOptions: {
-      target: 'es2020'
+      target: 'es2020',
+      supported: {
+        bigint: true
+      }
     }
   },
   build: {
     outDir: 'dist',
     target: 'es2020',
+    commonjsOptions: {
+      include: [/node_modules/],
+      transformMixedEsModules: true
+    },
     rollupOptions: {
+      external: [],
       output: {
-        manualChunks: undefined,
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          elevenlabs: ['@11labs/react']
+        },
+        format: 'es'
       }
     }
   },
   define: {
     global: 'globalThis',
-  }
+    'process.env.NODE_ENV': JSON.stringify(mode === 'production' ? 'production' : 'development')
+  },
+  assetsInclude: ['**/*.wasm']
 }));
