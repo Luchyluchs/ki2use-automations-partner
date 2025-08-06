@@ -17,8 +17,8 @@ export default defineConfig(({ mode }) => ({
   },
   assetsInclude: ['**/*.jpg', '**/*.jpeg', '**/*.png', '**/*.svg', '**/*.gif', '**/*.webp'],
   optimizeDeps: {
-    include: [],
-    exclude: ['@11labs/react'],
+    include: ['@huggingface/transformers'],
+    exclude: [],
   },
   server: {
     host: "::",
