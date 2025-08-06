@@ -15,33 +15,18 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  assetsInclude: ['**/*.jpg', '**/*.jpeg', '**/*.png', '**/*.svg', '**/*.gif', '**/*.webp'],
-  optimizeDeps: {
-    include: ['@huggingface/transformers'],
-    exclude: [],
-  },
   server: {
     host: "::",
     port: 8080,
     strictPort: true,
     historyApiFallback: true,
-    fs: {
-      allow: ['..']
-    }
   },
   build: {
     outDir: 'dist',
     rollupOptions: {
-      external: [],
       output: {
-        format: 'es',
-        manualChunks: {
-          vendor: ['react', 'react-dom']
-        },
+        manualChunks: undefined,
       }
     }
-  },
-  define: {
-    global: 'globalThis',
   }
 }));
