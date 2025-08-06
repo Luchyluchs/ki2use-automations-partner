@@ -45,7 +45,7 @@ const FloatingVoiceAgent: React.FC = () => {
             </div>
             
             {/* Voice Agent */}
-            <VoiceAgent height="500px" className="border-0" />
+            <VoiceAgent className="border-0" />
           </div>
         </div>
       )}

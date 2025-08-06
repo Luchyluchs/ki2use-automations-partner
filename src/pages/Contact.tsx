@@ -56,7 +56,7 @@ const Contact = () => {
             </div>
             
             <div className="mt-8">
-              <VoiceAgent height="500px" />
+              <VoiceAgent />
             </div>
           </div>
           
