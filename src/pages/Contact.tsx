@@ -91,7 +91,7 @@ const Contact = () => {
               </div>
               <p className="mb-4 opacity-90 text-sm max-w-2xl mx-auto">
                 Unser intelligenter Sprachagent beantwortet Ihre Fragen in Echtzeit und kann 
-                Sie bei der ersten Beratung unterstützen. Einfach auf das Mikrofon klicken und lossprechen!
+                Sie bei der ersten Beratung unterstützen. Einfach auf "Gespräch starten" klicken und lossprechen!
               </p>
             </div>
             
