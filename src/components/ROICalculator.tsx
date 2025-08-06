@@ -87,21 +87,67 @@ const ROICalculator = () => {
             />
           </div>
 
-          <div className="space-y-3">
-            <Label>KI-Agent Typ</Label>
+          <div className="space-y-3 p-4 border-2 border-primary/20 rounded-lg bg-gradient-to-br from-primary/5 to-accent/5">
+            <Label className="text-lg font-semibold text-primary flex items-center gap-2">
+              <Calculator className="w-5 h-5" />
+              KI-Agent Typ auswählen
+            </Label>
+            <p className="text-sm text-muted-foreground mb-3">
+              Wählen Sie den gewünschten Agenten für Ihre ROI-Berechnung
+            </p>
             <Select value={agentType} onValueChange={setAgentType}>
-              <SelectTrigger>
-                <SelectValue />
+              <SelectTrigger className="h-12 border-2 border-primary/30 bg-background/80 hover:border-primary/50 transition-colors font-medium text-base">
+                <SelectValue placeholder="Agent auswählen..." />
               </SelectTrigger>
-              <SelectContent className="bg-card border border-card-border">
-                <SelectItem value="email">E-Mail Agent (€50/Monat + €1.000 Setup)*</SelectItem>
-                <SelectItem value="linkedin">LinkedIn Agent (€50/Monat + €1.300 Setup)*</SelectItem>
-                <SelectItem value="voice">Voice Agent (€50/Monat + €1.600 Setup)*</SelectItem>
-                <SelectItem value="newsletter">Newsletter Agent (€50/Monat + €800 Setup)*</SelectItem>
-                <SelectItem value="chatbot">Chatbot (€50/Monat + €1.100 Setup)*</SelectItem>
-                <SelectItem value="socialmedia">Social Media Agent (€50/Monat + €1.200 Setup)*</SelectItem>
-                <SelectItem value="sales">Sales Agent (€50/Monat + €1.400 Setup)*</SelectItem>
-                <SelectItem value="appointment">Terminbuchungsagent (€50/Monat + €900 Setup)*</SelectItem>
+              <SelectContent className="bg-card border-2 border-primary/30 shadow-2xl z-50">
+                <SelectItem value="email" className="py-3 px-4 text-base">
+                  <div className="flex flex-col">
+                    <span className="font-semibold">E-Mail Agent</span>
+                    <span className="text-sm text-muted-foreground">€50/Monat + €1.000 Setup*</span>
+                  </div>
+                </SelectItem>
+                <SelectItem value="linkedin" className="py-3 px-4 text-base">
+                  <div className="flex flex-col">
+                    <span className="font-semibold">LinkedIn Agent</span>
+                    <span className="text-sm text-muted-foreground">€50/Monat + €1.300 Setup*</span>
+                  </div>
+                </SelectItem>
+                <SelectItem value="voice" className="py-3 px-4 text-base">
+                  <div className="flex flex-col">
+                    <span className="font-semibold">Voice Agent</span>
+                    <span className="text-sm text-muted-foreground">€50/Monat + €1.600 Setup*</span>
+                  </div>
+                </SelectItem>
+                <SelectItem value="newsletter" className="py-3 px-4 text-base">
+                  <div className="flex flex-col">
+                    <span className="font-semibold">Newsletter Agent</span>
+                    <span className="text-sm text-muted-foreground">€50/Monat + €800 Setup*</span>
+                  </div>
+                </SelectItem>
+                <SelectItem value="chatbot" className="py-3 px-4 text-base">
+                  <div className="flex flex-col">
+                    <span className="font-semibold">Chatbot</span>
+                    <span className="text-sm text-muted-foreground">€50/Monat + €1.100 Setup*</span>
+                  </div>
+                </SelectItem>
+                <SelectItem value="socialmedia" className="py-3 px-4 text-base">
+                  <div className="flex flex-col">
+                    <span className="font-semibold">Social Media Agent</span>
+                    <span className="text-sm text-muted-foreground">€50/Monat + €1.200 Setup*</span>
+                  </div>
+                </SelectItem>
+                <SelectItem value="sales" className="py-3 px-4 text-base">
+                  <div className="flex flex-col">
+                    <span className="font-semibold">Sales Agent</span>
+                    <span className="text-sm text-muted-foreground">€50/Monat + €1.400 Setup*</span>
+                  </div>
+                </SelectItem>
+                <SelectItem value="appointment" className="py-3 px-4 text-base">
+                  <div className="flex flex-col">
+                    <span className="font-semibold">Terminbuchungsagent</span>
+                    <span className="text-sm text-muted-foreground">€50/Monat + €900 Setup*</span>
+                  </div>
+                </SelectItem>
               </SelectContent>
             </Select>
           </div>
