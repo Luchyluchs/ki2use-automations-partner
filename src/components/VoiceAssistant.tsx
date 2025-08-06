@@ -1,43 +1,9 @@
-import React, { useCallback } from 'react';
-import { useConversation } from '@11labs/react';
+import React from 'react';
 
 const VoiceAssistant: React.FC = () => {
-  const conversation = useConversation({
-    onConnect: () => console.log('ElevenLabs Agent verbunden'),
-    onDisconnect: () => console.log('ElevenLabs Agent getrennt'),
-    onError: (error) => {
-      console.error('ElevenLabs Fehler:', error);
-      alert('Fehler bei der Kommunikation mit dem Sprachassistenten.');
-    },
-  });
-
-  const handleConversationToggle = useCallback(async () => {
-    if (conversation.status === 'connected') {
-      await conversation.endSession();
-    } else {
-      try {
-        // Mikrofonzugriff anfragen
-        await navigator.mediaDevices.getUserMedia({ audio: true });
-        
-        // ElevenLabs Agent starten
-        await conversation.startSession({
-          agentId: 'agent_9201k1xfxkxrepj9q3zqrekwfkvs'
-        });
-      } catch (error) {
-        console.error('Mikrofonzugriff verweigert:', error);
-        alert('Mikrofonzugriff wurde verweigert. Bitte erlauben Sie den Zugriff in Ihren Browser-Einstellungen.');
-      }
-    }
-  }, [conversation]);
-
-  const getButtonText = () => {
-    if (conversation.status === 'connected') {
-      return conversation.isSpeaking ? 'Agent spricht...' : 'Gespräch beenden';
-    }
-    return 'Mit Assistent sprechen';
+  const handleVoiceClick = () => {
+    window.open('https://elevenlabs.io/app/talk-to?agent_id=agent_9201k1xfxkxrepj9q3zqrekwfkvs', '_blank');
   };
-
-  const isConnected = conversation.status === 'connected';
 
   return (
     <div className="voice-assistant-container">
@@ -81,11 +47,9 @@ const VoiceAssistant: React.FC = () => {
       
       <button
         id="voice-agent-button"
-        className={`${isConnected ? 'connected' : ''} ${conversation.isSpeaking ? 'speaking' : ''}`}
-        onClick={handleConversationToggle}
-        disabled={conversation.status === 'connecting'}
+        onClick={handleVoiceClick}
       >
-        {getButtonText()}
+        Mit Assistent sprechen
       </button>
     </div>
   );
