@@ -19,6 +19,9 @@ export default defineConfig(({ mode }) => ({
   optimizeDeps: {
     include: ['@11labs/react'],
     exclude: [],
+    esbuildOptions: {
+      target: 'esnext'
+    }
   },
   server: {
     host: "::",
