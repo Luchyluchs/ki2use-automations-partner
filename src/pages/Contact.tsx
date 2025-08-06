@@ -37,25 +37,25 @@ const Contact = () => {
       </section>
 
       {/* Voice Agent Section */}
-      <section className="pt-2 pb-8 bg-background">
+      <section className="pt-2 pb-6 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto mb-12">
-            <div className="bg-gradient-primary rounded-2xl p-8 text-center text-primary-foreground">
-              <div className="flex items-center justify-center mb-4">
-                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mr-3">
-                  <Mic className="w-6 h-6 text-primary-foreground" />
+          <div className="max-w-4xl mx-auto mb-8">
+            <div className="bg-gradient-primary rounded-2xl p-6 text-center text-primary-foreground">
+              <div className="flex items-center justify-center mb-3">
+                <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center mr-3">
+                  <Mic className="w-5 h-5 text-primary-foreground" />
                 </div>
-                <h2 className="text-2xl font-semibold">
+                <h2 className="text-xl font-semibold">
                   Sprechen Sie direkt mit unserem KI-Agenten
                 </h2>
               </div>
-              <p className="mb-6 opacity-90 max-w-2xl mx-auto">
+              <p className="mb-4 opacity-90 text-sm max-w-2xl mx-auto">
                 Unser intelligenter Sprachagent beantwortet Ihre Fragen in Echtzeit und kann 
                 Sie bei der ersten Beratung unterstützen. Einfach auf das Mikrofon klicken und lossprechen!
               </p>
             </div>
             
-            <div className="mt-8">
+            <div className="mt-6">
               <VoiceAgent />
             </div>
           </div>

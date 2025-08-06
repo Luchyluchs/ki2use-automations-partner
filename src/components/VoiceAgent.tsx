@@ -51,10 +51,10 @@ const VoiceAgent: React.FC<VoiceAgentProps> = ({ className = '' }) => {
   };
 
   return (
-    <div className={`bg-card border border-card-border rounded-2xl p-8 shadow-lg ${className}`}>
-      <div className="text-center space-y-6">
+    <div className={`bg-card border border-card-border rounded-2xl p-6 shadow-lg ${className}`}>
+      <div className="text-center space-y-4">
         <div className="flex items-center justify-center">
-          <div className={`w-20 h-20 rounded-full flex items-center justify-center transition-all duration-300 ${
+          <div className={`w-16 h-16 rounded-full flex items-center justify-center transition-all duration-300 ${
             isConnected 
               ? 'bg-green-100 border-4 border-green-500' 
               : conversation.status === 'connected' 
@@ -62,16 +62,16 @@ const VoiceAgent: React.FC<VoiceAgentProps> = ({ className = '' }) => {
                 : 'bg-gray-100 border-4 border-gray-300'
           }`}>
             {isConnected ? (
-              <Mic className={`w-8 h-8 ${conversation.isSpeaking ? 'text-green-600 animate-pulse' : 'text-green-600'}`} />
+              <Mic className={`w-6 h-6 ${conversation.isSpeaking ? 'text-green-600 animate-pulse' : 'text-green-600'}`} />
             ) : (
-              <MicOff className="w-8 h-8 text-gray-400" />
+              <MicOff className="w-6 h-6 text-gray-400" />
             )}
           </div>
         </div>
 
         <div>
-          <h3 className="text-xl font-semibold mb-2">KI Sprachagent</h3>
-          <p className="text-muted-foreground text-sm mb-4">
+          <h3 className="text-lg font-semibold mb-2">KI Sprachagent</h3>
+          <p className="text-muted-foreground text-sm mb-3">
             {isConnected 
               ? conversation.isSpeaking 
                 ? 'Der Agent spricht...' 
@@ -80,7 +80,7 @@ const VoiceAgent: React.FC<VoiceAgentProps> = ({ className = '' }) => {
             }
           </p>
           
-          <div className="text-xs text-muted-foreground mb-6">
+          <div className="text-xs text-muted-foreground mb-4">
             Status: {conversation.status === 'connected' ? 'Verbunden' : 'Getrennt'}
           </div>
         </div>
@@ -90,18 +90,16 @@ const VoiceAgent: React.FC<VoiceAgentProps> = ({ className = '' }) => {
             <Button 
               onClick={startConversation}
               className="w-full bg-gradient-primary hover:scale-105 transition-all duration-200"
-              size="lg"
             >
-              <Phone className="w-5 h-5 mr-2" />
+              <Phone className="w-4 h-4 mr-2" />
               Gespräch starten
             </Button>
           ) : (
             <Button 
               onClick={endConversation}
               className="w-full bg-red-600 hover:bg-red-700 text-white hover:scale-105 transition-all duration-200"
-              size="lg"
             >
-              <PhoneOff className="w-5 h-5 mr-2" />
+              <PhoneOff className="w-4 h-4 mr-2" />
               Gespräch beenden
             </Button>
           )}
