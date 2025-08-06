@@ -19,10 +19,6 @@ export default defineConfig(({ mode }) => ({
   optimizeDeps: {
     include: ['@11labs/react'],
     exclude: [],
-    force: true,
-  },
-  ssr: {
-    noExternal: ['@11labs/react'],
   },
   server: {
     host: "::",
