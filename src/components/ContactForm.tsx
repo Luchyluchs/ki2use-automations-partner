@@ -8,7 +8,7 @@ import { Loader2, Send } from "lucide-react";
 
 const ContactForm = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [webhookUrl, setWebhookUrl] = useState("https://your-automation-instance.com/webhook/form-submission");
+  const webhookUrl = "https://n8n.srv929188.hstgr.cloud/webhook-test/kontaktformular";
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -60,23 +60,6 @@ const ContactForm = () => {
     <div className="bg-card border border-card-border rounded-2xl p-8 shadow-card">
       <h3 className="text-xl font-semibold mb-6">Nachricht senden</h3>
       
-      {/* Webhook Configuration (for demo purposes) */}
-      <div className="mb-6 p-4 bg-muted rounded-lg">
-        <Label htmlFor="webhook" className="text-sm font-medium">
-          Webhook URL (konfigurierbar):
-        </Label>
-        <Input
-          id="webhook"
-          type="url"
-          value={webhookUrl}
-          onChange={(e) => setWebhookUrl(e.target.value)}
-          className="mt-2"
-          placeholder="https://your-automation-instance.com/webhook/form-submission"
-        />
-        <p className="text-xs text-muted-foreground mt-2">
-          Diese URL wird für die automatisierte Verarbeitung Ihrer Anfrage verwendet.
-        </p>
-      </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
