@@ -8,6 +8,9 @@
 /assets/*.json
   Content-Type: application/json
 
+/assets/*.wasm
+  Content-Type: application/wasm
+
 /*
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
