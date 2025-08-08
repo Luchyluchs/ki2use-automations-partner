@@ -8,7 +8,7 @@ import { Loader2, Send } from "lucide-react";
 
 const ContactForm = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const webhookUrl = "https://n8n.srv929188.hstgr.cloud/webhook-test/kontaktformular";
+  const webhookUrl = "https://n8n.srv929188.hstgr.cloud/webhook/kontaktformular";
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
