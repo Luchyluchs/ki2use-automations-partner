@@ -34,20 +34,14 @@ export default defineConfig(({ mode }) => ({
   build: {
     outDir: 'dist',
     target: 'es2020',
-    commonjsOptions: {
-      include: [/node_modules/],
-      transformMixedEsModules: true
-    },
+    assetsDir: 'assets',
     rollupOptions: {
-      external: [],
       output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom'],
-          elevenlabs: ['@11labs/react']
-        },
-        format: 'es'
+        entryFileNames: 'assets/[name]-[hash].js',
+        chunkFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash].[ext]'
       }
-    }
+    },
   },
   define: {
     global: 'globalThis',
