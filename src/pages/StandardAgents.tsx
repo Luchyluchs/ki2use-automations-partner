@@ -24,7 +24,7 @@ const StandardAgents = () => {
     name: "Newsletter Agent",
     description: "Erstellt und versendet personalisierte Newsletter-Kampagnen effizient, steigert die Kundenbindung und spart Marketingressourcen.",
     features: ["Automatische Content-Erstellung", "Personalisierung", "A/B-Testing", "Analytics und Reporting", "DSGVO-konforme Verwaltung"],
-    benefits: ["65% Zeitersparnis bei Newsletter-Erstellung", "Höhere Öffnungsraten", "Automatisierte Kundenbindung", "Messbare Marketing-ROI"],
+    benefits: ["65% Zeitersparnis bei Newsletter-Erstellung", "Höhere Öffnungsraten", "Automatisierte Kundenbindung", "Messbare Marketing-Agenten"],
     useCases: ["Kundennewsletter", "Produktankündigungen", "Event-Marketing", "Thought Leadership"]
   }, {
     name: "Email Organisator",

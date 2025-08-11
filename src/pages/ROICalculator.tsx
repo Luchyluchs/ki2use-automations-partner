@@ -63,7 +63,7 @@ const ROICalculatorPage = () => {
               <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4">
                 <TrendingUp className="w-6 h-6 text-primary-foreground" />
               </div>
-              <h3 className="font-semibold mb-2">ROI-Analyse</h3>
+              <h3 className="font-semibold mb-2">Agenten-Analyse</h3>
               <p className="text-muted-foreground text-sm">
                 Detaillierte Renditeberechnung für fundierte Entscheidungen
               </p>
@@ -85,7 +85,7 @@ const ROICalculatorPage = () => {
           <div className="text-center mb-12">
             <h2 className="mb-6 scale-in-element">
               So funktioniert die{" "}
-              <span className="text-primary">ROI-Berechnung</span>
+              <span className="text-primary">Agenten-Berechnung</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Unser Rechner basiert auf bewährten Berechnungsmethoden und realen Projekterfahrungen
@@ -127,7 +127,7 @@ const ROICalculatorPage = () => {
               <div className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 text-primary-foreground font-bold">
                 4
               </div>
-              <h3 className="font-semibold mb-2">ROI-Ergebnis</h3>
+              <h3 className="font-semibold mb-2">Agenten-Ergebnis</h3>
               <p className="text-muted-foreground text-sm">
                 Detaillierte Analyse von Rendite, Amortisation und Einsparpotential
               </p>

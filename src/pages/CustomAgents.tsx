@@ -14,7 +14,7 @@ const CustomAgents = () => {
     title: "Bedarfsanalyse",
     description: "Detaillierte Analyse Ihrer Geschäftsprozesse und Identifikation von Automatisierungspotenzialen.",
     duration: "1-2 Wochen",
-    deliverables: ["Prozess-Audit", "Automatisierungsplan", "ROI-Prognose"]
+    deliverables: ["Prozess-Audit", "Automatisierungsplan", "Agenten-Prognose"]
   }, {
     step: "02",
     title: "Konzeption",

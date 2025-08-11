@@ -17,7 +17,7 @@ const Training = () => {
       description: "Strategische Einführung in KI-Technologien mit Fokus auf praktische Anwendungen für kleine und mittlere Unternehmen.",
       content: [
         "KI-Grundlagen verständlich erklärt",
-        "ROI-Bewertung von KI-Projekten",
+        "Agenten-Bewertung von KI-Projekten",
         "Rechtliche Aspekte und DSGVO",
         "Change Management für KI-Einführung",
         "Praxisbeispiele aus ähnlichen KMUs"
@@ -115,7 +115,7 @@ const Training = () => {
     {
       icon: TrendingUp,
       title: "Messbare Erfolge",
-      description: "Konkrete KPIs und ROI-Messungen für alle vermittelten Techniken."
+      description: "Konkrete KPIs und Agenten-Messungen für alle vermittelten Techniken."
     },
     {
       icon: Zap,
@@ -127,7 +127,7 @@ const Training = () => {
   const targetGroups = [
     {
       role: "Geschäftsführer",
-      description: "Strategische KI-Einführung und ROI-Bewertung",
+      description: "Strategische KI-Einführung und Agenten-Bewertung",
       benefit: "Fundierte Entscheidungsgrundlagen für KI-Investitionen"
     },
     {
@@ -196,7 +196,7 @@ const Training = () => {
                 <h3 className="font-semibold mb-4">Ihre Investition in die Zukunft</h3>
                 <div className="space-y-4">
                   <div className="flex justify-between items-center">
-                    <span>Durchschnittliche ROI:</span>
+                    <span>Durchschnittliche Agenten:</span>
                     <span className="font-bold">300%</span>
                   </div>
                   <div className="flex justify-between items-center">

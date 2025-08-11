@@ -19,7 +19,7 @@ const ROICatcherSection = () => {
     {
       icon: TrendingUp,
       value: "3-6 Monate",
-      label: "ROI-Zeitraum",
+      label: "Agenten-Zeitraum",
       description: "bis sich die Investition vollständig amortisiert"
     },
     {
