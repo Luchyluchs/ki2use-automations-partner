@@ -35,6 +35,7 @@ export default defineConfig(({ mode }) => ({
     outDir: 'dist',
     target: 'es2020',
     assetsDir: 'assets',
+    manifest: true,
     rollupOptions: {
       output: {
         entryFileNames: 'assets/[name]-[hash].js',
