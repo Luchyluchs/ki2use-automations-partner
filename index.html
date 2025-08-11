@@ -20,26 +20,6 @@
 
   <body>
     <div id="root"></div>
-    <script>
-      (function() {
-        var isProd = /ki2use\.de$/.test(location.hostname) || /github\.io$/.test(location.hostname);
-        if (isProd) {
-          var dev = document.querySelector('script[data-dev-entry]');
-          if (dev) dev.remove();
-          fetch('/assets/manifest.json').then(function(r){return r.ok?r.json():null}).then(function(m){
-            if (!m) return;
-            var entry = (m['src/main.tsx'] && m['src/main.tsx'].file) || (Object.values(m).find(function(x){return x&&x.isEntry})||{}).file;
-            if (entry) {
-              var s = document.createElement('script');
-              s.type = 'module';
-              s.crossOrigin = '';
-              s.src = entry.startsWith('/') ? entry : ('/' + entry);
-              document.head.appendChild(s);
-            }
-          }).catch(function(){});
-        }
-      })();
-    </script>
-    <script type="module" src="/src/main.tsx" data-dev-entry></script>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
