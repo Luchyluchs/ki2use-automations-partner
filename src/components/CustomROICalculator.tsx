@@ -36,7 +36,7 @@ const CustomROICalculator = () => {
           <Calculator className="w-6 h-6 text-primary-foreground" />
         </div>
         <div>
-          <h3 className="text-2xl font-bold">ROI-Rechner für maßgeschneiderte Lösung</h3>
+          <h3 className="text-2xl font-bold">Agenten-Rechner für maßgeschneiderte Lösung</h3>
           <p className="text-muted-foreground">Berechnen Sie Ihre Kosteneinsparungen</p>
         </div>
       </div>

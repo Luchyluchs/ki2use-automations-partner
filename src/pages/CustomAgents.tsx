@@ -240,7 +240,7 @@ const CustomAgents = () => {
               <span className="text-primary">Kosteneinsparungen</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Unser ROI-Rechner zeigt Ihnen das Einsparpotential einer maßgeschneiderten KI-Lösung für Ihr Unternehmen
+              Unser Agenten-Rechner zeigt Ihnen das Einsparpotential einer maßgeschneiderten KI-Lösung für Ihr Unternehmen
             </p>
           </div>
           <CustomROICalculator />

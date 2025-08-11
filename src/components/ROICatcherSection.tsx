@@ -102,7 +102,7 @@ const ROICatcherSection = () => {
             </Button>
             <Button variant="outline" asChild className="hover-scale">
               <Link to="/standard-agenten">
-                ROI-Rechner ansehen
+                Agenten-Rechner ansehen
               </Link>
             </Button>
           </div>

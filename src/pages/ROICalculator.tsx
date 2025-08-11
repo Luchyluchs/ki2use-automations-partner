@@ -24,7 +24,7 @@ const ROICalculatorPage = () => {
             </Button>
             
             <h1 className="mb-6 scale-in-element">
-              ROI-Rechner:{" "}
+              Agenten-Rechner:{" "}
               <span className="text-primary">Ihre Kosteneinsparungen berechnen</span>
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed fade-in-element max-w-3xl mx-auto">

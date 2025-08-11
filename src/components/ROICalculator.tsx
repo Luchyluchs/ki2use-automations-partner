@@ -44,7 +44,7 @@ const ROICalculator = () => {
           <Calculator className="w-6 h-6 text-primary-foreground" />
         </div>
         <div>
-          <h3 className="text-2xl font-bold">ROI-Rechner</h3>
+          <h3 className="text-2xl font-bold">Agenten-Rechner</h3>
           <p className="text-muted-foreground">Berechnen Sie Ihre Kosteneinsparungen</p>
         </div>
       </div>
@@ -57,7 +57,7 @@ const ROICalculator = () => {
               KI-Agent Typ auswählen
             </Label>
             <p className="text-sm text-muted-foreground mb-3">
-              Wählen Sie den gewünschten Agenten für Ihre ROI-Berechnung
+              Wählen Sie den gewünschten Agenten für Ihre Berechnung
             </p>
             <Select value={agentType} onValueChange={setAgentType}>
               <SelectTrigger className="h-12 border-2 border-primary/30 bg-background/80 hover:border-primary/50 transition-colors font-medium text-base">

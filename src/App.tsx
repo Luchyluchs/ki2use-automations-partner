@@ -32,6 +32,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/standard-agenten" element={<StandardAgents />} />
           <Route path="/massgeschneiderte-agenten" element={<CustomAgents />} />
+          <Route path="/agenten-rechner" element={<ROICalculatorPage />} />
           <Route path="/roi-rechner" element={<ROICalculatorPage />} />
           <Route path="/ki-schulungen" element={<Training />} />
           <Route path="/homepage-erstellung" element={<HomepageCreation />} />

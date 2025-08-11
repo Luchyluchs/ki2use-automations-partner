@@ -48,7 +48,7 @@ const AGB = () => {
                   <li>Homepage Erstellung: Die Erstellung und der Support von Websites.</li>
                 </ul>
                 <p className="text-muted-foreground text-sm">
-                  (3) Die auf der Website dargestellten Einsparungs- und Effizienzsteigerungs-Potenziale (z.B. ROI-Rechner, prozentuale Zeitersparnis) sind beispielhafte Berechnungen und stellen keine zugesicherten Eigenschaften oder Garantien dar.
+                  (3) Die auf der Website dargestellten Einsparungs- und Effizienzsteigerungs-Potenziale (z.B. Agenten-Rechner, prozentuale Zeitersparnis) sind beispielhafte Berechnungen und stellen keine zugesicherten Eigenschaften oder Garantien dar.
                 </p>
 
                 <h2 className="mt-8">§ 3 Vertragsschluss</h2>

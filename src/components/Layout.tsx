@@ -20,8 +20,8 @@ const Layout = ({
     name: "Maßgeschneiderte Agenten",
     href: "/massgeschneiderte-agenten"
   }, {
-    name: "ROI-Rechner",
-    href: "/roi-rechner"
+    name: "Agenten-Rechner",
+    href: "/agenten-rechner"
   }, {
     name: "KI-Schulungen",
     href: "/ki-schulungen"
