@@ -22,67 +22,33 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
-const App = () => {
-  console.log('App.tsx is running!');
-  
-  return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        
-        {/* DIREKTE TEST KOMPONENTE IN APP.TSX */}
-        <div
-          style={{
-            position: 'fixed',
-            bottom: '10px',
-            right: '10px',
-            width: '120px',
-            height: '120px',
-            backgroundColor: '#00ff00',
-            zIndex: 999999,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: '14px',
-            fontWeight: 'bold',
-            color: 'black',
-            border: '5px solid #ff0000',
-            borderRadius: '15px',
-            cursor: 'pointer',
-            boxShadow: '0 0 100px #00ff00'
-          }}
-          onClick={() => {
-            console.log('DIRECT TEST BUTTON CLICKED!');
-            alert('DIRECT TEST BUTTON WORKS!');
-          }}
-        >
-          DIRECT TEST
-        </div>
-        
-        <BrowserRouter>
-          <ScrollToTop />
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/standard-agenten" element={<StandardAgents />} />
-            <Route path="/massgeschneiderte-agenten" element={<CustomAgents />} />
-            <Route path="/agenten-rechner" element={<ROICalculatorPage />} />
-            <Route path="/roi-rechner" element={<ROICalculatorPage />} />
-            <Route path="/ki-schulungen" element={<Training />} />
-            <Route path="/homepage-erstellung" element={<HomepageCreation />} />
-            <Route path="/kontakt" element={<Contact />} />
-            <Route path="/impressum" element={<Impressum />} />
-            <Route path="/datenschutz" element={<Datenschutz />} />
-            <Route path="/agb" element={<AGB />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          <NewChatbot />
-          <FloatingVoiceAgent />
-          <CookieConsentBanner />
-        </BrowserRouter>
-      </TooltipProvider>
-    </QueryClientProvider>
-  );
-};
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/standard-agenten" element={<StandardAgents />} />
+          <Route path="/massgeschneiderte-agenten" element={<CustomAgents />} />
+          <Route path="/agenten-rechner" element={<ROICalculatorPage />} />
+          <Route path="/roi-rechner" element={<ROICalculatorPage />} />
+          <Route path="/ki-schulungen" element={<Training />} />
+          <Route path="/homepage-erstellung" element={<HomepageCreation />} />
+          <Route path="/kontakt" element={<Contact />} />
+          <Route path="/impressum" element={<Impressum />} />
+          <Route path="/datenschutz" element={<Datenschutz />} />
+          <Route path="/agb" element={<AGB />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <NewChatbot />
+        <FloatingVoiceAgent />
+        <CookieConsentBanner />
+      </BrowserRouter>
+    </TooltipProvider>
+  </QueryClientProvider>
+);
 
 export default App;

@@ -8,6 +8,7 @@ export const useScrollReveal = () => {
           if (entry.isIntersecting) {
             entry.target.classList.add('revealed');
           } else {
+            // Optional: Remove class when element goes out of view for repeat animations
             entry.target.classList.remove('revealed');
           }
         });
@@ -21,61 +22,45 @@ export const useScrollReveal = () => {
     const elements = document.querySelectorAll('.scroll-reveal, .scroll-scale, .fade-in-element, .scale-in-element');
     elements.forEach((el) => observer.observe(el));
 
-    return () => observer.disconnect();
+    return () => {
+      elements.forEach((el) => observer.unobserve(el));
+    };
   }, []);
 };
 
 export const useParallax = () => {
   useEffect(() => {
-    let ticking = false;
-
     const handleScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          const scrolled = window.pageYOffset;
-          const parallaxElements = document.querySelectorAll('.parallax-slow');
-          
-          parallaxElements.forEach((element) => {
-            const rate = scrolled * -0.5;
-            (element as HTMLElement).style.setProperty('--scroll-y', `${rate}px`);
-          });
-          
-          ticking = false;
-        });
-        ticking = true;
-      }
+      const scrolled = window.pageYOffset;
+      const parallaxElements = document.querySelectorAll('.parallax-slow');
+      
+      parallaxElements.forEach((element) => {
+        const rate = scrolled * -0.5; // Increased parallax effect
+        (element as HTMLElement).style.setProperty('--scroll-y', `${rate}px`);
+      });
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 };
 
 export const useScrollFade = () => {
   useEffect(() => {
-    let ticking = false;
-
     const handleScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          const elements = document.querySelectorAll('.scroll-fade-in, .fade-in-element, .scale-in-element');
-          
-          elements.forEach((element) => {
-            const elementTop = element.getBoundingClientRect().top;
-            const elementVisible = 150;
-            
-            if (elementTop < window.innerHeight - elementVisible) {
-              element.classList.add('visible');
-            }
-          });
-          
-          ticking = false;
-        });
-        ticking = true;
-      }
+      const elements = document.querySelectorAll('.scroll-fade-in, .fade-in-element, .scale-in-element');
+      
+      elements.forEach((element) => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if (elementTop < window.innerHeight - elementVisible) {
+          element.classList.add('visible');
+        }
+      });
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll);
     handleScroll(); // Check on mount
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);

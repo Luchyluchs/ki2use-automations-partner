@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useConversation } from '@11labs/react';
 import { Button } from '@/components/ui/button';
 import { Mic, MicOff, Phone, PhoneOff } from 'lucide-react';
 
@@ -8,50 +9,25 @@ interface VoiceAgentProps {
 
 const VoiceAgent: React.FC<VoiceAgentProps> = ({ className = '' }) => {
   const [isConnected, setIsConnected] = useState(false);
-  const [hasElevenLabsError, setHasElevenLabsError] = useState(true);
-  const [conversation, setConversation] = useState<any>(null);
-  const [useConversation, setUseConversation] = useState<any>(null);
-
-  // Dynamically load ElevenLabs
-  useEffect(() => {
-    const loadElevenLabs = async () => {
-      try {
-        const elevenLabsModule = await import('@11labs/react');
-        setUseConversation(() => elevenLabsModule.useConversation);
-        setHasElevenLabsError(false);
-      } catch (error) {
-        console.log('ElevenLabs not available in production');
-        setHasElevenLabsError(true);
-      }
-    };
-    
-    loadElevenLabs();
-  }, []);
-
-  // Initialize conversation when useConversation is available
-  useEffect(() => {
-    if (useConversation) {
-      try {
-        const conv = useConversation({
-          onConnect: () => setIsConnected(true),
-          onDisconnect: () => setIsConnected(false),
-          onError: () => {},
-          onMessage: () => {}
-        });
-        setConversation(conv);
-      } catch (error) {
-        console.log('ElevenLabs hook error:', error);
-        setHasElevenLabsError(true);
-      }
+  
+  const conversation = useConversation({
+    onConnect: () => {
+      console.log('Verbindung hergestellt');
+      setIsConnected(true);
+    },
+    onDisconnect: () => {
+      console.log('Verbindung beendet');
+      setIsConnected(false);
+    },
+    onError: (error) => {
+      console.error('Fehler:', error);
+    },
+    onMessage: (message) => {
+      console.log('Nachricht:', message);
     }
-  }, [useConversation]);
+  });
 
   const startConversation = async () => {
-    if (hasElevenLabsError || !conversation) {
-      alert('Sprachagent ist derzeit nicht verfügbar. Bitte kontaktieren Sie uns über das Kontaktformular.');
-      return;
-    }
-    
     try {
       // Mikrofon-Zugriff anfordern
       await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -60,18 +36,17 @@ const VoiceAgent: React.FC<VoiceAgentProps> = ({ className = '' }) => {
       await conversation.startSession({
         agentId: 'agent_5901k1zj5fqee3fv7fxjaa7vhrv9'
       });
-    } catch {
+    } catch (error) {
+      console.error('Fehler beim Starten der Konversation:', error);
       alert('Mikrofon-Zugriff ist erforderlich für den Sprachagenten.');
     }
   };
 
   const endConversation = async () => {
-    if (!conversation) return;
-    
     try {
       await conversation.endSession();
-    } catch {
-      // Handle silently in production
+    } catch (error) {
+      console.error('Fehler beim Beenden der Konversation:', error);
     }
   };
 
@@ -79,15 +54,15 @@ const VoiceAgent: React.FC<VoiceAgentProps> = ({ className = '' }) => {
     <div className={`bg-card border border-card-border rounded-2xl p-6 shadow-lg ${className}`}>
       <div className="text-center space-y-4">
         <div className="flex items-center justify-center">
-        <div className={`w-16 h-16 rounded-full flex items-center justify-center transition-all duration-300 ${
+          <div className={`w-16 h-16 rounded-full flex items-center justify-center transition-all duration-300 ${
             isConnected 
               ? 'bg-green-100 border-4 border-green-500' 
-              : conversation?.status === 'connected' 
+              : conversation.status === 'connected' 
                 ? 'bg-blue-100 border-4 border-blue-500' 
                 : 'bg-gray-100 border-4 border-gray-300'
           }`}>
             {isConnected ? (
-              <Mic className={`w-6 h-6 ${conversation?.isSpeaking ? 'text-green-600 animate-pulse' : 'text-green-600'}`} />
+              <Mic className={`w-6 h-6 ${conversation.isSpeaking ? 'text-green-600 animate-pulse' : 'text-green-600'}`} />
             ) : (
               <MicOff className="w-6 h-6 text-gray-400" />
             )}
@@ -97,18 +72,16 @@ const VoiceAgent: React.FC<VoiceAgentProps> = ({ className = '' }) => {
         <div>
           <h3 className="text-lg font-semibold mb-2">KI Sprachagent</h3>
           <p className="text-muted-foreground text-sm mb-3">
-            {hasElevenLabsError 
-              ? 'Sprachagent ist derzeit nicht verfügbar'
-              : isConnected 
-                ? conversation?.isSpeaking 
-                  ? 'Der Agent spricht...' 
-                  : 'Bereit zum Sprechen - einfach lossprechen!'
-                : 'Klicken Sie auf Start, um mit dem KI-Agenten zu sprechen'
+            {isConnected 
+              ? conversation.isSpeaking 
+                ? 'Der Agent spricht...' 
+                : 'Bereit zum Sprechen - einfach lossprechen!'
+              : 'Klicken Sie auf Start, um mit dem KI-Agenten zu sprechen'
             }
           </p>
           
           <div className="text-xs text-muted-foreground mb-4">
-            Status: {conversation?.status === 'connected' ? 'Verbunden' : 'Getrennt'}
+            Status: {conversation.status === 'connected' ? 'Verbunden' : 'Getrennt'}
           </div>
         </div>
 

@@ -68,7 +68,10 @@ Corporate design for German KMUs - trustworthy, modern, efficient
     --font-family: 'Inter', system-ui, -apple-system, sans-serif;
     
     /* Animations */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Custom keyframes for slide-progress animation */
+  --slide-progress-animation: slide-progress 3s ease-in-out infinite;
     --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
     
     /* Spacing System */
@@ -78,12 +81,19 @@ Corporate design for German KMUs - trustworthy, modern, efficient
     --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
+
     --sidebar-foreground: 240 5.3% 26.1%;
+
     --sidebar-primary: 240 5.9% 10%;
+
     --sidebar-primary-foreground: 0 0% 98%;
+
     --sidebar-accent: 240 4.8% 95.9%;
+
     --sidebar-accent-foreground: 240 5.9% 10%;
+
     --sidebar-border: 220 13% 91%;
+
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -222,20 +232,15 @@ Corporate design for German KMUs - trustworthy, modern, efficient
   .hover-lift {
     @apply transition-all duration-300 ease-smooth hover:translate-y-[-8px] hover:shadow-elevated;
   }
-
+  
   .hover-scale {
     @apply transition-transform duration-200 hover:scale-105;
   }
-
+  
   .hover-glow {
     @apply transition-all duration-300 hover:shadow-glow;
   }
-
-  .interactive-card {
-    @apply hover-lift hover-glow transition-all duration-300 hover:border-primary/50;
-  }
   
-  /* Scroll Animation Classes */
   .fade-in-element, .scale-in-element {
     opacity: 0;
     transform: translateY(60px) rotateX(10deg);
@@ -248,6 +253,23 @@ Corporate design for German KMUs - trustworthy, modern, efficient
     transform: translateY(0) rotateX(0deg);
   }
 
+  .hover-lift {
+    @apply transition-all duration-500 ease-smooth hover:translate-y-[-8px] hover:shadow-elevated;
+  }
+
+  .hover-scale {
+    @apply transition-transform duration-500 hover:scale-105;
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-glow;
+  }
+  
+  .interactive-card {
+    @apply glass-card hover-lift hover-glow transition-all duration-300 hover:border-primary/50;
+  }
+
+  /* Faster Enhanced Scroll Animation Classes */
   .scroll-reveal {
     opacity: 0;
     transform: translateY(60px) rotateX(10deg);
@@ -286,7 +308,7 @@ Corporate design for German KMUs - trustworthy, modern, efficient
     transform: translateY(0) scale(1);
   }
 
-  /* Stagger Delays */
+  /* Faster Stagger Delays */
   .stagger-delay-1 { transition-delay: 0.1s; }
   .stagger-delay-2 { transition-delay: 0.2s; }
   .stagger-delay-3 { transition-delay: 0.3s; }

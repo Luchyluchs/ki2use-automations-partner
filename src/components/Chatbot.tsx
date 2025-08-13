@@ -88,7 +88,13 @@ const Chatbot = () => {
     setInputMessage("");
     setIsLoading(true);
 
-    // Send message to webhook
+    // Enhanced debugging and error handling
+    console.log('🚀 Chatbot: Sending message to webhook:', webhookUrl);
+    console.log('📤 Message payload:', { 
+      message: userMessage.text, 
+      sessionId: sessionId,
+      timestamp: userMessage.timestamp.toISOString() 
+    });
 
     try {
       // Enhanced fetch with CORS handling and timeout
@@ -112,31 +118,45 @@ const Chatbot = () => {
 
       clearTimeout(timeoutId);
 
+      console.log('📡 Response status:', response.status);
+      console.log('📡 Response headers:', Object.fromEntries(response.headers.entries()));
 
       if (!response.ok) {
         throw new Error(`HTTP ${response.status}: ${response.statusText}`);
       }
 
-      // Parse response
+      // Try to parse response (JSON, HTML, or plain text)
       let responseData;
       const contentType = response.headers.get('content-type');
+      console.log('📄 Content-Type:', contentType);
 
       try {
         if (contentType && contentType.includes('application/json')) {
           const rawResponse = await response.text();
+          console.log('📥 Raw Response Text:', rawResponse);
+          
           try {
             responseData = JSON.parse(rawResponse);
-          } catch {
+            console.log('📥 JSON Response:', responseData);
+          } catch (jsonError) {
+            console.log('🔍 JSON Parse failed, treating as text:', jsonError);
             responseData = { message: rawResponse };
           }
         } else {
           const textResponse = await response.text();
+          console.log('📥 Text Response:', textResponse);
+          
+          // Check if response contains an iframe with srcdoc
           const iframeMatch = textResponse.match(/srcdoc="([^"]+)"/);
-          responseData = iframeMatch?.[1] 
-            ? { message: iframeMatch[1] }
-            : { message: textResponse };
+          if (iframeMatch && iframeMatch[1]) {
+            console.log('🎯 Extracted from iframe srcdoc:', iframeMatch[1]);
+            responseData = { message: iframeMatch[1] };
+          } else {
+            responseData = { message: textResponse };
+          }
         }
-      } catch {
+      } catch (parseError) {
+        console.log('🔍 Response Parse Error, using fallback:', parseError);
         responseData = { message: "Antwort erhalten, aber konnte nicht verarbeitet werden." };
       }
       
@@ -149,8 +169,16 @@ const Chatbot = () => {
       };
       
       setMessages(prev => [...prev, botMessage]);
+      console.log('✅ Message successfully processed');
 
     } catch (error) {
+      console.error('❌ Chatbot error details:', {
+        error: error,
+        message: error instanceof Error ? error.message : 'Unknown error',
+        name: error instanceof Error ? error.name : 'Unknown',
+        stack: error instanceof Error ? error.stack : undefined
+      });
+
       let errorText = "Entschuldigung, es gab ein technisches Problem.";
       let toastTitle = "Verbindungsfehler";
       let toastDescription = "Nachricht konnte nicht gesendet werden.";
@@ -175,13 +203,13 @@ const Chatbot = () => {
         }
       }
 
-      const botErrorMessage: Message = {
+      const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
         text: errorText + " Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt.",
         isUser: false,
         timestamp: new Date()
       };
-      setMessages(prev => [...prev, botErrorMessage]);
+      setMessages(prev => [...prev, errorMessage]);
       
       toast({
         title: toastTitle,

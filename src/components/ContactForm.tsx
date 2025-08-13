@@ -44,7 +44,8 @@ const ContactForm = () => {
 
       // Reset form
       (e.target as HTMLFormElement).reset();
-    } catch {
+    } catch (error) {
+      console.error("Error sending message:", error);
       toast({
         title: "Fehler beim Versenden",
         description: "Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt per E-Mail.",
