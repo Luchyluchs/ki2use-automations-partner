@@ -11,20 +11,10 @@ const VoiceAgent: React.FC<VoiceAgentProps> = ({ className = '' }) => {
   const [isConnected, setIsConnected] = useState(false);
   
   const conversation = useConversation({
-    onConnect: () => {
-      console.log('Verbindung hergestellt');
-      setIsConnected(true);
-    },
-    onDisconnect: () => {
-      console.log('Verbindung beendet');
-      setIsConnected(false);
-    },
-    onError: (error) => {
-      console.error('Fehler:', error);
-    },
-    onMessage: (message) => {
-      console.log('Nachricht:', message);
-    }
+    onConnect: () => setIsConnected(true),
+    onDisconnect: () => setIsConnected(false),
+    onError: () => {}, // Handle silently in production
+    onMessage: () => {} // Handle silently in production  
   });
 
   const startConversation = async () => {
@@ -36,8 +26,7 @@ const VoiceAgent: React.FC<VoiceAgentProps> = ({ className = '' }) => {
       await conversation.startSession({
         agentId: 'agent_5901k1zj5fqee3fv7fxjaa7vhrv9'
       });
-    } catch (error) {
-      console.error('Fehler beim Starten der Konversation:', error);
+    } catch {
       alert('Mikrofon-Zugriff ist erforderlich für den Sprachagenten.');
     }
   };
@@ -45,8 +34,8 @@ const VoiceAgent: React.FC<VoiceAgentProps> = ({ className = '' }) => {
   const endConversation = async () => {
     try {
       await conversation.endSession();
-    } catch (error) {
-      console.error('Fehler beim Beenden der Konversation:', error);
+    } catch {
+      // Handle silently in production
     }
   };
 

@@ -40,8 +40,8 @@ export const useCookieConsent = () => {
           return;
         }
       }
-    } catch (error) {
-      console.error('Error reading consent data:', error);
+    } catch {
+      // Handle silently in production
     }
     
     // No valid consent found, show banner
@@ -68,8 +68,8 @@ export const useCookieConsent = () => {
       if (consent.analytics) {
         loadGoogleAnalytics();
       }
-    } catch (error) {
-      console.error('Error saving consent data:', error);
+    } catch {
+      // Handle silently in production
     }
   };
 
@@ -96,8 +96,8 @@ export const useCookieConsent = () => {
         anonymize_ip: true,
         cookie_flags: 'SameSite=Strict;Secure'
       });
-    } catch (error) {
-      console.error('Error loading Google Analytics:', error);
+    } catch {
+      // Handle silently in production
     }
   };
 
@@ -141,8 +141,8 @@ export const useCookieConsent = () => {
       if (typeof window !== 'undefined') {
         window.location.reload();
       }
-    } catch (error) {
-      console.error('Error revoking consent:', error);
+    } catch {
+      // Handle silently in production
     }
   };
 
