@@ -95,7 +95,7 @@ const VoiceAgent: React.FC<VoiceAgentProps> = ({ className = '' }) => {
           
           <div className="text-xs text-muted-foreground space-y-1">
             <div>💡 Mikrofon-Zugriff wird für die Sprachchat-Funktion benötigt</div>
-            <div>📞 Unser KI-Agent spricht wie ein echter Mensch - ohne Verzögerung, flüssig und natürlich</div>
+            <div>📞 In echten Telefonsystemen spricht unser KI-Agent wie ein Mensch - ohne Verzögerung und völlig natürlich</div>
           </div>
         </div>
       </div>
