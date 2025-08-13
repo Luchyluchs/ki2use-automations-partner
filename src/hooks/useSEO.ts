@@ -122,37 +122,37 @@ export const useSEO = (config: SEOConfig) => {
  */
 export const SEOTemplates = {
   standardAgents: {
-    title: "Standard KI-Agenten für sofortige Automatisierung | KI2USE",
-    description: "🚀 Sofort einsetzbare KI-Agenten: LinkedIn, E-Mail, Chatbot, Sales & mehr. ✅ Bewährt bei 100+ KMU. ⚡ 40-75% Zeitersparnis garantiert. 📞 Kostenlose Beratung!",
-    keywords: "Standard KI-Agenten, sofort einsetzbar, LinkedIn Agent, E-Mail Automatisierung, Chatbot, Sales Agent, bewährte KI-Lösungen, fertige Automatisierung, KI-Agenten kaufen, digitale Mitarbeiter Standard",
+    title: "Standard KI-Agenten Deutschland - Sofortige Automatisierung | KI2USE",
+    description: "🚀 Sofort einsetzbare KI-Agenten für deutsche KMU: LinkedIn, E-Mail, Chatbot, Sales & mehr. ✅ DSGVO-konform. Made in Germany. ⚡ 40-75% Zeitersparnis. 📞 Kostenlose Beratung!",
+    keywords: "Standard KI-Agenten Deutschland, sofort einsetzbar Deutschland, LinkedIn Agent DSGVO, E-Mail Automatisierung Deutschland, Chatbot Deutschland, Sales Agent DACH, bewährte KI-Lösungen Deutschland, fertige Automatisierung DSGVO-konform, KI-Agenten kaufen Deutschland, digitale Mitarbeiter Standard DACH",
     canonical: "https://ki2use.de/standard-agenten"
   },
   
   customAgents: {
-    title: "Maßgeschneiderte KI-Agenten & individuelle Automatisierung | KI2USE",
-    description: "🎯 Individuelle KI-Agenten exakt für Ihre Prozesse entwickelt. ⚙️ Nahtlose Integration. 🔧 Agile Entwicklung in 4-8 Wochen. 💡 100% passgenau für Ihr KMU.",
-    keywords: "maßgeschneiderte KI-Agenten, individuelle Automatisierung, custom AI agents, Prozess-spezifische KI, einzigartige KI-Lösungen, individuelle Entwicklung, maßgeschneiderte Digitalisierung, Custom Process Automation",
+    title: "Maßgeschneiderte KI-Agenten Deutschland - Individuelle Automatisierung | KI2USE",
+    description: "🎯 Individuelle KI-Agenten für deutsche Unternehmen. ⚙️ DSGVO-konforme Integration. 🔧 Made in Germany Entwicklung in 4-8 Wochen. 💡 100% passgenau für deutsche KMU.",
+    keywords: "maßgeschneiderte KI-Agenten Deutschland, individuelle Automatisierung DACH, custom AI agents Deutschland, Prozess-spezifische KI DSGVO, einzigartige KI-Lösungen Deutschland, individuelle Entwicklung DACH, maßgeschneiderte Digitalisierung Deutschland, Custom Process Automation DSGVO-konform",
     canonical: "https://ki2use.de/massgeschneiderte-agenten"
   },
   
   roiCalculator: {
-    title: "KI-Agenten ROI Rechner - Kosteneinsparungen berechnen | KI2USE",
-    description: "💰 Berechnen Sie Ihre Kosteneinsparungen durch KI-Agenten! 📊 Realistische ROI-Prognose in 2 Minuten. ✨ Individuell für Ihr Unternehmen. Jetzt kostenlos testen!",
-    keywords: "ROI Rechner KI-Agenten, Kosteneinsparungen berechnen, KI ROI Calculator, Automatisierung Kostenersparnis, KI-Agenten Wirtschaftlichkeit, Business Case KI, Amortisation KI-Investition",
+    title: "KI-Agenten ROI Rechner Deutschland - Kosteneinsparungen berechnen | KI2USE",
+    description: "💰 Berechnen Sie Kosteneinsparungen durch KI-Agenten für deutsche Unternehmen! 📊 Realistische ROI-Prognose. ✨ DSGVO-konform. 🇩🇪 Speziell für deutsche KMU. Kostenlos!",
+    keywords: "ROI Rechner KI-Agenten Deutschland, Kosteneinsparungen berechnen Deutschland, KI ROI Calculator DACH, Automatisierung Kostenersparnis Deutschland, KI-Agenten Wirtschaftlichkeit DSGVO, Business Case KI Deutschland, Amortisation KI-Investition deutsche Unternehmen",
     canonical: "https://ki2use.de/agenten-rechner"
   },
   
   training: {
-    title: "KI-Schulungen & Training für Unternehmen | KI2USE Deutschland",
-    description: "🎓 Professionelle KI-Schulungen für Ihr Team. 💼 Praxisnahes Training für ChatGPT, Automatisierung & Co. 📈 Messbare Produktivitätssteigerung. 🇩🇪 Deutschlandweit.",
-    keywords: "KI-Schulungen, KI-Training Unternehmen, ChatGPT Schulung, AI Workshop, Künstliche Intelligenz Fortbildung, Mitarbeiter KI-Training, KI-Kompetenz Aufbau, Digital Skills Training",
+    title: "KI-Schulungen Deutschland - Professionelles KI-Training für deutsche Unternehmen | KI2USE",
+    description: "🎓 KI-Schulungen speziell für deutsche Teams. 💼 DSGVO-konformes Training für ChatGPT & Automatisierung. 📈 Messbare Produktivitätssteigerung. 🇩🇪 Made in Germany Qualität.",
+    keywords: "KI-Schulungen Deutschland, KI-Training deutsche Unternehmen, ChatGPT Schulung DSGVO, AI Workshop Deutschland, KI Fortbildung DACH, Mitarbeiter KI-Training Deutschland, KI-Kompetenz Deutschland, Digital Skills Training DSGVO-konform",
     canonical: "https://ki2use.de/ki-schulungen"
   },
   
   contact: {
-    title: "Kontakt & Kostenlose KI-Beratung | KI2USE - Ihr KI-Experte",  
-    description: "📞 Kostenlose KI-Beratung für deutsche KMU! ✅ Unverbindliches Erstgespräch. 🚀 Potentialanalyse Ihrer Prozesse. 💡 Konkrete Automatisierungs-Empfehlungen.",
-    keywords: "KI-Beratung kostenlos, Kontakt KI2USE, KI-Experte Deutschland, Automatisierung Beratung, kostenlose Potentialanalyse, KI-Consultant, Erstberatung KI-Agenten",
+    title: "Kontakt Deutschland - Kostenlose KI-Beratung für deutsche Unternehmen | KI2USE",  
+    description: "📞 Kostenlose KI-Beratung speziell für deutsche KMU! ✅ DSGVO-konforme Beratung. 🚀 Potentialanalyse deutscher Prozesse. 💡 Made in Germany Automatisierungs-Empfehlungen.",
+    keywords: "KI-Beratung kostenlos Deutschland, Kontakt KI2USE Deutschland, KI-Experte DACH, Automatisierung Beratung Deutschland, kostenlose Potentialanalyse DSGVO, KI-Consultant Deutschland, Erstberatung KI-Agenten DACH, KI-Beratung deutsche Unternehmen",
     canonical: "https://ki2use.de/kontakt"
   }
 } as const;
