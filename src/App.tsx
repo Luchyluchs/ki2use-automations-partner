@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import NewChatbot from "./components/NewChatbot";
 import FloatingVoiceAgent from "./components/FloatingVoiceAgent";
+import CookieConsentBanner from "./components/CookieConsentBanner";
 import Index from "./pages/Index";
 import StandardAgents from "./pages/StandardAgents";
 import CustomAgents from "./pages/CustomAgents";
@@ -44,6 +45,7 @@ const App = () => (
         </Routes>
         <NewChatbot />
         <FloatingVoiceAgent />
+        <CookieConsentBanner />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
