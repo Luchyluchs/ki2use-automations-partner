@@ -1,6 +1,6 @@
 # GitHub Pages MIME Type Fix
-AddType text/javascript .js
-AddType text/javascript .mjs
+AddType application/javascript .js
+AddType application/javascript .mjs
 AddType text/css .css
 AddType application/json .json
 
