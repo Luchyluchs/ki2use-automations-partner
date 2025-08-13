@@ -5,7 +5,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/u
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
 import { Link } from 'react-router-dom';
-import { Cookie, Settings, X } from 'lucide-react';
+import { Cookie, Settings, Check } from 'lucide-react';
 import { useCookieConsent } from '@/hooks/useCookieConsent';
 
 const CookieConsentBanner = () => {
@@ -72,14 +72,7 @@ const CookieConsentBanner = () => {
                 className="flex items-center gap-2"
               >
                 <Settings className="h-4 w-4" />
-                Einstellungen
-              </Button>
-              <Button 
-                variant="outline" 
-                size="sm"
-                onClick={handleReject}
-              >
-                Ablehnen
+                Anpassen
               </Button>
               <Button 
                 size="sm"
@@ -113,7 +106,10 @@ const CookieConsentBanner = () => {
                     Diese Cookies sind für die Grundfunktionen der Website erforderlich und können nicht deaktiviert werden.
                   </p>
                 </div>
-                <Switch checked={true} disabled />
+                <div className="flex items-center gap-2">
+                  <Check className="h-4 w-4 text-green-500" />
+                  <span className="text-xs text-muted-foreground">Immer aktiv</span>
+                </div>
               </div>
             </div>
 
@@ -140,7 +136,7 @@ const CookieConsentBanner = () => {
                 onClick={handleReject}
                 className="flex-1"
               >
-                Alle ablehnen
+                Nur notwendige
               </Button>
               <Button 
                 onClick={handleAcceptSelected}
