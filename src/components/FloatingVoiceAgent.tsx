@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-import { Mic, X } from 'lucide-react';
+import { Mic, X, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import VoiceAgent from './VoiceAgent';
 
 const FloatingVoiceAgent: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const handleStartConversation = () => {
+    alert('Sprachagent ist derzeit in Entwicklung. Bitte kontaktieren Sie uns über das Kontaktformular für weitere Informationen.');
+  };
 
   return (
     <>
@@ -13,6 +16,7 @@ const FloatingVoiceAgent: React.FC = () => {
         onClick={() => setIsOpen(true)}
         className="fixed bottom-6 left-6 z-[60] w-14 h-14 rounded-full bg-gradient-primary hover:scale-110 transition-all duration-300 shadow-2xl border-2 border-white/20"
         size="lg"
+        title="KI Sprachagent"
       >
         <Mic className="w-6 h-6 text-primary-foreground" />
       </Button>
@@ -44,8 +48,31 @@ const FloatingVoiceAgent: React.FC = () => {
               </Button>
             </div>
             
-            {/* Voice Agent */}
-            <VoiceAgent className="border-0" />
+            {/* Simple Voice Agent Content */}
+            <div className="p-6 text-center space-y-4">
+              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
+                <Mic className="w-8 h-8 text-primary" />
+              </div>
+              
+              <div>
+                <h3 className="text-lg font-semibold mb-2">KI Sprachagent</h3>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Sprechen Sie direkt mit unserem KI-Agenten über Ihre individuellen Anforderungen.
+                </p>
+              </div>
+
+              <Button 
+                onClick={handleStartConversation}
+                className="w-full bg-gradient-primary hover:scale-105 transition-all duration-200"
+              >
+                <Phone className="w-4 h-4 mr-2" />
+                Gespräch starten
+              </Button>
+
+              <div className="text-xs text-muted-foreground">
+                💡 Mikrofon-Zugriff wird für die Sprachchat-Funktion benötigt
+              </div>
+            </div>
           </div>
         </div>
       )}
