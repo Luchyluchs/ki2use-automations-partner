@@ -4,11 +4,8 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
-  plugins: [
-    react(),
-    mode === 'development' && componentTagger(),
-  ].filter(Boolean),
+export default defineConfig({
+  plugins: [react(), componentTagger()],
   base: '/',
   resolve: {
     alias: {
@@ -18,29 +15,14 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
-    strictPort: true,
-    historyApiFallback: true,
-  },
-  optimizeDeps: {
-    include: ['@11labs/react'],
-    exclude: [],
-    esbuildOptions: {
-      target: 'es2020',
-      supported: {
-        bigint: true
-      }
-    }
   },
   build: {
-    outDir: 'dist',
+    target: 'es2015',
     rollupOptions: {
       output: {
-        manualChunks: undefined,
+        format: 'iife',
+        inlineDynamicImports: true,
       }
     }
-  },
-  define: {
-    global: 'globalThis',
-  },
-  assetsInclude: ['**/*.wasm']
-}));
+  }
+});
