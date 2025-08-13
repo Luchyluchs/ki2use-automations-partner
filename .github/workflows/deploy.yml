@@ -44,9 +44,13 @@ jobs:
             echo "</body>" >> dist/404.html
             echo "</html>" >> dist/404.html
           fi
-      - name: Remove all config files and let GitHub Pages handle defaults
+      - name: Configure proper MIME types for GitHub Pages
         run: |
-          rm -f dist/_headers dist/.htaccess dist/web.config || true
+          echo "/*.js" > dist/_headers
+          echo "  Content-Type: text/javascript; charset=utf-8" >> dist/_headers
+          echo "" >> dist/_headers
+          echo "/*.mjs" >> dist/_headers
+          echo "  Content-Type: text/javascript; charset=utf-8" >> dist/_headers
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
