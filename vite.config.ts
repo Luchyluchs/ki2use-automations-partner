@@ -33,15 +33,14 @@ export default defineConfig(({ mode }) => ({
   },
   build: {
     outDir: 'dist',
-    target: 'es2020',
+    target: 'es2015',
     assetsDir: 'assets',
-    manifest: true,
     rollupOptions: {
       output: {
+        format: 'iife',
         entryFileNames: 'assets/[name]-[hash].js',
         chunkFileNames: 'assets/[name]-[hash].js',
-        assetFileNames: 'assets/[name]-[hash].[ext]',
-        format: 'es'
+        assetFileNames: 'assets/[name]-[hash].[ext]'
       }
     },
   },

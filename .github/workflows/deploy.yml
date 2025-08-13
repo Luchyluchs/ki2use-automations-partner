@@ -44,31 +44,9 @@ jobs:
             echo "</body>" >> dist/404.html
             echo "</html>" >> dist/404.html
           fi
-      - name: Create web.config for IIS/GitHub Pages
+      - name: Remove all config files and let GitHub Pages handle defaults
         run: |
-          cat > dist/web.config << 'EOF'
-          <?xml version="1.0" encoding="UTF-8"?>
-          <configuration>
-            <system.webServer>
-              <staticContent>
-                <mimeMap fileExtension=".js" mimeType="text/javascript" />
-                <mimeMap fileExtension=".mjs" mimeType="text/javascript" />
-              </staticContent>
-              <rewrite>
-                <rules>
-                  <rule name="SPA Routes" stopProcessing="true">
-                    <match url=".*" />
-                    <conditions logicalGrouping="MatchAll">
-                      <add input="{REQUEST_FILENAME}" matchType="IsFile" negate="true" />
-                      <add input="{REQUEST_FILENAME}" matchType="IsDirectory" negate="true" />
-                    </conditions>
-                    <action type="Rewrite" url="/" />
-                  </rule>
-                </rules>
-              </rewrite>
-            </system.webServer>
-          </configuration>
-          EOF
+          rm -f dist/_headers dist/.htaccess dist/web.config || true
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
