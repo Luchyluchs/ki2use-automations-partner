@@ -33,22 +33,14 @@ export default defineConfig(({ mode }) => ({
   },
   build: {
     outDir: 'dist',
-    target: 'es2015',
-    assetsDir: 'assets',
-    emptyOutDir: true,
     rollupOptions: {
       output: {
-        entryFileNames: 'assets/[name]-[hash].js',
-        chunkFileNames: 'assets/[name]-[hash].js',
-        assetFileNames: 'assets/[name]-[hash].[ext]'
+        manualChunks: undefined,
       }
-    },
-    sourcemap: false,
-    minify: 'esbuild',
+    }
   },
   define: {
     global: 'globalThis',
-    'process.env.NODE_ENV': JSON.stringify(mode === 'production' ? 'production' : 'development')
   },
   assetsInclude: ['**/*.wasm']
 }));

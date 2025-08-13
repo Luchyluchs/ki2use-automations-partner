@@ -35,14 +35,7 @@ jobs:
       - name: Add .nojekyll to disable Jekyll
         run: touch dist/.nojekyll
       - name: Copy CNAME for custom domain
-        run: |
-          if [ -f CNAME ]; then
-            cp CNAME dist/CNAME
-          fi
-          echo "ki2use.de" > dist/CNAME
-      - name: Fix MIME types for GitHub Pages
-        run: |
-          find dist -name "*.js" -exec sh -c 'echo "/* JavaScript */" | cat - "$1" > temp && mv temp "$1"' _ {} \;
+        run: cp public/CNAME dist/CNAME
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
