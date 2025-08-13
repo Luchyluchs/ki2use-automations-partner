@@ -15,11 +15,16 @@ export const useCookieConsent = () => {
   const [showBanner, setShowBanner] = useState(false);
 
   useEffect(() => {
-    checkExistingConsent();
+    // Check if we're in browser environment
+    if (typeof window !== 'undefined') {
+      checkExistingConsent();
+    }
   }, []);
 
   const checkExistingConsent = () => {
     try {
+      if (typeof localStorage === 'undefined') return;
+      
       const stored = localStorage.getItem(CONSENT_KEY);
       if (stored) {
         const data = JSON.parse(stored);
@@ -52,7 +57,9 @@ export const useCookieConsent = () => {
     };
     
     try {
-      localStorage.setItem(CONSENT_KEY, JSON.stringify(data));
+      if (typeof localStorage !== 'undefined') {
+        localStorage.setItem(CONSENT_KEY, JSON.stringify(data));
+      }
       setHasConsent(true);
       setConsentData(consent);
       setShowBanner(false);
@@ -67,27 +74,31 @@ export const useCookieConsent = () => {
   };
 
   const loadGoogleAnalytics = () => {
-    // Only load if not already loaded
-    if (window.gtag) return;
+    try {
+      // Only load if not already loaded and we're in browser
+      if (typeof window === 'undefined' || window.gtag) return;
 
-    // Create and load gtag script
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZK9LRZQ2RS';
-    document.head.appendChild(script);
+      // Create and load gtag script
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZK9LRZQ2RS';
+      document.head.appendChild(script);
 
-    // Initialize gtag
-    window.dataLayer = window.dataLayer || [];
-    function gtag(...args: any[]) {
-      window.dataLayer.push(args);
+      // Initialize gtag
+      window.dataLayer = window.dataLayer || [];
+      function gtag(...args: any[]) {
+        window.dataLayer.push(args);
+      }
+      window.gtag = gtag;
+      
+      gtag('js', new Date());
+      gtag('config', 'G-ZK9LRZQ2RS', {
+        anonymize_ip: true,
+        cookie_flags: 'SameSite=Strict;Secure'
+      });
+    } catch (error) {
+      console.error('Error loading Google Analytics:', error);
     }
-    window.gtag = gtag;
-    
-    gtag('js', new Date());
-    gtag('config', 'G-ZK9LRZQ2RS', {
-      anonymize_ip: true,
-      cookie_flags: 'SameSite=Strict;Secure'
-    });
   };
 
   const acceptAll = () => {
@@ -119,13 +130,17 @@ export const useCookieConsent = () => {
 
   const revokeConsent = () => {
     try {
-      localStorage.removeItem(CONSENT_KEY);
+      if (typeof localStorage !== 'undefined') {
+        localStorage.removeItem(CONSENT_KEY);
+      }
       setHasConsent(false);
       setConsentData(null);
       setShowBanner(true);
       
       // Reload page to clear any loaded analytics
-      window.location.reload();
+      if (typeof window !== 'undefined') {
+        window.location.reload();
+      }
     } catch (error) {
       console.error('Error revoking consent:', error);
     }
