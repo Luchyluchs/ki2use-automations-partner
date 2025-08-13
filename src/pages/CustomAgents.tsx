@@ -60,6 +60,10 @@ const CustomAgents = () => {
     icon: TrendingUp,
     title: "Skalierbare Architektur",
     description: "Lösungen, die mit Ihrem Unternehmen mitwachsen und sich anpassen lassen."
+  }, {
+    icon: Calendar,
+    title: "Planbare Umsetzung",
+    description: "Feste Meilensteine und transparente Kommunikation für kalkulierbare Projektergebnisse."
   }];
   const examples = [{
     title: "Intelligenter Produktkonfigurator",
