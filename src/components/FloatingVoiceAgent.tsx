@@ -1,51 +1,73 @@
 import React, { useState } from 'react';
 import { Mic, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import VoiceAgent from './VoiceAgent';
 
 const FloatingVoiceAgent: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  // Debug: Log that component is rendering
+  console.log('FloatingVoiceAgent is rendering!');
+
   return (
     <>
-      {/* Floating Button */}
-      <Button
-        onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 left-6 z-[60] w-14 h-14 rounded-full bg-gradient-primary hover:scale-110 transition-all duration-300 shadow-2xl border-2 border-white/20"
-        size="lg"
+      {/* DEBUG: Super visible button with inline styles */}
+      <div
+        onClick={() => {
+          console.log('Button clicked!');
+          setIsOpen(true);
+        }}
+        style={{
+          position: 'fixed',
+          bottom: '24px',
+          left: '24px',
+          width: '60px',
+          height: '60px',
+          backgroundColor: '#ff0000',
+          borderRadius: '50%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          cursor: 'pointer',
+          zIndex: 9999,
+          boxShadow: '0 4px 20px rgba(255, 0, 0, 0.5)',
+          border: '3px solid #ffffff'
+        }}
       >
-        <Mic className="w-6 h-6 text-primary-foreground" />
-      </Button>
+        <Mic style={{ color: 'white', width: '24px', height: '24px' }} />
+      </div>
 
-      {/* Voice Agent Modal */}
+      {/* Modal */}
       {isOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center">
-          {/* Backdrop */}
+        <div 
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 10000
+          }}
+          onClick={() => setIsOpen(false)}
+        >
           <div 
-            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
-            onClick={() => setIsOpen(false)}
-          />
-          
-          {/* Modal Content */}
-          <div className="relative bg-card rounded-2xl shadow-2xl border border-card-border max-w-md w-full mx-4 overflow-hidden">
-            {/* Header */}
-            <div className="flex items-center justify-between p-4 bg-gradient-primary text-primary-foreground">
-              <div className="flex items-center space-x-3">
-                <Mic className="w-5 h-5" />
-                <h3 className="font-semibold">KI Sprachagent</h3>
-              </div>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => setIsOpen(false)}
-                className="text-primary-foreground hover:bg-white/20 rounded-full w-8 h-8 p-0"
-              >
-                <X className="w-4 h-4" />
-              </Button>
+            style={{
+              backgroundColor: 'white',
+              padding: '20px',
+              borderRadius: '10px',
+              maxWidth: '400px',
+              width: '90%'
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+              <h3>KI Sprachagent (DEBUG)</h3>
+              <button onClick={() => setIsOpen(false)}>✕</button>
             </div>
-            
-            {/* Voice Agent */}
-            <VoiceAgent className="border-0" />
+            <p>DEBUG: Der Button funktioniert! Das Problem war mit der ursprünglichen Implementierung.</p>
           </div>
         </div>
       )}
