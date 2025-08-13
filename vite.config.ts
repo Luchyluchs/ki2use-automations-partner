@@ -38,9 +38,14 @@ export default defineConfig(({ mode }) => ({
     manifest: true,
     rollupOptions: {
       output: {
-        entryFileNames: 'assets/[name]-[hash].js',
-        chunkFileNames: 'assets/[name]-[hash].js',
-        assetFileNames: 'assets/[name]-[hash].[ext]'
+        entryFileNames: 'assets/[name]-[hash].mjs',
+        chunkFileNames: 'assets/[name]-[hash].mjs',
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name && assetInfo.name.endsWith('.js')) {
+            return 'assets/[name]-[hash].mjs';
+          }
+          return 'assets/[name]-[hash].[ext]';
+        }
       }
     },
   },
