@@ -34,14 +34,16 @@ export default defineConfig(({ mode }) => ({
   build: {
     outDir: 'dist',
     target: 'es2015',
-    assetsDir: 'assets',
+    assetsDir: '',
     emptyOutDir: true,
     rollupOptions: {
       output: {
-        format: 'es',
-        entryFileNames: 'assets/[name]-[hash].js',
-        chunkFileNames: 'assets/[name]-[hash].js',
-        assetFileNames: 'assets/[name]-[hash].[ext]'
+        format: 'iife',
+        entryFileNames: 'index.js',
+        chunkFileNames: '[name].js',
+        assetFileNames: '[name].[ext]',
+        manualChunks: undefined,
+        inlineDynamicImports: true
       }
     },
     sourcemap: false,
