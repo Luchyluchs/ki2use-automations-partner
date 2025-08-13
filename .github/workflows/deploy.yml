@@ -34,27 +34,12 @@ jobs:
         run: npm run build
       - name: Add .nojekyll to disable Jekyll
         run: touch dist/.nojekyll
-      - name: Copy and setup 404.html for SPA routing
+      - name: Copy CNAME for custom domain
         run: |
-          # Simply copy the main index.html as 404.html for SPA routing
-          cp dist/index.html dist/404.html
-      - name: Create proper _headers file for Netlify/GitHub Pages
-        run: |
-          cat > dist/_headers << 'EOF'
-          /*.js
-            Content-Type: application/javascript; charset=utf-8
-          /*.mjs
-            Content-Type: application/javascript; charset=utf-8
-          /assets/*.js
-            Content-Type: application/javascript; charset=utf-8
-          /assets/*.mjs
-            Content-Type: application/javascript; charset=utf-8
-          /assets/*.css
-            Content-Type: text/css; charset=utf-8
-          /*
-            X-Frame-Options: DENY
-            X-Content-Type-Options: nosniff
-          EOF
+          if [ -f CNAME ]; then
+            cp CNAME dist/CNAME
+          fi
+          echo "ki2use.de" > dist/CNAME
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
