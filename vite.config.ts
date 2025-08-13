@@ -45,7 +45,7 @@ export default defineConfig(({ mode }) => ({
       }
     },
     sourcemap: false,
-    minify: 'terser',
+    minify: 'esbuild',
   },
   define: {
     global: 'globalThis',
