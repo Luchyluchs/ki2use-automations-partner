@@ -9,13 +9,20 @@ const FloatingVoiceAgent: React.FC = () => {
   return (
     <>
       {/* Floating Button */}
-      <Button
+      <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 left-6 z-50 w-14 h-14 rounded-full bg-gradient-primary hover:scale-110 transition-all duration-300 shadow-2xl border-2 border-white/20"
-        size="lg"
+        className="fixed bottom-6 left-6 z-50 w-16 h-16 rounded-full bg-primary hover:bg-primary-hover text-primary-foreground shadow-elevated border-2 border-white/20 hover:scale-110 transition-all duration-300 flex items-center justify-center"
+        style={{ 
+          position: 'fixed',
+          bottom: '24px',
+          left: '24px',
+          zIndex: 9999,
+          backgroundColor: 'hsl(220 50% 30%)',
+          color: 'white'
+        }}
       >
-        <Mic className="w-6 h-6 text-primary-foreground" />
-      </Button>
+        <Mic className="w-6 h-6" />
+      </button>
 
       {/* Voice Agent Modal */}
       {isOpen && (
