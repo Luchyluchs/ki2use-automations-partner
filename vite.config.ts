@@ -38,12 +38,11 @@ export default defineConfig(({ mode }) => ({
     emptyOutDir: true,
     rollupOptions: {
       output: {
-        format: 'iife',
-        entryFileNames: 'index.js',
-        chunkFileNames: '[name].js',
-        assetFileNames: '[name].[ext]',
-        manualChunks: undefined,
-        inlineDynamicImports: true
+        format: 'es',
+        entryFileNames: '[name].js',
+        chunkFileNames: '[name]-[hash].js',
+        assetFileNames: '[name]-[hash].[ext]',
+        manualChunks: undefined
       }
     },
     sourcemap: false,
