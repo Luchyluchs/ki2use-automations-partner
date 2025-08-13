@@ -12,3 +12,14 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+# Sitemap Location
+Sitemap: https://ki2use.de/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Disallow admin/temp areas (if any exist in the future)
+Disallow: /admin/
+Disallow: /tmp/
+Disallow: /*.json$

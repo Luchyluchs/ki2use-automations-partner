@@ -1,14 +1,20 @@
 import { useScrollReveal, useParallax, useScrollFade } from "@/hooks/useScrollAnimations";
+import { useSEO, SEOTemplates } from "@/hooks/useSEO";
+import { CustomAgentsFAQ } from "@/components/StructuredData";
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowLeft, CheckCircle, ArrowRight, Calendar, Users, Zap, Target, Shield, TrendingUp } from "lucide-react";
 import CustomROICalculator from "@/components/CustomROICalculator";
 import CalendlyButton from "@/components/CalendlyButton";
+
 const CustomAgents = () => {
   useScrollReveal();
   useParallax();
   useScrollFade();
+  
+  // SEO optimization for Custom Agents page
+  useSEO(SEOTemplates.customAgents);
   const processSteps = [{
     step: "01",
     title: "Bedarfsanalyse",
@@ -82,6 +88,7 @@ const CustomAgents = () => {
     results: ["25% Reduzierung der Personalkosten", "Höhere Mitarbeiterzufriedenheit", "Optimierte Kundenbetreuung"]
   }];
   return <Layout>
+      <CustomAgentsFAQ />
       {/* Header */}
       <section className="bg-gradient-subtle py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -94,12 +101,12 @@ const CustomAgents = () => {
             </Button>
             
             <h1 className="mb-6 scale-in-element">
-              Ihre einzigartige Herausforderung:{" "}
-              <span className="text-primary">Individuelle KI-Lösungen</span> von KI2USE
+              Maßgeschneiderte{" "}
+              <span className="text-primary">KI-Automatisierung</span> für Ihren Erfolg
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed fade-in-element">
-              Passgenau für den Mittelstand entwickelte KI-Agenten und Automatisierungsworkflows, 
-              die perfekt auf Ihre individuellen Prozesse zugeschnitten sind.
+              Einzigartige KI-Agenten und Automatisierungsworkflows, die perfekt auf Ihre 
+              individuellen Geschäftsprozesse zugeschnitten sind. Maximale Effizienz durch passgenaue Digitalisierung.
             </p>
           </div>
         </div>

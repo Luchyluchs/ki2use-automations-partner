@@ -1,13 +1,19 @@
 import { useScrollReveal, useParallax, useScrollFade } from "@/hooks/useScrollAnimations";
+import { useSEO, SEOTemplates } from "@/hooks/useSEO";
+import { StandardAgentsFAQ } from "@/components/StructuredData";
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowLeft, CheckCircle, Calendar } from "lucide-react";
 import ROICalculator from "@/components/ROICalculator";
+
 const StandardAgents = () => {
   useScrollReveal();
   useParallax();
   useScrollFade();
+  
+  // SEO optimization for Standard Agents page
+  useSEO(SEOTemplates.standardAgents);
   const agents = [{
     name: "LinkedIn Agent",
     description: "Automatisiert Netzwerkpflege, spart wertvolle Zeit bei der Akquise und stärkt Ihre Markenpräsenz professionell.",
@@ -58,6 +64,7 @@ const StandardAgents = () => {
     useCases: ["Arzttermine", "Beratungsgespräche", "Service-Termine", "Schulungsbuchungen"]
   }];
   return <Layout>
+      <StandardAgentsFAQ />
       {/* Header */}
       <section className="relative overflow-hidden bg-gradient-subtle py-16">
         <div className="absolute top-0 right-1/4 w-72 h-72 bg-primary/5 rounded-full blur-3xl parallax-slow"></div>
@@ -74,11 +81,11 @@ const StandardAgents = () => {
             
             <h1 className="scroll-reveal stagger-delay-1 mb-6">
               Sofort einsetzbare{" "}
-              <span className="text-primary">KI-Agenten</span> von KI2USE
+              <span className="text-primary">KI-Agenten</span> für maximale Effizienz
             </h1>
             <p className="scroll-reveal stagger-delay-2 text-xl text-muted-foreground leading-relaxed">
-              Direkter Nutzen und schnelle Amortisation für Ihr Kleinunternehmen. 
-              Bewährte Lösungen, die sofort produktiv werden.
+              Bewährte KI-Automatisierung mit direktem Nutzen und schneller Amortisation. 
+              Digitale Mitarbeiter, die sofort produktiv werden und Ihre Geschäftsprozesse revolutionieren.
             </p>
           </div>
         </div>

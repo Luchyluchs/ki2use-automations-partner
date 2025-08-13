@@ -1,4 +1,5 @@
 import { useScrollReveal, useParallax, useScrollFade } from "@/hooks/useScrollAnimations";
+import { useSEO, SEOTemplates } from "@/hooks/useSEO";
 import Layout from "@/components/Layout";
 import ROICalculator from "@/components/ROICalculator";
 import { Button } from "@/components/ui/button";
@@ -10,6 +11,9 @@ const ROICalculatorPage = () => {
   useScrollReveal();
   useParallax();
   useScrollFade();
+  
+  // SEO optimization for ROI Calculator page
+  useSEO(SEOTemplates.roiCalculator);
   return (
     <Layout>
       {/* Header */}

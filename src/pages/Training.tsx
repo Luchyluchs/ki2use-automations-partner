@@ -1,4 +1,5 @@
 import { useScrollReveal, useParallax, useScrollFade } from "@/hooks/useScrollAnimations";
+import { useSEO, SEOTemplates } from "@/hooks/useSEO";
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -8,6 +9,9 @@ const Training = () => {
   useScrollReveal();
   useParallax();
   useScrollFade();
+  
+  // SEO optimization for Training page
+  useSEO(SEOTemplates.training);
   const trainings = [
     {
       title: "KI-Grundlagen für KMU-Geschäftsführer",
