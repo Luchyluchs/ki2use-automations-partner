@@ -1,9 +1,10 @@
 name: Deploy to GitHub Pages
 
-on:
-  push:
-    branches: [ "main" ]
-  workflow_dispatch:
+# DEAKTIVIERT - Nur Lovable Hosting verwenden
+# on:
+#   push:
+#     branches: [ "main" ]
+#   workflow_dispatch:
 
 permissions:
   contents: read
