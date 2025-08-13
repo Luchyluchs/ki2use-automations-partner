@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Mic, MicOff, Phone, PhoneOff } from 'lucide-react';
 
@@ -8,22 +8,43 @@ interface VoiceAgentProps {
 
 const VoiceAgent: React.FC<VoiceAgentProps> = ({ className = '' }) => {
   const [isConnected, setIsConnected] = useState(false);
-  const [hasElevenLabsError, setHasElevenLabsError] = useState(false);
-  
-  // Try to import ElevenLabs hook safely
-  let conversation: any = null;
-  try {
-    const { useConversation } = require('@11labs/react');
-    conversation = useConversation({
-      onConnect: () => setIsConnected(true),
-      onDisconnect: () => setIsConnected(false),
-      onError: () => {},
-      onMessage: () => {}
-    });
-  } catch (error) {
-    console.log('ElevenLabs not available:', error);
-    setHasElevenLabsError(true);
-  }
+  const [hasElevenLabsError, setHasElevenLabsError] = useState(true);
+  const [conversation, setConversation] = useState<any>(null);
+  const [useConversation, setUseConversation] = useState<any>(null);
+
+  // Dynamically load ElevenLabs
+  useEffect(() => {
+    const loadElevenLabs = async () => {
+      try {
+        const elevenLabsModule = await import('@11labs/react');
+        setUseConversation(() => elevenLabsModule.useConversation);
+        setHasElevenLabsError(false);
+      } catch (error) {
+        console.log('ElevenLabs not available in production');
+        setHasElevenLabsError(true);
+      }
+    };
+    
+    loadElevenLabs();
+  }, []);
+
+  // Initialize conversation when useConversation is available
+  useEffect(() => {
+    if (useConversation) {
+      try {
+        const conv = useConversation({
+          onConnect: () => setIsConnected(true),
+          onDisconnect: () => setIsConnected(false),
+          onError: () => {},
+          onMessage: () => {}
+        });
+        setConversation(conv);
+      } catch (error) {
+        console.log('ElevenLabs hook error:', error);
+        setHasElevenLabsError(true);
+      }
+    }
+  }, [useConversation]);
 
   const startConversation = async () => {
     if (hasElevenLabsError || !conversation) {
