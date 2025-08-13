@@ -17,8 +17,8 @@ const VoiceAgent: React.FC<VoiceAgentProps> = ({ className = '' }) => {
     conversation = useConversation({
       onConnect: () => setIsConnected(true),
       onDisconnect: () => setIsConnected(false),
-      onError: () => {}, // Handle silently in production
-      onMessage: () => {} // Handle silently in production  
+      onError: () => {},
+      onMessage: () => {}
     });
   } catch (error) {
     console.log('ElevenLabs not available:', error);
