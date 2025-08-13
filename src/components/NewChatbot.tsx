@@ -226,14 +226,24 @@ const NewChatbot = () => {
              }}>
           {/* Header */}
           <div className="bg-gradient-primary text-primary-foreground p-3 sm:p-4 rounded-t-2xl">
-            <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-                <Bot className="w-5 h-5" />
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-3">
+                <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+                  <Bot className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-sm sm:text-base">KI2USE Support</h3>
+                  <p className="text-xs opacity-80">Powered by KI2USE Automation</p>
+                </div>
               </div>
-              <div>
-                <h3 className="font-semibold text-sm sm:text-base">KI2USE Support</h3>
-                <p className="text-xs opacity-80">Powered by KI2USE Automation</p>
-              </div>
+              <Button
+                onClick={() => setIsOpen(false)}
+                variant="ghost"
+                size="sm"
+                className="text-primary-foreground hover:bg-white/20 rounded-full w-8 h-8 p-0"
+              >
+                <X className="w-4 h-4" />
+              </Button>
             </div>
           </div>
 
