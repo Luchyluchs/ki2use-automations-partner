@@ -301,7 +301,7 @@ const NewChatbot = () => {
                 onChange={(e) => setInputMessage(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder="Ihre Frage zu KI-Lösungen..."
-                className="flex-1 min-w-0 px-2 py-2 border border-input rounded-lg bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-ring transition-smooth"
+                className="flex-1 min-w-0 px-2 py-2 md:py-4 border border-input rounded-lg bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-ring transition-smooth"
                 disabled={isLoading}
                 style={{ maxWidth: 'calc(100% - 50px)' }}
               />
