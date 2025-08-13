@@ -38,13 +38,23 @@ jobs:
         run: |
           # Simply copy the main index.html as 404.html for SPA routing
           cp dist/index.html dist/404.html
-      - name: Configure proper MIME types for GitHub Pages
+      - name: Fix JavaScript MIME types for GitHub Pages
         run: |
-          echo "/*.js" > dist/_headers
-          echo "  Content-Type: text/javascript; charset=utf-8" >> dist/_headers
-          echo "" >> dist/_headers
-          echo "/*.mjs" >> dist/_headers
-          echo "  Content-Type: text/javascript; charset=utf-8" >> dist/_headers
+          # Create proper web.config for GitHub Pages
+          cat > dist/web.config << 'EOF'
+          <?xml version="1.0" encoding="utf-8"?>
+          <configuration>
+            <system.webServer>
+              <staticContent>
+                <mimeMap fileExtension=".js" mimeType="application/javascript" />
+                <mimeMap fileExtension=".mjs" mimeType="application/javascript" />
+              </staticContent>
+            </system.webServer>
+          </configuration>
+          EOF
+          
+          # Update script tags in built HTML to use correct paths
+          find dist -name "*.html" -exec sed -i 's|src="/src/main.tsx"|src="./assets/index-'$(find dist/assets -name "index-*.js" | head -1 | sed 's/.*index-\([^.]*\)\.js$/\1/')'.js"|g' {} \;
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
