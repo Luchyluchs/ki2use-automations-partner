@@ -49,9 +49,6 @@ const HeroSection = () => {
           <div className="scroll-scale relative">
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-2xl opacity-60 parallax-slow"></div>
-              <div className="absolute top-4 left-4 bg-accent text-accent-foreground px-4 py-2 rounded-full text-sm font-semibold shadow-lg z-10">
-                Jetzt kostenlos beraten lassen
-              </div>
               <div className="relative rounded-2xl overflow-hidden shadow-elevated bg-white p-1 hover:shadow-primary transition-all duration-500">
                 <img
                   src={humanRobotHandshake}
