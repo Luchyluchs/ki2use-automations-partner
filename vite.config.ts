@@ -9,7 +9,6 @@ export default defineConfig(({ mode }) => ({
     react(),
     mode === 'development' && componentTagger(),
   ].filter(Boolean),
-  base: mode === 'production' ? 'https://ki2use.de/' : '/',
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
@@ -33,19 +32,7 @@ export default defineConfig(({ mode }) => ({
   },
   build: {
     outDir: 'dist',
-    target: 'es2015',
-    assetsDir: '',
-    emptyOutDir: true,
-    rollupOptions: {
-      output: {
-        format: 'iife',
-        entryFileNames: 'index.js',
-        chunkFileNames: '[name].js',
-        assetFileNames: '[name].[ext]',
-        manualChunks: undefined,
-        inlineDynamicImports: true
-      }
-    },
+    target: 'es2020',
     sourcemap: false,
     minify: 'esbuild',
   },
