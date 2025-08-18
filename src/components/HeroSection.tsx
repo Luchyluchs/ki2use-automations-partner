@@ -24,7 +24,7 @@ const HeroSection = () => {
             </div>
             <h1 className="scroll-reveal stagger-delay-1 mb-6 text-foreground">
               Revolutioniere dein Business mit{" "}
-              <span className="text-primary font-extrabold">KI-Assistenten</span>
+              <span className="text-primary font-extrabold nowrap-ki-assistant">KI-Assistenten</span>
             </h1>
             <p className="scroll-reveal stagger-delay-2 text-xl text-muted-foreground mb-8 leading-relaxed max-w-2xl">
               Professionelle KI-Automatisierung für deutsche Unternehmen. 
