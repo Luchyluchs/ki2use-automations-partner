@@ -4,7 +4,6 @@ import humanRobotHandshake from "@/assets/human-robot-handshake.jpg";
 import CalendlyButton from "./CalendlyButton";
 import { useScrollReveal, useParallax } from "@/hooks/useScrollAnimations";
 import { useEffect } from "react";
-
 const HeroSection = () => {
   useScrollReveal();
   useParallax();
@@ -32,13 +31,7 @@ const HeroSection = () => {
               höchster Qualität und DSGVO-Konformität.
             </p>
             <div className="scroll-reveal stagger-delay-3 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <CalendlyButton 
-                text="Kostenloses Erstgespräch sichern (30 Min.)"
-                variant="cta"
-                size="xl"
-                className="text-lg px-8 py-4 shadow-primary gradient-primary hover:shadow-elevated transform hover:scale-105 transition-all duration-300"
-                icon={false}
-              />
+              <CalendlyButton text="Kostenloses Erstgespräch sichern (30 Min.)" variant="cta" size="xl" className="text-lg px-8 py-4 shadow-primary gradient-primary hover:shadow-elevated transform hover:scale-105 transition-all duration-300" icon={false} />
               <Button variant="outline" size="xl" asChild className="text-lg px-8 py-4 border-2 hover:bg-primary hover:text-primary-foreground hover:border-primary hover:shadow-elevated transform hover:scale-105 transition-all duration-300">
                 <Link to="/standard-agenten">Standard-Assistenten ansehen</Link>
               </Button>
@@ -47,7 +40,7 @@ const HeroSection = () => {
             {/* Capacity indicator */}
             <div className="scroll-reveal stagger-delay-4 mt-6 inline-flex items-center gap-2 text-sm text-muted-foreground">
               <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-              <span>Begrenzte Kapazität - nur 15 Beratungen pro Monat</span>
+              <span>Begrenzte Kapazität - nur 15 Beratungen diesen Monat übrig</span>
             </div>
           </div>
 
@@ -56,11 +49,7 @@ const HeroSection = () => {
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-2xl opacity-60 parallax-slow"></div>
               <div className="relative rounded-2xl overflow-hidden shadow-elevated bg-white p-1 hover:shadow-primary transition-all duration-500">
-                <img
-                  src={humanRobotHandshake}
-                  alt="Erfolgreiche Zusammenarbeit zwischen Mensch und KI - Partnerschaftlicher Handschlag"
-                  className="w-full h-auto object-cover rounded-xl transform hover:scale-105 transition-transform duration-700"
-                />
+                <img src={humanRobotHandshake} alt="Erfolgreiche Zusammenarbeit zwischen Mensch und KI - Partnerschaftlicher Handschlag" className="w-full h-auto object-cover rounded-xl transform hover:scale-105 transition-transform duration-700" />
               </div>
             </div>
             
