@@ -14,9 +14,9 @@ const ValuePropositionSection = () => {
     },
     {
       icon: Euro,
-      title: "ROI bereits im 1. Monat",
+      title: "Gewinn bereits im 1. Monat",
       description: "Durch Effizienzsteigerung amortisieren sich die Kosten schnell",
-      example: "Typisch: 300-500% ROI im ersten Jahr"
+      example: "Typisch: 300-500% Rendite im ersten Jahr"
     },
     {
       icon: TrendingUp,

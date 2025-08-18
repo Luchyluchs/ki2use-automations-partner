@@ -161,7 +161,7 @@ const CustomROICalculator = () => {
             </div>
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
-                <span>ROI pro Jahr:</span>
+                <span>Jährliche Rendite:</span>
                 <span className="text-green-600 font-bold text-lg">
                   {yearlyROI > 0 ? '+' : ''}{yearlyROI.toFixed(0)}%
                 </span>
