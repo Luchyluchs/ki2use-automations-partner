@@ -1,3 +1,4 @@
+
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
 import humanRobotHandshake from "@/assets/human-robot-handshake.jpg";
@@ -21,7 +22,7 @@ const HeroSection = () => {
             <div className="scroll-reveal inline-flex items-center rounded-full px-4 py-2 text-sm font-medium bg-primary/10 text-primary border border-primary/20 mb-6">
               🚀 Deutschlands KI-Experten für KMUs
             </div>
-            <h1 className="scroll-reveal stagger-delay-1 mb-6 gradient-text">
+            <h1 className="scroll-reveal stagger-delay-1 mb-6 text-foreground">
               Revolutioniere dein Business mit{" "}
               <span className="text-primary font-extrabold">KI-Assistenten</span>
             </h1>
