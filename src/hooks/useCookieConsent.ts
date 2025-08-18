@@ -35,7 +35,10 @@ export const useCookieConsent = () => {
           
           // Load Google Analytics if consent given
           if (data.consent.analytics) {
+            console.log('Analytics consent found, loading Google Analytics');
             loadGoogleAnalytics();
+          } else {
+            console.log('No analytics consent found');
           }
           return;
         }
@@ -66,7 +69,10 @@ export const useCookieConsent = () => {
       
       // Load Google Analytics if consent given
       if (consent.analytics) {
+        console.log('Analytics consent given, loading Google Analytics');
         loadGoogleAnalytics();
+      } else {
+        console.log('Analytics consent not given');
       }
     } catch {
       // Handle silently in production
@@ -76,12 +82,19 @@ export const useCookieConsent = () => {
   const loadGoogleAnalytics = () => {
     try {
       // Only load if not already loaded and we're in browser
-      if (typeof window === 'undefined' || window.gtag) return;
+      if (typeof window === 'undefined' || window.gtag) {
+        console.log('Google Analytics already loaded or not in browser');
+        return;
+      }
+
+      console.log('Loading Google Analytics...');
 
       // Create and load gtag script
       const script = document.createElement('script');
       script.async = true;
       script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZK9LRZQ2RS';
+      script.onload = () => console.log('Google Analytics script loaded successfully');
+      script.onerror = () => console.error('Failed to load Google Analytics script');
       document.head.appendChild(script);
 
       // Initialize gtag
@@ -96,8 +109,10 @@ export const useCookieConsent = () => {
         anonymize_ip: true,
         cookie_flags: 'SameSite=Strict;Secure'
       });
-    } catch {
-      // Handle silently in production
+      
+      console.log('Google Analytics initialized with ID: G-ZK9LRZQ2RS');
+    } catch (error) {
+      console.error('Error loading Google Analytics:', error);
     }
   };
 
