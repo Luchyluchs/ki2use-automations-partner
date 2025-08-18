@@ -53,13 +53,6 @@ const CTASection = () => {
             </p>
           </div>
 
-          <div className="scroll-fade-in mt-8 bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10 hover-scale transform hover:scale-105 transition-all duration-500">
-            <p className="text-sm leading-relaxed opacity-90">
-              <strong>Automatisierung in Aktion:</strong> Diese Anfrage wird automatisch verarbeitet, 
-              kategorisiert und an den passenden Experten weitergeleitet – so demonstrieren wir live unsere 
-              Effizienz und Zuverlässigkeit in der Kundenbetreuung.
-            </p>
-          </div>
         </div>
       </div>
     </section>
