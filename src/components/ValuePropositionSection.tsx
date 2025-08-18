@@ -100,7 +100,7 @@ const ValuePropositionSection = () => {
             
             <div className="mt-6">
               <CalendlyButton 
-                text="Unverbindlich informieren (15 Min.)"
+                text="Unverbindlich informieren (30 Min.)"
                 variant="outline"
                 size="lg"
                 className="border-2"

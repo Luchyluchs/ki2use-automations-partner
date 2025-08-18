@@ -15,7 +15,7 @@ const CTASection = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-4xl mx-auto text-center text-primary-foreground">
           <h2 className="scroll-reveal mb-6">
-            Was Sie in 15 Minuten erfahren werden
+            Was Sie in 30 Minuten erfahren werden
           </h2>
           <p className="scroll-reveal stagger-delay-1 text-xl mb-8 opacity-90 leading-relaxed">
             Kostenloses Erstgespräch ohne Verpflichtung - erfahren Sie konkret, 
@@ -42,7 +42,7 @@ const CTASection = () => {
 
           <div className="scroll-reveal stagger-delay-2 space-y-4">
             <CalendlyButton 
-              text="Kostenloses Erstgespräch sichern (15 Min.)"
+              text="Kostenloses Erstgespräch sichern (30 Min.)"
               variant="accent"
               size="xl"
               className="bg-white text-primary hover:bg-white/90 text-lg"

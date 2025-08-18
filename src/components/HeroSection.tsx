@@ -33,7 +33,7 @@ const HeroSection = () => {
             </p>
             <div className="scroll-reveal stagger-delay-3 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <CalendlyButton 
-                text="Kostenloses Erstgespräch sichern (15 Min.)"
+                text="Kostenloses Erstgespräch sichern (30 Min.)"
                 variant="cta"
                 size="xl"
                 className="text-lg px-8 py-4 shadow-primary gradient-primary hover:shadow-elevated transform hover:scale-105 transition-all duration-300"
