@@ -23,7 +23,7 @@ const Layout = ({
     name: "Assistenten-Rechner",
     href: "/agenten-rechner"
   }, {
-    name: "KI-Schulungen",
+    name: "Schulungen",
     href: "/ki-schulungen"
   }, {
     name: "Homepage Erstellung",
