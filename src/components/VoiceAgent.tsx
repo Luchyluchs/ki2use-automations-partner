@@ -60,28 +60,19 @@ const VoiceAgent: React.FC<VoiceAgentProps> = ({ className = '' }) => {
 
         <div>
           <h3 className="text-lg font-semibold mb-2">KI2USE Voice Agent</h3>
-          <div className="bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/20 rounded-lg p-3 mb-3">
-            <p className="text-sm font-semibold text-primary">
+          <div className="bg-primary/10 border border-primary/20 rounded-lg p-2 mb-3">
+            <p className="text-sm font-medium text-primary text-center">
               🧠 Mit KI2USE Expertenwissen trainiert
             </p>
-            <p className="text-xs text-muted-foreground mt-1">
-              Spezialisiert auf KI-Automatisierung & digitale Lösungen
-            </p>
           </div>
-          <p className="text-muted-foreground text-sm mb-3">
+          <p className="text-muted-foreground text-sm mb-4">
             {isConnected 
               ? conversation.isSpeaking 
                 ? 'Der KI2USE-Agent antwortet...' 
-                : 'Fragen Sie mich alles über KI2USE - Services, Preise, Implementierung!'
-              : 'Sprechen Sie mit unserem KI2USE-trainierten Voice Agent'
+                : 'Fragen Sie mich alles über KI2USE!'
+              : 'Sprechen Sie mit unserem KI-Assistenten'
             }
           </p>
-          
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-4">
-            <p className="text-sm text-blue-800">
-              <strong>💡 Diese Technologie</strong> kann in Ihren Telefonsystemen oder auf Ihrer Website integriert werden
-            </p>
-          </div>
         </div>
 
         <div className="space-y-3">
@@ -102,12 +93,6 @@ const VoiceAgent: React.FC<VoiceAgentProps> = ({ className = '' }) => {
               Gespräch beenden
             </Button>
           )}
-          
-          <div className="text-xs text-muted-foreground space-y-1">
-            <div>🎯 <strong>Einsatzbereiche:</strong> Kundenservice, Terminbuchung, Produktberatung</div>
-            <div>📞 <strong>Integration:</strong> Telefon, Website, WhatsApp, Teams</div>
-            <div>⚡ <strong>Vorteile:</strong> 24/7 verfügbar, mehrsprachig, sofort einsatzbereit</div>
-          </div>
         </div>
       </div>
     </div>
