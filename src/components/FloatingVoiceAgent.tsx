@@ -11,7 +11,7 @@ const FloatingVoiceAgent: React.FC = () => {
       {/* Floating Button */}
       <Button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 left-6 z-50 w-32 h-16 rounded-xl bg-gradient-primary hover:scale-105 hover:shadow-3xl active:scale-95 transition-all duration-200 shadow-2xl border-2 border-white/30 cursor-pointer"
+        className="fixed bottom-6 left-6 z-50 w-36 h-12 rounded-xl bg-gradient-primary hover:scale-105 hover:shadow-3xl active:scale-95 transition-all duration-200 shadow-2xl border-2 border-white/30 cursor-pointer"
         size="lg"
       >
         <span className="text-sm font-bold text-primary-foreground text-center">
