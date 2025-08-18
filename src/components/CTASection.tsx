@@ -25,7 +25,7 @@ const CTASection = () => {
           <div className="scroll-scale grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
             <div className="stagger-delay-1 bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 hover-scale transform hover:scale-105 transition-all duration-500">
               <Calendar className="w-8 h-8 mx-auto mb-4" />
-              <h3 className="font-semibold mb-2">Konkrete Automatisierungsmöglichkeiten</h3>
+              <h3 className="font-semibold mb-2">Konkrete KI-Potenziale</h3>
               <p className="text-sm opacity-80">Welche Ihrer Prozesse sich sofort automatisieren lassen</p>
             </div>
             <div className="stagger-delay-2 bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 hover-scale transform hover:scale-105 transition-all duration-500">
