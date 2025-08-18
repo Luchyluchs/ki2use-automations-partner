@@ -46,7 +46,7 @@ const Contact = () => {
           <div className="max-w-4xl mx-auto mb-8">
             <div className="bg-gradient-primary rounded-2xl p-8 py-12 text-primary-foreground hover-scale">
               <h2 className="text-2xl font-semibold mb-4">
-                Kostenloses 30-minütiges Beratungsgespräch
+                Kostenloses 15-minütiges Erstgespräch
               </h2>
               <p className="mb-6 opacity-90">
                 Der schnellste Weg zu Ihrer individuellen KI-Lösung. Vereinbaren Sie 
@@ -64,7 +64,7 @@ const Contact = () => {
               <div className="grid grid-cols-3 gap-4 text-center max-w-md mx-auto">
                 <div>
                   <Clock className="w-6 h-6 mx-auto mb-2" />
-                  <div className="text-sm">30 Minuten</div>
+                  <div className="text-sm">15 Minuten</div>
                 </div>
                 <div>
                   <Users className="w-6 h-6 mx-auto mb-2" />
@@ -218,7 +218,7 @@ const Contact = () => {
               
               <div className="bg-card border border-card-border rounded-xl p-6 shadow-card hover-lift">
                 <h4 className="font-semibold mb-3">Ist das Gespräch wirklich kostenlos?</h4>
-                <p className="text-muted-foreground text-sm">Ja, absolut! Das 30-minütige Beratungsgespräch ist unverbindlich und kostenlos. Sie erhalten bereits wertvolle Insights für Ihr Unternehmen und das weitere Vorgehen.</p>
+                <p className="text-muted-foreground text-sm">Ja, absolut! Das 15-minütige Erstgespräch ist unverbindlich und kostenlos. Sie erhalten bereits wertvolle Insights für Ihr Unternehmen und das weitere Vorgehen.</p>
               </div>
               
               <div className="bg-card border border-card-border rounded-xl p-6 shadow-card hover-lift">

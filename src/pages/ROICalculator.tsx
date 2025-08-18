@@ -152,7 +152,7 @@ const ROICalculatorPage = () => {
               und die konkreten Einsparmöglichkeiten für Ihr Unternehmen ermitteln.
             </p>
             <CalendlyButton 
-              text="Kostenloses Beratungsgespräch vereinbaren"
+              text="Kostenloses Erstgespräch sichern (15 Min.)"
               variant="accent"
               size="xl"
               className="bg-white text-primary hover:bg-white/90"
