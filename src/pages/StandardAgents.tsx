@@ -6,12 +6,11 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowLeft, CheckCircle, Calendar } from "lucide-react";
 import ROICalculator from "@/components/ROICalculator";
-
 const StandardAgents = () => {
   useScrollReveal();
   useParallax();
   useScrollFade();
-  
+
   // SEO optimization for Standard Agents page
   useSEO(SEOTemplates.standardAgents);
   const agents = [{
@@ -81,7 +80,7 @@ const StandardAgents = () => {
             
             <h1 className="scroll-reveal stagger-delay-1 mb-6">
               Sofort einsetzbare{" "}
-              <span className="text-primary">KI-Agenten</span> für maximale Effizienz
+              <span className="text-primary">KI-Assistenten</span> für maximale Effizienz
             </h1>
             <p className="scroll-reveal stagger-delay-2 text-xl text-muted-foreground leading-relaxed">
               Bewährte KI-Automatisierung mit direktem Nutzen und schneller Amortisation. 
@@ -98,7 +97,7 @@ const StandardAgents = () => {
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {agents.map((agent, index) => <div key={index} className={`scroll-scale stagger-delay-${(index % 4) + 1} bg-card border border-card-border rounded-xl p-4 shadow-card hover-lift cursor-pointer transform hover:scale-105 transition-all duration-500`}>
+            {agents.map((agent, index) => <div key={index} className={`scroll-scale stagger-delay-${index % 4 + 1} bg-card border border-card-border rounded-xl p-4 shadow-card hover-lift cursor-pointer transform hover:scale-105 transition-all duration-500`}>
                 {/* Content */}
                 <div>
                   <h2 className="text-lg font-semibold mb-2">{agent.name}</h2>
