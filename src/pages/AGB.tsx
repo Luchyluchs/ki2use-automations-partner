@@ -42,10 +42,10 @@ const AGB = () => {
                   (2) Dies umfasst insbesondere:
                 </p>
                 <ul className="text-muted-foreground text-sm list-disc pl-6">
-                  <li>Standard-KI-Agenten: Die Bereitstellung von vorgefertigten Software-Agenten (z.B. LinkedIn Agent, Chatbot Agent) zur Nutzung durch den Kunden als Software-as-a-Service (SaaS).</li>
-                  <li>Maßgeschneiderte KI-Agenten: Die Konzeption, Entwicklung und Implementierung individueller KI-Lösungen nach Kundenspezifikation.</li>
-                  <li>KI-Schulungen & Beratung: Die Durchführung von Workshops, Seminaren und Beratungsleistungen.</li>
-                  <li>Homepage Erstellung: Die Erstellung und der Support von Websites.</li>
+                  <li>Standard KI-Agenten: Die Bereitstellung von vorgefertigten Software-Agenten (z.B. LinkedIn Agent, Chatbot Agent) zur Nutzung durch den Kunden als Software-as-a-Service (SaaS).</li>
+                  <li>Custom KI-Agenten: Die Konzeption, Entwicklung und Implementierung individueller KI-Lösungen nach Kundenspezifikation.</li>
+                  <li>Schulungen & Beratung: Die Durchführung von Workshops, Seminaren und Beratungsleistungen.</li>
+                  <li>Webdesign: Die Erstellung und der Support von Websites.</li>
                 </ul>
                 <p className="text-muted-foreground text-sm">
                   (3) Die auf der Website dargestellten Einsparungs- und Effizienzsteigerungs-Potenziale (z.B. Agenten-Rechner, prozentuale Zeitersparnis) sind beispielhafte Berechnungen und stellen keine zugesicherten Eigenschaften oder Garantien dar.
@@ -67,10 +67,10 @@ const AGB = () => {
                   (1) Allgemein: Der Anbieter erbringt seine Leistungen mit größter Sorgfalt und nach dem aktuellen Stand der Technik.
                 </p>
                 <p className="text-muted-foreground text-sm">
-                  (2) Standard-KI-Agenten: Der Anbieter stellt die gebuchten Agenten für die Dauer des Vertrages zur Nutzung bereit. Der Anbieter gewährleistet eine branchenübliche Verfügbarkeit und wird geplante Wartungsarbeiten rechtzeitig ankündigen. Ein bestimmter Erfolg, wie die Generierung einer konkreten Anzahl von Leads, ist nicht geschuldet.
+                  (2) Standard KI-Agenten: Der Anbieter stellt die gebuchten Agenten für die Dauer des Vertrages zur Nutzung bereit. Der Anbieter gewährleistet eine branchenübliche Verfügbarkeit und wird geplante Wartungsarbeiten rechtzeitig ankündigen. Ein bestimmter Erfolg, wie die Generierung einer konkreten Anzahl von Leads, ist nicht geschuldet.
                 </p>
                 <p className="text-muted-foreground text-sm">
-                  (3) Maßgeschneiderte KI-Agenten und Homepage Erstellung: Die Leistungen werden nach dem im Angebot definierten Prozess (Bedarfsanalyse, Konzeption, Entwicklung, Implementierung) erbracht. Der Anbieter ist berechtigt, agile Entwicklungsmethoden anzuwenden.
+                  (3) Custom KI-Agenten und Webdesign: Die Leistungen werden nach dem im Angebot definierten Prozess (Bedarfsanalyse, Konzeption, Entwicklung, Implementierung) erbracht. Der Anbieter ist berechtigt, agile Entwicklungsmethoden anzuwenden.
                 </p>
                 <p className="text-muted-foreground text-sm">
                   (4) KI-Schulungen: Der Anbieter erbringt die Schulungsleistung wie im Angebot beschrieben. Die ausgestellten Zertifikate sind reine Teilnahmezertifikate ohne staatliche Anerkennung. Der Anbieter behält sich das Recht vor, Schulungstermine bei zu geringer Teilnehmerzahl abzusagen oder zu verschieben.
@@ -103,7 +103,7 @@ const AGB = () => {
 
                 <h2 className="mt-8">§ 7 Nutzungsrechte</h2>
                 <p className="text-muted-foreground text-sm">
-                  (1) An Standard-KI-Agenten erhält der Kunde für die Vertragslaufzeit ein einfaches, nicht übertragbares, nicht unterlizenzierbares Recht zur Nutzung der Software für eigene Geschäftszwecke.
+                  (1) An Standard KI-Agenten erhält der Kunde für die Vertragslaufzeit ein einfaches, nicht übertragbares, nicht unterlizenzierbares Recht zur Nutzung der Software für eigene Geschäftszwecke.
                 </p>
                 <p className="text-muted-foreground text-sm">
                   (2) An individuell erstellten KI-Agenten und Websites erhält der Kunde nach vollständiger Bezahlung ein ausschließliches, zeitlich und räumlich unbeschränktes Nutzungsrecht am Endprodukt. Der Anbieter behält das Recht, die zugrundeliegenden generischen Module, Frameworks und sein Know-how für andere Projekte zu verwenden.
@@ -114,7 +114,7 @@ const AGB = () => {
 
                 <h2 className="mt-8">§ 8 Abnahme</h2>
                 <p className="text-muted-foreground text-sm">
-                  (1) Werkvertragliche Leistungen (Maßgeschneiderte KI-Agenten, Homepage Erstellung) bedürfen der Abnahme durch den Kunden.
+                  (1) Werkvertragliche Leistungen (Custom KI-Agenten, Webdesign) bedürfen der Abnahme durch den Kunden.
                 </p>
                 <p className="text-muted-foreground text-sm">
                   (2) Nach Fertigstellung und Übergabe zur Prüfung hat der Kunde 10 Werktage Zeit, die Leistung zu testen und abzunehmen. Die Abnahme gilt als erfolgt, wenn der Kunde innerhalb dieser Frist keine wesentlichen Mängel schriftlich rügt oder die Leistung produktiv nutzt.

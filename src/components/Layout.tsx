@@ -14,19 +14,19 @@ const Layout = ({
     name: "Start",
     href: "/"
   }, {
-    name: "Standard-KI-Assistenten",
+    name: "Standard KI",
     href: "/standard-agenten"
   }, {
-    name: "Maßgeschneiderte Assistenten",
+    name: "Custom KI",
     href: "/massgeschneiderte-agenten"
   }, {
-    name: "Assistenten-Rechner",
+    name: "KI-Rechner",
     href: "/agenten-rechner"
   }, {
-    name: "KI-Schulungen",
+    name: "Schulungen",
     href: "/ki-schulungen"
   }, {
-    name: "Homepage Erstellung",
+    name: "Webdesign",
     href: "/homepage-erstellung"
   }, {
     name: "Kontakt",
@@ -99,9 +99,9 @@ const Layout = ({
             <div>
               <h3 className="font-semibold text-foreground mb-3 sm:mb-4 text-sm sm:text-base">Dienstleistungen</h3>
               <ul className="space-y-2 text-muted-foreground text-sm sm:text-base">
-                <li><Link to="/standard-agenten" className="hover:text-foreground transition-smooth block py-1">Standard-KI-Assistenten</Link></li>
-                <li><Link to="/massgeschneiderte-agenten" className="hover:text-foreground transition-smooth block py-1">Maßgeschneiderte Assistenten</Link></li>
-                <li><Link to="/ki-schulungen" className="hover:text-foreground transition-smooth block py-1">KI-Schulungen</Link></li>
+                <li><Link to="/standard-agenten" className="hover:text-foreground transition-smooth block py-1">Standard KI</Link></li>
+                <li><Link to="/massgeschneiderte-agenten" className="hover:text-foreground transition-smooth block py-1">Custom KI</Link></li>
+                <li><Link to="/ki-schulungen" className="hover:text-foreground transition-smooth block py-1">Schulungen</Link></li>
               </ul>
             </div>
             
