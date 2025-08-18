@@ -14,7 +14,7 @@ const Layout = ({
     name: "Start",
     href: "/"
   }, {
-    name: "Standard-KI-Assistenten",
+    name: "Standard Assistenten",
     href: "/standard-agenten"
   }, {
     name: "Maßgeschneiderte Assistenten",
