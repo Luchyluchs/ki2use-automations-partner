@@ -44,7 +44,7 @@ const ROICalculator = () => {
           <Calculator className="w-6 h-6 text-primary-foreground" />
         </div>
         <div>
-          <h3 className="text-2xl font-bold">KI-Rechner</h3>
+          <h3 className="text-2xl font-bold">Assistenten-Rechner</h3>
           <p className="text-muted-foreground">Berechnen Sie Ihre Kosteneinsparungen</p>
         </div>
       </div>
