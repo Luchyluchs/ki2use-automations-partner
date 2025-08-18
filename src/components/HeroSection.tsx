@@ -40,7 +40,7 @@ const HeroSection = () => {
             {/* Capacity indicator */}
             <div className="scroll-reveal stagger-delay-4 mt-6 inline-flex items-center gap-2 text-sm text-muted-foreground">
               <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-              <span>Begrenzte Kapazität - nur 15 Beratungen diesen Monat übrig</span>
+              <span>Nur noch 15 Beratungsplätze diesen Monat verfügbar</span>
             </div>
           </div>
 
