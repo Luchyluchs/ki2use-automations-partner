@@ -15,10 +15,10 @@ const KIAssistentsExplainer = () => {
           <div className="inline-flex items-center rounded-full px-4 py-2 text-sm font-medium bg-primary/10 text-primary border border-primary/20 mb-6">
             💡 Einfach erklärt
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6 leading-tight">
-            KI-Assistenten = <span className="text-primary">Digitale Mitarbeiter</span><br/>
-            die alltägliche Arbeiten automatisch erledigen
-          </h2>
+           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6 leading-tight">
+             <span className="nowrap-ki-assistant">KI-Assistenten</span> = <span className="text-primary">Digitale Mitarbeiter</span><br/>
+             die alltägliche Arbeiten automatisch erledigen
+           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Stellen Sie sich vor: Ein digitaler Assistent, der nie müde wird, nie Fehler macht und rund um die Uhr für Sie arbeitet.
           </p>
@@ -36,9 +36,9 @@ const KIAssistentsExplainer = () => {
             <p className="text-lg text-muted-foreground mb-4">
               Bis zu <span className="text-accent font-semibold">60% weniger</span> Personalkosten
             </p>
-            <div className="text-sm text-muted-foreground">
-              Ein KI-Assistent kostet weniger als ein Teilzeit-Mitarbeiter
-            </div>
+             <div className="text-sm text-muted-foreground">
+               Ein <span className="nowrap-ki-assistant">KI-Assistent</span> kostet weniger als ein Teilzeit-Mitarbeiter
+             </div>
           </div>
 
           {/* Zeit sparen */}

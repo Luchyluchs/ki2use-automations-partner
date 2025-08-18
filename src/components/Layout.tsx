@@ -93,13 +93,13 @@ const Layout = ({
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             <div className="sm:col-span-2 lg:col-span-2">
               <div className="text-xl sm:text-2xl font-bold text-primary mb-3 sm:mb-4">KI2USE</div>
-              <p className="text-sm sm:text-base text-muted-foreground max-w-md leading-relaxed">KI-Assistenten & Schulungen für deutsche Unternehmen. Prozesse automatisieren! Ihre effiziente Lösung für mehr Produktivität.</p>
+              <p className="text-sm sm:text-base text-muted-foreground max-w-md leading-relaxed"><span className="nowrap-ki-assistant">KI-Assistenten</span> & Schulungen für deutsche Unternehmen. Prozesse automatisieren! Ihre effiziente Lösung für mehr Produktivität.</p>
             </div>
             
             <div>
               <h3 className="font-semibold text-foreground mb-3 sm:mb-4 text-sm sm:text-base">Dienstleistungen</h3>
               <ul className="space-y-2 text-muted-foreground text-sm sm:text-base">
-                <li><Link to="/standard-agenten" className="hover:text-foreground transition-smooth block py-1">Standard-KI-Assistenten</Link></li>
+                <li><Link to="/standard-agenten" className="hover:text-foreground transition-smooth block py-1"><span className="nowrap-ki-assistant">Standard-KI-Assistenten</span></Link></li>
                 <li><Link to="/massgeschneiderte-agenten" className="hover:text-foreground transition-smooth block py-1">Maßgeschneiderte Assistenten</Link></li>
                 <li><Link to="/ki-schulungen" className="hover:text-foreground transition-smooth block py-1">KI-Schulungen</Link></li>
               </ul>

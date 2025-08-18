@@ -21,7 +21,7 @@ const ValuePropositionSection = () => {
     {
       icon: TrendingUp,
       title: "Skaliert mit Ihrem Wachstum",
-      description: "KI-Assistenten arbeiten 24/7 ohne Kapazitätsgrenzen",
+      description: "<span className='nowrap-ki-assistant'>KI-Assistenten</span> arbeiten 24/7 ohne Kapazitätsgrenzen",
       example: "Gleiche Qualität bei 10x mehr Anfragen"
     },
     {
@@ -64,9 +64,8 @@ const ValuePropositionSection = () => {
                     <h3 className="font-semibold mb-2 text-foreground">
                       {benefit.title}
                     </h3>
-                    <p className="text-muted-foreground mb-2 leading-relaxed">
-                      {benefit.description}
-                    </p>
+                     <p className="text-muted-foreground mb-2 leading-relaxed" dangerouslySetInnerHTML={{ __html: benefit.description }}>
+                     </p>
                     <p className="text-sm text-primary font-medium">
                       {benefit.example}
                     </p>

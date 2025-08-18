@@ -64,7 +64,12 @@ Corporate design for German KMUs - trustworthy, modern, efficient
     --shadow-primary: 0 10px 25px -5px hsl(215 60% 25% / 0.25), 0 8px 10px -6px hsl(215 60% 25% / 0.1);
     --shadow-soft: 0 1px 2px 0 hsl(0 0% 0% / 0.05);
     
-    /* Typography Scale */
+  /* Typography Scale */
+  
+  /* Prevent KI-Assistent from breaking into multiple lines */
+  .nowrap-ki-assistant {
+    white-space: nowrap;
+  }
     --font-family: 'Inter', system-ui, -apple-system, sans-serif;
     
     /* Animations */

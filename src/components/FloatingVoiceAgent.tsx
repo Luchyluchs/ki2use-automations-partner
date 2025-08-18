@@ -36,7 +36,7 @@ const FloatingVoiceAgent: React.FC = () => {
                 <Mic className="w-5 h-5" />
                 <div>
                   <h3 className="font-semibold">Voice Agent testen</h3>
-                  <p className="text-sm opacity-90">Sprechen Sie mit unserem KI-Assistenten</p>
+                  <p className="text-sm opacity-90">Sprechen Sie mit unserem <span className="nowrap-ki-assistant">KI-Assistenten</span></p>
                 </div>
               </div>
               <Button

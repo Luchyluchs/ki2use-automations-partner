@@ -52,10 +52,10 @@ const ROICalculator = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div className="space-y-6">
           <div className="space-y-3 p-4 border-2 border-primary/20 rounded-lg bg-gradient-to-br from-primary/5 to-accent/5">
-            <Label className="text-lg font-semibold text-primary flex items-center gap-2">
-              <Calculator className="w-5 h-5" />
-              KI-Assistent Typ auswählen
-            </Label>
+             <Label className="text-lg font-semibold text-primary flex items-center gap-2">
+               <Calculator className="w-5 h-5" />
+               <span className="nowrap-ki-assistant">KI-Assistent</span> Typ auswählen
+             </Label>
             <p className="text-sm text-muted-foreground mb-3">
               Wählen Sie den gewünschten Assistenten für Ihre Berechnung
             </p>
@@ -178,7 +178,7 @@ const ROICalculator = () => {
           <Card className="p-6 bg-gradient-to-br from-accent/5 to-secondary/5">
             <div className="flex items-center gap-2 mb-4">
               <TrendingUp className="w-5 h-5 text-accent" />
-              <h4 className="font-semibold">Mit KI-Assistent</h4>
+              <h4 className="font-semibold">Mit <span className="nowrap-ki-assistant">KI-Assistent</span></h4>
             </div>
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
