@@ -14,9 +14,9 @@ const ValuePropositionSection = () => {
     },
     {
       icon: Euro,
-      title: "Gewinn bereits im 1. Monat",
-      description: "Durch Effizienzsteigerung amortisieren sich die Kosten schnell",
-      example: "Typisch: 300-500% Rendite im ersten Jahr"
+      title: "Schnelle Amortisation",
+      description: "Durch Effizienzsteigerung amortisieren sich die Kosten in der Regel innerhalb von 3-6 Monaten",
+      example: "Typisch: Vollständige Amortisation in 4-6 Monaten"
     },
     {
       icon: TrendingUp,
