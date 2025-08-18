@@ -59,32 +59,20 @@ const VoiceAgent: React.FC<VoiceAgentProps> = ({ className = '' }) => {
         </div>
 
         <div>
-          <h3 className="text-lg font-semibold mb-2">KI2USE Voice Agent</h3>
-          <div className="bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/20 rounded-lg p-3 mb-3">
-            <p className="text-sm font-semibold text-primary">
-              🧠 Mit KI2USE Expertenwissen trainiert
-            </p>
-            <p className="text-xs text-muted-foreground mt-1">
-              Spezialisiert auf KI-Automatisierung & digitale Lösungen
-            </p>
-          </div>
-          <p className="text-muted-foreground text-sm mb-3">
+          <h3 className="text-lg font-semibold mb-1">KI2USE Voice Agent</h3>
+          <p className="text-xs text-primary font-medium mb-3">🧠 Mit KI2USE Expertenwissen trainiert</p>
+          
+          <p className="text-muted-foreground text-sm mb-4">
             {isConnected 
               ? conversation.isSpeaking 
-                ? 'Der KI2USE-Agent antwortet...' 
-                : 'Fragen Sie mich alles über KI2USE - Services, Preise, Implementierung!'
-              : 'Sprechen Sie mit unserem KI2USE-trainierten Voice Agent'
+                ? 'Der Agent antwortet...' 
+                : 'Fragen Sie mich alles über KI2USE!'
+              : 'Sprechen Sie mit unserem KI-Experten'
             }
           </p>
-          
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-4">
-            <p className="text-sm text-blue-800">
-              <strong>💡 Diese Technologie</strong> kann in Ihren Telefonsystemen oder auf Ihrer Website integriert werden
-            </p>
-          </div>
         </div>
 
-        <div className="space-y-3">
+        <div>
           {!isConnected ? (
             <Button 
               onClick={startConversation}
@@ -103,11 +91,9 @@ const VoiceAgent: React.FC<VoiceAgentProps> = ({ className = '' }) => {
             </Button>
           )}
           
-          <div className="text-xs text-muted-foreground space-y-1">
-            <div>🎯 <strong>Einsatzbereiche:</strong> Kundenservice, Terminbuchung, Produktberatung</div>
-            <div>📞 <strong>Integration:</strong> Telefon, Website, WhatsApp, Teams</div>
-            <div>⚡ <strong>Vorteile:</strong> 24/7 verfügbar, mehrsprachig, sofort einsatzbereit</div>
-          </div>
+          <p className="text-xs text-muted-foreground mt-3">
+            💡 Diese Technologie kann in Ihre Systeme integriert werden
+          </p>
         </div>
       </div>
     </div>
