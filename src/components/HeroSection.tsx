@@ -33,7 +33,7 @@ const HeroSection = () => {
             </p>
             <div className="scroll-reveal stagger-delay-3 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <CalendlyButton 
-                text="Jetzt kostenlos beraten lassen"
+                text="Kostenloses Erstgespräch sichern (15 Min.)"
                 variant="cta"
                 size="xl"
                 className="text-lg px-8 py-4 shadow-primary gradient-primary hover:shadow-elevated transform hover:scale-105 transition-all duration-300"
@@ -42,6 +42,12 @@ const HeroSection = () => {
               <Button variant="outline" size="xl" asChild className="text-lg px-8 py-4 border-2 hover:bg-primary hover:text-primary-foreground hover:border-primary hover:shadow-elevated transform hover:scale-105 transition-all duration-300">
                 <Link to="/standard-agenten">Standard-Assistenten ansehen</Link>
               </Button>
+            </div>
+            
+            {/* Capacity indicator */}
+            <div className="scroll-reveal stagger-delay-4 mt-6 inline-flex items-center gap-2 text-sm text-muted-foreground">
+              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+              <span>Begrenzte Kapazität - nur 15 Beratungen pro Monat</span>
             </div>
           </div>
 
