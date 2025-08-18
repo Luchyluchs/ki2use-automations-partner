@@ -80,7 +80,8 @@ const StandardAgents = () => {
             
             <h1 className="scroll-reveal stagger-delay-1 mb-6">
               Sofort einsetzbare{" "}
-              <span className="text-primary">KI-Assistenten</span> für maximale Effizienz
+              <span className="text-primary">
+KI-Assistenten</span> für maximale Effizienz
             </h1>
             <p className="scroll-reveal stagger-delay-2 text-xl text-muted-foreground leading-relaxed">
               Bewährte KI-Automatisierung mit direktem Nutzen und schneller Amortisation. 
