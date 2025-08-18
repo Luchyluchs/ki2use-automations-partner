@@ -59,18 +59,20 @@ const VoiceAgent: React.FC<VoiceAgentProps> = ({ className = '' }) => {
         </div>
 
         <div>
-          <h3 className="text-lg font-semibold mb-2">KI Sprachagent</h3>
+          <h3 className="text-lg font-semibold mb-2">Voice Agent Demo</h3>
           <p className="text-muted-foreground text-sm mb-3">
             {isConnected 
               ? conversation.isSpeaking 
-                ? 'Der Agent spricht...' 
-                : 'Bereit zum Sprechen - stellen Sie Fragen zu KI2USE!'
-              : 'Starten Sie eine Unterhaltung und fragen Sie alles über KI2USE'
+                ? 'Der Agent antwortet...' 
+                : 'Fragen Sie mich alles über KI2USE - Services, Preise, Möglichkeiten!'
+              : 'Testen Sie unseren Voice Agent und erleben Sie natürliche KI-Gespräche'
             }
           </p>
           
-          <div className="text-xs text-muted-foreground mb-4">
-            Status: {conversation.status === 'connected' ? 'Verbunden' : 'Getrennt'}
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-4">
+            <p className="text-sm text-blue-800">
+              <strong>💡 Diese Technologie</strong> kann in Ihren Telefonsystemen oder auf Ihrer Website integriert werden
+            </p>
           </div>
         </div>
 
@@ -94,8 +96,9 @@ const VoiceAgent: React.FC<VoiceAgentProps> = ({ className = '' }) => {
           )}
           
           <div className="text-xs text-muted-foreground space-y-1">
-            <div>💡 Mikrofon-Zugriff wird für die Sprachchat-Funktion benötigt</div>
-            <div>📞 In echten Telefonsystemen spricht unser KI-Agent wie ein Mensch - ohne Verzögerung und völlig natürlich</div>
+            <div>🎯 <strong>Einsatzbereiche:</strong> Kundenservice, Terminbuchung, Produktberatung</div>
+            <div>📞 <strong>Integration:</strong> Telefon, Website, WhatsApp, Teams</div>
+            <div>⚡ <strong>Vorteile:</strong> 24/7 verfügbar, mehrsprachig, sofort einsatzbereit</div>
           </div>
         </div>
       </div>

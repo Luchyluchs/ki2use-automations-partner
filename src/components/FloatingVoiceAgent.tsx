@@ -11,10 +11,12 @@ const FloatingVoiceAgent: React.FC = () => {
       {/* Floating Button */}
       <Button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 left-6 z-50 w-14 h-14 rounded-full bg-gradient-primary hover:scale-110 transition-all duration-300 shadow-2xl border-2 border-white/20"
+        className="fixed bottom-6 left-6 z-50 w-16 h-16 rounded-full bg-gradient-primary hover:scale-110 transition-all duration-300 shadow-2xl border-2 border-white/20"
         size="lg"
       >
-        <Mic className="w-6 h-6 text-primary-foreground" />
+        <span className="text-xs font-semibold text-primary-foreground text-center leading-tight">
+          Voice Agent<br />testen
+        </span>
       </Button>
 
       {/* Voice Agent Modal */}
@@ -32,7 +34,10 @@ const FloatingVoiceAgent: React.FC = () => {
             <div className="flex items-center justify-between p-4 bg-gradient-primary text-primary-foreground">
               <div className="flex items-center space-x-3">
                 <Mic className="w-5 h-5" />
-                <h3 className="font-semibold">KI Sprachagent</h3>
+                <div>
+                  <h3 className="font-semibold">Voice Agent testen</h3>
+                  <p className="text-sm opacity-90">Sprechen Sie mit unserem KI-Assistenten</p>
+                </div>
               </div>
               <Button
                 variant="ghost"
