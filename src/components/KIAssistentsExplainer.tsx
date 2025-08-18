@@ -1,7 +1,7 @@
 import { Euro, Clock } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollAnimations";
 
-const KIAgentsExplainer = () => {
+const KIAssistentsExplainer = () => {
   useScrollReveal();
 
   return (
@@ -16,7 +16,7 @@ const KIAgentsExplainer = () => {
             💡 Einfach erklärt
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6 leading-tight">
-            KI-Agenten = <span className="text-primary">Digitale Mitarbeiter</span><br/>
+            KI-Assistenten = <span className="text-primary">Digitale Mitarbeiter</span><br/>
             die alltägliche Arbeiten automatisch erledigen
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -37,7 +37,7 @@ const KIAgentsExplainer = () => {
               Bis zu <span className="text-accent font-semibold">60% weniger</span> Personalkosten
             </p>
             <div className="text-sm text-muted-foreground">
-              Ein KI-Agent kostet weniger als ein Teilzeit-Mitarbeiter
+              Ein KI-Assistent kostet weniger als ein Teilzeit-Mitarbeiter
             </div>
           </div>
 
@@ -70,4 +70,4 @@ const KIAgentsExplainer = () => {
   );
 };
 
-export default KIAgentsExplainer;
+export default KIAssistentsExplainer;

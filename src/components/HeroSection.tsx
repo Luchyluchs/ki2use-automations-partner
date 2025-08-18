@@ -24,7 +24,7 @@ const HeroSection = () => {
             </div>
             <h1 className="scroll-reveal stagger-delay-1 mb-6 gradient-text">
               Revolutioniere dein Business mit{" "}
-              <span className="text-primary font-extrabold">KI-Agenten</span>
+              <span className="text-primary font-extrabold">KI-Assistenten</span>
             </h1>
             <p className="scroll-reveal stagger-delay-2 text-xl text-muted-foreground mb-8 leading-relaxed max-w-2xl">
               Professionelle KI-Automatisierung für deutsche Unternehmen. 
@@ -40,7 +40,7 @@ const HeroSection = () => {
                 icon={false}
               />
               <Button variant="outline" size="xl" asChild className="text-lg px-8 py-4 border-2 hover:bg-primary hover:text-primary-foreground hover:border-primary hover:shadow-elevated transform hover:scale-105 transition-all duration-300">
-                <Link to="/standard-agenten">Standard-Agenten ansehen</Link>
+                <Link to="/standard-agenten">Standard-Assistenten ansehen</Link>
               </Button>
             </div>
           </div>

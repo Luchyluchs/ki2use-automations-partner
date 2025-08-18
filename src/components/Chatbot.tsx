@@ -54,7 +54,7 @@ const Chatbot = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "welcome",
-      text: "Hallo! Ich bin Ihr KI-Agent von KI2USE. Wie kann ich Ihnen bei Fragen zu unseren KI-Lösungen helfen?",
+      text: "Hallo! Ich bin Ihr KI-Assistent von KI2USE. Wie kann ich Ihnen bei Fragen zu unseren KI-Lösungen helfen?",
       isUser: false,
       timestamp: new Date()
     }

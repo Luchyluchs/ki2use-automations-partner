@@ -36,7 +36,7 @@ const CustomROICalculator = () => {
           <Calculator className="w-6 h-6 text-primary-foreground" />
         </div>
         <div>
-          <h3 className="text-2xl font-bold">Agenten-Rechner für maßgeschneiderte Lösung</h3>
+          <h3 className="text-2xl font-bold">Assistenten-Rechner für maßgeschneiderte Lösung</h3>
           <p className="text-muted-foreground">Berechnen Sie Ihre Kosteneinsparungen</p>
         </div>
       </div>
@@ -157,11 +157,11 @@ const CustomROICalculator = () => {
           <Card className="p-6 bg-gradient-to-br from-green-50 to-green-100 dark:from-green-950 dark:to-green-900">
             <div className="flex items-center gap-2 mb-4">
               <Clock className="w-5 h-5 text-green-600" />
-              <h4 className="font-semibold text-green-800 dark:text-green-200">Agenten-Analyse</h4>
+              <h4 className="font-semibold text-green-800 dark:text-green-200">Assistenten-Analyse</h4>
             </div>
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
-                <span>Agenten pro Jahr:</span>
+                <span>ROI pro Jahr:</span>
                 <span className="text-green-600 font-bold text-lg">
                   {yearlyROI > 0 ? '+' : ''}{yearlyROI.toFixed(0)}%
                 </span>

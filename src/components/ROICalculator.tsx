@@ -44,7 +44,7 @@ const ROICalculator = () => {
           <Calculator className="w-6 h-6 text-primary-foreground" />
         </div>
         <div>
-          <h3 className="text-2xl font-bold">Agenten-Rechner</h3>
+          <h3 className="text-2xl font-bold">Assistenten-Rechner</h3>
           <p className="text-muted-foreground">Berechnen Sie Ihre Kosteneinsparungen</p>
         </div>
       </div>
@@ -54,37 +54,37 @@ const ROICalculator = () => {
           <div className="space-y-3 p-4 border-2 border-primary/20 rounded-lg bg-gradient-to-br from-primary/5 to-accent/5">
             <Label className="text-lg font-semibold text-primary flex items-center gap-2">
               <Calculator className="w-5 h-5" />
-              KI-Agent Typ auswählen
+              KI-Assistent Typ auswählen
             </Label>
             <p className="text-sm text-muted-foreground mb-3">
-              Wählen Sie den gewünschten Agenten für Ihre Berechnung
+              Wählen Sie den gewünschten Assistenten für Ihre Berechnung
             </p>
             <Select value={agentType} onValueChange={setAgentType}>
               <SelectTrigger className="h-12 border-2 border-primary/30 bg-background/80 hover:border-primary/50 transition-colors font-medium text-base">
-                <SelectValue placeholder="Agent auswählen..." />
+                <SelectValue placeholder="Assistent auswählen..." />
               </SelectTrigger>
               <SelectContent className="bg-card border-2 border-primary/30 shadow-2xl z-50">
                 <SelectItem value="email" className="py-3 pl-10 pr-4 text-base">
                   <div className="flex flex-col">
-                    <span className="font-semibold">E-Mail Agent</span>
+                    <span className="font-semibold">E-Mail Assistent</span>
                     <span className="text-sm text-muted-foreground">€50/Monat + €1.000 Setup*</span>
                   </div>
                 </SelectItem>
                 <SelectItem value="linkedin" className="py-3 pl-10 pr-4 text-base">
                   <div className="flex flex-col">
-                    <span className="font-semibold">LinkedIn Agent</span>
+                    <span className="font-semibold">LinkedIn Assistent</span>
                     <span className="text-sm text-muted-foreground">€50/Monat + €1.300 Setup*</span>
                   </div>
                 </SelectItem>
                 <SelectItem value="voice" className="py-3 pl-10 pr-4 text-base">
                   <div className="flex flex-col">
-                    <span className="font-semibold">Voice Agent</span>
+                    <span className="font-semibold">Voice Assistent</span>
                     <span className="text-sm text-muted-foreground">€50/Monat + €1.600 Setup*</span>
                   </div>
                 </SelectItem>
                 <SelectItem value="newsletter" className="py-3 pl-10 pr-4 text-base">
                   <div className="flex flex-col">
-                    <span className="font-semibold">Newsletter Agent</span>
+                    <span className="font-semibold">Newsletter Assistent</span>
                     <span className="text-sm text-muted-foreground">€50/Monat + €800 Setup*</span>
                   </div>
                 </SelectItem>
@@ -96,19 +96,19 @@ const ROICalculator = () => {
                 </SelectItem>
                 <SelectItem value="socialmedia" className="py-3 pl-10 pr-4 text-base">
                   <div className="flex flex-col">
-                    <span className="font-semibold">Social Media Agent</span>
+                    <span className="font-semibold">Social Media Assistent</span>
                     <span className="text-sm text-muted-foreground">€50/Monat + €1.200 Setup*</span>
                   </div>
                 </SelectItem>
                 <SelectItem value="sales" className="py-3 pl-10 pr-4 text-base">
                   <div className="flex flex-col">
-                    <span className="font-semibold">Sales Agent</span>
+                    <span className="font-semibold">Sales Assistent</span>
                     <span className="text-sm text-muted-foreground">€50/Monat + €1.400 Setup*</span>
                   </div>
                 </SelectItem>
                 <SelectItem value="appointment" className="py-3 pl-10 pr-4 text-base">
                   <div className="flex flex-col">
-                    <span className="font-semibold">Terminbuchungsagent</span>
+                    <span className="font-semibold">Terminbuchungsassistent</span>
                     <span className="text-sm text-muted-foreground">€50/Monat + €900 Setup*</span>
                   </div>
                 </SelectItem>
@@ -178,7 +178,7 @@ const ROICalculator = () => {
           <Card className="p-6 bg-gradient-to-br from-accent/5 to-secondary/5">
             <div className="flex items-center gap-2 mb-4">
               <TrendingUp className="w-5 h-5 text-accent" />
-              <h4 className="font-semibold">Mit KI-Agent</h4>
+              <h4 className="font-semibold">Mit KI-Assistent</h4>
             </div>
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
@@ -213,11 +213,11 @@ const ROICalculator = () => {
           <Card className="p-6 bg-gradient-to-br from-green-50 to-green-100 dark:from-green-950 dark:to-green-900">
             <div className="flex items-center gap-2 mb-4">
               <Clock className="w-5 h-5 text-green-600" />
-              <h4 className="font-semibold text-green-800 dark:text-green-200">Agenten-Analyse</h4>
+              <h4 className="font-semibold text-green-800 dark:text-green-200">Assistenten-Analyse</h4>
             </div>
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
-                <span>Agenten pro Jahr:</span>
+                <span>ROI pro Jahr:</span>
                 <span className="text-green-600 font-bold text-lg">
                   {yearlyROI > 0 ? '+' : ''}{yearlyROI.toFixed(0)}%
                 </span>

@@ -122,23 +122,23 @@ export const useSEO = (config: SEOConfig) => {
  */
 export const SEOTemplates = {
   standardAgents: {
-    title: "Standard KI-Agenten Deutschland - Sofortige Automatisierung | KI2USE",
-    description: "🚀 Sofort einsetzbare KI-Agenten für deutsche KMU: LinkedIn, E-Mail, Chatbot, Sales & mehr. ✅ DSGVO-konform. Made in Germany. ⚡ 40-75% Zeitersparnis. 📞 Kostenlose Beratung!",
-    keywords: "Standard KI-Agenten Deutschland, sofort einsetzbar Deutschland, LinkedIn Agent DSGVO, E-Mail Automatisierung Deutschland, Chatbot Deutschland, Sales Agent DACH, bewährte KI-Lösungen Deutschland, fertige Automatisierung DSGVO-konform, KI-Agenten kaufen Deutschland, digitale Mitarbeiter Standard DACH",
+    title: "Standard KI-Assistenten Deutschland - Sofortige Automatisierung | KI2USE",
+    description: "🚀 Sofort einsetzbare KI-Assistenten für deutsche KMU: LinkedIn, E-Mail, Chatbot, Sales & mehr. ✅ DSGVO-konform. Made in Germany. ⚡ 40-75% Zeitersparnis. 📞 Kostenlose Beratung!",
+    keywords: "Standard KI-Assistenten Deutschland, sofort einsetzbar Deutschland, LinkedIn Assistent DSGVO, E-Mail Automatisierung Deutschland, Chatbot Deutschland, Sales Assistent DACH, bewährte KI-Lösungen Deutschland, fertige Automatisierung DSGVO-konform, KI-Assistenten kaufen Deutschland, digitale Mitarbeiter Standard DACH",
     canonical: "https://ki2use.de/standard-agenten"
   },
   
   customAgents: {
-    title: "Maßgeschneiderte KI-Agenten Deutschland - Individuelle Automatisierung | KI2USE",
-    description: "🎯 Individuelle KI-Agenten für deutsche Unternehmen. ⚙️ DSGVO-konforme Integration. 🔧 Made in Germany Entwicklung in 4-8 Wochen. 💡 100% passgenau für deutsche KMU.",
-    keywords: "maßgeschneiderte KI-Agenten Deutschland, individuelle Automatisierung DACH, custom AI agents Deutschland, Prozess-spezifische KI DSGVO, einzigartige KI-Lösungen Deutschland, individuelle Entwicklung DACH, maßgeschneiderte Digitalisierung Deutschland, Custom Process Automation DSGVO-konform",
+    title: "Maßgeschneiderte KI-Assistenten Deutschland - Individuelle Automatisierung | KI2USE",
+    description: "🎯 Individuelle KI-Assistenten für deutsche Unternehmen. ⚙️ DSGVO-konforme Integration. 🔧 Made in Germany Entwicklung in 4-8 Wochen. 💡 100% passgenau für deutsche KMU.",
+    keywords: "maßgeschneiderte KI-Assistenten Deutschland, individuelle Automatisierung DACH, custom AI assistants Deutschland, Prozess-spezifische KI DSGVO, einzigartige KI-Lösungen Deutschland, individuelle Entwicklung DACH, maßgeschneiderte Digitalisierung Deutschland, Custom Process Automation DSGVO-konform",
     canonical: "https://ki2use.de/massgeschneiderte-agenten"
   },
   
   roiCalculator: {
-    title: "KI-Agenten ROI Rechner Deutschland - Kosteneinsparungen berechnen | KI2USE",
-    description: "💰 Berechnen Sie Kosteneinsparungen durch KI-Agenten für deutsche Unternehmen! 📊 Realistische ROI-Prognose. ✨ DSGVO-konform. 🇩🇪 Speziell für deutsche KMU. Kostenlos!",
-    keywords: "ROI Rechner KI-Agenten Deutschland, Kosteneinsparungen berechnen Deutschland, KI ROI Calculator DACH, Automatisierung Kostenersparnis Deutschland, KI-Agenten Wirtschaftlichkeit DSGVO, Business Case KI Deutschland, Amortisation KI-Investition deutsche Unternehmen",
+    title: "KI-Assistenten ROI Rechner Deutschland - Kosteneinsparungen berechnen | KI2USE",
+    description: "💰 Berechnen Sie Kosteneinsparungen durch KI-Assistenten für deutsche Unternehmen! 📊 Realistische ROI-Prognose. ✨ DSGVO-konform. 🇩🇪 Speziell für deutsche KMU. Kostenlos!",
+    keywords: "ROI Rechner KI-Assistenten Deutschland, Kosteneinsparungen berechnen Deutschland, KI ROI Calculator DACH, Automatisierung Kostenersparnis Deutschland, KI-Assistenten Wirtschaftlichkeit DSGVO, Business Case KI Deutschland, Amortisation KI-Investition deutsche Unternehmen",
     canonical: "https://ki2use.de/agenten-rechner"
   },
   
@@ -152,7 +152,7 @@ export const SEOTemplates = {
   contact: {
     title: "Kontakt Deutschland - Kostenlose KI-Beratung für deutsche Unternehmen | KI2USE",  
     description: "📞 Kostenlose KI-Beratung speziell für deutsche KMU! ✅ DSGVO-konforme Beratung. 🚀 Potentialanalyse deutscher Prozesse. 💡 Made in Germany Automatisierungs-Empfehlungen.",
-    keywords: "KI-Beratung kostenlos Deutschland, Kontakt KI2USE Deutschland, KI-Experte DACH, Automatisierung Beratung Deutschland, kostenlose Potentialanalyse DSGVO, KI-Consultant Deutschland, Erstberatung KI-Agenten DACH, KI-Beratung deutsche Unternehmen",
+    keywords: "KI-Beratung kostenlos Deutschland, Kontakt KI2USE Deutschland, KI-Experte DACH, Automatisierung Beratung Deutschland, kostenlose Potentialanalyse DSGVO, KI-Consultant Deutschland, Erstberatung KI-Assistenten DACH, KI-Beratung deutsche Unternehmen",
     canonical: "https://ki2use.de/kontakt"
   }
 } as const;

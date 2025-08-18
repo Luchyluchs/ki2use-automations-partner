@@ -1,6 +1,6 @@
 import Layout from "@/components/Layout";
 import HeroSection from "@/components/HeroSection";
-import KIAgentsExplainer from "@/components/KIAgentsExplainer";
+import KIAssistentsExplainer from "@/components/KIAssistentsExplainer";
 import ServicesSection from "@/components/ServicesSection";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import CTASection from "@/components/CTASection";
@@ -11,7 +11,7 @@ const Index = () => {
   return (
     <Layout>
       <HeroSection />
-      <KIAgentsExplainer />
+      <KIAssistentsExplainer />
       <ServicesSection />
       <WhyChooseUs />
       <CTASection />
