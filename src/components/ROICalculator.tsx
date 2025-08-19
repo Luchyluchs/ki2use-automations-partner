@@ -38,18 +38,18 @@ const ROICalculator = () => {
   const paybackMonths = monthlySavings > 0 ? totalInvestmentFirstYear / monthlySavings : 0;
 
   return (
-    <div className="bg-card border border-card-border rounded-2xl p-8">
-      <div className="flex items-center gap-3 mb-8">
-        <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center">
-          <Calculator className="w-6 h-6 text-primary-foreground" />
+    <div className="bg-card border border-card-border rounded-2xl p-4 sm:p-6 lg:p-8">
+      <div className="flex items-center gap-3 mb-6 sm:mb-8">
+        <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-primary rounded-xl flex items-center justify-center">
+          <Calculator className="w-5 h-5 sm:w-6 sm:h-6 text-primary-foreground" />
         </div>
         <div>
-          <h3 className="text-2xl font-bold">Assistenten-Rechner</h3>
-          <p className="text-muted-foreground">Berechnen Sie Ihre Kosteneinsparungen</p>
+          <h3 className="text-xl sm:text-2xl font-bold">Assistenten-Rechner</h3>
+          <p className="text-muted-foreground text-sm sm:text-base">Berechnen Sie Ihre Kosteneinsparungen</p>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
         <div className="space-y-6">
           <div className="space-y-3 p-4 border-2 border-primary/20 rounded-lg bg-gradient-to-br from-primary/5 to-accent/5">
              <Label className="text-lg font-semibold text-primary flex items-center gap-2">
@@ -60,10 +60,10 @@ const ROICalculator = () => {
               Wählen Sie den gewünschten Assistenten für Ihre Berechnung
             </p>
             <Select value={agentType} onValueChange={setAgentType}>
-              <SelectTrigger className="h-12 border-2 border-primary/30 bg-background/80 hover:border-primary/50 transition-colors font-medium text-base">
+              <SelectTrigger className="h-12 sm:h-14 border-2 border-primary/30 bg-background/80 hover:border-primary/50 transition-colors font-medium text-sm sm:text-base min-h-11">
                 <SelectValue placeholder="Assistent auswählen..." />
               </SelectTrigger>
-              <SelectContent className="bg-card border-2 border-primary/30 shadow-2xl z-50">
+              <SelectContent className="bg-card border-2 border-primary/30 shadow-2xl z-50 max-h-64 overflow-y-auto">
                 <SelectItem value="email" className="py-3 pl-10 pr-4 text-base">
                   <div className="flex flex-col">
                     <span className="font-semibold">E-Mail Assistent</span>
@@ -116,8 +116,8 @@ const ROICalculator = () => {
             </Select>
           </div>
 
-          <div className="space-y-3">
-            <Label>Anzahl Mitarbeiter: {employees[0]}</Label>
+          <div className="space-y-4">
+            <Label className="text-sm sm:text-base font-medium">Anzahl Mitarbeiter: {employees[0]}</Label>
             <Slider
               value={employees}
               onValueChange={setEmployees}
@@ -128,8 +128,8 @@ const ROICalculator = () => {
             />
           </div>
 
-          <div className="space-y-3">
-            <Label>Durchschnittliches Jahresgehalt: €{avgSalary[0].toLocaleString()}</Label>
+          <div className="space-y-4">
+            <Label className="text-sm sm:text-base font-medium">Durchschnittliches Jahresgehalt: €{avgSalary[0].toLocaleString()}</Label>
             <Slider
               value={avgSalary}
               onValueChange={setAvgSalary}
@@ -140,8 +140,8 @@ const ROICalculator = () => {
             />
           </div>
 
-          <div className="space-y-3">
-            <Label>Stunden pro Woche für Aufgaben: {hoursPerWeek[0]}</Label>
+          <div className="space-y-4">
+            <Label className="text-sm sm:text-base font-medium">Stunden pro Woche für Aufgaben: {hoursPerWeek[0]}</Label>
             <Slider
               value={hoursPerWeek}
               onValueChange={setHoursPerWeek}

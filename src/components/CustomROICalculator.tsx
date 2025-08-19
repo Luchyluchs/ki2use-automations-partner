@@ -30,21 +30,21 @@ const CustomROICalculator = () => {
   const paybackMonths = monthlySavings > 0 ? totalInvestmentFirstYear / monthlySavings : 0;
 
   return (
-    <div className="bg-card border border-card-border rounded-2xl p-8">
-      <div className="flex items-center gap-3 mb-8">
-        <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center">
-          <Calculator className="w-6 h-6 text-primary-foreground" />
+    <div className="bg-card border border-card-border rounded-2xl p-4 sm:p-6 lg:p-8">
+      <div className="flex items-center gap-3 mb-6 sm:mb-8">
+        <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-primary rounded-xl flex items-center justify-center">
+          <Calculator className="w-5 h-5 sm:w-6 sm:h-6 text-primary-foreground" />
         </div>
         <div>
-          <h3 className="text-2xl font-bold">Assistenten-Rechner für maßgeschneiderte Lösung</h3>
-          <p className="text-muted-foreground">Berechnen Sie Ihre Kosteneinsparungen</p>
+          <h3 className="text-lg sm:text-xl lg:text-2xl font-bold">Assistenten-Rechner für maßgeschneiderte Lösung</h3>
+          <p className="text-muted-foreground text-sm sm:text-base">Berechnen Sie Ihre Kosteneinsparungen</p>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
         <div className="space-y-6">
-          <div className="space-y-3">
-            <Label>Anzahl Mitarbeiter: {employees[0]}</Label>
+          <div className="space-y-4">
+            <Label className="text-sm sm:text-base font-medium">Anzahl Mitarbeiter: {employees[0]}</Label>
             <Slider
               value={employees}
               onValueChange={setEmployees}
@@ -55,8 +55,8 @@ const CustomROICalculator = () => {
             />
           </div>
 
-          <div className="space-y-3">
-            <Label>Durchschnittliches Jahresgehalt: €{avgSalary[0].toLocaleString()}</Label>
+          <div className="space-y-4">
+            <Label className="text-sm sm:text-base font-medium">Durchschnittliches Jahresgehalt: €{avgSalary[0].toLocaleString()}</Label>
             <Slider
               value={avgSalary}
               onValueChange={setAvgSalary}
@@ -67,8 +67,8 @@ const CustomROICalculator = () => {
             />
           </div>
 
-          <div className="space-y-3">
-            <Label>Stunden pro Woche für zu automatisierende Aufgaben: {hoursPerWeek[0]}</Label>
+          <div className="space-y-4">
+            <Label className="text-sm sm:text-base font-medium">Stunden pro Woche für zu automatisierende Aufgaben: {hoursPerWeek[0]}</Label>
             <Slider
               value={hoursPerWeek}
               onValueChange={setHoursPerWeek}

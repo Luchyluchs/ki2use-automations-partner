@@ -56,70 +56,69 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="bg-card border border-card-border rounded-2xl p-8 shadow-card">
-      <h3 className="text-xl font-semibold mb-6">Nachricht senden</h3>
+    <div className="bg-card border border-card-border rounded-2xl p-4 sm:p-6 lg:p-8 shadow-card">
+      <h3 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6">Nachricht senden</h3>
       
-
-      <form onSubmit={handleSubmit} className="space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
           <div>
-            <Label htmlFor="name">Name *</Label>
+            <Label htmlFor="name" className="text-sm sm:text-base">Name *</Label>
             <Input
               id="name"
               name="name"
               required
               placeholder="Ihr vollständiger Name"
-              className="mt-1"
+              className="mt-1 h-11 sm:h-12"
             />
           </div>
           <div>
-            <Label htmlFor="email">E-Mail *</Label>
+            <Label htmlFor="email" className="text-sm sm:text-base">E-Mail *</Label>
             <Input
               id="email"
               name="email"
               type="email"
               required
               placeholder="ihre@email.de"
-              className="mt-1"
+              className="mt-1 h-11 sm:h-12"
             />
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
           <div>
-            <Label htmlFor="company">Unternehmen</Label>
+            <Label htmlFor="company" className="text-sm sm:text-base">Unternehmen</Label>
             <Input
               id="company"
               name="company"
               placeholder="Ihr Unternehmen"
-              className="mt-1"
+              className="mt-1 h-11 sm:h-12"
             />
           </div>
           <div>
-            <Label htmlFor="phone">Telefon (optional)</Label>
+            <Label htmlFor="phone" className="text-sm sm:text-base">Telefon (optional)</Label>
             <Input
               id="phone"
               name="phone"
               type="tel"
               placeholder="+49 ..."
-              className="mt-1"
+              className="mt-1 h-11 sm:h-12"
             />
           </div>
         </div>
 
         <div>
-          <Label htmlFor="message">Nachricht *</Label>
+          <Label htmlFor="message" className="text-sm sm:text-base">Nachricht *</Label>
           <Textarea
             id="message"
             name="message"
             required
             placeholder="Beschreiben Sie kurz Ihre Anfrage oder Ihr Projekt..."
-            className="mt-1 min-h-[120px]"
+            className="mt-1 min-h-24 sm:min-h-32"
           />
         </div>
 
-        <div className="bg-accent/10 rounded-lg p-4">
-          <p className="text-sm text-accent font-medium mb-2">
+        <div className="bg-accent/10 rounded-lg p-3 sm:p-4">
+          <p className="text-sm font-medium mb-2 text-accent">
             🤖 Automatisierung in Aktion
           </p>
           <p className="text-xs text-muted-foreground">
@@ -129,7 +128,7 @@ const ContactForm = () => {
           </p>
         </div>
 
-        <Button type="submit" disabled={isLoading} className="w-full" variant="cta">
+        <Button type="submit" disabled={isLoading} className="w-full min-h-11 sm:min-h-12" variant="cta">
           {isLoading ? (
             <>
               <Loader2 className="w-4 h-4 mr-2 animate-spin" />
