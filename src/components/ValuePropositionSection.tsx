@@ -102,7 +102,7 @@ const ValuePropositionSection = () => {
                 text="Unverbindlich informieren (30 Min.)"
                 variant="outline"
                 size="lg"
-                className="border-2"
+                className="border-2 text-primary hover:text-primary"
                 icon={false}
               />
             </div>
