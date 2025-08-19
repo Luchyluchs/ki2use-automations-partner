@@ -253,71 +253,7 @@
     <meta name="theme-color" content="#2563eb" />
     <meta name="msapplication-TileColor" content="#2563eb" />
     
-    <!-- Cookie Consent managed in React app -->
-    
-    <!-- Google Analytics (loaded conditionally based on consent) -->
-    <script>
-      // Check for existing consent on page load
-      function checkAnalyticsConsent() {
-        try {
-          const stored = localStorage.getItem('cookie-consent');
-          if (stored) {
-            const data = JSON.parse(stored);
-            if (data.version === '1.0' && data.consent && data.consent.analytics) {
-              console.log('Analytics consent found in localStorage, loading GA');
-              loadGoogleAnalytics();
-            } else {
-              console.log('No analytics consent in localStorage');
-            }
-          } else {
-            console.log('No consent data in localStorage');
-          }
-        } catch (e) {
-          console.error('Error checking consent:', e);
-        }
-      }
-      
-      function loadGoogleAnalytics() {
-        if (window.gtag) {
-          console.log('Google Analytics already loaded');
-          return;
-        }
-        
-        console.log('Loading Google Analytics from index.html');
-        
-        // Create gtag script
-        var script = document.createElement('script');
-        script.async = true;
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZK9LRZQ2RS';
-        script.onload = function() {
-          console.log('Google Analytics script loaded from index.html');
-        };
-        script.onerror = function() {
-          console.error('Failed to load Google Analytics script from index.html');
-        };
-        document.head.appendChild(script);
-
-        // Initialize dataLayer and gtag
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        window.gtag = gtag;
-        
-        gtag('js', new Date());
-        gtag('config', 'G-ZK9LRZQ2RS', {
-          anonymize_ip: true,
-          cookie_flags: 'SameSite=Strict;Secure'
-        });
-        
-        console.log('Google Analytics initialized from index.html');
-      }
-      
-      // Check consent when DOM is ready
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', checkAnalyticsConsent);
-      } else {
-        checkAnalyticsConsent();
-      }
-    </script>
+    <!-- Cookie Consent and Analytics managed in React app -->
   </head>
 
   <body>

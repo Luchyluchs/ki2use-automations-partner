@@ -82,37 +82,70 @@ export const useCookieConsent = () => {
   const loadGoogleAnalytics = () => {
     try {
       // Only load if not already loaded and we're in browser
-      if (typeof window === 'undefined' || window.gtag) {
-        console.log('Google Analytics already loaded or not in browser');
+      if (typeof window === 'undefined') {
+        console.log('Not in browser environment');
         return;
       }
 
-      console.log('Loading Google Analytics...');
+      if (window.gtag) {
+        console.log('Google Analytics already loaded, sending page view');
+        window.gtag('config', 'G-ZK9LRZQ2RS', {
+          page_title: document.title,
+          page_location: window.location.href
+        });
+        return;
+      }
 
-      // Create and load gtag script
-      const script = document.createElement('script');
-      script.async = true;
-      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZK9LRZQ2RS';
-      script.onload = () => console.log('Google Analytics script loaded successfully');
-      script.onerror = () => console.error('Failed to load Google Analytics script');
-      document.head.appendChild(script);
+      console.log('Loading Google Analytics with mobile-optimized settings...');
 
-      // Initialize gtag
+      // Initialize dataLayer first
       window.dataLayer = window.dataLayer || [];
       function gtag(...args: any[]) {
         window.dataLayer.push(args);
       }
       window.gtag = gtag;
+
+      // Create and load gtag script with retry mechanism
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZK9LRZQ2RS';
       
-      gtag('js', new Date());
-      gtag('config', 'G-ZK9LRZQ2RS', {
-        anonymize_ip: true,
-        cookie_flags: 'SameSite=Strict;Secure'
-      });
+      script.onload = () => {
+        console.log('✅ Google Analytics script loaded successfully');
+        
+        // Initialize with mobile-friendly settings
+        gtag('js', new Date());
+        gtag('config', 'G-ZK9LRZQ2RS', {
+          anonymize_ip: true,
+          cookie_flags: 'SameSite=Lax;Secure',
+          transport_type: 'beacon',
+          custom_map: {'custom_parameter_1': 'mobile_user'},
+          send_page_view: true
+        });
+        
+        // Send initial page view
+        gtag('event', 'page_view', {
+          page_title: document.title,
+          page_location: window.location.href,
+          page_path: window.location.pathname,
+          user_agent: navigator.userAgent
+        });
+        
+        console.log('✅ Google Analytics initialized successfully');
+      };
       
-      console.log('Google Analytics initialized with ID: G-ZK9LRZQ2RS');
+      script.onerror = (error) => {
+        console.error('❌ Failed to load Google Analytics script:', error);
+        // Retry once after 2 seconds
+        setTimeout(() => {
+          console.log('🔄 Retrying Google Analytics load...');
+          document.head.appendChild(script.cloneNode(true));
+        }, 2000);
+      };
+      
+      document.head.appendChild(script);
     } catch (error) {
-      console.error('Error loading Google Analytics:', error);
+      console.error('❌ Error loading Google Analytics:', error);
     }
   };
 
