@@ -36,30 +36,22 @@ const InteractiveKIDemo = () => {
     setIsTyping(false);
     
     let messageIndex = 0;
-    let timeoutId: NodeJS.Timeout;
-    
     const showNextMessage = () => {
-      if (messageIndex < scenario.length && scenario[messageIndex]) {
+      if (messageIndex < scenario.length) {
         setIsTyping(true);
         setTimeout(() => {
-          const currentMessage = scenario[messageIndex];
-          if (currentMessage) {
-            setMessages(prev => [...prev, currentMessage]);
-          }
+          setMessages(prev => [...prev, scenario[messageIndex]]);
           setIsTyping(false);
           messageIndex++;
           if (messageIndex < scenario.length) {
-            timeoutId = setTimeout(showNextMessage, 2000);
+            setTimeout(showNextMessage, 2000);
           }
         }, 1000);
       }
     };
 
     const timer = setTimeout(showNextMessage, 500);
-    return () => {
-      clearTimeout(timer);
-      if (timeoutId) clearTimeout(timeoutId);
-    };
+    return () => clearTimeout(timer);
   }, [activeDemo]);
 
   return (
@@ -110,7 +102,7 @@ const InteractiveKIDemo = () => {
 
           {/* Messages */}
           <div className="min-h-[300px] max-h-[300px] overflow-y-auto py-4 space-y-3">
-            {messages.filter(message => message && typeof message === 'object').map((message, index) => (
+            {messages.map((message, index) => (
               <div
                 key={index}
                 className={`flex ${message.isBot ? 'justify-start' : 'justify-end'} animate-fade-in`}
