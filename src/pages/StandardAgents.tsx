@@ -14,49 +14,49 @@ const StandardAgents = () => {
   // SEO optimization for Standard Agents page
   useSEO(SEOTemplates.standardAgents);
   const agents = [{
-    name: "LinkedIn Agent",
+    name: "LinkedIn Assistent",
     description: "Automatisiert Netzwerkpflege, spart wertvolle Zeit bei der Akquise und stärkt Ihre Markenpräsenz professionell.",
     features: ["Automatisierte Kontaktanfragen", "Personalisierte Nachrichten", "Lead-Qualifizierung", "Netzwerk-Analytics", "DSGVO-konforme Umsetzung"],
     benefits: ["Bis zu 60% Zeitersparnis beim Networking", "Konstante Lead-Generierung", "Professionelle Markenpräsenz", "Skalierbare Akquisestrategie"],
     useCases: ["B2B-Akquise für Dienstleister", "Personalrekrutierung", "Partnership-Entwicklung", "Marktforschung und Konkurrenzanalyse"]
   }, {
-    name: "Chatbot Agent",
+    name: "Chatbot Assistent",
     description: "Verbessert den Kundenservice rund um die Uhr, entlastet Ihr Team von Routineanfragen und sorgt für schnelle Antworten.",
     features: ["24/7 Verfügbarkeit", "Intelligente Antworten", "Mehrsprachiger Support", "CRM-Integration", "Eskalationsmanagement"],
     benefits: ["Sofortige Kundenbetreuung", "40% weniger Support-Anfragen für das Team", "Höhere Kundenzufriedenheit", "Kosteneinsparungen im Support"],
     useCases: ["Website-Support", "FAQ-Automatisierung", "Terminbuchungen", "Produktberatung"]
   }, {
-    name: "Newsletter Agent",
+    name: "Newsletter Assistent",
     description: "Erstellt und versendet personalisierte Newsletter-Kampagnen effizient, steigert die Kundenbindung und spart Marketingressourcen.",
     features: ["Automatische Content-Erstellung", "Personalisierung", "A/B-Testing", "Analytics und Reporting", "DSGVO-konforme Verwaltung"],
-    benefits: ["65% Zeitersparnis bei Newsletter-Erstellung", "Höhere Öffnungsraten", "Automatisierte Kundenbindung", "Messbare Marketing-Agenten"],
+    benefits: ["65% Zeitersparnis bei Newsletter-Erstellung", "Höhere Öffnungsraten", "Automatisierte Kundenbindung", "Messbare Marketing-Assistenten"],
     useCases: ["Kundennewsletter", "Produktankündigungen", "Event-Marketing", "Thought Leadership"]
   }, {
-    name: "Email Organisator",
+    name: "Email Assistent",
     description: "Automatisiert die E-Mail-Sortierung und Priorisierung, reduziert administrative Last und schafft Fokus für wichtigere Aufgaben.",
     features: ["Intelligente Kategorisierung", "Prioritätsbewertung", "Automatische Weiterleitung", "Spam-Filterung", "Follow-up Erinnerungen"],
     benefits: ["40% weniger Zeit für E-Mail-Verwaltung", "Keine wichtigen E-Mails übersehen", "Strukturierte Kommunikation", "Produktivitätssteigerung"],
     useCases: ["Kundenanfragen-Management", "Interne Kommunikation", "Support-Ticket-Routing", "Lead-Qualifizierung"]
   }, {
-    name: "Sprachbot",
+    name: "Sprach-Assistent",
     description: "Interagiert mit Kunden per Sprache, optimiert den telefonischen Support und schafft Erreichbarkeit – auch außerhalb der Geschäftszeiten.",
     features: ["Natürliche Spracherkennung", "Intelligente Gesprächsführung", "Terminbuchung", "Call-Routing", "Gesprächsdokumentation"],
     benefits: ["24/7 telefonische Erreichbarkeit", "Professionelle Kundenbetreuung", "Entlastung der Mitarbeiter", "Höhere Kundenzufriedenheit"],
     useCases: ["Telefonische Terminbuchungen", "Kundenservice-Hotline", "Notfall-Support", "Informations-Hotline"]
   }, {
-    name: "Social Media Agent",
+    name: "Social Media Assistent",
     description: "Automatisiert Social Media Posting, Interaktionen und Content-Erstellung für eine konsistente Online-Präsenz und bessere Reichweite.",
     features: ["Automatisches Posting", "Content-Generierung", "Hashtag-Optimierung", "Engagement-Tracking", "Multi-Platform-Management"],
     benefits: ["Konsistente Social Media Präsenz", "55% Zeitersparnis beim Content Management", "Verbesserte Reichweite und Engagement", "Automatisierte Kundeninteraktion"],
     useCases: ["Regelmäßige Posts", "Kundenkommunikation", "Markenaufbau", "Lead-Generierung über Social Media"]
   }, {
-    name: "Sales Agent",
+    name: "Sales Assistent",
     description: "Automatisiert Lead-Qualifizierung und Verkaufsprozesse, identifiziert potenzielle Kunden und unterstützt den Abschluss von Geschäften.",
     features: ["Lead-Scoring", "Automatische Follow-ups", "Verkaufspipeline-Management", "CRM-Integration", "Verkaufsanalytics"],
     benefits: ["45% höhere Conversion-Rate", "Automatisierte Lead-Qualifizierung", "Kürzere Sales-Zyklen", "Erhöhte Verkaufseffizienz"],
     useCases: ["B2B-Verkauf", "Lead-Nurturing", "Cross-Selling", "Verkaufsprozess-Automatisierung"]
   }, {
-    name: "Terminbuchungsagent",
+    name: "Terminbuchungs-Assistent",
     description: "Vereinfacht die Terminplanung durch automatische Buchungen, Erinnerungen und Kalenderintegration für optimierte Arbeitsabläufe.",
     features: ["Automatische Terminbuchung", "Kalender-Synchronisation", "SMS/E-Mail-Erinnerungen", "Konflikt-Vermeidung", "Multi-Standort-Support"],
     benefits: ["75% weniger manueller Aufwand", "Keine Terminüberschneidungen", "Automatische Erinnerungen", "24/7 Buchungsmöglichkeit"],
