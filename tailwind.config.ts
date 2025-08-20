@@ -174,6 +174,14 @@ export default {
 					'50%': {
 						transform: 'translateY(-5px)'
 					}
+				},
+				'slowZoom': {
+					'0%': {
+						transform: 'scale(1.05)'
+					},
+					'100%': {
+						transform: 'scale(1.1)'
+					}
 				}
 			},
 			animation: {
@@ -186,7 +194,8 @@ export default {
 				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
 				'gradient-shift': 'gradient-shift 6s ease-in-out infinite',
 				'bounce-soft': 'bounce-soft 1s ease-in-out infinite',
-				'spin-slow': 'spin 3s linear infinite'
+				'spin-slow': 'spin 3s linear infinite',
+				'slowZoom': 'slowZoom 20s ease-in-out infinite alternate'
 			}
 		}
 	},

@@ -94,7 +94,11 @@ const VideoBackground = ({
           hasVideo ? 'opacity-0' : 'opacity-100'
         }`}
         style={{
-          backgroundImage: `url(${kiHeroBackground})`
+          backgroundImage: `url(${kiHeroBackground})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          transform: 'scale(1.05)',
+          animation: 'slowZoom 20s ease-in-out infinite alternate'
         }}
       >
         {/* Animated Overlay Elements */}
@@ -126,8 +130,13 @@ const VideoBackground = ({
             />
           ))}
           
-          {/* Gradient Animation Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-transparent to-purple-500/10 animate-gradient-shift opacity-50"></div>
+          {/* Enhanced Animation Effects */}
+          <div className="absolute inset-0 animate-gradient-shift">
+            {/* Moving Data Streams */}
+            <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-400/50 to-transparent animate-slide-progress"></div>
+            <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-400/50 to-transparent animate-slide-progress" style={{ animationDelay: '1s' }}></div>
+            <div className="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent animate-slide-progress" style={{ animationDelay: '2s' }}></div>
+          </div>
         </div>
       </div>
 
