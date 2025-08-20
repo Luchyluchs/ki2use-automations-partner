@@ -116,8 +116,8 @@ const InteractiveKIDemo = () => {
     if (currentAgent.interface === 'voice') {
       setVoiceAnimation(0);
       const interval = setInterval(() => {
-        setVoiceAnimation(prev => (prev + 1) % 4);
-      }, 300);
+        setVoiceAnimation(prev => (prev + 1) % 20);
+      }, 150);
       return () => clearInterval(interval);
     }
   }, [currentAgent.interface, activeDemoIndex]);
@@ -222,15 +222,18 @@ const InteractiveKIDemo = () => {
               Kunde ruft um 19:30 Uhr an...
             </div>
             <div className="flex justify-center items-center space-x-1">
-              {[8, 12, 6, 10, 4].map((baseHeight, index) => (
-                <div 
-                  key={index}
-                  className="w-2 bg-green-500 rounded-full transition-all duration-300"
-                  style={{
-                    height: `${baseHeight + (voiceAnimation === index % 4 ? 2 : 0)}px`
-                  }}
-                ></div>
-              ))}
+              {[8, 12, 6, 10, 4].map((baseHeight, index) => {
+                const waveOffset = Math.sin((voiceAnimation * 0.3) + (index * 0.8)) * 3;
+                return (
+                  <div 
+                    key={index}
+                    className="w-2 bg-green-500 rounded-full transition-all duration-150 ease-in-out"
+                    style={{
+                      height: `${baseHeight + Math.abs(waveOffset)}px`
+                    }}
+                  ></div>
+                );
+              })}
             </div>
             <div className="text-sm font-medium animate-fade-in">
               🎤 "Guten Abend! Ich kann Ihnen gerne helfen."
@@ -329,7 +332,7 @@ const InteractiveKIDemo = () => {
               {salesStep >= 1 && (
                 <div className="flex items-center justify-between p-2 bg-green-50 dark:bg-green-900/20 rounded border border-green-200 dark:border-green-800 text-xs animate-fade-in">
                   <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                     <div>
                       <div className="font-medium">TechCorp GmbH</div>
                       <div className="text-muted-foreground">Budget: 50k€, braucht sofort</div>
@@ -371,7 +374,7 @@ const InteractiveKIDemo = () => {
                   <div key={i} className="text-muted-foreground font-medium">{day}</div>
                 ))}
                 {Array.from({length: 7}, (_, i) => (
-                  <div key={i} className={`p-1 rounded ${i === 2 ? 'bg-primary text-primary-foreground animate-pulse' : i === 4 ? 'bg-green-100 dark:bg-green-900/30 text-green-600' : 'text-muted-foreground'}`}>
+                  <div key={i} className={`p-1 rounded ${i === 2 ? 'bg-primary text-primary-foreground' : i === 4 ? 'bg-green-100 dark:bg-green-900/30 text-green-600' : 'text-muted-foreground'}`}>
                     {i + 15}
                   </div>
                 ))}
