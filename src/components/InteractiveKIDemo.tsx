@@ -413,7 +413,7 @@ const InteractiveKIDemo = () => {
         </Button>
         
         <div className="flex items-center gap-2 min-w-0 flex-1 justify-center">
-          <div className={`w-8 h-8 ${currentAgent.color} rounded-lg flex items-center justify-center transition-all duration-500 shadow-sm hover:shadow-lg hover:scale-110 animate-pulse`}>
+          <div className={`w-8 h-8 ${currentAgent.color} rounded-lg flex items-center justify-center transition-all duration-500 shadow-sm hover:shadow-lg hover:scale-110`}>
             <currentAgent.icon className="w-4 h-4 text-white transition-transform duration-300" />
           </div>
           <div className="text-center transition-all duration-300">
