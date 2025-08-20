@@ -2,7 +2,7 @@
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
 import CalendlyButton from "./CalendlyButton";
-import VideoBackground from "./VideoBackground";
+import InteractiveKIDemo from "./InteractiveKIDemo";
 import { useScrollReveal, useParallax } from "@/hooks/useScrollAnimations";
 import { useEffect } from "react";
 const HeroSection = () => {
@@ -53,7 +53,7 @@ const HeroSection = () => {
 
           {/* Interactive KI Demo */}
           <div className="lg:col-span-5 scroll-scale relative flex items-center justify-center">
-            <VideoBackground />
+            <InteractiveKIDemo />
             
             {/* Floating Trust Indicators */}
             <div className="scroll-fade-in absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 bg-white/90 backdrop-blur-sm rounded-2xl p-3 sm:p-4 shadow-elevated border border-white/50 hover:shadow-primary transition-all duration-300">

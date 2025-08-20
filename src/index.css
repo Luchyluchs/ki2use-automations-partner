@@ -22,7 +22,6 @@ Corporate design for German KMUs - trustworthy, modern, efficient
     --primary: 215 60% 25%;
     --primary-foreground: 0 0% 98%;
     --primary-hover: 215 60% 20%;
-    --primary-glow: 215 60% 35%;
     
     /* Contemporary Slate matching foreground */
     --secondary: 215 30% 30%;
@@ -105,7 +104,6 @@ Corporate design for German KMUs - trustworthy, modern, efficient
     --primary: 220 85% 60%;
     --primary-foreground: 220 25% 8%;
     --primary-hover: 220 85% 55%;
-    --primary-glow: 220 85% 70%;
     
     --secondary: 220 15% 20%;
     --secondary-foreground: 0 0% 95%;
