@@ -440,7 +440,7 @@ const InteractiveKIDemo = () => {
             key={index}
             className={`h-2 rounded-full transition-all duration-500 hover:scale-125 cursor-pointer ${
               index === activeDemoIndex 
-                ? 'bg-primary w-6 shadow-lg animate-pulse' 
+                ? 'bg-primary w-6 shadow-lg' 
                 : 'bg-muted-foreground/30 w-2 hover:bg-muted-foreground/50'
             }`}
             onClick={() => {
