@@ -75,39 +75,6 @@ const ValuePropositionSection = () => {
             );
           })}
         </div>
-
-        {/* Trust indicators */}
-        <div className="scroll-reveal bg-card border border-card-border rounded-xl p-6 shadow-card">
-          <div className="text-center">
-            <h3 className="font-semibold mb-4 text-foreground">
-              Transparenz von Anfang an
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
-              <div className="flex items-center justify-center gap-2">
-                <CheckCircle className="w-4 h-4 text-green-600" />
-                <span>Erste Beratung 100% kostenlos</span>
-              </div>
-              <div className="flex items-center justify-center gap-2">
-                <CheckCircle className="w-4 h-4 text-green-600" />
-                <span>Faire Preise ohne versteckte Kosten</span>
-              </div>
-              <div className="flex items-center justify-center gap-2">
-                <CheckCircle className="w-4 h-4 text-green-600" />
-                <span>Made in Germany</span>
-              </div>
-            </div>
-            
-            <div className="mt-6">
-              <CalendlyButton 
-                text="Unverbindlich informieren (30 Min.)"
-                variant="default"
-                size="lg"
-                className=""
-                icon={false}
-              />
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
