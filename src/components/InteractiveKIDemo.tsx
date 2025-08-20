@@ -9,6 +9,14 @@ const InteractiveKIDemo = () => {
 
   const demoAgents = [
     {
+      id: 'voice',
+      name: 'Telefon-Assistent',
+      icon: Mic,
+      color: 'bg-green-500',
+      interface: 'voice',
+      benefit: 'Anrufe auch nach Feierabend'
+    },
+    {
       id: 'chatbot',
       name: 'Website-Chat',
       icon: MessageCircle,
@@ -23,14 +31,6 @@ const InteractiveKIDemo = () => {
       color: 'bg-blue-600', 
       interface: 'linkedin',
       benefit: 'Neue Kunden finden automatisch'
-    },
-    {
-      id: 'voice',
-      name: 'Telefon-Assistent',
-      icon: Mic,
-      color: 'bg-green-500',
-      interface: 'voice',
-      benefit: 'Anrufe auch nach Feierabend'
     },
     {
       id: 'email',
