@@ -406,14 +406,14 @@ const InteractiveKIDemo = () => {
           variant="ghost"
           size="sm"
           onClick={prevAgent}
-          className="p-2 h-8 w-8 hover:scale-110 transition-all duration-200"
+          className="p-2 h-8 w-8 transition-all duration-200"
           disabled={isAnimating}
         >
           <ChevronLeft className="w-4 h-4" />
         </Button>
         
         <div className="flex items-center gap-2 min-w-0 flex-1 justify-center">
-          <div className={`w-8 h-8 ${currentAgent.color} rounded-lg flex items-center justify-center transition-all duration-500 shadow-sm hover:shadow-lg hover:scale-110`}>
+          <div className={`w-8 h-8 ${currentAgent.color} rounded-lg flex items-center justify-center transition-all duration-500 shadow-sm`}>
             <currentAgent.icon className="w-4 h-4 text-white transition-transform duration-300" />
           </div>
           <div className="text-center transition-all duration-300">
@@ -426,7 +426,7 @@ const InteractiveKIDemo = () => {
           variant="ghost"
           size="sm"
           onClick={nextAgent}
-          className="p-2 h-8 w-8 hover:scale-110 transition-all duration-200"
+          className="p-2 h-8 w-8 transition-all duration-200"
           disabled={isAnimating}
         >
           <ChevronRight className="w-4 h-4" />
@@ -438,7 +438,7 @@ const InteractiveKIDemo = () => {
         {demoAgents.map((_, index) => (
           <div
             key={index}
-            className={`h-2 rounded-full transition-all duration-500 hover:scale-125 cursor-pointer ${
+            className={`h-2 rounded-full transition-all duration-500 cursor-pointer ${
               index === activeDemoIndex 
                 ? 'bg-primary w-6 shadow-lg' 
                 : 'bg-muted-foreground/30 w-2 hover:bg-muted-foreground/50'
@@ -457,15 +457,15 @@ const InteractiveKIDemo = () => {
       </div>
 
       {/* Demo Interface */}
-      <Card className={`bg-background/80 backdrop-blur-sm border border-border/50 shadow-elevated hover:shadow-xl transition-all duration-500 hover:scale-[1.02] ${
+      <Card className={`bg-background/80 backdrop-blur-sm border border-border/50 shadow-elevated transition-all duration-500 ${
         isAnimating 
-          ? 'scale-95 opacity-70 rotate-1' 
-          : 'scale-100 opacity-100 rotate-0 animate-scale-in'
+          ? 'opacity-70' 
+          : 'opacity-100'
       }`}>
         <div className="p-4">
           {/* Header */}
           <div className="flex items-center gap-3 pb-3 border-b border-border/30 animate-fade-in">
-            <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse shadow-green-500/50 shadow-lg"></div>
+            <div className="w-3 h-3 bg-green-500 rounded-full shadow-green-500/50 shadow-lg"></div>
             <span className="text-sm font-medium text-foreground transition-all duration-300">
               {currentAgent.name} Demo
             </span>

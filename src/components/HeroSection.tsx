@@ -36,23 +36,23 @@ const HeroSection = () => {
                 text="Kostenloses Erstgespräch sichern (30 Min.)" 
                 variant="cta" 
                 size="lg" 
-                className="text-sm sm:text-base px-6 py-4 shadow-primary gradient-primary hover:shadow-elevated transform hover:scale-105 transition-all duration-300 min-h-14 whitespace-normal text-center leading-relaxed w-full" 
+                className="text-sm sm:text-base px-6 py-4 shadow-primary gradient-primary hover:shadow-elevated transition-all duration-300 min-h-14 whitespace-normal text-center leading-relaxed w-full" 
                 icon={false} 
               />
-              <Button variant="outline" size="lg" asChild className="text-sm sm:text-base px-6 py-4 border-2 hover:bg-primary hover:text-primary-foreground hover:border-primary hover:shadow-elevated transform hover:scale-105 transition-all duration-300 min-h-14 w-full">
+              <Button variant="outline" size="lg" asChild className="text-sm sm:text-base px-6 py-4 border-2 hover:bg-primary hover:text-primary-foreground hover:border-primary hover:shadow-elevated transition-all duration-300 min-h-14 w-full">
                 <Link to="/standard-agenten">Standard-Assistenten ansehen</Link>
               </Button>
             </div>
             
             {/* Capacity indicator */}
             <div className="scroll-reveal stagger-delay-4 mt-4 sm:mt-6 inline-flex items-center gap-2 text-xs sm:text-sm text-muted-foreground">
-              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+              <div className="w-2 h-2 bg-green-500 rounded-full"></div>
               <span>Nur noch 15 Beratungsplätze diesen Monat verfügbar</span>
             </div>
           </div>
 
           {/* Interactive KI Demo */}
-          <div className="lg:col-span-5 scroll-scale relative flex items-center justify-center">
+          <div className="lg:col-span-5 relative flex items-center justify-center">
             <InteractiveKIDemo />
           </div>
         </div>
