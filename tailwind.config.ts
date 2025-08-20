@@ -24,11 +24,12 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
-				primary: {
-					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))',
-					hover: 'hsl(var(--primary-hover))'
-				},
+        primary: {
+          DEFAULT: 'hsl(var(--primary))',
+          foreground: 'hsl(var(--primary-foreground))',
+          hover: 'hsl(var(--primary-hover))',
+          glow: 'hsl(var(--primary-glow))'
+        },
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
 					foreground: 'hsl(var(--secondary-foreground))',
@@ -78,7 +79,8 @@ export default {
 				'card': 'var(--shadow-card)',
 				'elevated': 'var(--shadow-elevated)',
 				'primary': 'var(--shadow-primary)',
-				'soft': 'var(--shadow-soft)'
+				'soft': 'var(--shadow-soft)',
+				'glow': '0 0 20px hsl(var(--primary) / 0.4)'
 			},
 			spacing: {
 				'section': 'var(--section-padding)',
@@ -183,7 +185,8 @@ export default {
 				'slide-progress': 'slide-progress 3s ease-in-out infinite',
 				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
 				'gradient-shift': 'gradient-shift 6s ease-in-out infinite',
-				'bounce-soft': 'bounce-soft 1s ease-in-out infinite'
+				'bounce-soft': 'bounce-soft 1s ease-in-out infinite',
+				'spin-slow': 'spin 3s linear infinite'
 			}
 		}
 	},
