@@ -383,12 +383,12 @@ const InteractiveKIDemo = () => {
       {/* Demo Stats */}
       <div className="mt-4 grid grid-cols-3 gap-2 text-center">
         <div className="bg-background/60 backdrop-blur-sm border border-border/30 rounded-lg p-2">
-          <div className="text-lg font-bold text-primary">+47%</div>
-          <div className="text-xs text-muted-foreground">Mehr Umsatz</div>
+          <div className="text-lg font-bold text-primary">💰</div>
+          <div className="text-xs text-muted-foreground">Mehr Kunden</div>
         </div>
         <div className="bg-background/60 backdrop-blur-sm border border-border/30 rounded-lg p-2">
-          <div className="text-lg font-bold text-primary">-80%</div>
-          <div className="text-xs text-muted-foreground">Weniger Arbeit</div>
+          <div className="text-lg font-bold text-primary">⚡</div>
+          <div className="text-xs text-muted-foreground">Weniger Stress</div>
         </div>
         <div className="bg-background/60 backdrop-blur-sm border border-border/30 rounded-lg p-2">
           <div className="text-lg font-bold text-primary">24/7</div>
