@@ -16,9 +16,9 @@ const HeroSection = () => {
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] sm:w-[800px] sm:h-[800px] bg-primary/5 rounded-full blur-3xl parallax-slow"></div>
       
       <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 items-center">
           {/* Content */}
-          <div className="text-center lg:text-left space-y-6 sm:space-y-8">
+          <div className="lg:col-span-7 text-center lg:text-left space-y-6 sm:space-y-8">
             <div className="scroll-reveal inline-flex items-center rounded-full px-3 py-2 text-xs sm:text-sm font-medium bg-primary/10 text-primary border border-primary/20 mb-4 sm:mb-6">
               🚀 Deutschlands KI-Experten für KMUs
             </div>
@@ -26,14 +26,20 @@ const HeroSection = () => {
               Revolutioniere dein Business mit{" "}
               <span className="text-primary font-extrabold nowrap-ki-assistant">KI-Assistenten</span>
             </h1>
-            <p className="scroll-reveal stagger-delay-2 text-base sm:text-lg lg:text-xl text-muted-foreground mb-6 sm:mb-8 leading-relaxed max-w-2xl">
+            <p className="scroll-reveal stagger-delay-2 text-base sm:text-lg lg:text-xl text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
               Professionelle KI-Automatisierung für deutsche Unternehmen. 
               <span className="text-foreground font-semibold"> Bis zu 80% weniger Arbeitszeit</span> bei 
               höchster Qualität und DSGVO-Konformität.
             </p>
-            <div className="scroll-reveal stagger-delay-3 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
-              <CalendlyButton text="Kostenloses Erstgespräch sichern (30 Min.)" variant="cta" size="lg" className="text-sm sm:text-base lg:text-lg px-6 sm:px-8 py-4 sm:py-5 shadow-primary gradient-primary hover:shadow-elevated transform hover:scale-105 transition-all duration-300 min-h-14 sm:min-h-16 whitespace-normal text-center leading-relaxed w-full sm:w-auto" icon={false} />
-              <Button variant="outline" size="lg" asChild className="text-sm sm:text-base lg:text-lg px-6 sm:px-8 py-3 sm:py-4 border-2 hover:bg-primary hover:text-primary-foreground hover:border-primary hover:shadow-elevated transform hover:scale-105 transition-all duration-300 min-h-12 sm:min-h-14">
+            <div className="scroll-reveal stagger-delay-3 flex flex-col gap-4 justify-center lg:justify-start max-w-lg mx-auto lg:mx-0">
+              <CalendlyButton 
+                text="Kostenloses Erstgespräch sichern (30 Min.)" 
+                variant="cta" 
+                size="lg" 
+                className="text-sm sm:text-base px-6 py-4 shadow-primary gradient-primary hover:shadow-elevated transform hover:scale-105 transition-all duration-300 min-h-14 whitespace-normal text-center leading-relaxed w-full" 
+                icon={false} 
+              />
+              <Button variant="outline" size="lg" asChild className="text-sm sm:text-base px-6 py-4 border-2 hover:bg-primary hover:text-primary-foreground hover:border-primary hover:shadow-elevated transform hover:scale-105 transition-all duration-300 min-h-14 w-full">
                 <Link to="/standard-agenten">Standard-Assistenten ansehen</Link>
               </Button>
             </div>
@@ -46,7 +52,7 @@ const HeroSection = () => {
           </div>
 
           {/* Hero Image */}
-          <div className="scroll-scale relative">
+          <div className="lg:col-span-5 scroll-scale relative">
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-2xl opacity-60 parallax-slow"></div>
               <div className="relative rounded-2xl overflow-hidden shadow-elevated bg-white p-1 hover:shadow-primary transition-all duration-500">
