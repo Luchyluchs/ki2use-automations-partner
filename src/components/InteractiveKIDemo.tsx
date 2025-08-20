@@ -32,26 +32,43 @@ const InteractiveKIDemo = () => {
 
   useEffect(() => {
     const scenario = demoScenarios[activeDemo];
+    if (!scenario || !Array.isArray(scenario)) return;
+    
     setMessages([]);
     setIsTyping(false);
     
     let messageIndex = 0;
+    let timeoutId: NodeJS.Timeout;
+    
     const showNextMessage = () => {
-      if (messageIndex < scenario.length) {
-        setIsTyping(true);
-        setTimeout(() => {
-          setMessages(prev => [...prev, scenario[messageIndex]]);
-          setIsTyping(false);
-          messageIndex++;
-          if (messageIndex < scenario.length) {
-            setTimeout(showNextMessage, 2000);
-          }
-        }, 1000);
+      if (messageIndex >= scenario.length) return;
+      
+      const currentMessage = scenario[messageIndex];
+      if (!currentMessage || typeof currentMessage.isBot === 'undefined') {
+        messageIndex++;
+        if (messageIndex < scenario.length) {
+          timeoutId = setTimeout(showNextMessage, 100);
+        }
+        return;
       }
+      
+      setIsTyping(true);
+      timeoutId = setTimeout(() => {
+        setMessages(prev => [...prev, currentMessage]);
+        setIsTyping(false);
+        messageIndex++;
+        if (messageIndex < scenario.length) {
+          timeoutId = setTimeout(showNextMessage, 2000);
+        }
+      }, 1000);
     };
 
     const timer = setTimeout(showNextMessage, 500);
-    return () => clearTimeout(timer);
+    
+    return () => {
+      clearTimeout(timer);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
   }, [activeDemo]);
 
   return (
