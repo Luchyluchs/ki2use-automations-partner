@@ -7,14 +7,14 @@ const ServicesSection = () => {
   useScrollReveal();
   const services = [{
     icon: Bot,
-    title: "Standard-KI-Agenten",
+    title: "Standard-KI-Assistenten",
     description: "Effizienz und Wachstum für Ihr Unternehmen mit sofort einsetzbaren Lösungen von KI2USE.",
     features: ["LinkedIn Agent für Netzwerkpflege", "Chatbot für 24/7 Kundenservice", "Newsletter-Automatisierung", "E-Mail-Organisation", "Sprachbot für Telefonsupport"],
     link: "/standard-agenten",
-    cta: "Standard-Agenten entdecken"
+    cta: "Standard-Assistenten entdecken"
   }, {
     icon: Zap,
-    title: "Maßgeschneiderte KI-Agenten",
+    title: "Maßgeschneiderte KI-Assistenten",
     description: "Individuelle Automatisierung, die sich präzise Ihren Geschäftsprozessen anpasst.",
     features: ["Individuelle Bedarfsanalyse", "Maßgeschneiderte Entwicklung", "Nahtlose Integration", "Skalierbare Lösungen", "Persönlicher Support"],
     link: "/massgeschneiderte-agenten",
