@@ -54,14 +54,6 @@ const HeroSection = () => {
           {/* Interactive KI Demo */}
           <div className="lg:col-span-5 scroll-scale relative flex items-center justify-center">
             <InteractiveKIDemo />
-            
-            {/* Floating Trust Indicators */}
-            <div className="scroll-fade-in absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 bg-white/90 backdrop-blur-sm rounded-2xl p-3 sm:p-4 shadow-elevated border border-white/50 hover:shadow-primary transition-all duration-300">
-              <div className="text-center">
-                <div className="text-lg sm:text-2xl font-bold text-accent">DSGVO</div>
-                <div className="text-xs sm:text-sm text-muted-foreground">100% Konform</div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
