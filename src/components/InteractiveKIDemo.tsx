@@ -6,6 +6,10 @@ import { Card } from "./ui/card";
 const InteractiveKIDemo = () => {
   const [activeDemoIndex, setActiveDemoIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [chatStep, setChatStep] = useState(0);
+  const [voiceAnimation, setVoiceAnimation] = useState(0);
+  const [emailStep, setEmailStep] = useState(0);
+  const [salesStep, setSalesStep] = useState(0);
 
   const demoAgents = [
     {
@@ -87,9 +91,67 @@ const InteractiveKIDemo = () => {
   };
 
   useEffect(() => {
-    const interval = setInterval(nextAgent, 8000); // Verlangsamt von 4 auf 8 Sekunden
+    const interval = setInterval(nextAgent, 8000);
     return () => clearInterval(interval);
   }, [isAnimating]);
+
+  // Chat animation - messages appear step by step
+  useEffect(() => {
+    if (currentAgent.interface === 'chat') {
+      setChatStep(0);
+      const steps = [
+        () => setChatStep(1), // User message
+        () => setChatStep(2), // Bot response
+        () => setChatStep(3), // Success confirmation
+      ];
+      
+      steps.forEach((step, index) => {
+        setTimeout(step, (index + 1) * 1500);
+      });
+    }
+  }, [currentAgent.interface, activeDemoIndex]);
+
+  // Voice animation - continuous voice bars
+  useEffect(() => {
+    if (currentAgent.interface === 'voice') {
+      setVoiceAnimation(0);
+      const interval = setInterval(() => {
+        setVoiceAnimation(prev => (prev + 1) % 4);
+      }, 300);
+      return () => clearInterval(interval);
+    }
+  }, [currentAgent.interface, activeDemoIndex]);
+
+  // Email animation - emails appear one by one
+  useEffect(() => {
+    if (currentAgent.interface === 'email') {
+      setEmailStep(0);
+      const steps = [
+        () => setEmailStep(1), // First email
+        () => setEmailStep(2), // Second email
+        () => setEmailStep(3), // Third email
+      ];
+      
+      steps.forEach((step, index) => {
+        setTimeout(step, (index + 1) * 800);
+      });
+    }
+  }, [currentAgent.interface, activeDemoIndex]);
+
+  // Sales animation - leads appear sequentially
+  useEffect(() => {
+    if (currentAgent.interface === 'sales') {
+      setSalesStep(0);
+      const steps = [
+        () => setSalesStep(1), // First lead
+        () => setSalesStep(2), // Second lead
+      ];
+      
+      steps.forEach((step, index) => {
+        setTimeout(step, (index + 1) * 1200);
+      });
+    }
+  }, [currentAgent.interface, activeDemoIndex]);
 
   const renderInterface = () => {
     const IconComponent = currentAgent.icon;
@@ -101,21 +163,33 @@ const InteractiveKIDemo = () => {
             <div className="text-center text-xs text-muted-foreground mb-3">
               Website-Besucher um 23:00 Uhr
             </div>
-            <div className="flex justify-start">
-              <div className="bg-muted text-muted-foreground px-3 py-2 rounded-lg text-sm max-w-[80%]">
-                Hallo! Sind Sie am Wochenende da?
+            
+            {/* User message appears first */}
+            {chatStep >= 1 && (
+              <div className="flex justify-start animate-fade-in">
+                <div className="bg-muted text-muted-foreground px-3 py-2 rounded-lg text-sm max-w-[80%]">
+                  Hallo! Sind Sie am Wochenende da?
+                </div>
               </div>
-            </div>
-            <div className="flex justify-end">
-              <div className="bg-primary text-primary-foreground px-3 py-2 rounded-lg text-sm max-w-[80%]">
-                Ja! Samstag 9-16 Uhr verfügbar
+            )}
+            
+            {/* Bot response appears second */}
+            {chatStep >= 2 && (
+              <div className="flex justify-end animate-fade-in">
+                <div className="bg-primary text-primary-foreground px-3 py-2 rounded-lg text-sm max-w-[80%]">
+                  Ja! Samstag 9-16 Uhr verfügbar
+                </div>
               </div>
-            </div>
-            <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-2 text-center">
-              <div className="text-xs text-green-600 font-medium">
-                ✅ Termin automatisch gebucht
+            )}
+            
+            {/* Success confirmation appears last */}
+            {chatStep >= 3 && (
+              <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-2 text-center animate-scale-in">
+                <div className="text-xs text-green-600 font-medium">
+                  ✅ Termin automatisch gebucht
+                </div>
               </div>
-            </div>
+            )}
           </div>
         );
         
@@ -148,16 +222,22 @@ const InteractiveKIDemo = () => {
               Kunde ruft um 19:30 Uhr an...
             </div>
             <div className="flex justify-center items-center space-x-1">
-              <div className="w-2 h-8 bg-green-500 rounded-full animate-pulse"></div>
-              <div className="w-2 h-12 bg-green-500 rounded-full animate-pulse delay-100"></div>
-              <div className="w-2 h-6 bg-green-500 rounded-full animate-pulse delay-200"></div>
-              <div className="w-2 h-10 bg-green-500 rounded-full animate-pulse delay-300"></div>
-              <div className="w-2 h-4 bg-green-500 rounded-full animate-pulse delay-75"></div>
+              {[8, 12, 6, 10, 4].map((baseHeight, index) => (
+                <div 
+                  key={index}
+                  className={`w-2 bg-green-500 rounded-full transition-all duration-300 ${
+                    voiceAnimation === index % 4 ? 'animate-pulse' : ''
+                  }`}
+                  style={{
+                    height: `${baseHeight + (voiceAnimation === index ? 4 : 0)}px`
+                  }}
+                ></div>
+              ))}
             </div>
-            <div className="text-sm font-medium">
+            <div className="text-sm font-medium animate-fade-in">
               🎤 "Guten Abend! Ich kann Ihnen gerne helfen."
             </div>
-            <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-2 text-xs">
+            <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-2 text-xs animate-scale-in">
               <div className="flex items-center gap-2 mb-1">
                 <Bot className="w-3 h-3 text-blue-600" />
                 <span className="font-medium text-blue-700 dark:text-blue-300">Verknüpft mit Ihren Systemen:</span>
@@ -181,17 +261,28 @@ const InteractiveKIDemo = () => {
               Ihr E-Mail-Postfach jeden Morgen...
             </div>
             <div className="space-y-1">
-              <div className="flex items-center gap-2 p-2 bg-red-50 dark:bg-red-900/20 rounded border-l-4 border-red-500 text-xs">
-                <span className="flex-1">🔥 WICHTIG: Große Anfrage von TechCorp</span>
-                <span className="text-red-600 font-bold">Priorität 1</span>
-              </div>
-              <div className="flex items-center gap-2 p-2 bg-yellow-50 dark:bg-yellow-900/20 rounded border-l-4 border-yellow-500 text-xs">
-                <span className="flex-1">📞 Rückruf: Interessent wartet</span>
-                <span className="text-yellow-600 font-medium">Heute</span>
-              </div>
-              <div className="flex items-center gap-2 p-2 bg-gray-50 dark:bg-gray-800 rounded text-xs opacity-60">
-                <span className="flex-1">Newsletter: Update (automatisch archiviert)</span>
-              </div>
+              {/* First important email appears */}
+              {emailStep >= 1 && (
+                <div className="flex items-center gap-2 p-2 bg-red-50 dark:bg-red-900/20 rounded border-l-4 border-red-500 text-xs animate-fade-in">
+                  <span className="flex-1">🔥 WICHTIG: Große Anfrage von TechCorp</span>
+                  <span className="text-red-600 font-bold">Priorität 1</span>
+                </div>
+              )}
+              
+              {/* Second email appears */}
+              {emailStep >= 2 && (
+                <div className="flex items-center gap-2 p-2 bg-yellow-50 dark:bg-yellow-900/20 rounded border-l-4 border-yellow-500 text-xs animate-fade-in">
+                  <span className="flex-1">📞 Rückruf: Interessent wartet</span>
+                  <span className="text-yellow-600 font-medium">Heute</span>
+                </div>
+              )}
+              
+              {/* Third email (archived) appears */}
+              {emailStep >= 3 && (
+                <div className="flex items-center gap-2 p-2 bg-gray-50 dark:bg-gray-800 rounded text-xs opacity-60 animate-fade-in">
+                  <span className="flex-1">Newsletter: Update (automatisch archiviert)</span>
+                </div>
+              )}
             </div>
             <div className="text-center text-xs text-orange-600 bg-orange-50 dark:bg-orange-900/20 px-3 py-1 rounded-full">
               ⚡ Wichtiges zuerst - Unwichtiges automatisch weg
@@ -236,26 +327,33 @@ const InteractiveKIDemo = () => {
               Ihre besten potentiellen Kunden...
             </div>
             <div className="space-y-2">
-              <div className="flex items-center justify-between p-2 bg-green-50 dark:bg-green-900/20 rounded border border-green-200 dark:border-green-800 text-xs">
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                  <div>
-                    <div className="font-medium">TechCorp GmbH</div>
-                    <div className="text-muted-foreground">Budget: 50k€, braucht sofort</div>
+              {/* First hot lead appears */}
+              {salesStep >= 1 && (
+                <div className="flex items-center justify-between p-2 bg-green-50 dark:bg-green-900/20 rounded border border-green-200 dark:border-green-800 text-xs animate-fade-in">
+                  <div className="flex items-center gap-2">
+                    <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                    <div>
+                      <div className="font-medium">TechCorp GmbH</div>
+                      <div className="text-muted-foreground">Budget: 50k€, braucht sofort</div>
+                    </div>
                   </div>
+                  <span className="text-green-600 font-bold">🔥 HEIß</span>
                 </div>
-                <span className="text-green-600 font-bold">🔥 HEIß</span>
-              </div>
-              <div className="flex items-center justify-between p-2 bg-yellow-50 dark:bg-yellow-900/20 rounded border border-yellow-200 dark:border-yellow-800 text-xs">
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                  <div>
-                    <div className="font-medium">StartUp AG</div>
-                    <div className="text-muted-foreground">Interesse gezeigt, folgt up</div>
+              )}
+              
+              {/* Second warm lead appears */}
+              {salesStep >= 2 && (
+                <div className="flex items-center justify-between p-2 bg-yellow-50 dark:bg-yellow-900/20 rounded border border-yellow-200 dark:border-yellow-800 text-xs animate-fade-in">
+                  <div className="flex items-center gap-2">
+                    <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                    <div>
+                      <div className="font-medium">StartUp AG</div>
+                      <div className="text-muted-foreground">Interesse gezeigt, folgt up</div>
+                    </div>
                   </div>
+                  <span className="text-yellow-600 font-medium">Warm</span>
                 </div>
-                <span className="text-yellow-600 font-medium">Warm</span>
-              </div>
+              )}
             </div>
             <div className="text-center text-xs text-red-600 bg-red-50 dark:bg-red-900/20 px-3 py-1 rounded-full">
               🎯 Ihre Zeit nur für die besten Chancen
