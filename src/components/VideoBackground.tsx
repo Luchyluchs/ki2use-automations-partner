@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Play, Pause, Volume2, VolumeX } from "lucide-react";
 import { Button } from "./ui/button";
+import kiHeroBackground from "../assets/ki-hero-background.jpg";
 
 interface VideoBackgroundProps {
   videoSrc?: string;
@@ -87,47 +88,47 @@ const VideoBackground = ({
         <source src={videoSrc} type="video/mp4" />
       </video>
 
-      {/* Fallback Animated Background */}
-      <div className={`absolute inset-0 ${fallbackGradient} ${hasVideo ? 'opacity-0' : 'opacity-100'} transition-opacity duration-500`}>
-        {/* Animated Elements for Fallback */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="relative">
-            {/* Central Hub */}
-            <div className="w-32 h-32 bg-white/20 backdrop-blur-sm rounded-full animate-pulse-glow flex items-center justify-center">
-              <div className="w-16 h-16 bg-white/30 rounded-full animate-spin-slow flex items-center justify-center">
-                <div className="w-8 h-8 bg-white rounded-full animate-bounce"></div>
-              </div>
-            </div>
-            
-            {/* Orbiting Elements */}
-            {[...Array(6)].map((_, i) => (
-              <div
-                key={i}
-                className="absolute w-4 h-4 bg-white/40 rounded-full animate-float"
-                style={{
-                  top: '50%',
-                  left: '50%',
-                  transform: `translate(-50%, -50%) rotate(${i * 60}deg) translateY(-80px)`,
-                  animationDelay: `${i * 0.5}s`
-                }}
-              />
-            ))}
-          </div>
+      {/* AI-Generated Hero Background */}
+      <div 
+        className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-500 ${
+          hasVideo ? 'opacity-0' : 'opacity-100'
+        }`}
+        style={{
+          backgroundImage: `url(${kiHeroBackground})`
+        }}
+      >
+        {/* Animated Overlay Elements */}
+        <div className="absolute inset-0">
+          {/* Floating Data Particles */}
+          {[...Array(15)].map((_, i) => (
+            <div
+              key={`particle-${i}`}
+              className="absolute w-2 h-2 bg-blue-400/30 rounded-full animate-float"
+              style={{
+                top: `${20 + Math.random() * 60}%`,
+                left: `${10 + Math.random() * 80}%`,
+                animationDelay: `${Math.random() * 3}s`,
+                animationDuration: `${3 + Math.random() * 2}s`
+              }}
+            />
+          ))}
+          
+          {/* Pulsing Network Nodes */}
+          {[...Array(8)].map((_, i) => (
+            <div
+              key={`node-${i}`}
+              className="absolute w-3 h-3 bg-purple-400/40 rounded-full animate-pulse"
+              style={{
+                top: `${15 + (i * 10)}%`,
+                left: `${20 + (i * 8)}%`,
+                animationDelay: `${i * 0.5}s`
+              }}
+            />
+          ))}
+          
+          {/* Gradient Animation Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-transparent to-purple-500/10 animate-gradient-shift opacity-50"></div>
         </div>
-
-        {/* Floating Particles */}
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={`particle-${i}`}
-            className="absolute w-2 h-2 bg-white/20 rounded-full animate-float"
-            style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${3 + Math.random() * 2}s`
-            }}
-          />
-        ))}
       </div>
 
       {/* Overlay */}
@@ -172,8 +173,8 @@ const VideoBackground = ({
       {/* Video Info Badge */}
       {!hasVideo && (
         <div className="absolute top-4 left-4">
-          <div className="bg-background/90 backdrop-blur-sm border border-border/30 rounded-full px-3 py-1 text-xs text-muted-foreground">
-            KI-Animation (Video wird geladen...)
+          <div className="bg-background/90 backdrop-blur-sm border border-border/30 rounded-full px-3 py-1 text-xs text-foreground/70">
+            ✨ KI-generierter Hintergrund
           </div>
         </div>
       )}
