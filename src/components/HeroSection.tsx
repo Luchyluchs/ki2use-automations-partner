@@ -1,8 +1,8 @@
 
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
-import humanRobotHandshake from "@/assets/human-robot-handshake.jpg";
 import CalendlyButton from "./CalendlyButton";
+import InteractiveKIDemo from "./InteractiveKIDemo";
 import { useScrollReveal, useParallax } from "@/hooks/useScrollAnimations";
 import { useEffect } from "react";
 const HeroSection = () => {
@@ -51,14 +51,9 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Hero Image */}
-          <div className="lg:col-span-5 scroll-scale relative">
-            <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-2xl opacity-60 parallax-slow"></div>
-              <div className="relative rounded-2xl overflow-hidden shadow-elevated bg-white p-1 hover:shadow-primary transition-all duration-500">
-                <img src={humanRobotHandshake} alt="Erfolgreiche Zusammenarbeit zwischen Mensch und KI - Partnerschaftlicher Handschlag" className="w-full h-auto object-cover rounded-xl transform hover:scale-105 transition-transform duration-700" />
-              </div>
-            </div>
+          {/* Interactive KI Demo */}
+          <div className="lg:col-span-5 scroll-scale relative flex items-center justify-center">
+            <InteractiveKIDemo />
             
             {/* Floating Trust Indicators */}
             <div className="scroll-fade-in absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 bg-white/90 backdrop-blur-sm rounded-2xl p-3 sm:p-4 shadow-elevated border border-white/50 hover:shadow-primary transition-all duration-300">
