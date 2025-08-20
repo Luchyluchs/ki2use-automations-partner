@@ -25,28 +25,12 @@ const InteractiveKIDemo = () => {
       benefit: 'Kunden fragen - KI antwortet sofort'
     },
     {
-      id: 'linkedin',
-      name: 'LinkedIn Kontakte',
-      icon: Linkedin,
-      color: 'bg-blue-600', 
-      interface: 'linkedin',
-      benefit: 'Neue Kunden finden automatisch'
-    },
-    {
       id: 'email',
       name: 'E-Mail Sortierer',
       icon: Mail,
       color: 'bg-orange-500',
       interface: 'email',
       benefit: 'Wichtige E-Mails zuerst sehen'
-    },
-    {
-      id: 'newsletter',
-      name: 'Newsletter-Versand',
-      icon: Newspaper,
-      color: 'bg-purple-500',
-      interface: 'newsletter',
-      benefit: 'Kunden automatisch informieren'
     },
     {
       id: 'sales',
@@ -63,6 +47,22 @@ const InteractiveKIDemo = () => {
       color: 'bg-indigo-500',
       interface: 'calendar',
       benefit: 'Termine buchen ohne Aufwand'
+    },
+    {
+      id: 'linkedin',
+      name: 'LinkedIn Kontakte',
+      icon: Linkedin,
+      color: 'bg-blue-600', 
+      interface: 'linkedin',
+      benefit: 'Neue Kunden finden automatisch'
+    },
+    {
+      id: 'newsletter',
+      name: 'Newsletter-Versand',
+      icon: Newspaper,
+      color: 'bg-purple-500',
+      interface: 'newsletter',
+      benefit: 'Kunden automatisch informieren'
     }
   ];
 
