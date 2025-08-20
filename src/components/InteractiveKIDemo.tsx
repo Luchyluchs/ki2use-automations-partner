@@ -10,52 +10,59 @@ const InteractiveKIDemo = () => {
   const demoAgents = [
     {
       id: 'chatbot',
-      name: 'Chatbot Agent',
+      name: 'Website-Chat',
       icon: MessageCircle,
       color: 'bg-blue-500',
-      interface: 'chat'
+      interface: 'chat',
+      benefit: 'Kunden fragen - KI antwortet sofort'
     },
     {
       id: 'linkedin',
-      name: 'LinkedIn Agent',
+      name: 'LinkedIn Kontakte',
       icon: Linkedin,
-      color: 'bg-blue-600',
-      interface: 'linkedin'
+      color: 'bg-blue-600', 
+      interface: 'linkedin',
+      benefit: 'Neue Kunden finden automatisch'
     },
     {
       id: 'voice',
-      name: 'Sprachbot',
+      name: 'Telefon-Assistent',
       icon: Mic,
       color: 'bg-green-500',
-      interface: 'voice'
+      interface: 'voice',
+      benefit: 'Anrufe auch nach Feierabend'
     },
     {
       id: 'email',
-      name: 'Email Agent',
+      name: 'E-Mail Sortierer',
       icon: Mail,
       color: 'bg-orange-500',
-      interface: 'email'
+      interface: 'email',
+      benefit: 'Wichtige E-Mails zuerst sehen'
     },
     {
       id: 'newsletter',
-      name: 'Newsletter Agent',
+      name: 'Newsletter-Versand',
       icon: Newspaper,
       color: 'bg-purple-500',
-      interface: 'newsletter'
+      interface: 'newsletter',
+      benefit: 'Kunden automatisch informieren'
     },
     {
       id: 'sales',
-      name: 'Sales Agent',
+      name: 'Verkaufs-Helfer',
       icon: TrendingUp,
       color: 'bg-red-500',
-      interface: 'sales'
+      interface: 'sales',
+      benefit: 'Beste Kunden automatisch finden'
     },
     {
       id: 'appointment',
-      name: 'Terminbuchung',
+      name: 'Termin-Planer',
       icon: Calendar,
       color: 'bg-indigo-500',
-      interface: 'calendar'
+      interface: 'calendar',
+      benefit: 'Termine buchen ohne Aufwand'
     }
   ];
 
@@ -88,23 +95,24 @@ const InteractiveKIDemo = () => {
     const IconComponent = currentAgent.icon;
     
     switch (currentAgent.interface) {
-      case 'chat':
+        case 'chat':
         return (
-          <div className="space-y-3">
+          <div className="space-y-4">
+            <div className="text-center text-sm text-muted-foreground mb-3">
+              Ein Kunde besucht Ihre Website um 23:00 Uhr...
+            </div>
             <div className="flex justify-start">
               <div className="bg-muted text-muted-foreground px-3 py-2 rounded-lg text-sm max-w-[80%]">
-                Hallo! Wie kann ich Ihnen helfen?
+                Hallo! Haben Sie auch Termine am Wochenende?
               </div>
             </div>
             <div className="flex justify-end">
               <div className="bg-primary text-primary-foreground px-3 py-2 rounded-lg text-sm max-w-[80%]">
-                Infos zu Ihren Services
+                Ja! Samstag 9-16 Uhr möglich ✓
               </div>
             </div>
-            <div className="flex justify-start">
-              <div className="bg-muted text-muted-foreground px-3 py-2 rounded-lg text-sm max-w-[80%]">
-                Gerne! 24/7 Support verfügbar ✓
-              </div>
+            <div className="text-center text-xs text-green-600 bg-green-50 dark:bg-green-900/20 px-3 py-1 rounded-full">
+              🎉 Neuer Kunde gewonnen - während Sie schlafen!
             </div>
           </div>
         );
@@ -112,20 +120,21 @@ const InteractiveKIDemo = () => {
       case 'linkedin':
         return (
           <div className="space-y-3">
-            <div className="flex items-center gap-3 p-3 bg-muted/30 rounded-lg">
+            <div className="text-center text-sm text-muted-foreground mb-2">
+              Während Sie arbeiten, knüpft die KI neue Kontakte...
+            </div>
+            <div className="flex items-center gap-3 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
               <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
                 <IconComponent className="w-5 h-5 text-white" />
               </div>
               <div className="flex-1">
                 <div className="text-sm font-medium">Max Mustermann</div>
-                <div className="text-xs text-muted-foreground">CEO bei TechCorp</div>
+                <div className="text-xs text-muted-foreground">Sucht Ihre Dienstleistung</div>
               </div>
-              <Button size="sm" className="text-xs">Vernetzen</Button>
+              <div className="text-xs text-green-600 font-medium">✓ Kontaktiert</div>
             </div>
-            <div className="text-center text-sm text-muted-foreground">
-              ✓ Automatische Kontaktpflege<br/>
-              ✓ Personalisierte Nachrichten<br/>
-              ✓ Lead-Generierung
+            <div className="text-center text-xs text-blue-600 bg-blue-50 dark:bg-blue-900/20 px-3 py-1 rounded-full">
+              📈 +12 neue potentielle Kunden diese Woche
             </div>
           </div>
         );
@@ -133,6 +142,9 @@ const InteractiveKIDemo = () => {
       case 'voice':
         return (
           <div className="text-center space-y-4">
+            <div className="text-sm text-muted-foreground">
+              Kunde ruft um 19:30 Uhr an...
+            </div>
             <div className="flex justify-center items-center space-x-1">
               <div className="w-2 h-8 bg-green-500 rounded-full animate-pulse"></div>
               <div className="w-2 h-12 bg-green-500 rounded-full animate-pulse delay-100"></div>
@@ -140,33 +152,36 @@ const InteractiveKIDemo = () => {
               <div className="w-2 h-10 bg-green-500 rounded-full animate-pulse delay-300"></div>
               <div className="w-2 h-4 bg-green-500 rounded-full animate-pulse delay-75"></div>
             </div>
-            <div className="text-sm text-muted-foreground">
-              🎤 "Guten Tag! Wie kann ich helfen?"
+            <div className="text-sm font-medium">
+              🎤 "Guten Abend! Ich kann Ihnen gerne helfen."
             </div>
             <div className="text-xs text-green-600 bg-green-50 dark:bg-green-900/20 px-3 py-2 rounded-lg">
-              Natürliche Spracherkennung aktiv
+              💰 Kein verlorener Anruf = Kein verlorener Kunde
             </div>
           </div>
         );
         
       case 'email':
         return (
-          <div className="space-y-2">
-            <div className="flex items-center justify-between text-xs text-muted-foreground border-b pb-2">
-              <span>Posteingang (3)</span>
-              <span>Automatisch sortiert</span>
+          <div className="space-y-3">
+            <div className="text-center text-sm text-muted-foreground mb-2">
+              Ihr E-Mail-Postfach jeden Morgen...
             </div>
             <div className="space-y-1">
-              <div className="flex items-center gap-2 p-2 bg-blue-50 dark:bg-blue-900/20 rounded text-xs">
-                <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                <span className="flex-1 truncate">Kunde: Produktanfrage</span>
-                <span className="text-green-600">✓ Priorität</span>
+              <div className="flex items-center gap-2 p-2 bg-red-50 dark:bg-red-900/20 rounded border-l-4 border-red-500 text-xs">
+                <span className="flex-1">🔥 WICHTIG: Große Anfrage von TechCorp</span>
+                <span className="text-red-600 font-bold">Priorität 1</span>
               </div>
-              <div className="flex items-center gap-2 p-2 bg-muted/30 rounded text-xs">
-                <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                <span className="flex-1 truncate">Newsletter: Update</span>
-                <span className="text-muted-foreground">Archiviert</span>
+              <div className="flex items-center gap-2 p-2 bg-yellow-50 dark:bg-yellow-900/20 rounded border-l-4 border-yellow-500 text-xs">
+                <span className="flex-1">📞 Rückruf: Interessent wartet</span>
+                <span className="text-yellow-600 font-medium">Heute</span>
               </div>
+              <div className="flex items-center gap-2 p-2 bg-gray-50 dark:bg-gray-800 rounded text-xs opacity-60">
+                <span className="flex-1">Newsletter: Update (automatisch archiviert)</span>
+              </div>
+            </div>
+            <div className="text-center text-xs text-orange-600 bg-orange-50 dark:bg-orange-900/20 px-3 py-1 rounded-full">
+              ⚡ Wichtiges zuerst - Unwichtiges automatisch weg
             </div>
           </div>
         );
@@ -174,23 +189,29 @@ const InteractiveKIDemo = () => {
       case 'newsletter':
         return (
           <div className="space-y-3">
-            <div className="border border-dashed border-primary/30 rounded-lg p-3 bg-primary/5">
-              <div className="text-sm font-medium mb-1">📧 Newsletter wird erstellt...</div>
-              <div className="text-xs text-muted-foreground mb-2">Zielgruppe: B2B Kunden (847 Kontakte)</div>
+            <div className="text-center text-sm text-muted-foreground mb-2">
+              Jeden Montag automatisch...
+            </div>
+            <div className="border border-dashed border-purple-300 rounded-lg p-3 bg-purple-50 dark:bg-purple-900/20">
+              <div className="text-sm font-medium mb-2">📧 Newsletter wird erstellt...</div>
+              <div className="text-xs text-muted-foreground mb-2">Für Ihre 847 Kunden</div>
               <div className="space-y-1">
                 <div className="flex justify-between text-xs">
-                  <span>Betreff-Optimierung</span>
-                  <span className="text-green-600">✓</span>
+                  <span>Personalisierte Betreffzeile</span>
+                  <span className="text-green-600">✓ Fertig</span>
                 </div>
                 <div className="flex justify-between text-xs">
-                  <span>Personalisierung</span>
-                  <span className="text-green-600">✓</span>
+                  <span>Passende Inhalte ausgewählt</span>
+                  <span className="text-green-600">✓ Fertig</span>
                 </div>
                 <div className="flex justify-between text-xs">
-                  <span>A/B Testing</span>
-                  <span className="text-yellow-600">⏳</span>
+                  <span>Versand um 9:00 Uhr</span>
+                  <span className="text-blue-600">⏰ Geplant</span>
                 </div>
               </div>
+            </div>
+            <div className="text-center text-xs text-purple-600 bg-purple-50 dark:bg-purple-900/20 px-3 py-1 rounded-full">
+              🚀 Kunden bleiben automatisch informiert
             </div>
           </div>
         );
@@ -198,31 +219,33 @@ const InteractiveKIDemo = () => {
       case 'sales':
         return (
           <div className="space-y-3">
-            <div className="grid grid-cols-2 gap-2 text-xs">
-              <div className="bg-green-50 dark:bg-green-900/20 p-2 rounded text-center">
-                <div className="font-bold text-green-600">47</div>
-                <div className="text-muted-foreground">Qualifizierte Leads</div>
-              </div>
-              <div className="bg-blue-50 dark:bg-blue-900/20 p-2 rounded text-center">
-                <div className="font-bold text-blue-600">89%</div>
-                <div className="text-muted-foreground">Conversion</div>
-              </div>
+            <div className="text-center text-sm text-muted-foreground mb-2">
+              Ihre besten potentiellen Kunden...
             </div>
-            <div className="space-y-1">
-              <div className="flex items-center justify-between p-2 bg-muted/30 rounded text-xs">
+            <div className="space-y-2">
+              <div className="flex items-center justify-between p-2 bg-green-50 dark:bg-green-900/20 rounded border border-green-200 dark:border-green-800 text-xs">
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                  <span>TechCorp GmbH</span>
+                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                  <div>
+                    <div className="font-medium">TechCorp GmbH</div>
+                    <div className="text-muted-foreground">Budget: 50k€, braucht sofort</div>
+                  </div>
                 </div>
-                <span className="text-green-600 font-medium">Heiß</span>
+                <span className="text-green-600 font-bold">🔥 HEIß</span>
               </div>
-              <div className="flex items-center justify-between p-2 bg-muted/30 rounded text-xs">
+              <div className="flex items-center justify-between p-2 bg-yellow-50 dark:bg-yellow-900/20 rounded border border-yellow-200 dark:border-yellow-800 text-xs">
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                  <span>StartUp AG</span>
+                  <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                  <div>
+                    <div className="font-medium">StartUp AG</div>
+                    <div className="text-muted-foreground">Interesse gezeigt, folgt up</div>
+                  </div>
                 </div>
                 <span className="text-yellow-600 font-medium">Warm</span>
               </div>
+            </div>
+            <div className="text-center text-xs text-red-600 bg-red-50 dark:bg-red-900/20 px-3 py-1 rounded-full">
+              🎯 Ihre Zeit nur für die besten Chancen
             </div>
           </div>
         );
@@ -230,25 +253,31 @@ const InteractiveKIDemo = () => {
       case 'calendar':
         return (
           <div className="space-y-3">
-            <div className="grid grid-cols-7 gap-1 text-xs text-center">
-              {['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'].map((day, i) => (
-                <div key={i} className="text-muted-foreground font-medium">{day}</div>
-              ))}
-              {Array.from({length: 7}, (_, i) => (
-                <div key={i} className={`p-1 rounded ${i === 2 ? 'bg-primary text-primary-foreground' : i === 4 ? 'bg-green-100 dark:bg-green-900/30 text-green-600' : 'text-muted-foreground'}`}>
-                  {i + 15}
-                </div>
-              ))}
+            <div className="text-center text-sm text-muted-foreground mb-2">
+              Ein Kunde möchte einen Termin...
             </div>
-            <div className="space-y-1 text-xs">
-              <div className="flex items-center gap-2 p-2 bg-primary/10 rounded">
-                <div className="w-2 h-2 bg-primary rounded-full"></div>
-                <span>14:00 - Meeting automatisch gebucht</span>
+            <div className="bg-gray-50 dark:bg-gray-800 p-3 rounded-lg">
+              <div className="grid grid-cols-7 gap-1 text-xs text-center mb-2">
+                {['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'].map((day, i) => (
+                  <div key={i} className="text-muted-foreground font-medium">{day}</div>
+                ))}
+                {Array.from({length: 7}, (_, i) => (
+                  <div key={i} className={`p-1 rounded ${i === 2 ? 'bg-primary text-primary-foreground animate-pulse' : i === 4 ? 'bg-green-100 dark:bg-green-900/30 text-green-600' : 'text-muted-foreground'}`}>
+                    {i + 15}
+                  </div>
+                ))}
               </div>
-              <div className="flex items-center gap-2 p-2 bg-green-50 dark:bg-green-900/20 rounded">
-                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                <span>Erinnerung versendet ✓</span>
+              <div className="space-y-1 text-xs">
+                <div className="flex items-center gap-2 p-2 bg-primary/20 rounded">
+                  <span>✅ Mi 14:00 - Beratungstermin automatisch gebucht</span>
+                </div>
+                <div className="flex items-center gap-2 p-2 bg-green-50 dark:bg-green-900/20 rounded">
+                  <span>📧 Erinnerung an beide Seiten versendet</span>
+                </div>
               </div>
+            </div>
+            <div className="text-center text-xs text-indigo-600 bg-indigo-50 dark:bg-indigo-900/20 px-3 py-1 rounded-full">
+              📅 Terminbuchung ohne Ihr Zutun
             </div>
           </div>
         );
@@ -273,10 +302,13 @@ const InteractiveKIDemo = () => {
         </Button>
         
         <div className="flex items-center gap-2 min-w-0 flex-1 justify-center">
-          <div className={`w-8 h-8 ${currentAgent.color} rounded-lg flex items-center justify-center transition-all duration-300`}>
+          <div className={`w-8 h-8 ${currentAgent.color} rounded-lg flex items-center justify-center transition-all duration-300 shadow-sm`}>
             <currentAgent.icon className="w-4 h-4 text-white" />
           </div>
-          <span className="font-medium text-sm truncate">{currentAgent.name}</span>
+          <div className="text-center">
+            <div className="font-medium text-sm truncate">{currentAgent.name}</div>
+            <div className="text-xs text-muted-foreground truncate">{currentAgent.benefit}</div>
+          </div>
         </div>
         
         <Button
@@ -322,14 +354,14 @@ const InteractiveKIDemo = () => {
 
           {/* Footer Info */}
           <div className="pt-3 border-t border-border/30 text-center">
-            <p className="text-xs text-muted-foreground">
-              {currentAgent.interface === 'chat' && '24/7 verfügbar • Automatische Antworten'}
-              {currentAgent.interface === 'linkedin' && '60% Zeitersparnis • Automatisches Networking'}  
-              {currentAgent.interface === 'voice' && 'Natürliche Sprache • Rund um die Uhr'}
-              {currentAgent.interface === 'email' && '40% weniger manueller Aufwand • Smart Sorting'}
-              {currentAgent.interface === 'newsletter' && 'Personalisiert • A/B Testing • Automatisch'}
-              {currentAgent.interface === 'sales' && '45% höhere Conversion • Lead-Scoring'}
-              {currentAgent.interface === 'calendar' && '75% weniger Aufwand • Automatische Erinnerungen'}
+            <p className="text-xs text-muted-foreground font-medium">
+              {currentAgent.interface === 'chat' && '💡 Aus jedem Website-Besucher kann ein Kunde werden'}
+              {currentAgent.interface === 'linkedin' && '🎯 Neue Kontakte finden sich selbst'}  
+              {currentAgent.interface === 'voice' && '📞 Jeder Anruf wird beantwortet'}
+              {currentAgent.interface === 'email' && '⚡ Wichtiges sofort erkennen'}
+              {currentAgent.interface === 'newsletter' && '📨 Kunden vergessen Sie nie'}
+              {currentAgent.interface === 'sales' && '💰 Beste Chancen zuerst bearbeiten'}
+              {currentAgent.interface === 'calendar' && '📅 Termine ohne Telefonieren'}
             </p>
           </div>
         </div>
@@ -338,16 +370,16 @@ const InteractiveKIDemo = () => {
       {/* Demo Stats */}
       <div className="mt-4 grid grid-cols-3 gap-2 text-center">
         <div className="bg-background/60 backdrop-blur-sm border border-border/30 rounded-lg p-2">
-          <div className="text-lg font-bold text-primary">7</div>
-          <div className="text-xs text-muted-foreground">KI-Agenten</div>
+          <div className="text-lg font-bold text-primary">€€€</div>
+          <div className="text-xs text-muted-foreground">Mehr Umsatz</div>
         </div>
         <div className="bg-background/60 backdrop-blur-sm border border-border/30 rounded-lg p-2">
           <div className="text-lg font-bold text-primary">80%</div>
-          <div className="text-xs text-muted-foreground">Zeitersparnis</div>
+          <div className="text-xs text-muted-foreground">Weniger Arbeit</div>
         </div>
         <div className="bg-background/60 backdrop-blur-sm border border-border/30 rounded-lg p-2">
           <div className="text-lg font-bold text-primary">24/7</div>
-          <div className="text-xs text-muted-foreground">Verfügbar</div>
+          <div className="text-xs text-muted-foreground">Immer da</div>
         </div>
       </div>
     </div>
