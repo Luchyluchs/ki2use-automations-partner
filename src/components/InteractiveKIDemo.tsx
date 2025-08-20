@@ -97,29 +97,24 @@ const InteractiveKIDemo = () => {
     switch (currentAgent.interface) {
         case 'chat':
         return (
-          <div className="space-y-4">
-            <div className="text-center text-sm text-muted-foreground mb-3">
-              Ein Kunde besucht Ihre Website um 23:00 Uhr...
+          <div className="space-y-3">
+            <div className="text-center text-xs text-muted-foreground mb-3">
+              Website-Besucher um 23:00 Uhr
             </div>
             <div className="flex justify-start">
               <div className="bg-muted text-muted-foreground px-3 py-2 rounded-lg text-sm max-w-[80%]">
-                Hallo! Haben Sie auch Termine am Wochenende?
+                Hallo! Sind Sie am Wochenende da?
               </div>
             </div>
             <div className="flex justify-end">
               <div className="bg-primary text-primary-foreground px-3 py-2 rounded-lg text-sm max-w-[80%]">
-                Ja! Samstag 9-16 Uhr möglich ✓
+                Ja! Samstag 9-16 Uhr verfügbar
               </div>
             </div>
-            <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-2 text-xs">
-              <div className="flex items-center gap-2 mb-1">
-                <Calendar className="w-3 h-3 text-green-600" />
-                <span className="font-medium text-green-700 dark:text-green-300">Direkt in Ihren Kalender eingetragen:</span>
+            <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-2 text-center">
+              <div className="text-xs text-green-600 font-medium">
+                ✅ Termin automatisch gebucht
               </div>
-              <div className="text-green-600 text-xs">📅 Samstag 14:00 - Beratungsgespräch mit Max M.</div>
-            </div>
-            <div className="text-center text-xs text-green-600 bg-green-50 dark:bg-green-900/20 px-3 py-1 rounded-full">
-              🎉 Neuer Kunde gewonnen + Termin gebucht - während Sie schlafen!
             </div>
           </div>
         );
