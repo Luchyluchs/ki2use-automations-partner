@@ -32,26 +32,39 @@ const InteractiveKIDemo = () => {
 
   useEffect(() => {
     const scenario = demoScenarios[activeDemo];
+    if (!scenario || !Array.isArray(scenario)) return;
+    
     setMessages([]);
     setIsTyping(false);
     
     let messageIndex = 0;
+    let timeouts: NodeJS.Timeout[] = [];
+    
     const showNextMessage = () => {
-      if (messageIndex < scenario.length) {
+      if (messageIndex < scenario.length && scenario[messageIndex]) {
         setIsTyping(true);
-        setTimeout(() => {
-          setMessages(prev => [...prev, scenario[messageIndex]]);
+        const typingTimeout = setTimeout(() => {
+          const currentMessage = scenario[messageIndex];
+          if (currentMessage && typeof currentMessage.text === 'string' && typeof currentMessage.isBot === 'boolean') {
+            setMessages(prev => [...prev, currentMessage]);
+          }
           setIsTyping(false);
           messageIndex++;
           if (messageIndex < scenario.length) {
-            setTimeout(showNextMessage, 2000);
+            const nextTimeout = setTimeout(showNextMessage, 2000);
+            timeouts.push(nextTimeout);
           }
         }, 1000);
+        timeouts.push(typingTimeout);
       }
     };
 
-    const timer = setTimeout(showNextMessage, 500);
-    return () => clearTimeout(timer);
+    const initialTimer = setTimeout(showNextMessage, 500);
+    timeouts.push(initialTimer);
+    
+    return () => {
+      timeouts.forEach(timeout => clearTimeout(timeout));
+    };
   }, [activeDemo]);
 
   return (
@@ -102,7 +115,7 @@ const InteractiveKIDemo = () => {
 
           {/* Messages */}
           <div className="min-h-[300px] max-h-[300px] overflow-y-auto py-4 space-y-3">
-            {messages.map((message, index) => (
+            {messages.filter(message => message && typeof message.isBot === 'boolean').map((message, index) => (
               <div
                 key={index}
                 className={`flex ${message.isBot ? 'justify-start' : 'justify-end'} animate-fade-in`}
@@ -114,7 +127,7 @@ const InteractiveKIDemo = () => {
                       : 'bg-primary text-primary-foreground'
                   }`}
                 >
-                  {message.text}
+                  {message.text || ''}
                 </div>
               </div>
             ))}
