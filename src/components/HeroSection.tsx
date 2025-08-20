@@ -32,7 +32,7 @@ const HeroSection = () => {
               höchster Qualität und DSGVO-Konformität.
             </p>
             <div className="scroll-reveal stagger-delay-3 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
-              <CalendlyButton text="Kostenloses Erstgespräch sichern (30 Min.)" variant="cta" size="lg" className="text-sm sm:text-base lg:text-lg px-4 sm:px-6 py-3 sm:py-4 shadow-primary gradient-primary hover:shadow-elevated transform hover:scale-105 transition-all duration-300 min-h-12 sm:min-h-14 whitespace-normal text-center leading-tight max-w-xs sm:max-w-none" icon={false} />
+              <CalendlyButton text="Kostenloses Erstgespräch sichern (30 Min.)" variant="cta" size="lg" className="text-sm sm:text-base lg:text-lg px-6 sm:px-8 py-4 sm:py-5 shadow-primary gradient-primary hover:shadow-elevated transform hover:scale-105 transition-all duration-300 min-h-14 sm:min-h-16 whitespace-normal text-center leading-relaxed w-full sm:w-auto" icon={false} />
               <Button variant="outline" size="lg" asChild className="text-sm sm:text-base lg:text-lg px-6 sm:px-8 py-3 sm:py-4 border-2 hover:bg-primary hover:text-primary-foreground hover:border-primary hover:shadow-elevated transform hover:scale-105 transition-all duration-300 min-h-12 sm:min-h-14">
                 <Link to="/standard-agenten">Standard-Assistenten ansehen</Link>
               </Button>
