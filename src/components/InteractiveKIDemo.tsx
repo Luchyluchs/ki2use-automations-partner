@@ -225,9 +225,9 @@ const InteractiveKIDemo = () => {
               {[8, 12, 6, 10, 4].map((baseHeight, index) => (
                 <div 
                   key={index}
-                  className="w-2 bg-green-500 rounded-full"
+                  className="w-2 bg-green-500 rounded-full transition-all duration-300"
                   style={{
-                    height: `${baseHeight}px`
+                    height: `${baseHeight + (voiceAnimation === index % 4 ? 2 : 0)}px`
                   }}
                 ></div>
               ))}
