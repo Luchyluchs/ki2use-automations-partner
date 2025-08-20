@@ -87,7 +87,7 @@ const InteractiveKIDemo = () => {
   };
 
   useEffect(() => {
-    const interval = setInterval(nextAgent, 4000);
+    const interval = setInterval(nextAgent, 8000); // Verlangsamt von 4 auf 8 Sekunden
     return () => clearInterval(interval);
   }, [isAnimating]);
 
@@ -111,8 +111,15 @@ const InteractiveKIDemo = () => {
                 Ja! Samstag 9-16 Uhr möglich ✓
               </div>
             </div>
+            <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-2 text-xs">
+              <div className="flex items-center gap-2 mb-1">
+                <Calendar className="w-3 h-3 text-green-600" />
+                <span className="font-medium text-green-700 dark:text-green-300">Direkt in Ihren Kalender eingetragen:</span>
+              </div>
+              <div className="text-green-600 text-xs">📅 Samstag 14:00 - Beratungsgespräch mit Max M.</div>
+            </div>
             <div className="text-center text-xs text-green-600 bg-green-50 dark:bg-green-900/20 px-3 py-1 rounded-full">
-              🎉 Neuer Kunde gewonnen - während Sie schlafen!
+              🎉 Neuer Kunde gewonnen + Termin gebucht - während Sie schlafen!
             </div>
           </div>
         );
@@ -154,6 +161,17 @@ const InteractiveKIDemo = () => {
             </div>
             <div className="text-sm font-medium">
               🎤 "Guten Abend! Ich kann Ihnen gerne helfen."
+            </div>
+            <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-2 text-xs">
+              <div className="flex items-center gap-2 mb-1">
+                <Bot className="w-3 h-3 text-blue-600" />
+                <span className="font-medium text-blue-700 dark:text-blue-300">Verknüpft mit Ihren Systemen:</span>
+              </div>
+              <div className="space-y-1 text-blue-600">
+                <div>✓ CRM-System aktualisiert</div>
+                <div>✓ Termin automatisch vorgeschlagen</div>
+                <div>✓ Follow-up E-Mail geplant</div>
+              </div>
             </div>
             <div className="text-xs text-green-600 bg-green-50 dark:bg-green-900/20 px-3 py-2 rounded-lg">
               💰 Kein verlorener Anruf = Kein verlorener Kunde
@@ -370,11 +388,11 @@ const InteractiveKIDemo = () => {
       {/* Demo Stats */}
       <div className="mt-4 grid grid-cols-3 gap-2 text-center">
         <div className="bg-background/60 backdrop-blur-sm border border-border/30 rounded-lg p-2">
-          <div className="text-lg font-bold text-primary">€€€</div>
+          <div className="text-lg font-bold text-primary">+47%</div>
           <div className="text-xs text-muted-foreground">Mehr Umsatz</div>
         </div>
         <div className="bg-background/60 backdrop-blur-sm border border-border/30 rounded-lg p-2">
-          <div className="text-lg font-bold text-primary">80%</div>
+          <div className="text-lg font-bold text-primary">-80%</div>
           <div className="text-xs text-muted-foreground">Weniger Arbeit</div>
         </div>
         <div className="bg-background/60 backdrop-blur-sm border border-border/30 rounded-lg p-2">
