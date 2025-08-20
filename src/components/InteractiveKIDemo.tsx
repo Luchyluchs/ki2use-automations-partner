@@ -301,26 +301,26 @@ const InteractiveKIDemo = () => {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto animate-fade-in">
+    <div className="w-full max-w-md mx-auto">
       {/* Agent Navigation */}
-      <div className="flex items-center justify-between mb-4 animate-fade-in delay-150">
+      <div className="flex items-center justify-between mb-4">
         <Button
           variant="ghost"
           size="sm"
           onClick={prevAgent}
-          className="p-2 h-8 w-8 hover:scale-110 transition-all duration-200"
+          className="p-2 h-8 w-8"
           disabled={isAnimating}
         >
           <ChevronLeft className="w-4 h-4" />
         </Button>
         
         <div className="flex items-center gap-2 min-w-0 flex-1 justify-center">
-          <div className={`w-8 h-8 ${currentAgent.color} rounded-lg flex items-center justify-center transition-all duration-500 shadow-sm hover:shadow-lg hover:scale-110 animate-pulse`}>
-            <currentAgent.icon className="w-4 h-4 text-white transition-transform duration-300" />
+          <div className={`w-8 h-8 ${currentAgent.color} rounded-lg flex items-center justify-center transition-all duration-300 shadow-sm`}>
+            <currentAgent.icon className="w-4 h-4 text-white" />
           </div>
-          <div className="text-center transition-all duration-300">
-            <div className="font-medium text-sm truncate animate-fade-in">{currentAgent.name}</div>
-            <div className="text-xs text-muted-foreground truncate animate-fade-in delay-75">{currentAgent.benefit}</div>
+          <div className="text-center">
+            <div className="font-medium text-sm truncate">{currentAgent.name}</div>
+            <div className="text-xs text-muted-foreground truncate">{currentAgent.benefit}</div>
           </div>
         </div>
         
@@ -328,7 +328,7 @@ const InteractiveKIDemo = () => {
           variant="ghost"
           size="sm"
           onClick={nextAgent}
-          className="p-2 h-8 w-8 hover:scale-110 transition-all duration-200"
+          className="p-2 h-8 w-8"
           disabled={isAnimating}
         >
           <ChevronRight className="w-4 h-4" />
@@ -336,53 +336,38 @@ const InteractiveKIDemo = () => {
       </div>
       
       {/* Progress Indicators */}
-      <div className="flex justify-center gap-1 mb-4 animate-fade-in delay-300">
+      <div className="flex justify-center gap-1 mb-4">
         {demoAgents.map((_, index) => (
           <div
             key={index}
-            className={`h-2 rounded-full transition-all duration-500 hover:scale-125 cursor-pointer ${
-              index === activeDemoIndex 
-                ? 'bg-primary w-6 shadow-lg animate-pulse' 
-                : 'bg-muted-foreground/30 w-2 hover:bg-muted-foreground/50'
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              index === activeDemoIndex ? 'bg-primary w-6' : 'bg-muted-foreground/30'
             }`}
-            onClick={() => {
-              if (!isAnimating && index !== activeDemoIndex) {
-                setIsAnimating(true);
-                setTimeout(() => {
-                  setActiveDemoIndex(index);
-                  setIsAnimating(false);
-                }, 150);
-              }
-            }}
           />
         ))}
       </div>
 
       {/* Demo Interface */}
-      <Card className={`bg-background/80 backdrop-blur-sm border border-border/50 shadow-elevated hover:shadow-xl transition-all duration-500 hover:scale-[1.02] ${
-        isAnimating 
-          ? 'scale-95 opacity-70 rotate-1' 
-          : 'scale-100 opacity-100 rotate-0 animate-scale-in'
+      <Card className={`bg-background/80 backdrop-blur-sm border border-border/50 shadow-elevated transition-all duration-300 ${
+        isAnimating ? 'scale-95 opacity-80' : 'scale-100 opacity-100'
       }`}>
         <div className="p-4">
           {/* Header */}
-          <div className="flex items-center gap-3 pb-3 border-b border-border/30 animate-fade-in">
-            <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse shadow-green-500/50 shadow-lg"></div>
-            <span className="text-sm font-medium text-foreground transition-all duration-300">
+          <div className="flex items-center gap-3 pb-3 border-b border-border/30">
+            <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+            <span className="text-sm font-medium text-foreground">
               {currentAgent.name} Demo
             </span>
           </div>
 
           {/* Dynamic Interface */}
-          <div className={`min-h-[280px] max-h-[280px] py-4 transition-all duration-300 ${
-            isAnimating ? 'opacity-60 scale-95' : 'opacity-100 scale-100 animate-fade-in'
-          }`}>
+          <div className="min-h-[280px] max-h-[280px] py-4">
             {renderInterface()}
           </div>
 
           {/* Footer Info */}
-          <div className="pt-3 border-t border-border/30 text-center animate-fade-in delay-200">
-            <p className="text-xs text-muted-foreground font-medium transition-all duration-300 hover:text-foreground">
+          <div className="pt-3 border-t border-border/30 text-center">
+            <p className="text-xs text-muted-foreground font-medium">
               {currentAgent.interface === 'chat' && '💡 Aus jedem Website-Besucher kann ein Kunde werden'}
               {currentAgent.interface === 'linkedin' && '🎯 Neue Kontakte finden sich selbst'}  
               {currentAgent.interface === 'voice' && '📞 Jeder Anruf wird beantwortet'}
