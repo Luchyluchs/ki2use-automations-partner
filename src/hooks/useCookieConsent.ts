@@ -8,7 +8,7 @@ export interface ConsentData {
 
 const CONSENT_KEY = 'cookie-consent';
 const CONSENT_VERSION = '1.0';
-const ANALYTICS_ID = 'G-ZK9LRZQ2RS';
+const GTM_ID = 'GTM-N098VCL9';
 const DEBUG_MODE = true; // Enable for debugging
 
 // Analytics Debug Logger
@@ -52,22 +52,21 @@ export const useCookieConsent = () => {
 
   const checkAnalyticsStatus = () => {
     const status = {
-      scriptLoaded: !!document.querySelector(`script[src*="googletagmanager.com/gtag/js?id=${ANALYTICS_ID}"]`),
-      gtagExists: typeof window.gtag === 'function',
+      gtmLoaded: !!document.querySelector(`script[src*="googletagmanager.com/gtm.js?id=${GTM_ID}"]`),
       dataLayerExists: Array.isArray(window.dataLayer),
+      gtmInitialized: !!(window.dataLayer && window.dataLayer.some((item: any) => item.event === 'gtm.js')),
       cookieConsent: !!consentData?.analytics,
       timestamp: new Date().toISOString()
     };
     
-    analyticsLogger.log('Analytics Status Check:', status);
+    analyticsLogger.log('GTM Status Check:', status);
     
     // Store status in window for manual checking
-    (window as any).analyticsStatus = status;
+    (window as any).gtmStatus = status;
     
-    if (!status.scriptLoaded && consentData?.analytics) {
-      analyticsLogger.error('Analytics script not loaded despite consent');
-      // Attempt to reload
-      loadGoogleAnalytics();
+    if (consentData?.analytics && !status.gtmInitialized) {
+      analyticsLogger.log('GTM consent given, triggering analytics events');
+      triggerGTMEvents();
     }
   };
 
@@ -86,10 +85,10 @@ export const useCookieConsent = () => {
           setConsentData(data.consent);
           setShowBanner(false);
           
-          // Load Google Analytics if consent given
+          // Trigger GTM events if consent given
           if (data.consent.analytics) {
-            analyticsLogger.log('Analytics consent found, loading Google Analytics...');
-            loadGoogleAnalytics();
+            analyticsLogger.log('Analytics consent found, triggering GTM events...');
+            triggerGTMEvents();
           } else {
             analyticsLogger.log('No analytics consent found');
           }
@@ -122,10 +121,10 @@ export const useCookieConsent = () => {
       setConsentData(consent);
       setShowBanner(false);
       
-      // Load Google Analytics if consent given
+      // Trigger GTM events if consent given
       if (consent.analytics) {
-        analyticsLogger.log('Analytics consent given, loading Google Analytics...');
-        loadGoogleAnalytics();
+        analyticsLogger.log('Analytics consent given, triggering GTM events...');
+        triggerGTMEvents();
       } else {
         analyticsLogger.log('Analytics consent denied');
       }
@@ -134,122 +133,70 @@ export const useCookieConsent = () => {
     }
   };
 
-  const loadGoogleAnalytics = () => {
-    // Check if already loaded
-    if (window.gtag && window.dataLayer) {
-      analyticsLogger.log('Google Analytics already loaded');
-      return;
-    }
-
-    analyticsLogger.log('Loading Google Analytics...');
-
+  const triggerGTMEvents = () => {
     try {
-      // Only load if not already loaded and we're in browser
       if (typeof window === 'undefined') {
         analyticsLogger.log('Not in browser environment');
         return;
       }
 
-      // Initialize dataLayer first
+      // Initialize dataLayer if not exists
       window.dataLayer = window.dataLayer || [];
+
+      // Push consent event to GTM
+      window.dataLayer.push({
+        event: 'consent_update',
+        analytics_consent: 'granted',
+        timestamp: Date.now()
+      });
+
+      analyticsLogger.success('GTM consent event triggered');
+
+      // Track page view
+      trackPageView(window.location.pathname);
       
-      // Create gtag function
-      function gtag(...args: any[]) {
-        window.dataLayer.push(args);
-      }
-      window.gtag = gtag;
-
-      // Load debug version if in debug mode
-      const scriptSrc = DEBUG_MODE 
-        ? `https://www.googletagmanager.com/gtag/js?id=${ANALYTICS_ID}&l=dataLayer&debug=true`
-        : `https://www.googletagmanager.com/gtag/js?id=${ANALYTICS_ID}`;
-
-      // Check if script already exists
-      const existingScript = document.querySelector(`script[src*="googletagmanager.com/gtag/js?id=${ANALYTICS_ID}"]`);
-      if (existingScript) {
-        analyticsLogger.log('Analytics script already exists');
-        initializeAnalytics();
-        return;
-      }
-
-      // Create and append the Google Analytics script
-      const script = document.createElement('script');
-      script.async = true;
-      script.src = scriptSrc;
-      
-      script.onload = () => {
-        analyticsLogger.success('Google Analytics script loaded');
-        initializeAnalytics();
-        
-        // Test event to verify functionality
-        setTimeout(() => {
-          testAnalyticsEvent();
-        }, 1000);
-      };
-
-      script.onerror = (error) => {
-        analyticsLogger.error('Failed to load Google Analytics script', error);
-        // Try fallback tracking
-        initializeFallbackTracking();
-      };
-
-      document.head.appendChild(script);
-      analyticsLogger.log('Analytics script added to DOM');
+      // Test event to verify functionality
+      setTimeout(() => {
+        testGTMEvent();
+      }, 1000);
 
     } catch (error) {
-      analyticsLogger.error('Error setting up Google Analytics:', error);
+      analyticsLogger.error('Error triggering GTM events:', error);
       initializeFallbackTracking();
     }
   };
 
-  const initializeAnalytics = () => {
+  const testGTMEvent = () => {
     try {
-      // Initialize Google Analytics
-      window.gtag('js', new Date());
-      window.gtag('config', ANALYTICS_ID, {
-        anonymize_ip: true,
-        cookie_flags: 'SameSite=Lax;Secure',
-        transport_type: 'beacon',
-        debug_mode: DEBUG_MODE,
-        send_page_view: true,
-        custom_map: {'custom_parameter_1': 'mobile_user'}
-      });
-
-      analyticsLogger.success('Google Analytics initialized');
-      
-      // Track initial page view
-      trackPageView(window.location.pathname);
-      
-    } catch (error) {
-      analyticsLogger.error('Error initializing Google Analytics:', error);
-    }
-  };
-
-  const testAnalyticsEvent = () => {
-    try {
-      if (window.gtag) {
-        window.gtag('event', 'analytics_test', {
+      if (window.dataLayer) {
+        window.dataLayer.push({
+          event: 'analytics_test',
           event_category: 'System',
-          event_label: 'Analytics Working',
-          value: 1
+          event_label: 'GTM Working',
+          value: 1,
+          timestamp: Date.now()
         });
-        analyticsLogger.success('Test event sent');
+        analyticsLogger.success('GTM test event sent');
       }
     } catch (error) {
-      analyticsLogger.error('Error sending test event:', error);
+      analyticsLogger.error('Error sending GTM test event:', error);
     }
   };
+
 
   const trackPageView = (path: string) => {
     try {
-      if (window.gtag && consentData?.analytics) {
-        window.gtag('config', ANALYTICS_ID, {
-          page_path: path
+      if (window.dataLayer && consentData?.analytics) {
+        window.dataLayer.push({
+          event: 'page_view',
+          page_path: path,
+          page_title: document.title,
+          timestamp: Date.now()
         });
-        analyticsLogger.log('Page view tracked:', path);
+        analyticsLogger.log('GTM page view tracked:', path);
       }
     } catch (error) {
-      analyticsLogger.error('Error tracking page view:', error);
+      analyticsLogger.error('Error tracking GTM page view:', error);
     }
   };
 
@@ -332,10 +279,11 @@ export const useCookieConsent = () => {
   // Expose debug functions to window for manual testing
   useEffect(() => {
     if (DEBUG_MODE) {
-      (window as any).analyticsDebug = {
+      (window as any).gtmDebug = {
         checkStatus: checkAnalyticsStatus,
-        testEvent: testAnalyticsEvent,
+        testEvent: testGTMEvent,
         trackPageView,
+        triggerEvents: triggerGTMEvents,
         getConsent: () => consentData,
         logger: analyticsLogger
       };
@@ -354,13 +302,12 @@ export const useCookieConsent = () => {
   };
 };
 
-// Extend window type for gtag
+// Extend window type for GTM
 declare global {
   interface Window {
-    gtag: (...args: any[]) => void;
     dataLayer: any[];
-    analyticsStatus?: any;
+    gtmStatus?: any;
     fallbackAnalytics?: any;
-    analyticsDebug?: any;
+    gtmDebug?: any;
   }
 }
