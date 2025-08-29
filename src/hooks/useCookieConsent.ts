@@ -11,6 +11,43 @@ const CONSENT_VERSION = '1.0';
 const GTM_ID = 'GTM-N098VCL9';
 const DEBUG_MODE = true; // Enable for debugging
 
+// GTM Container Validation
+const validateGTMContainer = async (containerId: string): Promise<boolean> => {
+  try {
+    const response = await fetch(`https://www.googletagmanager.com/gtm.js?id=${containerId}`, {
+      method: 'HEAD',
+      mode: 'no-cors'
+    });
+    return response.status !== 404;
+  } catch {
+    return false;
+  }
+};
+
+// GTM Container Status Checker
+const checkGTMContainerStatus = async () => {
+  analyticsLogger.log('Checking GTM container status for:', GTM_ID);
+  
+  // Check if container exists
+  const containerExists = await validateGTMContainer(GTM_ID);
+  
+  if (!containerExists) {
+    analyticsLogger.error(`GTM Container ${GTM_ID} returns 404 - Container may not exist, be unpublished, or deleted`);
+    
+    // Provide troubleshooting info
+    analyticsLogger.log('GTM 404 Troubleshooting:');
+    analyticsLogger.log('1. Verify the container ID is correct');
+    analyticsLogger.log('2. Check if the container is published in GTM');
+    analyticsLogger.log('3. Ensure the GTM account has not been suspended');
+    analyticsLogger.log('4. Container URL being tested:', `https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`);
+    
+    return false;
+  }
+  
+  analyticsLogger.success('GTM container exists and is accessible');
+  return true;
+};
+
 // Analytics Debug Logger
 const analyticsLogger = {
   log: (message: string, data?: any) => {
@@ -36,7 +73,15 @@ export const useCookieConsent = () => {
   useEffect(() => {
     // Check if we're in browser environment
     if (typeof window !== 'undefined') {
-      checkExistingConsent();
+      // First check GTM container status
+      checkGTMContainerStatus().then(containerValid => {
+        if (!containerValid) {
+          analyticsLogger.error('GTM container validation failed - analytics may not work properly');
+          // Still check consent, but warn user
+          (window as any).gtmContainerError = true;
+        }
+        checkExistingConsent();
+      });
     }
   }, []);
 
@@ -210,7 +255,7 @@ export const useCookieConsent = () => {
 
       // Additional container validation
       setTimeout(() => {
-        validateGTMContainer();
+        validateGTMContainerInternal();
       }, 3000);
 
     } catch (error) {
@@ -238,7 +283,7 @@ export const useCookieConsent = () => {
     }
   };
 
-  const validateGTMContainer = () => {
+  const validateGTMContainerInternal = () => {
     try {
       const hasGTMEvents = window.dataLayer?.some((item: any) => 
         item.event === 'gtm.js' || item.event === 'consent_update'
@@ -395,7 +440,7 @@ export const useCookieConsent = () => {
         
         // Validation
         validateResponse: validateGTMResponse,
-        validateContainer: validateGTMContainer,
+        validateContainerInternal: validateGTMContainerInternal,
         
         // Data access
         getConsent: () => consentData,
@@ -413,12 +458,43 @@ export const useCookieConsent = () => {
           triggerGTMEvents();
         },
         
+        // Container validation and testing
+        validateContainerStatus: async () => {
+          return await checkGTMContainerStatus();
+        },
+        
+        // Test different container ID
+        testContainerID: async (newContainerID: string) => {
+          analyticsLogger.log(`Testing container ID: ${newContainerID}`);
+          const isValid = await validateGTMContainer(newContainerID);
+          analyticsLogger.log(`Container ${newContainerID} is ${isValid ? 'valid' : 'invalid'}`);
+          return isValid;
+        },
+        
         // Network diagnostics
         checkNetworkConnectivity: () => {
           const testUrl = `https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`;
           fetch(testUrl, { method: 'HEAD', mode: 'no-cors' })
             .then(() => analyticsLogger.success('GTM network connectivity OK'))
             .catch(err => analyticsLogger.error('GTM network connectivity failed:', err));
+        },
+        
+        // Container troubleshooting guide
+        troubleshoot: () => {
+          analyticsLogger.log('🔧 GTM TROUBLESHOOTING GUIDE:');
+          analyticsLogger.log('1. Check GTM account: https://tagmanager.google.com/');
+          analyticsLogger.log(`2. Verify container ${GTM_ID} exists and is published`);
+          analyticsLogger.log('3. Check if container has at least one published version');
+          analyticsLogger.log('4. Verify workspace is not in preview mode only');
+          analyticsLogger.log('5. Container URL:', `https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`);
+          analyticsLogger.log('6. Test manually: Open above URL in browser - should NOT return 404');
+          
+          // Auto-run container validation
+          setTimeout(() => {
+            if ((window as any).gtmDebug.validateContainerStatus) {
+              (window as any).gtmDebug.validateContainerStatus();
+            }
+          }, 1000);
         }
       };
       
