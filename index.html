@@ -264,13 +264,112 @@
     
     <!-- Cookie Consent and Analytics managed in React app -->
     
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-N098VCL9');</script>
-    <!-- End Google Tag Manager -->
+    <!-- Enhanced Google Tag Manager with Error Handling -->
+    <script>
+    (function(w,d,s,l,i){
+      // Initialize dataLayer and GTM status tracking
+      w[l]=w[l]||[];
+      w.gtmLoadStatus = { loaded: false, error: null, attempts: 0 };
+      
+      // GTM Debug Logger
+      w.gtmLogger = {
+        log: function(msg, data) {
+          console.log('🔍 [GTM] ' + msg, data || '');
+        },
+        error: function(msg, err) {
+          console.error('❌ [GTM Error] ' + msg, err || '');
+          w.gtmLoadStatus.error = err || msg;
+        }
+      };
+      
+      // Enhanced GTM loading function
+      function loadGTM(attempt) {
+        attempt = attempt || 1;
+        w.gtmLoadStatus.attempts = attempt;
+        w.gtmLogger.log('Loading GTM (attempt ' + attempt + ')');
+        
+        w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+        
+        var f=d.getElementsByTagName(s)[0];
+        var j=d.createElement(s);
+        var dl=l!='dataLayer'?'&l='+l:'';
+        
+        j.async=true;
+        j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+        
+        // Success handler
+        j.onload = function() {
+          w.gtmLoadStatus.loaded = true;
+          w.gtmLogger.log('GTM loaded successfully on attempt ' + attempt);
+        };
+        
+        // Error handler with retry logic
+        j.onerror = function(error) {
+          w.gtmLogger.error('GTM loading failed on attempt ' + attempt, error);
+          
+          if (attempt < 3) {
+            setTimeout(function() {
+              loadGTM(attempt + 1);
+            }, 2000 * attempt); // Exponential backoff
+          } else {
+            w.gtmLogger.error('GTM loading failed after 3 attempts - using fallback');
+            initGTMFallback();
+          }
+        };
+        
+        // Network timeout fallback
+        setTimeout(function() {
+          if (!w.gtmLoadStatus.loaded && attempt === 1) {
+            w.gtmLogger.log('GTM loading timeout, checking status...');
+            if (!j.complete) {
+              j.onerror(new Error('Network timeout'));
+            }
+          }
+        }, 10000);
+        
+        f.parentNode.insertBefore(j,f);
+      }
+      
+      // Fallback mechanism for failed GTM loading
+      function initGTMFallback() {
+        w.gtmLogger.log('Initializing GTM fallback mechanism');
+        
+        // Create minimal GTM-like functionality
+        w.gtag = w.gtag || function(){
+          w[l].push(arguments);
+          w.gtmLogger.log('Fallback gtag called', arguments);
+        };
+        
+        // Mark as fallback mode
+        w.gtmLoadStatus.fallbackMode = true;
+        
+        // Trigger fallback ready event
+        w[l].push({
+          event: 'gtm_fallback_ready',
+          timestamp: new Date().getTime()
+        });
+      }
+      
+      // Start loading GTM
+      loadGTM();
+      
+      // Global status checker
+      w.checkGTMStatus = function() {
+        var status = {
+          loaded: w.gtmLoadStatus.loaded,
+          error: w.gtmLoadStatus.error,
+          attempts: w.gtmLoadStatus.attempts,
+          fallbackMode: w.gtmLoadStatus.fallbackMode || false,
+          dataLayerLength: w[l] ? w[l].length : 0,
+          timestamp: new Date().toISOString()
+        };
+        console.log('GTM Status:', status);
+        return status;
+      };
+      
+    })(window,document,'script','dataLayer','GTM-N098VCL9');
+    </script> 
+    <!-- End Enhanced Google Tag Manager -->
   </head>
 
   <body>

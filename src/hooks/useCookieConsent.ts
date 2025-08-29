@@ -51,22 +51,55 @@ export const useCookieConsent = () => {
   }, [consentData]);
 
   const checkAnalyticsStatus = () => {
+    const gtmScript = document.querySelector(`script[src*="googletagmanager.com/gtm.js?id=${GTM_ID}"]`);
+    const windowGTMStatus = (window as any).gtmLoadStatus;
+    const windowCheckStatus = (window as any).checkGTMStatus;
+    
     const status = {
-      gtmLoaded: !!document.querySelector(`script[src*="googletagmanager.com/gtm.js?id=${GTM_ID}"]`),
+      gtmScriptPresent: !!gtmScript,
+      gtmLoaded: windowGTMStatus?.loaded || false,
+      gtmError: windowGTMStatus?.error || null,
+      gtmAttempts: windowGTMStatus?.attempts || 0,
+      fallbackMode: windowGTMStatus?.fallbackMode || false,
       dataLayerExists: Array.isArray(window.dataLayer),
+      dataLayerLength: window.dataLayer?.length || 0,
       gtmInitialized: !!(window.dataLayer && window.dataLayer.some((item: any) => item.event === 'gtm.js')),
       cookieConsent: !!consentData?.analytics,
+      containerID: GTM_ID,
       timestamp: new Date().toISOString()
     };
     
-    analyticsLogger.log('GTM Status Check:', status);
+    // Enhanced logging with detailed status
+    analyticsLogger.log('Enhanced GTM Status Check:', status);
     
-    // Store status in window for manual checking
+    // Check for network issues
+    if (gtmScript && !status.gtmLoaded && !status.gtmError) {
+      analyticsLogger.log('GTM script present but not loaded - possible network issue');
+    }
+    
+    // Store comprehensive status in window for manual checking
     (window as any).gtmStatus = status;
     
+    // Get additional status from enhanced GTM loader if available
+    if (windowCheckStatus && typeof windowCheckStatus === 'function') {
+      const enhancedStatus = windowCheckStatus();
+      (window as any).gtmEnhancedStatus = enhancedStatus;
+      analyticsLogger.log('Enhanced GTM Loader Status:', enhancedStatus);
+    }
+    
+    // Trigger events if consent given but GTM not initialized
     if (consentData?.analytics && !status.gtmInitialized) {
-      analyticsLogger.log('GTM consent given, triggering analytics events');
+      analyticsLogger.log('GTM consent given but not initialized, triggering analytics events');
       triggerGTMEvents();
+    }
+    
+    // Alert on critical issues
+    if (status.gtmError) {
+      analyticsLogger.error('Critical GTM Error detected:', status.gtmError);
+    }
+    
+    if (status.fallbackMode) {
+      analyticsLogger.log('GTM running in fallback mode');
     }
   };
 
@@ -140,29 +173,95 @@ export const useCookieConsent = () => {
         return;
       }
 
+      // Enhanced GTM status check before triggering events
+      const windowGTMStatus = (window as any).gtmLoadStatus;
+      analyticsLogger.log('GTM Status before triggering events:', windowGTMStatus);
+
       // Initialize dataLayer if not exists
       window.dataLayer = window.dataLayer || [];
 
-      // Push consent event to GTM
-      window.dataLayer.push({
+      // Enhanced consent event with more context
+      const consentEvent = {
         event: 'consent_update',
         analytics_consent: 'granted',
+        consent_timestamp: Date.now(),
+        gtm_container_id: GTM_ID,
+        page_url: window.location.href,
+        page_path: window.location.pathname,
+        user_agent: navigator.userAgent.substring(0, 100), // Truncated for privacy
         timestamp: Date.now()
-      });
+      };
 
-      analyticsLogger.success('GTM consent event triggered');
+      window.dataLayer.push(consentEvent);
+      analyticsLogger.success('Enhanced GTM consent event triggered:', consentEvent);
 
-      // Track page view
+      // Validate GTM is responding
+      setTimeout(() => {
+        validateGTMResponse();
+      }, 500);
+
+      // Track page view with enhanced data
       trackPageView(window.location.pathname);
       
-      // Test event to verify functionality
+      // Test event to verify functionality with delay
       setTimeout(() => {
         testGTMEvent();
-      }, 1000);
+      }, 1500);
+
+      // Additional container validation
+      setTimeout(() => {
+        validateGTMContainer();
+      }, 3000);
 
     } catch (error) {
       analyticsLogger.error('Error triggering GTM events:', error);
       initializeFallbackTracking();
+    }
+  };
+
+  const validateGTMResponse = () => {
+    try {
+      const windowGTMStatus = (window as any).gtmLoadStatus;
+      const dataLayerLength = window.dataLayer?.length || 0;
+      
+      analyticsLogger.log('GTM Response Validation:', {
+        gtmLoaded: windowGTMStatus?.loaded,
+        dataLayerLength,
+        fallbackMode: windowGTMStatus?.fallbackMode
+      });
+      
+      if (!windowGTMStatus?.loaded && !windowGTMStatus?.fallbackMode) {
+        analyticsLogger.error('GTM not responding after consent - potential container issue');
+      }
+    } catch (error) {
+      analyticsLogger.error('Error validating GTM response:', error);
+    }
+  };
+
+  const validateGTMContainer = () => {
+    try {
+      const hasGTMEvents = window.dataLayer?.some((item: any) => 
+        item.event === 'gtm.js' || item.event === 'consent_update'
+      );
+      
+      const containerValidation = {
+        gtm_container_id: GTM_ID,
+        has_gtm_events: hasGTMEvents,
+        dataLayer_length: window.dataLayer?.length || 0,
+        gtm_script_loaded: !!(window as any).gtmLoadStatus?.loaded,
+        timestamp: new Date().toISOString()
+      };
+
+      analyticsLogger.log('GTM Container Validation:', containerValidation);
+      
+      // Store validation results
+      (window as any).gtmContainerValidation = containerValidation;
+      
+      if (!hasGTMEvents) {
+        analyticsLogger.error('No GTM events detected - container may not be published or configured correctly');
+      }
+    } catch (error) {
+      analyticsLogger.error('Error validating GTM container:', error);
     }
   };
 
@@ -276,17 +375,59 @@ export const useCookieConsent = () => {
     }
   };
 
-  // Expose debug functions to window for manual testing
+  // Expose enhanced debug functions to window for manual testing
   useEffect(() => {
     if (DEBUG_MODE) {
       (window as any).gtmDebug = {
+        // Status checking
         checkStatus: checkAnalyticsStatus,
+        checkFullStatus: () => {
+          checkAnalyticsStatus();
+          if ((window as any).checkGTMStatus) {
+            return (window as any).checkGTMStatus();
+          }
+        },
+        
+        // Event testing
         testEvent: testGTMEvent,
         trackPageView,
         triggerEvents: triggerGTMEvents,
+        
+        // Validation
+        validateResponse: validateGTMResponse,
+        validateContainer: validateGTMContainer,
+        
+        // Data access
         getConsent: () => consentData,
-        logger: analyticsLogger
+        getDataLayer: () => window.dataLayer,
+        getGTMStatus: () => (window as any).gtmLoadStatus,
+        getContainerValidation: () => (window as any).gtmContainerValidation,
+        
+        // Utilities
+        logger: analyticsLogger,
+        containerId: GTM_ID,
+        
+        // Manual triggers for testing
+        forceRetrigger: () => {
+          analyticsLogger.log('Forcing GTM events retrigger...');
+          triggerGTMEvents();
+        },
+        
+        // Network diagnostics
+        checkNetworkConnectivity: () => {
+          const testUrl = `https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`;
+          fetch(testUrl, { method: 'HEAD', mode: 'no-cors' })
+            .then(() => analyticsLogger.success('GTM network connectivity OK'))
+            .catch(err => analyticsLogger.error('GTM network connectivity failed:', err));
+        }
       };
+      
+      // Auto-run network check on debug initialization
+      if ((window as any).gtmDebug.checkNetworkConnectivity) {
+        setTimeout(() => {
+          (window as any).gtmDebug.checkNetworkConnectivity();
+        }, 2000);
+      }
     }
   }, [consentData]);
 
