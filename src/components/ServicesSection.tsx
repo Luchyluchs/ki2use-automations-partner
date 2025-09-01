@@ -1,6 +1,6 @@
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
-import { Bot, Zap, GraduationCap, Globe } from "lucide-react";
+import { Bot, Zap, GraduationCap } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollAnimations";
 
 const ServicesSection = () => {
@@ -26,13 +26,6 @@ const ServicesSection = () => {
     features: ["Grundlagen der KI für Unternehmen", "Automatisierungsstrategien", "Workflow-Design", "Implementierungsberatung", "Langfristige Begleitung"],
     link: "/ki-schulungen",
     cta: "Schulungen buchen"
-  }, {
-    icon: Globe,
-    title: "Professionelle Homepage mit KI",
-    description: "Moderne, statische Websites wie diese hier – responsive, schnell und mit integrierten KI-Automatisierungen.",
-    features: ["Responsive Design für alle Geräte", "SEO-optimierte Struktur", "KI-Chatbot Integration", "Automatisierte Lead-Generierung", "Content Management System", "Analytics & Conversion-Tracking"],
-    link: "/homepage-erstellung",
-    cta: "Website-Angebot erhalten"
   }];
   return <section className="section-padding bg-background relative overflow-hidden">
       {/* Background Elements */}
@@ -44,13 +37,13 @@ const ServicesSection = () => {
           <h2 className="scroll-reveal mb-4 sm:mb-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
             Unsere Kernkompetenzen
           </h2>
-          <p className="scroll-reveal stagger-delay-1 text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
-            Vier speziell entwickelte Bereiche, die Ihr Unternehmen effizienter 
-            und zukunftssicherer machen – mit bewährten Automatisierungslösungen.
-          </p>
+            <p className="scroll-reveal stagger-delay-1 text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
+              Drei speziell entwickelte Bereiche, die Ihr Unternehmen effizienter 
+              und zukunftssicherer machen – mit bewährten Automatisierungslösungen.
+            </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {services.map((service, index) => {
           const IconComponent = service.icon;
           return <div key={index} className={`scroll-scale stagger-delay-${index + 1} bg-card border border-card-border rounded-2xl p-4 sm:p-6 shadow-card hover-lift cursor-pointer transform hover:scale-105 transition-all duration-500`}>

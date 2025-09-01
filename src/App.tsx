@@ -14,7 +14,7 @@ import CustomAgents from "./pages/CustomAgents";
 import ROICalculatorPage from "./pages/ROICalculator";
 import Training from "./pages/Training";
 import Contact from "./pages/Contact";
-import HomepageCreation from "./pages/HomepageCreation";
+
 import Impressum from "./pages/Impressum";
 import Datenschutz from "./pages/Datenschutz";
 import AGB from "./pages/AGB";
@@ -36,7 +36,7 @@ const App = () => (
           <Route path="/agenten-rechner" element={<ROICalculatorPage />} />
           <Route path="/roi-rechner" element={<ROICalculatorPage />} />
           <Route path="/ki-schulungen" element={<Training />} />
-          <Route path="/homepage-erstellung" element={<HomepageCreation />} />
+          
           <Route path="/kontakt" element={<Contact />} />
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/datenschutz" element={<Datenschutz />} />

@@ -26,9 +26,6 @@ const Layout = ({
     name: "Schulungen",
     href: "/ki-schulungen"
   }, {
-    name: "Homepage Erstellung",
-    href: "/homepage-erstellung"
-  }, {
     name: "Kontakt",
     href: "/kontakt"
   }];

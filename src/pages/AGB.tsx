@@ -36,7 +36,7 @@ const AGB = () => {
 
                 <h2 className="mt-8">§ 2 Vertragsgegenstand</h2>
                 <p className="text-muted-foreground text-sm">
-                  (1) Gegenstand des Vertrages sind die vom Anbieter auf seiner Website und in individuellen Angeboten dargestellten Leistungen in den Bereichen KI-basierte Automatisierungslösungen, KI-Schulungen & Beratung sowie Homepage Erstellung.
+                  (1) Gegenstand des Vertrages sind die vom Anbieter auf seiner Website und in individuellen Angeboten dargestellten Leistungen in den Bereichen KI-basierte Automatisierungslösungen und KI-Schulungen & Beratung.
                 </p>
                 <p className="text-muted-foreground text-sm">
                   (2) Dies umfasst insbesondere:
@@ -45,7 +45,6 @@ const AGB = () => {
                   <li>Standard-KI-Agenten: Die Bereitstellung von vorgefertigten Software-Agenten (z.B. LinkedIn Agent, Chatbot Agent) zur Nutzung durch den Kunden als Software-as-a-Service (SaaS).</li>
                   <li>Maßgeschneiderte KI-Agenten: Die Konzeption, Entwicklung und Implementierung individueller KI-Lösungen nach Kundenspezifikation.</li>
                   <li>KI-Schulungen & Beratung: Die Durchführung von Workshops, Seminaren und Beratungsleistungen.</li>
-                  <li>Homepage Erstellung: Die Erstellung und der Support von Websites.</li>
                 </ul>
                 <p className="text-muted-foreground text-sm">
                   (3) Die auf der Website dargestellten Einsparungs- und Effizienzsteigerungs-Potenziale (z.B. Agenten-Rechner, prozentuale Zeitersparnis) sind beispielhafte Berechnungen und stellen keine zugesicherten Eigenschaften oder Garantien dar.
@@ -70,7 +69,7 @@ const AGB = () => {
                   (2) Standard-KI-Agenten: Der Anbieter stellt die gebuchten Agenten für die Dauer des Vertrages zur Nutzung bereit. Der Anbieter gewährleistet eine branchenübliche Verfügbarkeit und wird geplante Wartungsarbeiten rechtzeitig ankündigen. Ein bestimmter Erfolg, wie die Generierung einer konkreten Anzahl von Leads, ist nicht geschuldet.
                 </p>
                 <p className="text-muted-foreground text-sm">
-                  (3) Maßgeschneiderte KI-Agenten und Homepage Erstellung: Die Leistungen werden nach dem im Angebot definierten Prozess (Bedarfsanalyse, Konzeption, Entwicklung, Implementierung) erbracht. Der Anbieter ist berechtigt, agile Entwicklungsmethoden anzuwenden.
+                  (3) Maßgeschneiderte KI-Agenten: Die Leistungen werden nach dem im Angebot definierten Prozess (Bedarfsanalyse, Konzeption, Entwicklung, Implementierung) erbracht. Der Anbieter ist berechtigt, agile Entwicklungsmethoden anzuwenden.
                 </p>
                 <p className="text-muted-foreground text-sm">
                   (4) KI-Schulungen: Der Anbieter erbringt die Schulungsleistung wie im Angebot beschrieben. Die ausgestellten Zertifikate sind reine Teilnahmezertifikate ohne staatliche Anerkennung. Der Anbieter behält sich das Recht vor, Schulungstermine bei zu geringer Teilnehmerzahl abzusagen oder zu verschieben.
@@ -81,7 +80,7 @@ const AGB = () => {
                   (1) Der Kunde ist verpflichtet, dem Anbieter alle für die Leistungserbringung notwendigen Informationen, Daten, Zugänge und Unterlagen rechtzeitig und vollständig zur Verfügung zu stellen.
                 </p>
                 <p className="text-muted-foreground text-sm">
-                  (2) Bei Entwicklungsleistungen (maßgeschneiderte Agenten, Homepage Erstellung) ist der Kunde zur unverzüglichen Prüfung von Entwürfen, Prototypen und Teilergebnissen sowie zur Abnahme der vertragsgemäß erbrachten Leistung verpflichtet.
+                  (2) Bei Entwicklungsleistungen (maßgeschneiderte Agenten) ist der Kunde zur unverzüglichen Prüfung von Entwürfen, Prototypen und Teilergebnissen sowie zur Abnahme der vertragsgemäß erbrachten Leistung verpflichtet.
                 </p>
                 <p className="text-muted-foreground text-sm">
                   (3) Kommt der Kunde seinen Mitwirkungspflichten nicht nach und verzögert sich dadurch die Leistungserbringung, ist der Anbieter für die daraus entstehenden Folgen nicht verantwortlich. Der Anbieter kann den dadurch entstehenden Mehraufwand gesondert in Rechnung stellen.
@@ -106,7 +105,7 @@ const AGB = () => {
                   (1) An Standard-KI-Agenten erhält der Kunde für die Vertragslaufzeit ein einfaches, nicht übertragbares, nicht unterlizenzierbares Recht zur Nutzung der Software für eigene Geschäftszwecke.
                 </p>
                 <p className="text-muted-foreground text-sm">
-                  (2) An individuell erstellten KI-Agenten und Websites erhält der Kunde nach vollständiger Bezahlung ein ausschließliches, zeitlich und räumlich unbeschränktes Nutzungsrecht am Endprodukt. Der Anbieter behält das Recht, die zugrundeliegenden generischen Module, Frameworks und sein Know-how für andere Projekte zu verwenden.
+                  (2) An individuell erstellten KI-Agenten erhält der Kunde nach vollständiger Bezahlung ein ausschließliches, zeitlich und räumlich unbeschränktes Nutzungsrecht am Endprodukt. Der Anbieter behält das Recht, die zugrundeliegenden generischen Module, Frameworks und sein Know-how für andere Projekte zu verwenden.
                 </p>
                 <p className="text-muted-foreground text-sm">
                   (3) Der Quellcode verbleibt, sofern nicht ausdrücklich anders vereinbart, beim Anbieter.
@@ -114,7 +113,7 @@ const AGB = () => {
 
                 <h2 className="mt-8">§ 8 Abnahme</h2>
                 <p className="text-muted-foreground text-sm">
-                  (1) Werkvertragliche Leistungen (Maßgeschneiderte KI-Agenten, Homepage Erstellung) bedürfen der Abnahme durch den Kunden.
+                  (1) Werkvertragliche Leistungen (Maßgeschneiderte KI-Agenten) bedürfen der Abnahme durch den Kunden.
                 </p>
                 <p className="text-muted-foreground text-sm">
                   (2) Nach Fertigstellung und Übergabe zur Prüfung hat der Kunde 10 Werktage Zeit, die Leistung zu testen und abzunehmen. Die Abnahme gilt als erfolgt, wenn der Kunde innerhalb dieser Frist keine wesentlichen Mängel schriftlich rügt oder die Leistung produktiv nutzt.
