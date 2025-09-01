@@ -8,7 +8,7 @@ export interface ConsentData {
 
 const CONSENT_KEY = 'cookie-consent';
 const CONSENT_VERSION = '1.0';
-const GTM_ID = 'GTM-N098VCL9';
+const GTM_ID = 'GTM-NG98VCL9';
 const DEBUG_MODE = true; // Enable for debugging
 
 // GTM Container Validation
