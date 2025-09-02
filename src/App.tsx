@@ -8,6 +8,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import NewChatbot from "./components/NewChatbot";
 import FloatingVoiceAgent from "./components/FloatingVoiceAgent";
 import CookieConsentBanner from "./components/CookieConsentBanner";
+import SecurityMonitor from "./components/SecurityMonitor";
 import Index from "./pages/Index";
 import StandardAgents from "./pages/StandardAgents";
 import CustomAgents from "./pages/CustomAgents";
@@ -27,6 +28,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <SecurityMonitor />
       <BrowserRouter>
         <ScrollToTop />
         <Routes>
