@@ -24,7 +24,7 @@ const VoiceAgent: React.FC<VoiceAgentProps> = ({ className = '' }) => {
       
       // Gespräch mit Agent-ID starten
       await conversation.startSession({
-        agentId: 'agent_5901k1zj5fqee3fv7fxjaa7vhrv9'
+        agentId: 'agent_9001k47yszvrfgb8xqy45xyhwcts'
       });
     } catch {
       alert('Mikrofon-Zugriff ist erforderlich für den Sprachagenten.');
