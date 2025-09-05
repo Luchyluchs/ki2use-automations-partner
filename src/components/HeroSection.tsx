@@ -8,7 +8,7 @@ import { useEffect } from "react";
 const HeroSection = () => {
   useScrollReveal();
   useParallax();
-  return <section className="relative overflow-hidden min-h-screen sm:min-h-[90vh] md:min-h-screen flex items-center bg-gradient-to-br from-background via-muted/30 to-background pt-24 sm:pt-16 lg:-mt-20">
+  return <section className="relative overflow-hidden min-h-screen sm:min-h-[90vh] md:min-h-screen flex items-center bg-gradient-to-br from-background via-muted/30 to-background pt-4 sm:pt-6 lg:-mt-20">
       {/* Enhanced Parallax Background Elements */}
       <div className="absolute inset-0 bg-grid-pattern opacity-[0.02] parallax-slow"></div>
       <div className="absolute top-20 right-10 w-72 h-72 sm:w-96 sm:h-96 bg-primary/10 rounded-full blur-3xl parallax-slow"></div>
