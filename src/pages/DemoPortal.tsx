@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { usePasswordProtection } from '@/hooks/usePasswordProtection';
-import DemoLogin from '@/components/DemoLogin';
-import DemoInterface from '@/components/DemoInterface';
+import { useCustomerAuth } from '@/hooks/useCustomerAuth';
+import NewDemoLogin from '@/components/NewDemoLogin';
+import NewDemoInterface from '@/components/NewDemoInterface';
 import { Loader2 } from 'lucide-react';
 
 const DemoPortal: React.FC = () => {
-  const { isAuthenticated, isLoading, authenticate, logout, getRemainingTime } = usePasswordProtection({
-    password: 'KI2USE2025',
+  const { 
+    isAuthenticated, 
+    isLoading, 
+    currentCustomer, 
+    authenticate, 
+    logout, 
+    getRemainingTime 
+  } = useCustomerAuth({
     sessionDuration: 30 * 60 * 1000 // 30 minutes
   });
 
@@ -14,7 +20,7 @@ const DemoPortal: React.FC = () => {
 
   // Update remaining time every second when authenticated
   useEffect(() => {
-    if (isAuthenticated) {
+    if (isAuthenticated && currentCustomer) {
       const interval = setInterval(() => {
         const time = getRemainingTime();
         setRemainingTime(time);
@@ -30,7 +36,7 @@ const DemoPortal: React.FC = () => {
 
       return () => clearInterval(interval);
     }
-  }, [isAuthenticated, getRemainingTime, logout]);
+  }, [isAuthenticated, currentCustomer, getRemainingTime, logout]);
 
   // Show loading spinner during initial auth check
   if (isLoading) {
@@ -45,12 +51,18 @@ const DemoPortal: React.FC = () => {
   }
 
   // Show login form if not authenticated
-  if (!isAuthenticated) {
-    return <DemoLogin onLogin={authenticate} />;
+  if (!isAuthenticated || !currentCustomer) {
+    return <NewDemoLogin onLogin={authenticate} />;
   }
 
   // Show demo interface when authenticated
-  return <DemoInterface onLogout={logout} remainingTime={remainingTime} />;
+  return (
+    <NewDemoInterface 
+      customer={currentCustomer}
+      onLogout={logout} 
+      remainingTime={remainingTime} 
+    />
+  );
 };
 
 export default DemoPortal;
