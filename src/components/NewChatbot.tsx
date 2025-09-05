@@ -219,10 +219,10 @@ const NewChatbot = () => {
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-2 left-2 right-2 sm:right-6 sm:left-auto sm:w-80 bg-card border border-card-border rounded-2xl shadow-elevated z-50 flex flex-col animate-scale-in" 
+        <div className="fixed bottom-2 left-2 right-2 sm:right-6 sm:left-auto sm:w-96 md:w-[450px] lg:w-[500px] bg-card border border-card-border rounded-2xl shadow-elevated z-50 flex flex-col animate-scale-in" 
              style={{
-               height: Math.min(400, viewportHeight - 100) + 'px',
-               maxHeight: Math.min(400, viewportHeight - 100) + 'px'
+               height: Math.min(600, viewportHeight - 100) + 'px',
+               maxHeight: Math.min(600, viewportHeight - 100) + 'px'
              }}>
           {/* Header */}
           <div className="bg-gradient-primary text-primary-foreground p-3 sm:p-4 rounded-t-2xl">
