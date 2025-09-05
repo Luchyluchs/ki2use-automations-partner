@@ -19,11 +19,11 @@ const customerConfigs: CustomerConfig[] = [
     id: 'c3-marketing',
     name: 'C3 Marketing Agentur',
     chatbotWebhooks: {
-      support: 'https://n8n.srv929188.hstgr.cloud/webhook/295fef3d-10fd-43bb-95a2-de0cbd4512d1',
+      support: 'https://n8n.srv929188.hstgr.cloud/webhook/8e2e75fc-67cd-4eda-9588-f6bb753d6aa4',
       booking: 'https://n8n.srv929188.hstgr.cloud/webhook/placeholder-booking-chat'
     },
     voiceAgentIds: {
-      support: 'agent_9001k47yszvrfgb8xqy45xyhwcts',
+      support: 'agent_6501k4ckhy26e568zy2z9bkvn6vx',
       booking: 'agent_placeholder_booking_voice'
     },
     contactFormWebhook: 'https://n8n.srv929188.hstgr.cloud/webhook/kontaktformular'
