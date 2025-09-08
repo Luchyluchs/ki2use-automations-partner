@@ -75,8 +75,8 @@ const NewDemoInterface: React.FC<NewDemoInterfaceProps> = ({
       </div>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
           <TabsList className="grid w-full grid-cols-2 lg:w-auto lg:grid-cols-2">
             <TabsTrigger value="assistants" className="flex items-center gap-2">
               <MessageSquare className="w-4 h-4" />
@@ -88,7 +88,7 @@ const NewDemoInterface: React.FC<NewDemoInterfaceProps> = ({
             </TabsTrigger>
           </TabsList>
 
-          <TabsContent value="assistants" className="space-y-8">
+          <TabsContent value="assistants" className="space-y-6">
             {/* Welcome Banner */}
             <Card className="border-primary/20 bg-primary/5">
               <CardHeader>
@@ -104,9 +104,9 @@ const NewDemoInterface: React.FC<NewDemoInterfaceProps> = ({
             </Card>
 
             {/* Assistants Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
               {/* Support Chatbot */}
-              <div className="space-y-4">
+              <div className="space-y-3">
                 <div className="text-center">
                   <div className="flex items-center justify-center gap-2 mb-2">
                     <MessageSquare className="w-6 h-6 text-primary" />
@@ -114,11 +114,11 @@ const NewDemoInterface: React.FC<NewDemoInterfaceProps> = ({
                   </div>
                   <p className="text-sm text-muted-foreground">Text-basierte Kundenbetreuung</p>
                 </div>
-                <DemoChatbot webhookUrl={customer.chatbotWebhooks.support} title="Support Assistent" description="Beantwortet Kundenanfragen und FAQ" type="support" className="h-[400px]" />
+                <DemoChatbot webhookUrl={customer.chatbotWebhooks.support} title="Support Assistent" description="Beantwortet Kundenanfragen und FAQ" type="support" className="min-h-[380px] h-full" />
               </div>
 
               {/* Contact Form */}
-              <div className="space-y-4">
+              <div className="space-y-3">
                 <div className="text-center">
                   <div className="flex items-center justify-center gap-2 mb-2">
                     <Mail className="w-6 h-6 text-accent" />
@@ -126,11 +126,11 @@ const NewDemoInterface: React.FC<NewDemoInterfaceProps> = ({
                   </div>
                   <p className="text-sm text-muted-foreground">Lead-Generierung & Anfragen</p>
                 </div>
-                <DemoContactForm webhookUrl={customer.contactFormWebhook} customerName={customer.name} className="h-[400px]" />
+                <DemoContactForm webhookUrl={customer.contactFormWebhook} customerName={customer.name} className="min-h-[380px] h-full" />
               </div>
 
               {/* Voice Agent */}
-              <div className="space-y-4">
+              <div className="space-y-3">
                 <div className="text-center">
                   <div className="flex items-center justify-center gap-2 mb-2">
                     <Phone className="w-6 h-6 text-secondary" />
@@ -138,7 +138,7 @@ const NewDemoInterface: React.FC<NewDemoInterfaceProps> = ({
                   </div>
                   <p className="text-sm text-muted-foreground">Sprachbasierte Kundenbetreuung</p>
                 </div>
-                <DemoVoiceAgent agentId={customer.voiceAgentIds.support} title="Support Voice Agent" description="Sprechen Sie direkt mit dem KI-Assistenten" type="support" className="h-[400px]" />
+                <DemoVoiceAgent agentId={customer.voiceAgentIds.support} title="Support Voice Agent" description="Sprechen Sie direkt mit dem KI-Assistenten" type="support" className="min-h-[380px] h-full" />
               </div>
             </div>
 
@@ -146,7 +146,7 @@ const NewDemoInterface: React.FC<NewDemoInterfaceProps> = ({
             
           </TabsContent>
 
-          <TabsContent value="calculator" className="space-y-8">
+          <TabsContent value="calculator" className="space-y-6">
             <DemoROICalculator />
           </TabsContent>
         </Tabs>
