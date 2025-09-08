@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Button } from "./ui/button";
 import { MessageCircle, X, Send, Bot, User } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useLocation } from 'react-router-dom';
 
 // Function to render text with links as React components
 const renderMessageWithLinks = (text: string) => {
@@ -49,6 +50,13 @@ interface Message {
 }
 
 const NewChatbot = () => {
+  const location = useLocation();
+  
+  // Hide in demo environment
+  if (location.pathname === '/demoportal') {
+    return null;
+  }
+
   const [isOpen, setIsOpen] = useState(false);
   const [sessionId] = useState(() => crypto.randomUUID());
   const [viewportHeight, setViewportHeight] = useState(window.innerHeight);

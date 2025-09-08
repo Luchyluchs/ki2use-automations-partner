@@ -2,9 +2,16 @@ import React, { useState } from 'react';
 import { Mic, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import VoiceAgent from './VoiceAgent';
+import { useLocation } from 'react-router-dom';
 
 const FloatingVoiceAgent: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  
+  // Hide in demo environment
+  if (location.pathname === '/demoportal') {
+    return null;
+  }
 
   return (
     <>
