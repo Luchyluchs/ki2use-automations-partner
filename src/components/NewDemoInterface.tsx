@@ -10,24 +10,23 @@ import DemoROICalculator from './DemoROICalculator';
 import { CustomerConfig } from '@/hooks/useCustomerAuth';
 import { LogOut, Clock, Shield, Home, Calculator, MessageSquare, Phone, Mail, Calendar } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
 interface NewDemoInterfaceProps {
   customer: CustomerConfig;
   onLogout: () => void;
   remainingTime: number;
 }
-
-const NewDemoInterface: React.FC<NewDemoInterfaceProps> = ({ customer, onLogout, remainingTime }) => {
+const NewDemoInterface: React.FC<NewDemoInterfaceProps> = ({
+  customer,
+  onLogout,
+  remainingTime
+}) => {
   const [activeTab, setActiveTab] = useState('assistants');
-
   const formatTime = (seconds: number): string => {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
     return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
   };
-
-  return (
-    <div className="min-h-screen bg-gradient-subtle">
+  return <div className="min-h-screen bg-gradient-subtle">
       {/* Header */}
       <div className="bg-card border-b border-card-border shadow-soft">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -56,12 +55,7 @@ const NewDemoInterface: React.FC<NewDemoInterfaceProps> = ({ customer, onLogout,
                 </Link>
               </Button>
               
-              <Button
-                onClick={onLogout}
-                variant="outline"
-                size="sm"
-                className="hidden sm:inline-flex"
-              >
+              <Button onClick={onLogout} variant="outline" size="sm" className="hidden sm:inline-flex">
                 <LogOut className="w-4 h-4 mr-2" />
                 Ausloggen
               </Button>
@@ -72,12 +66,7 @@ const NewDemoInterface: React.FC<NewDemoInterfaceProps> = ({ customer, onLogout,
                   <Home className="w-4 h-4" />
                 </Link>
               </Button>
-              <Button
-                onClick={onLogout}
-                variant="outline"
-                size="sm"
-                className="sm:hidden"
-              >
+              <Button onClick={onLogout} variant="outline" size="sm" className="sm:hidden">
                 <LogOut className="w-4 h-4" />
               </Button>
             </div>
@@ -125,13 +114,7 @@ const NewDemoInterface: React.FC<NewDemoInterfaceProps> = ({ customer, onLogout,
                   </div>
                   <p className="text-sm text-muted-foreground">Text-basierte Kundenbetreuung</p>
                 </div>
-                <DemoChatbot
-                  webhookUrl={customer.chatbotWebhooks.support}
-                  title="Support Assistent"
-                  description="Beantwortet Kundenanfragen und FAQ"
-                  type="support"
-                  className="h-[400px]"
-                />
+                <DemoChatbot webhookUrl={customer.chatbotWebhooks.support} title="Support Assistent" description="Beantwortet Kundenanfragen und FAQ" type="support" className="h-[400px]" />
               </div>
 
               {/* Contact Form */}
@@ -143,11 +126,7 @@ const NewDemoInterface: React.FC<NewDemoInterfaceProps> = ({ customer, onLogout,
                   </div>
                   <p className="text-sm text-muted-foreground">Lead-Generierung & Anfragen</p>
                 </div>
-                <DemoContactForm
-                  webhookUrl={customer.contactFormWebhook}
-                  customerName={customer.name}
-                  className="h-[400px]"
-                />
+                <DemoContactForm webhookUrl={customer.contactFormWebhook} customerName={customer.name} className="h-[400px]" />
               </div>
 
               {/* Voice Agent */}
@@ -159,54 +138,12 @@ const NewDemoInterface: React.FC<NewDemoInterfaceProps> = ({ customer, onLogout,
                   </div>
                   <p className="text-sm text-muted-foreground">Sprachbasierte Kundenbetreuung</p>
                 </div>
-                <DemoVoiceAgent
-                  agentId={customer.voiceAgentIds.support}
-                  title="Support Voice Agent"
-                  description="Sprechen Sie direkt mit dem KI-Assistenten"
-                  type="support"
-                  className="h-[400px]"
-                />
+                <DemoVoiceAgent agentId={customer.voiceAgentIds.support} title="Support Voice Agent" description="Sprechen Sie direkt mit dem KI-Assistenten" type="support" className="h-[400px]" />
               </div>
             </div>
 
             {/* Additional Assistants Row */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 pt-8 border-t border-muted">
-              {/* Booking Chatbot */}
-              <div className="space-y-4">
-                <div className="text-center">
-                  <div className="flex items-center justify-center gap-2 mb-2">
-                    <Calendar className="w-6 h-6 text-primary" />
-                    <h3 className="text-xl font-semibold">Terminbuchungs Chatbot</h3>
-                  </div>
-                  <p className="text-sm text-muted-foreground">Automatisierte Terminverwaltung</p>
-                </div>
-                <DemoChatbot
-                  webhookUrl={customer.chatbotWebhooks.booking}
-                  title="Terminbuchungs Assistent"
-                  description="Verwaltet Termine und Buchungen"
-                  type="booking"
-                  className="h-[400px]"
-                />
-              </div>
-
-              {/* Booking Voice Agent */}
-              <div className="space-y-4">
-                <div className="text-center">
-                  <div className="flex items-center justify-center gap-2 mb-2">
-                    <Phone className="w-6 h-6 text-secondary" />
-                    <h3 className="text-xl font-semibold">Terminbuchungs Voice Agent</h3>
-                  </div>
-                  <p className="text-sm text-muted-foreground">Sprachbasierte Terminbuchung</p>
-                </div>
-                <DemoVoiceAgent
-                  agentId={customer.voiceAgentIds.booking}
-                  title="Terminbuchungs Voice Agent"
-                  description="Buchen Sie Termine per Sprache"
-                  type="booking"
-                  className="h-[400px]"
-                />
-              </div>
-            </div>
+            
           </TabsContent>
 
           <TabsContent value="calculator" className="space-y-8">
@@ -214,8 +151,6 @@ const NewDemoInterface: React.FC<NewDemoInterfaceProps> = ({ customer, onLogout,
           </TabsContent>
         </Tabs>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default NewDemoInterface;
