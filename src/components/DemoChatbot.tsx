@@ -58,6 +58,7 @@ const DemoChatbot: React.FC<DemoChatbotProps> = ({
   type,
   className = '' 
 }) => {
+  const [sessionId] = useState(() => crypto.randomUUID());
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputMessage, setInputMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -103,80 +104,103 @@ const DemoChatbot: React.FC<DemoChatbotProps> = ({
 
     try {
       console.log('Sending message to webhook:', webhookUrl);
-      console.log('Message data:', { message: currentMessage, demo_type: type });
+      console.log('Message data:', { message: currentMessage, sessionId, timestamp: new Date().toISOString() });
       
+      // Enhanced fetch with CORS handling and timeout
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+
       const response = await fetch(webhookUrl, {
         method: 'POST',
+        mode: 'cors',
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
         },
         body: JSON.stringify({
           message: currentMessage,
-          demo_type: type,
+          sessionId: sessionId,
           timestamp: new Date().toISOString(),
         }),
+        signal: controller.signal
       });
 
-      console.log('Response status:', response.status);
-      console.log('Response ok:', response.ok);
+      clearTimeout(timeoutId);
 
-      if (response.ok) {
-        let responseData;
-        const responseText = await response.text();
-        console.log('Raw response text:', responseText);
-        
-        // Try to parse JSON, but handle cases where response is just plain text
-        try {
-          responseData = responseText ? JSON.parse(responseText) : {};
-        } catch (jsonError) {
-          console.log('Response is not JSON, treating as plain text');
-          responseData = { response: responseText };
-        }
-        
-        console.log('Parsed response data:', responseData);
-        
-        // Extract the message from various possible response formats
-        let botResponseText = '';
-        if (typeof responseData === 'string') {
-          botResponseText = responseData;
-        } else if (responseData.response) {
-          botResponseText = responseData.response;
-        } else if (responseData.message) {
-          botResponseText = responseData.message;
-        } else if (responseData.text) {
-          botResponseText = responseData.text;
-        } else if (responseData.output) {
-          botResponseText = responseData.output;
-        } else if (responseText.trim()) {
-          botResponseText = responseText.trim();
-        } else {
-          botResponseText = 'Antwort erhalten, aber kein Text gefunden.';
-        }
-        
-        const botMessage = {
-          id: messages.length + 2,
-          text: botResponseText,
-          isUser: false,
-          timestamp: new Date(),
-        };
-        
-        setMessages(prev => [...prev, botMessage]);
-        
-        toast({
-          title: "Erfolgreich gesendet",
-          description: "Ihre Nachricht wurde an den Webhook übermittelt.",
-        });
-      } else {
+      if (!response.ok) {
         throw new Error(`HTTP ${response.status}: ${response.statusText}`);
       }
+
+      // Parse response
+      let responseData;
+      const contentType = response.headers.get('content-type');
+
+      try {
+        if (contentType && contentType.includes('application/json')) {
+          const rawResponse = await response.text();
+          try {
+            responseData = JSON.parse(rawResponse);
+          } catch {
+            responseData = { message: rawResponse };
+          }
+        } else {
+          const textResponse = await response.text();
+          const iframeMatch = textResponse.match(/srcdoc="([^"]+)"/);
+          responseData = iframeMatch?.[1] 
+            ? { message: iframeMatch[1] }
+            : { message: textResponse };
+        }
+      } catch {
+        responseData = { message: "Antwort erhalten, aber konnte nicht verarbeitet werden." };
+      }
+      
+      console.log('Parsed response data:', responseData);
+      
+      // Extract bot message
+      const botMessage = {
+        id: messages.length + 2,
+        text: responseData.message?.trim() || "Vielen Dank für Ihre Nachricht! Unser Team wird sich schnellstmöglich bei Ihnen melden.",
+        isUser: false,
+        timestamp: new Date(),
+      };
+      
+      setMessages(prev => [...prev, botMessage]);
+
+      toast({
+        title: "Erfolgreich gesendet",
+        description: "Ihre Nachricht wurde an den Webhook übermittelt.",
+      });
 
     } catch (error) {
       console.error('Webhook error:', error);
       
+      let errorText = "Entschuldigung, es gab ein technisches Problem.";
+      let toastTitle = "Verbindungsfehler";
+      let toastDescription = "Nachricht konnte nicht gesendet werden.";
+
+      if (error instanceof Error) {
+        if (error.name === 'AbortError') {
+          errorText = "Die Anfrage wurde aufgrund einer Zeitüberschreitung abgebrochen. Bitte versuchen Sie es erneut.";
+          toastTitle = "Zeitüberschreitung";
+          toastDescription = "Die Anfrage hat zu lange gedauert.";
+        } else if (error.message.includes('CORS')) {
+          errorText = "Es gibt ein Problem mit der Cross-Origin-Anfrage. Bitte kontaktieren Sie den Support.";
+          toastTitle = "CORS-Fehler";
+          toastDescription = "Cross-Origin-Request blockiert.";
+        } else if (error.message.includes('NetworkError') || error.message.includes('Failed to fetch')) {
+          errorText = "Netzwerkfehler. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.";
+          toastTitle = "Netzwerkfehler";
+          toastDescription = "Verbindung zum Server fehlgeschlagen.";
+        } else if (error.message.includes('HTTP')) {
+          errorText = `Server-Fehler (${error.message}). Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt.`;
+          toastTitle = "Server-Fehler";
+          toastDescription = error.message;
+        }
+      }
+
       const errorMessage = {
         id: messages.length + 2,
-        text: `❌ Verbindungsfehler: ${error instanceof Error ? error.message : 'Unbekannter Fehler'}. Bitte prüfen Sie die Webhook-Konfiguration.`,
+        text: errorText + " Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt.",
         isUser: false,
         timestamp: new Date(),
       };
@@ -185,8 +209,8 @@ const DemoChatbot: React.FC<DemoChatbotProps> = ({
       
       toast({
         variant: "destructive",
-        title: "Verbindungsfehler",
-        description: `Webhook konnte nicht erreicht werden: ${error instanceof Error ? error.message : 'Unbekannter Fehler'}`,
+        title: toastTitle,
+        description: toastDescription,
       });
     } finally {
       setIsLoading(false);
