@@ -38,6 +38,23 @@ const customerCredentials: CustomerCredentials[] = [
       },
       contactFormWebhook: 'https://n8n.srv929188.hstgr.cloud/webhook/kontaktformular'
     }
+  },
+  {
+    username: 'Surma',
+    password: 'KI2USE2025',
+    customerConfig: {
+      id: 'surma-marketing',
+      name: 'Surma Marketing Agentur',
+      chatbotWebhooks: {
+        support: 'https://n8n.srv929188.hstgr.cloud/webhook/00a1f4c2-eed6-4952-aee8-8fbeb90e8f17',
+        booking: 'https://n8n.srv929188.hstgr.cloud/webhook/placeholder-booking-chat'
+      },
+      voiceAgentIds: {
+        support: 'agent_7401k4mzx0nwfn3add3acghzk5wc',
+        booking: 'agent_placeholder_booking_voice'
+      },
+      contactFormWebhook: 'https://n8n.srv929188.hstgr.cloud/webhook/kontaktformular'
+    }
   }
 ];
 
