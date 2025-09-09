@@ -97,43 +97,68 @@ const DemoChatbot: React.FC<DemoChatbotProps> = ({
     };
 
     setMessages(prev => [...prev, userMessage]);
+    const currentMessage = inputMessage;
     setInputMessage('');
     setIsLoading(true);
 
     try {
+      console.log('Sending message to webhook:', webhookUrl);
+      console.log('Message data:', { message: currentMessage, demo_type: type });
+      
       const response = await fetch(webhookUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json',
         },
-        mode: 'no-cors',
         body: JSON.stringify({
-          message: inputMessage,
+          message: currentMessage,
           demo_type: type,
           timestamp: new Date().toISOString(),
         }),
       });
 
-      // Since we're using no-cors mode, we'll get an opaque response
-      // For demo purposes, we'll show a fallback response
-      const botMessage = {
-        id: messages.length + 2,
-        text: `Demo-Antwort für ${type === 'support' ? 'Support' : 'Terminbuchung'}: Ihre Anfrage wird verarbeitet. In der Live-Version würde hier eine personalisierte Antwort erscheinen.`,
-        isUser: false,
-        timestamp: new Date(),
-      };
+      console.log('Response status:', response.status);
+      console.log('Response ok:', response.ok);
 
-      setMessages(prev => [...prev, botMessage]);
+      if (response.ok) {
+        const responseData = await response.json();
+        console.log('Response data:', responseData);
+        
+        const botMessage = {
+          id: messages.length + 2,
+          text: responseData.response || responseData.message || responseData.text || 'Antwort erhalten, aber kein Text gefunden.',
+          isUser: false,
+          timestamp: new Date(),
+        };
+        
+        setMessages(prev => [...prev, botMessage]);
+        
+        toast({
+          title: "Erfolgreich gesendet",
+          description: "Ihre Nachricht wurde an den Webhook übermittelt.",
+        });
+      } else {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      }
 
     } catch (error) {
+      console.error('Webhook error:', error);
+      
       const errorMessage = {
         id: messages.length + 2,
-        text: "Demo-Modus: Webhook-Verbindung wird getestet. In der Live-Version würde hier eine echte Antwort erscheinen.",
+        text: `❌ Verbindungsfehler: ${error instanceof Error ? error.message : 'Unbekannter Fehler'}. Bitte prüfen Sie die Webhook-Konfiguration.`,
         isUser: false,
         timestamp: new Date(),
       };
 
       setMessages(prev => [...prev, errorMessage]);
+      
+      toast({
+        variant: "destructive",
+        title: "Verbindungsfehler",
+        description: `Webhook konnte nicht erreicht werden: ${error instanceof Error ? error.message : 'Unbekannter Fehler'}`,
+      });
     } finally {
       setIsLoading(false);
     }
