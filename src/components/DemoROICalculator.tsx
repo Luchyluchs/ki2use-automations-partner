@@ -144,10 +144,7 @@ const DemoROICalculator: React.FC = () => {
                   id="integrationCosts"
                   type="number"
                   value={integrationCosts}
-                  onChange={(e) => {
-                    const value = e.target.value === '' ? 0 : Number(e.target.value);
-                    setIntegrationCosts(value);
-                  }}
+                  onChange={(e) => setIntegrationCosts(Number(e.target.value))}
                   min="0"
                 />
               </div>
@@ -158,10 +155,7 @@ const DemoROICalculator: React.FC = () => {
                   id="monthlyCosts"
                   type="number"
                   value={monthlyCosts}
-                  onChange={(e) => {
-                    const value = e.target.value === '' ? 0 : Number(e.target.value);
-                    setMonthlyCosts(value);
-                  }}
+                  onChange={(e) => setMonthlyCosts(Number(e.target.value))}
                   min="0"
                 />
               </div>
