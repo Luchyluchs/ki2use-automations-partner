@@ -166,11 +166,6 @@ const DemoChatbot: React.FC<DemoChatbotProps> = ({
       
       setMessages(prev => [...prev, botMessage]);
 
-      toast({
-        title: "Erfolgreich gesendet",
-        description: "Ihre Nachricht wurde an den Webhook übermittelt.",
-      });
-
     } catch (error) {
       console.error('Webhook error:', error);
       
@@ -305,10 +300,6 @@ const DemoChatbot: React.FC<DemoChatbotProps> = ({
             >
               <Send className="w-4 h-4" />
             </Button>
-          </div>
-          
-          <div className="mt-2 text-xs text-muted-foreground text-center">
-            💡 Demo-Modus aktiv - Webhook: {webhookUrl.slice(-8)}...
           </div>
         </div>
       </CardContent>
