@@ -122,12 +122,41 @@ const DemoChatbot: React.FC<DemoChatbotProps> = ({
       console.log('Response ok:', response.ok);
 
       if (response.ok) {
-        const responseData = await response.json();
-        console.log('Response data:', responseData);
+        let responseData;
+        const responseText = await response.text();
+        console.log('Raw response text:', responseText);
+        
+        // Try to parse JSON, but handle cases where response is just plain text
+        try {
+          responseData = responseText ? JSON.parse(responseText) : {};
+        } catch (jsonError) {
+          console.log('Response is not JSON, treating as plain text');
+          responseData = { response: responseText };
+        }
+        
+        console.log('Parsed response data:', responseData);
+        
+        // Extract the message from various possible response formats
+        let botResponseText = '';
+        if (typeof responseData === 'string') {
+          botResponseText = responseData;
+        } else if (responseData.response) {
+          botResponseText = responseData.response;
+        } else if (responseData.message) {
+          botResponseText = responseData.message;
+        } else if (responseData.text) {
+          botResponseText = responseData.text;
+        } else if (responseData.output) {
+          botResponseText = responseData.output;
+        } else if (responseText.trim()) {
+          botResponseText = responseText.trim();
+        } else {
+          botResponseText = 'Antwort erhalten, aber kein Text gefunden.';
+        }
         
         const botMessage = {
           id: messages.length + 2,
-          text: responseData.response || responseData.message || responseData.text || 'Antwort erhalten, aber kein Text gefunden.',
+          text: botResponseText,
           isUser: false,
           timestamp: new Date(),
         };
