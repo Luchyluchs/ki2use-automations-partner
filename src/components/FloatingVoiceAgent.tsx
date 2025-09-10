@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Mic, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import VoiceAgent from './VoiceAgent';
@@ -6,6 +6,7 @@ import { useLocation } from 'react-router-dom';
 
 const FloatingVoiceAgent: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isChatbotOpen, setIsChatbotOpen] = useState(false);
   const location = useLocation();
   
   // Hide in demo environment
@@ -13,13 +14,42 @@ const FloatingVoiceAgent: React.FC = () => {
     return null;
   }
 
+  // Check if chatbot is open by looking for the chatbot window in DOM
+  useEffect(() => {
+    const checkChatbotState = () => {
+      const chatbotWindow = document.querySelector('[data-chatbot-window]');
+      setIsChatbotOpen(!!chatbotWindow);
+    };
+
+    // Initial check
+    checkChatbotState();
+
+    // Set up observer to watch for chatbot changes
+    const observer = new MutationObserver(checkChatbotState);
+    observer.observe(document.body, { 
+      childList: true, 
+      subtree: true, 
+      attributes: true, 
+      attributeFilter: ['data-chatbot-window'] 
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
-      {/* Floating Button */}
+      {/* Floating Button - Hidden when chatbot is open on mobile */}
       <Button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 left-6 z-50 w-36 h-12 rounded-xl bg-gradient-primary hover:scale-105 hover:shadow-3xl active:scale-95 transition-all duration-200 shadow-2xl border-2 border-white/30 cursor-pointer"
+        className={`fixed z-50 w-36 h-12 rounded-xl bg-gradient-primary hover:scale-105 hover:shadow-3xl active:scale-95 transition-all duration-200 shadow-2xl border-2 border-white/30 cursor-pointer ${
+          isChatbotOpen 
+            ? 'bottom-2 left-2 sm:bottom-6 sm:left-6' // Move up when chatbot is open
+            : 'bottom-6 left-6'
+        }`}
         size="lg"
+        style={{
+          transform: isChatbotOpen ? 'translateY(-80px)' : 'translateY(0)', // Additional vertical offset on mobile
+        }}
       >
         <span className="text-sm font-bold text-primary-foreground text-center">
           Voice Agent testen
