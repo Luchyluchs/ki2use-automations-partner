@@ -55,17 +55,12 @@ const HeroSection = () => {
               </div>
             </div>
             
-            {/* Capacity indicator with timer */}
-            <div className="scroll-reveal stagger-delay-4 mt-4 sm:mt-6 flex flex-col items-center gap-3">
-              <div className="inline-flex items-center gap-2 text-xs sm:text-sm text-muted-foreground">
-                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                <span>Nur noch 15 Beratungsplätze diesen Monat verfügbar</span>
+            {/* Capacity indicator */}
+            <div className="scroll-reveal stagger-delay-4 mt-3 sm:mt-4 text-center">
+              <div className="inline-flex items-center gap-1.5 text-xs text-muted-foreground/80">
+                <div className="w-1.5 h-1.5 bg-orange-500 rounded-full"></div>
+                <span>Nur noch 15 Plätze diesen Monat</span>
               </div>
-              <UrgencyTimer 
-                title="Verfügbarkeit läuft ab" 
-                subtitle="Bis Monatsende"
-                variant="default"
-              />
             </div>
           </div>
 
