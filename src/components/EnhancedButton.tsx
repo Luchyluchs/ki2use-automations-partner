@@ -57,7 +57,8 @@ export const EnhancedButton: React.FC<EnhancedButtonProps> = ({
   }, [magnetic]);
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    if (rippleEffect && buttonRef.current) {
+    const isAsChild = (props as ButtonProps).asChild === true;
+    if (rippleEffect && buttonRef.current && !isAsChild) {
       const rect = buttonRef.current.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
@@ -73,12 +74,14 @@ export const EnhancedButton: React.FC<EnhancedButtonProps> = ({
     onClick?.(e);
   };
 
+  const isAsChild = (props as ButtonProps).asChild === true;
+
   return (
     <Button
       ref={buttonRef}
       className={cn(
         'relative overflow-hidden transition-all duration-300 ease-out',
-        magnetic && 'transition-transform duration-200',
+        magnetic && 'transition-transform duration-200 magnetic',
         glowEffect && 'hover:animate-pulse-glow',
         className
       )}
@@ -87,8 +90,8 @@ export const EnhancedButton: React.FC<EnhancedButtonProps> = ({
     >
       {children}
       
-      {/* Ripple effects */}
-      {rippleEffect && ripples.map(ripple => (
+      {/* Ripple effects & overlay only when not using asChild (Slot expects single child) */}
+      {!isAsChild && rippleEffect && ripples.map(ripple => (
         <span
           key={ripple.id}
           className="absolute bg-white/30 rounded-full animate-ping"
@@ -101,9 +104,9 @@ export const EnhancedButton: React.FC<EnhancedButtonProps> = ({
           }}
         />
       ))}
-      
-      {/* Gradient overlay on hover */}
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 translate-x-[-100%] hover:translate-x-[100%] transform transition-transform duration-700" />
+      {!isAsChild && (
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 translate-x-[-100%] hover:translate-x-[100%] transform transition-transform duration-700" />
+      )}
     </Button>
   );
 };
