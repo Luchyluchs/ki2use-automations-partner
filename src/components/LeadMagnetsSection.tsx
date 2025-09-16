@@ -136,8 +136,20 @@ const LeadMagnetsSection = () => {
                             </Link>
                           </Button>
                         ) : magnet.id === 'quiz' ? (
-                          <div className="text-sm text-muted-foreground">
-                            Quiz wird im nächsten Abschnitt angezeigt ↓
+                          <div className="space-y-4">
+                            <Button 
+                              onClick={() => {
+                                const quizElement = document.getElementById('ki-quiz-section');
+                                quizElement?.scrollIntoView({ behavior: 'smooth' });
+                              }}
+                              className="bg-gradient-primary hover:shadow-elevated"
+                            >
+                              {magnet.cta}
+                              <Brain className="w-4 h-4 ml-2" />
+                            </Button>
+                            <div className="text-xs text-muted-foreground">
+                              Direkt hier verfügbar ↓
+                            </div>
                           </div>
                         ) : (
                           <div id="checklist-download">
@@ -146,15 +158,20 @@ const LeadMagnetsSection = () => {
                         )}
                       </div>
                       
-                       <div className="bg-background/50 rounded-xl p-6 backdrop-blur-sm border border-white/10">
-                        <div className="text-center">
-                          <IconComponent className="w-16 h-16 text-primary mx-auto mb-4" />
-                          <div className="text-sm text-muted-foreground">
-                            {magnet.id === 'checkliste' && "Systematische 15-Punkte Bewertung"}
-                            {magnet.id === 'rechner' && "Interaktiver Web-Rechner"}
-                            {magnet.id === 'quiz' && "Personalisiertes Assessment"}
+                      <div className="bg-background/50 rounded-xl p-6 backdrop-blur-sm border border-white/10">
+                        {magnet.id === 'quiz' ? (
+                          <div id="ki-quiz-section">
+                            <KIReadinessQuiz />
                           </div>
-                        </div>
+                        ) : (
+                          <div className="text-center">
+                            <IconComponent className="w-16 h-16 text-primary mx-auto mb-4" />
+                            <div className="text-sm text-muted-foreground">
+                              {magnet.id === 'checkliste' && "Systematische 15-Punkte Bewertung"}
+                              {magnet.id === 'rechner' && "Interaktiver Web-Rechner"}
+                            </div>
+                          </div>
+                        )}
                       </div>
                     </div>
                   </CardContent>
@@ -164,18 +181,20 @@ const LeadMagnetsSection = () => {
           })}
         </Tabs>
 
-        {/* Quiz Section */}
-        <div className="mt-16">
-          <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold mb-4">
-              Testen Sie Ihre KI-Bereitschaft
-            </h3>
-            <p className="text-muted-foreground">
-              In nur 4 Fragen erfahren Sie, wie bereit Ihr Unternehmen für KI-Automatisierung ist.
-            </p>
+        {/* Quiz Section - Only show if not in tab */}
+        {activeTab !== 'quiz' && (
+          <div className="mt-16">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold mb-4">
+                Oder testen Sie direkt Ihre KI-Bereitschaft
+              </h3>
+              <p className="text-muted-foreground">
+                Alternativ können Sie auch hier unseren 4-Fragen Assessment durchführen.
+              </p>
+            </div>
+            <KIReadinessQuiz />
           </div>
-          <KIReadinessQuiz />
-        </div>
+        )}
 
         {/* Newsletter Section */}
         <div className="mt-16">
