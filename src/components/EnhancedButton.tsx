@@ -14,9 +14,7 @@ export const EnhancedButton: React.FC<EnhancedButtonProps> = ({
   magnetic = false,
   glowEffect = false,
   rippleEffect = false,
-  onMouseEnter,
-  onMouseLeave,
-  onMouseMove,
+  asChild,
   onClick,
   ...props
 }) => {
@@ -24,7 +22,7 @@ export const EnhancedButton: React.FC<EnhancedButtonProps> = ({
   const [ripples, setRipples] = useState<Array<{ id: number; x: number; y: number }>>([]);
 
   useEffect(() => {
-    if (!magnetic || !buttonRef.current) return;
+    if (!magnetic || !buttonRef.current || asChild) return;
 
     const button = buttonRef.current;
     const rect = button.getBoundingClientRect();
@@ -54,11 +52,10 @@ export const EnhancedButton: React.FC<EnhancedButtonProps> = ({
       document.removeEventListener('mousemove', handleMouseMove);
       button.removeEventListener('mouseleave', handleMouseLeave);
     };
-  }, [magnetic]);
+  }, [magnetic, asChild]);
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const isAsChild = (props as ButtonProps).asChild === true;
-    if (rippleEffect && buttonRef.current && !isAsChild) {
+    if (rippleEffect && buttonRef.current && !asChild) {
       const rect = buttonRef.current.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
@@ -74,8 +71,26 @@ export const EnhancedButton: React.FC<EnhancedButtonProps> = ({
     onClick?.(e);
   };
 
-  const isAsChild = (props as ButtonProps).asChild === true;
+  // When asChild is true, return a simple Button to avoid Slot complications
+  if (asChild) {
+    return (
+      <Button
+        asChild
+        className={cn(
+          'transition-all duration-300 ease-out',
+          magnetic && 'magnetic',
+          glowEffect && 'hover:animate-pulse-glow',
+          className
+        )}
+        onClick={handleClick}
+        {...props}
+      >
+        {children}
+      </Button>
+    );
+  }
 
+  // When asChild is false, use the enhanced version with effects
   return (
     <Button
       ref={buttonRef}
@@ -90,8 +105,8 @@ export const EnhancedButton: React.FC<EnhancedButtonProps> = ({
     >
       {children}
       
-      {/* Ripple effects & overlay only when not using asChild (Slot expects single child) */}
-      {!isAsChild && rippleEffect && ripples.map(ripple => (
+      {/* Ripple effects */}
+      {rippleEffect && ripples.map(ripple => (
         <span
           key={ripple.id}
           className="absolute bg-white/30 rounded-full animate-ping"
@@ -104,9 +119,9 @@ export const EnhancedButton: React.FC<EnhancedButtonProps> = ({
           }}
         />
       ))}
-      {!isAsChild && (
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 translate-x-[-100%] hover:translate-x-[100%] transform transition-transform duration-700" />
-      )}
+      
+      {/* Gradient overlay on hover */}
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 translate-x-[-100%] hover:translate-x-[100%] transform transition-transform duration-700" />
     </Button>
   );
 };
