@@ -94,15 +94,31 @@ const ROICatcherSection = () => {
             </div>
           </div>
 
+          <div className="bg-gradient-primary/10 border border-primary/20 rounded-xl p-6 mb-6">
+            <div className="text-center">
+              <h4 className="font-bold text-lg mb-2 text-primary">
+                Berechnen Sie Ihr Einsparungspotential
+              </h4>
+              <p className="text-sm text-muted-foreground mb-4">
+                Interaktiver ROI-Rechner - Ergebnis in 2 Minuten
+              </p>
+              <Button asChild className="bg-gradient-primary hover:shadow-elevated text-lg px-8 py-3">
+                <Link to="/roi-rechner">
+                  Jetzt kostenlos berechnen
+                </Link>
+              </Button>
+            </div>
+          </div>
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild className="hover-scale">
-              <Link to="/contact">
-                Kostenlose Beratung sichern
+              <Link to="/kontakt">
+                Unverbindlich informieren
               </Link>
             </Button>
             <Button variant="outline" asChild className="hover-scale">
               <Link to="/standard-agenten">
-                Agenten-Rechner ansehen
+                Standard-Agenten ansehen
               </Link>
             </Button>
           </div>

@@ -3,6 +3,7 @@ import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
 import CalendlyButton from "./CalendlyButton";
 import InteractiveKIDemo from "./InteractiveKIDemo";
+import UrgencyTimer from "./UrgencyTimer";
 import { useScrollReveal, useParallax } from "@/hooks/useScrollAnimations";
 import { useEffect } from "react";
 const HeroSection = () => {
@@ -39,15 +40,32 @@ const HeroSection = () => {
                 className="text-sm sm:text-base px-6 py-4 shadow-primary gradient-primary hover:shadow-elevated transition-all duration-300 min-h-14 whitespace-normal text-center leading-relaxed w-full" 
                 icon={false} 
               />
-              <Button variant="outline" size="lg" asChild className="text-sm sm:text-base px-6 py-4 border-2 hover:bg-primary hover:text-primary-foreground hover:border-primary hover:shadow-elevated transition-all duration-300 min-h-14 w-full">
-                <Link to="/standard-agenten">Standard-Assistenten ansehen</Link>
-              </Button>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <Button variant="outline" size="lg" asChild className="text-sm px-4 py-3 border-2 hover:bg-primary hover:text-primary-foreground hover:border-primary hover:shadow-elevated transition-all duration-300 min-h-12">
+                  <Link to="/roi-rechner">ROI berechnen</Link>
+                </Button>
+                <Button variant="ghost" size="lg" asChild className="text-sm px-4 py-3 hover:bg-primary/10 hover:text-primary transition-all duration-300 min-h-12">
+                  <Link to="/standard-agenten">Agenten ansehen</Link>
+                </Button>
+              </div>
+              <div className="text-center">
+                <Button variant="link" asChild className="text-sm text-muted-foreground hover:text-primary">
+                  <Link to="#lead-magnets">Oder starten Sie mit kostenlosen Ressourcen</Link>
+                </Button>
+              </div>
             </div>
             
-            {/* Capacity indicator */}
-            <div className="scroll-reveal stagger-delay-4 mt-4 sm:mt-6 inline-flex items-center gap-2 text-xs sm:text-sm text-muted-foreground">
-              <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-              <span>Nur noch 15 Beratungsplätze diesen Monat verfügbar</span>
+            {/* Capacity indicator with timer */}
+            <div className="scroll-reveal stagger-delay-4 mt-4 sm:mt-6 flex flex-col items-center gap-3">
+              <div className="inline-flex items-center gap-2 text-xs sm:text-sm text-muted-foreground">
+                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                <span>Nur noch 15 Beratungsplätze diesen Monat verfügbar</span>
+              </div>
+              <UrgencyTimer 
+                title="Verfügbarkeit läuft ab" 
+                subtitle="Bis Monatsende"
+                variant="default"
+              />
             </div>
           </div>
 

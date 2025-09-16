@@ -2,6 +2,8 @@ import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
 import { Calendar, MessageCircle, Phone } from "lucide-react";
 import CalendlyButton from "./CalendlyButton";
+import TrustIndicators from "./TrustIndicators";
+import UrgencyTimer from "./UrgencyTimer";
 import { useScrollReveal } from "@/hooks/useScrollAnimations";
 
 const CTASection = () => {
@@ -40,7 +42,15 @@ const CTASection = () => {
             </div>
           </div>
 
-          <div className="scroll-reveal stagger-delay-2 space-y-4">
+          <div className="scroll-reveal stagger-delay-2 space-y-6">
+            <div className="flex justify-center">
+              <UrgencyTimer 
+                title="Nur noch 15 Plätze verfügbar" 
+                subtitle="Beratungskapazität fast ausgeschöpft"
+                variant="warning"
+              />
+            </div>
+            
             <CalendlyButton 
               text="Kostenloses Erstgespräch sichern (30 Min.)"
               variant="accent"
@@ -48,6 +58,9 @@ const CTASection = () => {
               className="bg-white text-primary hover:bg-white/90 text-lg"
               icon={false}
             />
+            
+            <TrustIndicators />
+            
             <p className="text-sm opacity-75">
               ✓ Unverbindlich & kostenlos ✓ Keine Verpflichtung ✓ Einfach mal schauen
             </p>
