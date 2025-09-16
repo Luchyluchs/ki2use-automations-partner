@@ -5,6 +5,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import { Download, FileText, Calculator, Brain, ArrowRight } from 'lucide-react';
 import NewsletterSignup from './NewsletterSignup';
 import KIReadinessQuiz from './KIReadinessQuiz';
+import KIChecklistDownload from './KIChecklistDownload';
 import { Link } from 'react-router-dom';
 
 const LeadMagnetsSection = () => {
@@ -139,18 +140,17 @@ const LeadMagnetsSection = () => {
                             Quiz wird im nächsten Abschnitt angezeigt ↓
                           </div>
                         ) : (
-                          <Button className="bg-gradient-primary hover:shadow-elevated">
-                            {magnet.cta}
-                            <Download className="w-4 h-4 ml-2" />
-                          </Button>
+                          <div id="checklist-download">
+                            <KIChecklistDownload />
+                          </div>
                         )}
                       </div>
                       
-                      <div className="bg-background/50 rounded-xl p-6 backdrop-blur-sm border border-white/10">
+                       <div className="bg-background/50 rounded-xl p-6 backdrop-blur-sm border border-white/10">
                         <div className="text-center">
                           <IconComponent className="w-16 h-16 text-primary mx-auto mb-4" />
                           <div className="text-sm text-muted-foreground">
-                            {magnet.id === 'checkliste' && "15-seitige PDF mit praktischen Tipps"}
+                            {magnet.id === 'checkliste' && "Systematische 15-Punkte Bewertung"}
                             {magnet.id === 'rechner' && "Interaktiver Web-Rechner"}
                             {magnet.id === 'quiz' && "Personalisiertes Assessment"}
                           </div>
