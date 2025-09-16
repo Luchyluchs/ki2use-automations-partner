@@ -2,6 +2,8 @@ import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
 import { Bot, Zap, GraduationCap } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollAnimations";
+import EnhancedButton from "./EnhancedButton";
+import { GradientText } from "./TextRevealAnimation";
 
 const ServicesSection = () => {
   useScrollReveal();

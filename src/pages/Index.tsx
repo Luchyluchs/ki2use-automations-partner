@@ -6,25 +6,35 @@ import WhyChooseUs from "@/components/WhyChooseUs";
 import CTASection from "@/components/CTASection";
 import LeadMagnetsSection from "@/components/LeadMagnetsSection";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
-import { useScrollFade } from "@/hooks/useScrollAnimations";
+import ScrollProgressIndicator from "@/components/ScrollProgressIndicator";
+import FloatingBackground from "@/components/FloatingElements";
+import { useScrollReveal, useEnhancedParallax, useMagneticCursor } from "@/hooks/useScrollAnimations";
 import { useExitIntent } from "@/hooks/useExitIntent";
 
 const Index = () => {
-  useScrollFade();
+  useScrollReveal();
+  useEnhancedParallax();
+  useMagneticCursor();
   const { showExitPopup, closePopup } = useExitIntent();
   
   return (
-    <Layout>
-      <HeroSection />
-      <KIBenefitsSection />
-      <ServicesSection />
-      <div id="lead-magnets">
-        <LeadMagnetsSection />
-      </div>
-      <WhyChooseUs />
-      <CTASection />
-      <ExitIntentPopup isOpen={showExitPopup} onClose={closePopup} />
-    </Layout>
+    <>
+      <ScrollProgressIndicator />
+      <Layout>
+        <div className="relative">
+          <FloatingBackground />
+          <HeroSection />
+        </div>
+        <KIBenefitsSection />
+        <ServicesSection />
+        <div id="lead-magnets">
+          <LeadMagnetsSection />
+        </div>
+        <WhyChooseUs />
+        <CTASection />
+        <ExitIntentPopup isOpen={showExitPopup} onClose={closePopup} />
+      </Layout>
+    </>
   );
 };
 
