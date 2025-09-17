@@ -23,52 +23,43 @@ const HeroSection = () => {
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[600px] sm:h-[600px] md:w-[800px] md:h-[800px] bg-primary/3 sm:bg-primary/5 rounded-full blur-3xl parallax-slow animate-tilt"></div>
       
       <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-12 sm:pt-6 sm:pb-16 lg:py-12 xl:py-16">
-        {/* Mobile Layout - More compelling and engaging */}
-        <div className="block lg:hidden text-center space-y-6 max-w-xs mx-auto">
-          <div className="enhanced-reveal inline-flex items-center rounded-full px-3 py-2 text-xs font-medium bg-gradient-to-r from-green-500/20 to-blue-500/20 text-white border border-green-400/30 backdrop-blur-sm animate-pulse">
-            ✅ 2.847 deutsche Unternehmen sparen bereits Zeit
+        {/* Mobile Layout - Premium and clean */}
+        <div className="block lg:hidden text-center space-y-8 max-w-sm mx-auto">
+          <div className="enhanced-reveal inline-flex items-center rounded-full px-4 py-2 text-sm font-medium bg-white/5 text-white/90 border border-white/20 backdrop-blur-sm">
+            Made in Germany
           </div>
           
           <div className="enhanced-reveal stagger-delay-1 space-y-4">
-            <h1 className="text-white text-2xl font-bold leading-tight drop-shadow-xl">
-              <span className="text-red-400 font-extrabold">Schluss</span> mit{" "}
-              <span className="line-through text-white/60">Überstunden</span>
-              <br />
+            <h1 className="text-white text-3xl font-bold leading-tight">
+              KI-Automatisierung für{" "}
               <GradientText animated>
-                <span className="font-extrabold text-3xl">KI macht's für dich</span>
+                <span className="font-extrabold">dein Business</span>
               </GradientText>
             </h1>
-            <p className="text-base text-white/90 leading-relaxed font-medium">
-              🎯 <span className="text-green-400 font-semibold">Bis zu 32h/Woche</span> sparen<br />
-              💰 <span className="text-blue-400 font-semibold">Ab 0€</span> starten<br />
-              🚀 <span className="text-yellow-400 font-semibold">In 7 Tagen</span> live
+            <p className="text-lg text-white/80 leading-relaxed">
+              Professionell. DSGVO-konform. Sofort einsetzbar.
             </p>
           </div>
           
-          <div className="enhanced-reveal stagger-delay-2 space-y-5">
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-              <p className="text-white/80 text-sm mb-3 italic">
-                "Endlich kann ich mich auf mein Business fokussieren statt auf Routine-Aufgaben!"
-              </p>
-              <div className="flex items-center justify-center gap-2 text-xs text-white/60">
-                <span className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center">M</span>
-                <span>Marcus K. | Geschäftsführer</span>
-              </div>
-            </div>
+          <div className="enhanced-reveal stagger-delay-2 space-y-6">
+            <CalendlyButton 
+              text="Kostenloses Beratungsgespräch" 
+              variant="cta" 
+              size="lg" 
+              className="text-base px-8 py-4 w-full font-medium" 
+              icon={false} 
+            />
             
-            <div className="space-y-3">
-              <CalendlyButton 
-                text="🔥 Kostenloses Beratungsgespräch sichern" 
-                variant="cta" 
-                size="lg" 
-                className="text-sm px-6 py-4 shadow-lg shadow-primary/30 gradient-primary hover:shadow-xl hover:shadow-primary/40 transition-all duration-300 min-h-14 w-full font-bold animate-pulse" 
-                icon={false} 
-              />
-              
-              <p className="text-xs text-white/60">
-                ⏰ Nur noch <span className="text-red-400 font-semibold">3 Plätze</span> diese Woche verfügbar
-              </p>
-            </div>
+            <Button 
+              variant="link" 
+              className="text-sm text-white/60 hover:text-white/80"
+              onClick={() => {
+                const element = document.getElementById('lead-magnets');
+                element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }}
+            >
+              Kostenlose Ressourcen ansehen
+            </Button>
           </div>
         </div>
 
