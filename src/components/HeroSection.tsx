@@ -30,20 +30,14 @@ const HeroSection = () => {
               🚀 Deutschlands KI-Experten für KMUs
             </div>
             
-            <TextReveal 
-              text="Revolutioniere dein Business mit KI-Assistenten"
-              className="mb-4 sm:mb-6 text-primary-foreground text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight"
-              delay={200}
-            >
-              <div className="enhanced-reveal stagger-delay-1 mb-4 sm:mb-6 text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight drop-shadow-xl">
-                Revolutioniere dein Business mit{" "}
-                <GradientText animated>
-                  <span className="font-extrabold nowrap-ki-assistant drop-shadow-xl" data-text="KI-Assistenten">
-                    KI-Assistenten
-                  </span>
-                </GradientText>
-              </div>
-            </TextReveal>
+            <div className="enhanced-reveal stagger-delay-1 mb-4 sm:mb-6 text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight drop-shadow-xl">
+              Revolutioniere dein Business mit{" "}
+              <GradientText animated>
+                <span className="font-extrabold nowrap-ki-assistant drop-shadow-xl" data-text="KI-Assistenten">
+                  KI-Assistenten
+                </span>
+              </GradientText>
+            </div>
             
             <div className="enhanced-reveal stagger-delay-2 text-base sm:text-lg lg:text-xl text-white/90 mb-6 sm:mb-8 leading-relaxed drop-shadow-lg">
               <TypingAnimation 
