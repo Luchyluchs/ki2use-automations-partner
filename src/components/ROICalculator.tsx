@@ -162,15 +162,15 @@ const ROICalculator = () => {
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
                 <span>Stundensatz:</span>
-                <span>€{currentCosts.hourlyRate.toFixed(2)}</span>
+                <span className="font-medium">{currentCosts.hourlyRate.toFixed(2)}€</span>
               </div>
               <div className="flex justify-between">
                 <span>Wöchentliche Stunden:</span>
-                <span>{currentCosts.weeklyHours} Std.</span>
+                <span className="font-medium">{currentCosts.weeklyHours} Std.</span>
               </div>
               <div className="flex justify-between font-semibold text-lg border-t pt-2">
                 <span>Monatliche Kosten:</span>
-                <span>€{currentCosts.monthlyCost.toFixed(0)}</span>
+                <span className="text-foreground">{currentCosts.monthlyCost.toFixed(0)}€</span>
               </div>
             </div>
           </Card>
@@ -183,43 +183,55 @@ const ROICalculator = () => {
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
                 <span>Setup-Kosten:</span>
-                <span>€{selectedAgent.setup}</span>
+                <span className="font-medium">{selectedAgent.setup}€</span>
               </div>
               <div className="flex justify-between">
                 <span>Monatliche Wartung:</span>
-                <span>€{selectedAgent.monthly}/Monat</span>
+                <span className="font-medium">{selectedAgent.monthly}€/Monat</span>
               </div>
               <div className="flex justify-between">
                 <span>Gesamtinvestition (1. Jahr):</span>
-                <span className="font-semibold">€{totalInvestmentFirstYear}</span>
+                <span className="font-semibold text-foreground">{totalInvestmentFirstYear}€</span>
               </div>
               <div className="flex justify-between">
                 <span>Monatliche Einsparung:</span>
-                <span className="text-accent font-semibold">€{monthlySavings.toFixed(0)}</span>
+                <span className="text-accent font-semibold">{monthlySavings.toFixed(0)}€</span>
               </div>
               <div className="flex justify-between">
                 <span>Jährliche Einsparung:</span>
-                <span className="text-accent font-semibold">€{totalSavingsFirstYear.toFixed(0)}</span>
+                <span className="text-accent font-semibold">{totalSavingsFirstYear.toFixed(0)}€</span>
               </div>
               <div className="flex justify-between border-t pt-2">
                 <span>Netto-Einsparung (1. Jahr):</span>
                 <span className={`font-semibold ${netSavingsFirstYear >= 0 ? 'text-green-600' : 'text-red-600'}`}>
-                  €{netSavingsFirstYear.toFixed(0)}
+                  {netSavingsFirstYear.toFixed(0)}€
                 </span>
               </div>
             </div>
           </Card>
 
-          <Card className="p-6 bg-gradient-to-br from-green-50 to-green-100 dark:from-green-950 dark:to-green-900">
-            <div className="flex items-center gap-2 mb-4">
-              <Clock className="w-5 h-5 text-green-600" />
-              <h4 className="font-semibold text-green-800 dark:text-green-200">Assistenten-Analyse</h4>
-            </div>
+           <Card className="p-6 bg-gradient-to-br from-green-50 to-green-100 dark:from-green-950 dark:to-green-900">
+             <div className="flex items-center gap-2 mb-4">
+               <Clock className="w-5 h-5 text-green-600" />
+               <h4 className="font-semibold text-green-800 dark:text-green-200">ROI-Analyse</h4>
+               <div className="ml-2 text-xs bg-white/20 px-2 py-1 rounded-full text-green-700 dark:text-green-300">
+                 Return on Investment = Rendite der Investition
+               </div>
+             </div>
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
                 <span>Jährliche Rendite:</span>
                 <span className="text-green-600 font-bold text-lg">
                   {yearlyROI > 0 ? '+' : ''}{yearlyROI.toFixed(0)}%
+                </span>
+              </div>
+              <div className="flex justify-between">
+                <span>ROI-Erklärung:</span>
+                <span className="font-medium text-sm">
+                  {yearlyROI > 0 
+                    ? `Für jeden investierten Euro erhalten Sie ${(yearlyROI/100 + 1).toFixed(2)}€ zurück`
+                    : "Investition amortisiert sich nicht im ersten Jahr"
+                  }
                 </span>
               </div>
               <div className="flex justify-between">
