@@ -27,17 +27,17 @@ const RobotWidget: React.FC<RobotWidgetProps> = ({
       // Random intervals for natural behavior
       const nextAction = Math.random();
       
-      if (nextAction < 0.3) {
-        // 30% chance for attention animation
+      if (nextAction < 0.4) {
+        // 40% chance for attention animation
         setAnimationState('attention');
-        setTimeout(() => setAnimationState('idle'), 1800);
-      } else if (nextAction < 0.5) {
+        setTimeout(() => setAnimationState('idle'), 1200);
+      } else if (nextAction < 0.6) {
         // 20% chance for call-to-action
         setAnimationState('cta');
-        setTimeout(() => setAnimationState('idle'), 2500);
+        setTimeout(() => setAnimationState('idle'), 2000);
         
         // Nudge the target button
-        const targetButton = document.querySelector(targetSelector);
+        const targetButton = document.querySelector('.fixed.bottom-6.right-6 button');
         if (targetButton) {
           targetButton.classList.add('robot-nudge');
           setTimeout(() => {
@@ -46,12 +46,12 @@ const RobotWidget: React.FC<RobotWidgetProps> = ({
         }
       }
       
-      // Schedule next cycle (8-12 seconds)
-      animationTimeoutRef.current = setTimeout(runAnimationCycle, 8000 + Math.random() * 4000);
+      // Schedule next cycle (6-10 seconds)
+      animationTimeoutRef.current = setTimeout(runAnimationCycle, 6000 + Math.random() * 4000);
     };
 
     // Initial delay before first animation
-    animationTimeoutRef.current = setTimeout(runAnimationCycle, 3000);
+    animationTimeoutRef.current = setTimeout(runAnimationCycle, 2000);
 
     return () => {
       if (animationTimeoutRef.current) {
@@ -81,7 +81,7 @@ const RobotWidget: React.FC<RobotWidgetProps> = ({
 
   // Handle chatbot button hover
   useEffect(() => {
-    const targetButton = document.querySelector(targetSelector);
+    const targetButton = document.querySelector('.fixed.bottom-6.right-6 button');
     if (!targetButton) return;
 
     const handleTargetHover = () => {
@@ -107,7 +107,7 @@ const RobotWidget: React.FC<RobotWidgetProps> = ({
 
   const handleRobotClick = () => {
     // Trigger chatbot opening
-    const targetButton = document.querySelector(targetSelector) as HTMLElement;
+    const targetButton = document.querySelector('.fixed.bottom-6.right-6 button') as HTMLElement;
     if (targetButton) {
       targetButton.click();
     }

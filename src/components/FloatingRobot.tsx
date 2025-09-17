@@ -9,7 +9,7 @@ const FloatingRobot: React.FC = () => {
 
   return (
     <RobotWidget 
-      targetSelector="#chatbot-toggle" 
+      targetSelector=".fixed.bottom-6.right-6 button" 
       onRobotClick={handleRobotClick}
     />
   );
