@@ -211,7 +211,47 @@ const BusinessAnalysisTool = () => {
     setIsSubmitting(true);
     
     try {
-      // Hier später der Webhook für E-Mail-Versand
+      // Sammle alle Daten für die professionelle E-Mail-Analyse
+      const impact = calculateBusinessImpact();
+      const interestedQuestions = analysisQuestions.filter(q => interests[q.id]);
+      
+      const analysisData = {
+        email,
+        timestamp: new Date().toISOString(),
+        currentSituation: {
+          totalWeeklyTimeSpent: impact.totalWeeklyTimeSpent,
+          monthlyTimeCost: impact.monthlyTimeCost,
+          painScore: impact.painScore,
+          processDetails: analysisQuestions.map(q => ({
+            category: q.category,
+            question: q.currentStateQuestion,
+            answer: answers[q.id],
+            answerLabel: q.options.find(opt => opt.value === answers[q.id])?.label || "Nicht beantwortet",
+            timeSpent: q.options.find(opt => opt.value === answers[q.id])?.timeSpent || 0,
+            painLevel: q.options.find(opt => opt.value === answers[q.id])?.painLevel || 0
+          }))
+        },
+        interestedAutomations: interestedQuestions.map(q => ({
+          category: q.category,
+          title: q.automationPotential.title,
+          description: q.automationPotential.description,
+          timeSaved: q.automationPotential.timeSaved,
+          cost: q.automationPotential.cost,
+          roi: q.automationPotential.roi,
+          interested: interests[q.id]
+        })),
+        potentialImpact: {
+          interestedAreas: impact.interestedAreas,
+          potentialMonthlySavings: impact.potentialMonthlySavings,
+          estimatedROI: impact.potentialMonthlySavings > 0 ? Math.round((impact.potentialMonthlySavings / 800) * 100) : 0, // Geschätzte Investition 800€/Monat
+          paybackPeriod: impact.potentialMonthlySavings > 800 ? Math.ceil(2000 / (impact.potentialMonthlySavings - 800)) : "12+" // Setup-Kosten 2000€
+        },
+        analysisType: 'business_analysis'
+      };
+
+      // Hier wird später der Webhook für professionelle E-Mail-Analyse eingebaut
+      console.log('Business Analysis Data:', analysisData);
+      
       await new Promise(resolve => setTimeout(resolve, 1500));
       
       toast({

@@ -117,14 +117,15 @@ const KIChecklistDownload = () => {
   const calculatePotentialSavings = () => {
     const selectedItems = checklistData.filter((_, index) => checkedItems[index]);
     const totalHourlySavings = selectedItems.reduce((acc, item) => {
+      // Extrahiere Zahlen aus timeImpact String (z.B. "2-4 Stunden täglich" -> 2)
+      const timeMatch = item.timeImpact.match(/(\d+)/);
+      const hours = timeMatch ? parseInt(timeMatch[1]) : 5;
+      
       if (item.timeImpact.includes('täglich')) {
-        const hours = parseInt(item.timeImpact);
         return acc + (hours * 22); // 22 Arbeitstage pro Monat
       } else if (item.timeImpact.includes('wöchentlich')) {
-        const hours = parseInt(item.timeImpact);
         return acc + (hours * 4); // 4 Wochen pro Monat
       } else if (item.timeImpact.includes('monatlich')) {
-        const hours = parseInt(item.timeImpact);
         return acc + hours;
       }
       return acc + 20; // Fallback für "unbegrenzt"
@@ -141,7 +142,33 @@ const KIChecklistDownload = () => {
     setIsSubmitting(true);
     
     try {
-      // Hier später der Webhook für E-Mail-Versand
+      // Sammle alle Daten für die E-Mail-Analyse
+      const { totalHourlySavings, monthlySavings } = calculatePotentialSavings();
+      const selectedItems = checklistData.filter((_, index) => checkedItems[index]);
+      
+      const analysisData = {
+        email,
+        timestamp: new Date().toISOString(),
+        selectedAutomations: selectedItems.map(item => ({
+          title: item.title,
+          category: item.category,
+          timeImpact: item.timeImpact,
+          costImpact: item.costImpact,
+          benefit: item.benefit,
+          detailedBenefit: item.detailedBenefit
+        })),
+        summary: {
+          totalSelectedItems: checkedCount,
+          totalHourlySavings,
+          monthlySavings,
+          potentialROI: Math.round((monthlySavings / 500) * 100) // Geschätzte Investition 500€/Monat
+        },
+        analysisType: 'interactive_checklist'
+      };
+
+      // Hier wird später der Webhook für professionelle E-Mail-Analyse eingebaut
+      console.log('Checklist Analysis Data:', analysisData);
+      
       await new Promise(resolve => setTimeout(resolve, 1500));
       
       toast({
