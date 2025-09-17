@@ -9,11 +9,6 @@ const FloatingVoiceAgent: React.FC = () => {
   const [isChatbotOpen, setIsChatbotOpen] = useState(false);
   const location = useLocation();
   
-  // Hide in demo environment
-  if (location.pathname === '/demoportal') {
-    return null;
-  }
-
   // Check if chatbot is open by looking for the chatbot window in DOM
   useEffect(() => {
     const checkChatbotState = () => {
@@ -35,6 +30,11 @@ const FloatingVoiceAgent: React.FC = () => {
 
     return () => observer.disconnect();
   }, []);
+
+  // Hide in demo environment - AFTER all hooks
+  if (location.pathname === '/demoportal') {
+    return null;
+  }
 
   return (
     <>
