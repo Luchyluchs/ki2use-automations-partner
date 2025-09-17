@@ -83,26 +83,6 @@ const Contact = () => {
             {/* Alternative Options - Balanced Grid */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
               
-              {/* Voice Agent */}
-              <div className="bg-card border border-card-border rounded-2xl p-8 h-full">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
-                    <Headphones className="w-5 h-5 text-primary-foreground" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold">KI-Agent sprechen</h3>
-                    <p className="text-sm text-muted-foreground">Sofort verfügbar</p>
-                  </div>
-                </div>
-                
-                <p className="text-muted-foreground mb-6">
-                  Starten Sie ein Gespräch mit unserem intelligenten Voice-Agent. 
-                  Ideal für erste Fragen und schnelle Beratung.
-                </p>
-                
-                <VoiceAgent />
-              </div>
-
               {/* Contact Form */}
               <div className="bg-card border border-card-border rounded-2xl p-8 h-full">
                 <div className="flex items-center gap-3 mb-6">
@@ -121,6 +101,26 @@ const Contact = () => {
                 </p>
                 
                 <ContactForm />
+              </div>
+
+              {/* Voice Agent */}
+              <div className="bg-card border border-card-border rounded-2xl p-8 h-full">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
+                    <Headphones className="w-5 h-5 text-primary-foreground" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold">KI-Agent sprechen</h3>
+                    <p className="text-sm text-muted-foreground">Sofort verfügbar</p>
+                  </div>
+                </div>
+                
+                <p className="text-muted-foreground mb-6">
+                  Starten Sie ein Gespräch mit unserem intelligenten Voice-Agent. 
+                  Ideal für erste Fragen und schnelle Beratung.
+                </p>
+                
+                <VoiceAgent />
               </div>
             </div>
 
