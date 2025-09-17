@@ -35,24 +35,24 @@ const HeroSection = () => {
               className="mb-4 sm:mb-6 text-primary-foreground text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight"
               delay={200}
             >
-              <div className="enhanced-reveal stagger-delay-1 mb-4 sm:mb-6 text-primary-foreground text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
+              <div className="enhanced-reveal stagger-delay-1 mb-4 sm:mb-6 text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight drop-shadow-xl">
                 Revolutioniere dein Business mit{" "}
                 <GradientText animated>
-                  <span className="font-extrabold nowrap-ki-assistant glitch-text" data-text="KI-Assistenten">
+                  <span className="font-extrabold nowrap-ki-assistant glitch-text drop-shadow-xl" data-text="KI-Assistenten">
                     KI-Assistenten
                   </span>
                 </GradientText>
               </div>
             </TextReveal>
             
-            <div className="enhanced-reveal stagger-delay-2 text-base sm:text-lg lg:text-xl text-primary-foreground/80 mb-6 sm:mb-8 leading-relaxed">
+            <div className="enhanced-reveal stagger-delay-2 text-base sm:text-lg lg:text-xl text-white/90 mb-6 sm:mb-8 leading-relaxed drop-shadow-lg">
               <TypingAnimation 
                 text="Professionelle KI-Automatisierung für deutsche Unternehmen."
                 speed={30}
                 delay={1000}
               />
               <br />
-              <span className="text-primary-foreground font-semibold gradient-text-animated"> Bis zu 80% weniger Arbeitszeit</span> bei 
+              <span className="text-white font-semibold gradient-text-animated drop-shadow-lg"> Bis zu 80% weniger Arbeitszeit</span> bei 
               höchster Qualität und DSGVO-Konformität.
             </div>
             
@@ -70,7 +70,7 @@ const HeroSection = () => {
                   size="lg" 
                   asChild 
                   magnetic 
-                  className="text-sm px-4 py-3 border-2 hover:bg-primary hover:text-primary-foreground hover:border-primary hover:shadow-elevated transition-all duration-300 min-h-12"
+                  className="text-sm px-4 py-3 border-2 border-white/60 text-white bg-white/10 backdrop-blur-sm hover:bg-white hover:text-primary hover:border-white hover:shadow-elevated transition-all duration-300 min-h-12"
                 >
                   <Link to="/roi-rechner">ROI berechnen</Link>
                 </EnhancedButton>
@@ -79,13 +79,13 @@ const HeroSection = () => {
                   size="lg" 
                   asChild 
                   glowEffect
-                  className="text-sm px-4 py-3 hover:bg-primary/10 hover:text-primary transition-all duration-300 min-h-12"
+                  className="text-sm px-4 py-3 text-white/90 bg-white/5 backdrop-blur-sm border border-white/20 hover:bg-white/20 hover:text-white transition-all duration-300 min-h-12"
                 >
                   <Link to="/standard-agenten">Agenten ansehen</Link>
                 </EnhancedButton>
               </div>
               <div className="text-center">
-                <Button variant="link" asChild className="text-sm text-primary-foreground/80 hover:text-primary-foreground">
+                <Button variant="link" asChild className="text-sm text-white/80 hover:text-white drop-shadow-lg">
                   <Link to="#lead-magnets">Oder starten Sie mit kostenlosen Ressourcen</Link>
                 </Button>
               </div>
@@ -93,9 +93,9 @@ const HeroSection = () => {
             
             {/* Capacity indicator */}
             <div className="scroll-reveal stagger-delay-4 mt-3 sm:mt-4 text-center">
-              <div className="inline-flex items-center gap-1.5 text-xs text-primary-foreground/80">
-                <div className="w-1.5 h-1.5 bg-orange-500 rounded-full"></div>
-                <span>Nur noch 15 Plätze diesen Monat</span>
+              <div className="inline-flex items-center gap-1.5 text-xs text-white/90 bg-orange-500/20 backdrop-blur-sm px-3 py-1.5 rounded-full border border-orange-500/30">
+                <div className="w-1.5 h-1.5 bg-orange-400 rounded-full animate-pulse"></div>
+                <span className="font-medium">Nur noch 15 Plätze diesen Monat</span>
               </div>
             </div>
           </div>
