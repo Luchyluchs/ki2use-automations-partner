@@ -214,6 +214,9 @@ const DemoROICalculator: React.FC = () => {
               <CardTitle className="flex items-center gap-2">
                 <TrendingUp className="w-5 h-5 text-primary" />
                 ROI-Ergebnisse
+                <div className="ml-2 text-xs bg-muted px-2 py-1 rounded-full">
+                  Return on Investment = Rendite der Investition
+                </div>
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -223,6 +226,12 @@ const DemoROICalculator: React.FC = () => {
                     {results.roi > 0 ? '+' : ''}{results.roi}%
                   </div>
                   <div className="text-sm text-muted-foreground">ROI im ersten Jahr</div>
+                  <div className="text-xs text-muted-foreground mt-1">
+                    {results.roi > 0 
+                      ? `Für jeden investierten Euro erhalten Sie ${(results.roi/100 + 1).toFixed(2)}€ zurück`
+                      : "Investition amortisiert sich nicht im ersten Jahr"
+                    }
+                  </div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-green-600">
