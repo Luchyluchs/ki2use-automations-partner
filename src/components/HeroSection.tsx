@@ -65,13 +65,6 @@ const HeroSection = () => {
                 icon={false} 
               />
               
-              {/* Capacity indicator - moved here */}
-              <div className="text-center">
-                <div className="inline-flex items-center gap-1.5 text-xs text-white/90 bg-orange-500/20 backdrop-blur-sm px-3 py-1.5 rounded-full border border-orange-500/30">
-                  <div className="w-1.5 h-1.5 bg-orange-400 rounded-full animate-pulse"></div>
-                  <span className="font-medium">Nur noch 15 Plätze diesen Monat</span>
-                </div>
-              </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <EnhancedButton 
                   variant="outline" 
