@@ -19,7 +19,7 @@ const HeroSection = () => {
       <div className="absolute bottom-20 left-10 w-96 h-96 sm:w-[500px] sm:h-[500px] bg-accent/8 rounded-full blur-3xl parallax-fast animate-blob-bounce"></div>
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] sm:w-[800px] sm:h-[800px] bg-primary/5 rounded-full blur-3xl parallax-slow animate-tilt"></div>
       
-      <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-12 sm:pt-8 sm:pb-16">
+      <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-12 sm:pt-6 sm:pb-16 lg:py-12 xl:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 items-center">
           {/* Content */}
           <div className="lg:col-span-7 text-center lg:text-left space-y-6 sm:space-y-8">
