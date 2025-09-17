@@ -49,9 +49,9 @@ const Contact = () => {
             
             {/* Primary Action - Calendly (Prominent but not overwhelming) */}
             <div className="mb-16">
-              <div className="bg-gradient-primary rounded-2xl p-8 md:p-12 text-primary-foreground max-w-4xl mx-auto">
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-                  <div className="lg:col-span-2">
+              <div className="bg-gradient-primary rounded-2xl p-6 md:p-10 text-primary-foreground max-w-5xl mx-auto shadow-elevated">
+                <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 items-center">
+                  <div className="lg:col-span-3">
                     <h2 className="text-2xl md:text-3xl font-bold mb-2">
                       Kostenloses Beratungsgespräch
                     </h2>
@@ -63,12 +63,12 @@ const Contact = () => {
                       mit konkreten, unverbindlichen Empfehlungen.
                     </p>
                   </div>
-                  <div className="text-center lg:text-right">
+                  <div className="lg:col-span-2 text-center lg:text-right">
                     <CalendlyButton 
-                      text="Kostenlose Beratung buchen"
+                      text="Kostenlosen Beratungstermin buchen"
                       variant="cta"
                       size="lg"
-                      className="bg-white text-primary hover:bg-gray-50 w-full lg:w-auto"
+                      className="bg-white text-primary hover:bg-gray-50 w-full px-6 py-4 text-base font-semibold"
                       icon={false}
                     />
                     <div className="mt-3 text-sm opacity-80">
