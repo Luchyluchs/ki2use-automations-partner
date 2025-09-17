@@ -221,18 +221,7 @@ const ContactForm = () => {
           {errors.message && <p className="text-sm text-destructive mt-1">{errors.message}</p>}
         </div>
 
-        <div className="bg-accent/10 rounded-lg p-3 sm:p-4">
-          <p className="text-sm font-medium mb-2 text-accent">
-            🤖 Automatisierung in Aktion
-          </p>
-          <p className="text-xs text-muted-foreground">
-            Diese Nachricht wird automatisch verarbeitet, kategorisiert und an den 
-            passenden Experten weitergeleitet. So demonstrieren wir live unsere Effizienz 
-            und Zuverlässigkeit in der Kundenbetreuung.
-          </p>
-        </div>
-
-        <Button 
+        <Button
           type="submit" 
           disabled={isLoading || rateLimit.isBlocked()} 
           className="w-full min-h-11 sm:min-h-12" 
