@@ -173,9 +173,22 @@ const BusinessAnalysisTool = () => {
       
       if (isInterested) {
         interestedAreas++;
-        // Geschätzte Zeitersparnis * 50€/Stunde * 4 Wochen
-        const timeSavedNum = parseInt(question.automationPotential.timeSaved);
-        potentialMonthlySavings += timeSavedNum * 50 * 4;
+        // Extrahiere Zahlen aus timeSaved String (z.B. "15-20 Stunden/Woche" -> 15)
+        const timeSavedMatch = question.automationPotential.timeSaved.match(/(\d+)/);
+        const timeSavedNum = timeSavedMatch ? parseInt(timeSavedMatch[1]) : 10;
+        
+        // Berechne Einsparungen basierend auf aktueller Antwort
+        const currentAnswer = answers[question.id];
+        if (currentAnswer) {
+          const currentOption = question.options.find(opt => opt.value === currentAnswer);
+          if (currentOption) {
+            // Berechne Ersparnis: (aktuelle Zeit - verbleibende Zeit nach Automatisierung) * 50€/h * 4 Wochen
+            const currentWeeklyTime = currentOption.timeSpent;
+            const remainingTime = Math.max(0, currentWeeklyTime - timeSavedNum);
+            const actualTimeSaved = currentWeeklyTime - remainingTime;
+            potentialMonthlySavings += actualTimeSaved * 50 * 4;
+          }
+        }
       }
     });
 
@@ -251,6 +264,16 @@ const BusinessAnalysisTool = () => {
               <div className="text-sm text-muted-foreground">für manuelle Arbeit</div>
             </div>
           </div>
+
+          {/* Debug Info - Temporär zur Fehlerbehebung */}
+          <details className="bg-gray-100 p-4 rounded text-xs">
+            <summary>Debug Info (wird später entfernt)</summary>
+            <pre>{JSON.stringify({
+              answers,
+              interests,
+              impact
+            }, null, 2)}</pre>
+          </details>
 
           {/* Automatisierungs-Potenzial */}
           {impact.interestedAreas > 0 && (
