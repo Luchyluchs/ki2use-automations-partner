@@ -35,37 +35,37 @@ const KIChecklistDownload = () => {
       benefit: "60% weniger Kundenanfragen für Ihr Team",
       detailedBenefit: "Stellen Sie sich vor: Ihre Kunden bekommen sofort Antworten, auch wenn Sie schlafen. Häufige Fragen werden automatisch beantwortet, nur komplexe Anfragen landen bei Ihnen.",
       timeImpact: "2-4 Stunden täglich",
-      costImpact: "Ab 150€/Monat"
+      costImpact: "150€/Monat + 1.100€ Setup"
     },
     {
-      category: "E-Mail Management",
+      category: "E-Mail Management", 
       icon: Mail,
       title: "Intelligente E-Mail-Sortierung",
       description: "Wichtige E-Mails werden automatisch erkannt und priorisiert",
       benefit: "2-3 Stunden täglich Zeit sparen",
       detailedBenefit: "Nie wieder wichtige E-Mails übersehen! Die KI erkennt automatisch, welche E-Mails sofortige Aufmerksamkeit brauchen und sortiert den Rest weg.",
       timeImpact: "2-3 Stunden täglich",
-      costImpact: "Ab 90€/Monat"
+      costImpact: "90€/Monat + 800€ Setup"
     },
     {
       category: "Lead-Generierung",
       icon: Target,
-      title: "LinkedIn Kontakt-Automatisierung",
+      title: "LinkedIn Kontakt-Automatisierung", 
       description: "Finden und kontaktieren Sie automatisch potenzielle Kunden",
       benefit: "300% mehr qualifizierte Business-Kontakte",
       detailedBenefit: "Während Sie arbeiten, knüpft die KI neue Geschäftskontakte. Sie finden automatisch Menschen, die Ihre Dienstleistung brauchen.",
       timeImpact: "5-10 Stunden wöchentlich",
-      costImpact: "Ab 200€/Monat"
+      costImpact: "200€/Monat + 1.300€ Setup"
     },
     {
       category: "Terminmanagement",
       icon: Settings,
       title: "Automatische Terminbuchung",
       description: "Kunden buchen Termine selbst, ohne Ihr Zutun",
-      benefit: "90% weniger Telefonate für Terminabsprachen",
+      benefit: "90% weniger Telefonate für Terminabsprachen", 
       detailedBenefit: "Schluss mit dem Hin-und-Her! Kunden sehen Ihre freien Zeiten und buchen direkt. Automatische Erinnerungen inklusive.",
       timeImpact: "3-5 Stunden wöchentlich",
-      costImpact: "Ab 120€/Monat"
+      costImpact: "120€/Monat + 900€ Setup"
     },
     {
       category: "Kommunikation",
@@ -74,8 +74,8 @@ const KIChecklistDownload = () => {
       description: "Personalisierte Newsletter werden automatisch erstellt und versendet",
       benefit: "40% höhere Öffnungsraten durch Personalisierung",
       detailedBenefit: "Ihre Kunden bekommen nur relevante Inhalte. Die KI weiß, wer sich für was interessiert und passt jeden Newsletter individuell an.",
-      timeImpact: "4-6 Stunden monatlich",
-      costImpact: "Ab 180€/Monat"
+      timeImpact: "4-6 Stunden monatlich", 
+      costImpact: "180€/Monat + 1.000€ Setup"
     },
     {
       category: "Telefonsupport",
@@ -85,7 +85,7 @@ const KIChecklistDownload = () => {
       benefit: "Nie wieder einen wichtigen Anruf verpassen",
       detailedBenefit: "Auch wenn Sie nicht da sind: Die KI nimmt Anrufe entgegen, beantwortet einfache Fragen und vereinbart Rückrufe.",
       timeImpact: "Unbegrenzt verfügbar",
-      costImpact: "Ab 250€/Monat"
+      costImpact: "250€/Monat + 1.600€ Setup"
     }
   ];
 

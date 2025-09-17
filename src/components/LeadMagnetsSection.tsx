@@ -2,10 +2,10 @@ import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Button } from "./ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
-import { Download, FileText, Calculator, Brain, ArrowRight } from 'lucide-react';
+import { Download, FileText, Brain, ArrowRight } from 'lucide-react';
 import NewsletterSignup from './NewsletterSignup';
-import KIReadinessQuiz from './KIReadinessQuiz';
 import KIChecklistDownload from './KIChecklistDownload';
+import BusinessAnalysisTool from './BusinessAnalysisTool';
 import { Link } from 'react-router-dom';
 
 const LeadMagnetsSection = () => {
@@ -15,47 +15,32 @@ const LeadMagnetsSection = () => {
     {
       id: 'checkliste',
       icon: FileText,
-      title: 'KI-Automatisierung Checkliste',
-      subtitle: 'Kostenloser PDF-Download',
-      description: 'Schritt-für-Schritt Anleitung zur Identifikation von Automatisierungspotentialen in Ihrem Unternehmen.',
+      title: 'Interaktiver KI-Automatisierungs-Check',
+      subtitle: 'Schritt-für-Schritt Durchgang',
+      description: 'Gehen Sie durch 6 konkrete Automatisierungsmöglichkeiten und erhalten Sie eine personalisierte Analyse mit Zeitersparnis und Kostenberechnung.',
       benefits: [
-        '15 konkrete Prüfpunkte für KI-Potentiale',
-        'Bewertungsmatrix für Prioritäten',
-        'Kosten-Nutzen Rechner',
-        'Implementierungs-Roadmap'
+        'Individuelle Potenzial-Bewertung',
+        'Konkrete Zeit- und Kostenersparnis',
+        'Priorisierte Umsetzungsempfehlungen',
+        'Personalisierte E-Mail-Analyse'
       ],
-      cta: 'Checkliste herunterladen',
+      cta: 'Interaktiv durchgehen',
       gradient: 'from-blue-500/10 to-indigo-500/10'
     },
     {
-      id: 'rechner',
-      icon: Calculator,
-      title: 'ROI-Rechner',
-      subtitle: 'Interaktive Kalkulation',
-      description: 'Berechnen Sie in wenigen Minuten Ihr konkretes Einsparungspotential durch KI-Automatisierung.',
-      benefits: [
-        'Personalisierte Kosteneinsparung',
-        'Amortisationszeit berechnen',
-        'Verschiedene Szenarien vergleichen',
-        'Detaillierte Aufschlüsselung'
-      ],
-      cta: 'Einsparungen berechnen',
-      gradient: 'from-green-500/10 to-emerald-500/10'
-    },
-    {
-      id: 'quiz',
+      id: 'analyse',
       icon: Brain,
-      title: 'KI-Bereitschafts-Test',
-      subtitle: '5 Minuten Assessment',
-      description: 'Finden Sie heraus, wie bereit Ihr Unternehmen für den Einsatz von KI-Agenten ist.',
+      title: 'Smart Business-Analyse',
+      subtitle: 'IST-Zustand vs. Potenzial',
+      description: 'Intelligente Analyse Ihrer aktuellen Prozesse mit personalisierten Automatisierungs-Empfehlungen basierend auf Ihrer Situation.',
       benefits: [
-        'Personalisierte Empfehlungen',
-        'Konkrete nächste Schritte',
-        'Risikoeinschätzung',
-        'Individueller Fahrplan'
+        'IST-Zustand vs. Automatisierungs-Potenzial',
+        'ROI-Berechnung für jede Automatisierung',
+        'Maßgeschneiderte Roadmap',
+        'Kostenlose Beratung inklusive'
       ],
-      cta: 'Bereitschaft testen',
-      gradient: 'from-purple-500/10 to-pink-500/10'
+      cta: 'Business-Analyse starten',
+      gradient: 'from-green-500/10 to-emerald-500/10'
     }
   ];
 
@@ -65,21 +50,21 @@ const LeadMagnetsSection = () => {
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
             <Download className="w-4 h-4" />
-            Kostenlose Ressourcen
+            Kostenlose Analyse-Tools
           </div>
           
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Starten Sie <span className="text-primary">risikofrei</span> in die KI-Automatisierung
+            Entdecken Sie Ihr <span className="text-primary">KI-Automatisierungs-Potenzial</span>
           </h2>
           
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            Nutzen Sie unsere kostenlosen Tools und Ressourcen, um das Potenzial 
-            von KI-Agenten für Ihr Unternehmen zu bewerten.
+            Nutzen Sie unsere intelligenten Tools, um herauszufinden, welche Automatisierungen 
+            für Ihr Unternehmen am wertvollsten sind.
           </p>
         </div>
 
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full max-w-6xl mx-auto">
-          <TabsList className="grid w-full grid-cols-3 mb-8">
+          <TabsList className="grid w-full grid-cols-2 mb-8">
             {leadMagnets.map((magnet) => {
               const IconComponent = magnet.icon;
               return (
@@ -102,7 +87,7 @@ const LeadMagnetsSection = () => {
               <TabsContent key={magnet.id} value={magnet.id}>
                 <Card className={`bg-gradient-to-br ${magnet.gradient} border-primary/20`}>
                   <CardContent className="p-8">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
                       <div>
                         <div className="flex items-center gap-3 mb-4">
                           <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center">
@@ -128,48 +113,27 @@ const LeadMagnetsSection = () => {
                           ))}
                         </div>
                         
-                        {magnet.id === 'rechner' ? (
-                          <Button asChild className="bg-gradient-primary hover:shadow-elevated">
-                            <Link to="/roi-rechner">
-                              {magnet.cta}
-                              <ArrowRight className="w-4 h-4 ml-2" />
-                            </Link>
-                          </Button>
-                        ) : magnet.id === 'quiz' ? (
-                          <div className="space-y-4">
-                            <Button 
-                              onClick={() => {
-                                const quizElement = document.getElementById('ki-quiz-section');
-                                quizElement?.scrollIntoView({ behavior: 'smooth' });
-                              }}
-                              className="bg-gradient-primary hover:shadow-elevated"
-                            >
-                              {magnet.cta}
-                              <Brain className="w-4 h-4 ml-2" />
-                            </Button>
-                            <div className="text-xs text-muted-foreground">
-                              Direkt hier verfügbar ↓
+                        <div className="bg-background/50 rounded-xl p-6 backdrop-blur-sm border border-white/10">
+                          <div className="text-center">
+                            <IconComponent className="w-16 h-16 text-primary mx-auto mb-4" />
+                            <div className="text-sm text-muted-foreground">
+                              {magnet.id === 'checkliste' && "Schritt-für-Schritt durch 6 Automatisierungsbereiche"}
+                              {magnet.id === 'analyse' && "IST-Zustand analysieren + Potenzial bewerten"}
                             </div>
                           </div>
-                        ) : (
+                        </div>
+                      </div>
+                      
+                      <div className="lg:min-h-[600px]">
+                        {magnet.id === 'checkliste' && (
                           <div id="checklist-download">
                             <KIChecklistDownload />
                           </div>
                         )}
-                      </div>
-                      
-                      <div className="bg-background/50 rounded-xl p-6 backdrop-blur-sm border border-white/10">
-                        {magnet.id === 'quiz' ? (
-                          <div id="ki-quiz-section">
-                            <KIReadinessQuiz />
-                          </div>
-                        ) : (
-                          <div className="text-center">
-                            <IconComponent className="w-16 h-16 text-primary mx-auto mb-4" />
-                            <div className="text-sm text-muted-foreground">
-                              {magnet.id === 'checkliste' && "Systematische 15-Punkte Bewertung"}
-                              {magnet.id === 'rechner' && "Interaktiver Web-Rechner"}
-                            </div>
+                        
+                        {magnet.id === 'analyse' && (
+                          <div id="business-analysis">
+                            <BusinessAnalysisTool />
                           </div>
                         )}
                       </div>
@@ -181,20 +145,20 @@ const LeadMagnetsSection = () => {
           })}
         </Tabs>
 
-        {/* Quiz Section - Only show if not in tab */}
-        {activeTab !== 'quiz' && (
-          <div className="mt-16">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold mb-4">
-                Oder testen Sie direkt Ihre KI-Bereitschaft
-              </h3>
-              <p className="text-muted-foreground">
-                Alternativ können Sie auch hier unseren 4-Fragen Assessment durchführen.
-              </p>
-            </div>
-            <KIReadinessQuiz />
+        {/* Alternative Analysis Section */}
+        <div className="mt-16">
+          <div className="text-center mb-8">
+            <h3 className="text-2xl font-bold mb-4">
+              Oder starten Sie direkt mit der Business-Analyse
+            </h3>
+            <p className="text-muted-foreground">
+              Analysieren Sie Ihre aktuellen Prozesse und erhalten Sie maßgeschneiderte Automatisierungs-Empfehlungen.
+            </p>
           </div>
-        )}
+          <div className="pt-6">
+            <BusinessAnalysisTool />
+          </div>
+        </div>
 
         {/* Newsletter Section */}
         <div className="mt-16">

@@ -12,14 +12,14 @@ const ROICalculator = () => {
   const [agentType, setAgentType] = useState("email");
 
   const agentCosts = {
-    email: { monthly: 50, setup: 1000 },
-    linkedin: { monthly: 50, setup: 1300 },
-    voice: { monthly: 50, setup: 1600 },
-    newsletter: { monthly: 50, setup: 800 },
-    chatbot: { monthly: 50, setup: 1100 },
-    socialmedia: { monthly: 50, setup: 1200 },
-    sales: { monthly: 50, setup: 1400 },
-    appointment: { monthly: 50, setup: 900 }
+    chatbot: { monthly: 150, setup: 1100, name: "Website-Chat" },
+    email: { monthly: 90, setup: 800, name: "E-Mail-Sortierung" },
+    linkedin: { monthly: 200, setup: 1300, name: "LinkedIn Kontakte" },
+    appointment: { monthly: 120, setup: 900, name: "Terminbuchung" },
+    newsletter: { monthly: 180, setup: 1000, name: "Newsletter" },
+    voice: { monthly: 250, setup: 1600, name: "Voice-Agent" },
+    sales: { monthly: 200, setup: 1400, name: "Sales Assistent" },
+    socialmedia: { monthly: 160, setup: 1200, name: "Social Media" }
   };
 
   const currentCosts = {
@@ -64,52 +64,52 @@ const ROICalculator = () => {
                 <SelectValue placeholder="Assistent auswählen..." />
               </SelectTrigger>
               <SelectContent className="bg-card border-2 border-primary/30 shadow-2xl z-50 max-h-64 overflow-y-auto">
+                <SelectItem value="chatbot" className="py-3 pl-10 pr-4 text-base">
+                  <div className="flex flex-col">
+                    <span className="font-semibold">Website-Chat</span>
+                    <span className="text-sm text-muted-foreground">€150/Monat + €1.100 Setup</span>
+                  </div>
+                </SelectItem>
                 <SelectItem value="email" className="py-3 pl-10 pr-4 text-base">
                   <div className="flex flex-col">
-                    <span className="font-semibold">E-Mail Assistent</span>
-                    <span className="text-sm text-muted-foreground">€50/Monat + €1.000 Setup*</span>
+                    <span className="font-semibold">E-Mail Sortierung</span>
+                    <span className="text-sm text-muted-foreground">€90/Monat + €800 Setup</span>
                   </div>
                 </SelectItem>
                 <SelectItem value="linkedin" className="py-3 pl-10 pr-4 text-base">
                   <div className="flex flex-col">
-                    <span className="font-semibold">LinkedIn Assistent</span>
-                    <span className="text-sm text-muted-foreground">€50/Monat + €1.300 Setup*</span>
+                    <span className="font-semibold">LinkedIn Kontakte</span>
+                    <span className="text-sm text-muted-foreground">€200/Monat + €1.300 Setup</span>
                   </div>
                 </SelectItem>
-                <SelectItem value="voice" className="py-3 pl-10 pr-4 text-base">
+                <SelectItem value="appointment" className="py-3 pl-10 pr-4 text-base">
                   <div className="flex flex-col">
-                    <span className="font-semibold">Voice Assistent</span>
-                    <span className="text-sm text-muted-foreground">€50/Monat + €1.600 Setup*</span>
+                    <span className="font-semibold">Terminbuchung</span>
+                    <span className="text-sm text-muted-foreground">€120/Monat + €900 Setup</span>
                   </div>
                 </SelectItem>
                 <SelectItem value="newsletter" className="py-3 pl-10 pr-4 text-base">
                   <div className="flex flex-col">
-                    <span className="font-semibold">Newsletter Assistent</span>
-                    <span className="text-sm text-muted-foreground">€50/Monat + €800 Setup*</span>
+                    <span className="font-semibold">Newsletter Automatisierung</span>
+                    <span className="text-sm text-muted-foreground">€180/Monat + €1.000 Setup</span>
                   </div>
                 </SelectItem>
-                <SelectItem value="chatbot" className="py-3 pl-10 pr-4 text-base">
+                <SelectItem value="voice" className="py-3 pl-10 pr-4 text-base">
                   <div className="flex flex-col">
-                    <span className="font-semibold">Chatbot</span>
-                    <span className="text-sm text-muted-foreground">€50/Monat + €1.100 Setup*</span>
-                  </div>
-                </SelectItem>
-                <SelectItem value="socialmedia" className="py-3 pl-10 pr-4 text-base">
-                  <div className="flex flex-col">
-                    <span className="font-semibold">Social Media Assistent</span>
-                    <span className="text-sm text-muted-foreground">€50/Monat + €1.200 Setup*</span>
+                    <span className="font-semibold">Voice-Agent</span>
+                    <span className="text-sm text-muted-foreground">€250/Monat + €1.600 Setup</span>
                   </div>
                 </SelectItem>
                 <SelectItem value="sales" className="py-3 pl-10 pr-4 text-base">
                   <div className="flex flex-col">
                     <span className="font-semibold">Sales Assistent</span>
-                    <span className="text-sm text-muted-foreground">€50/Monat + €1.400 Setup*</span>
+                    <span className="text-sm text-muted-foreground">€200/Monat + €1.400 Setup</span>
                   </div>
                 </SelectItem>
-                <SelectItem value="appointment" className="py-3 pl-10 pr-4 text-base">
+                <SelectItem value="socialmedia" className="py-3 pl-10 pr-4 text-base">
                   <div className="flex flex-col">
-                    <span className="font-semibold">Terminbuchungsassistent</span>
-                    <span className="text-sm text-muted-foreground">€50/Monat + €900 Setup*</span>
+                    <span className="font-semibold">Social Media Assistent</span>
+                    <span className="text-sm text-muted-foreground">€160/Monat + €1.200 Setup</span>
                   </div>
                 </SelectItem>
               </SelectContent>
