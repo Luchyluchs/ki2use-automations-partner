@@ -163,44 +163,6 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Automation Info */}
-      <section className="section-padding bg-muted">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-gradient-primary rounded-2xl p-8 text-center text-primary-foreground hover-scale">
-              <h3 className="text-xl font-semibold mb-4">
-                Automatisierte Effizienz von Anfang an
-              </h3>
-              <p className="leading-relaxed mb-6">
-                Die Daten aus diesem Formular und dem Kalender werden direkt automatisch verarbeitet, 
-                um einen schnellen, effizienten und transparenten Ablauf zu gewährleisten. 
-                Dies unterstreicht unsere eigene Automatisierungs-Kompetenz von KI2USE und 
-                zeigt Ihnen bereits im ersten Kontakt, wie professionell und zuverlässig 
-                automatisierte Prozesse funktionieren können.
-              </p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                  <div className="text-2xl mb-2">⚡</div>
-                  <div className="font-medium mb-1">Automatische Kategorisierung</div>
-                  <div className="text-sm opacity-80">Ihre Anfrage wird automatisch dem richtigen Experten zugeordnet</div>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                  <div className="text-2xl mb-2">📊</div>
-                  <div className="font-medium mb-1">CRM-Integration</div>
-                  <div className="text-sm opacity-80">Nahtlose Übertragung in unser Kundenmanagementsystem</div>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                  <div className="text-2xl mb-2">🔔</div>
-                  <div className="font-medium mb-1">Benachrichtigungen</div>
-                  <div className="text-sm opacity-80">Automatische Updates für Sie und unser Team</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* FAQ */}
       <section className="section-padding bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
