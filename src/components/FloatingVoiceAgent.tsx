@@ -41,14 +41,13 @@ const FloatingVoiceAgent: React.FC = () => {
       {/* Floating Button - Goes behind chatbot when open */}
       <Button
         onClick={() => setIsOpen(true)}
-        className={`fixed bottom-6 left-6 w-36 h-12 rounded-xl bg-gradient-primary hover:scale-105 hover:shadow-3xl active:scale-95 transition-all duration-200 shadow-2xl border-2 border-white/30 cursor-pointer ${
+        className={`fixed bottom-6 left-6 w-14 h-14 rounded-full bg-gradient-primary text-primary-foreground shadow-primary hover-scale float-element ${
           isChatbotOpen ? 'z-30' : 'z-50'
         }`}
-        size="lg"
+        size="sm"
+        title="Voice Agent testen"
       >
-        <span className="text-sm font-bold text-primary-foreground text-center">
-          Voice Agent testen
-        </span>
+        <Mic className="w-6 h-6" />
       </Button>
 
       {/* Voice Agent Modal */}
