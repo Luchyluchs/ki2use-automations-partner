@@ -16,7 +16,7 @@ const InteractiveKIDemo = () => {
       id: 'voice',
       name: 'Telefon-Assistent',
       icon: Mic,
-      color: 'bg-green-500',
+      color: 'bg-primary',
       interface: 'voice',
       benefit: 'Anrufe auch nach Feierabend'
     },
@@ -24,7 +24,7 @@ const InteractiveKIDemo = () => {
       id: 'chatbot',
       name: 'Website-Chat',
       icon: MessageCircle,
-      color: 'bg-blue-500',
+      color: 'bg-accent',
       interface: 'chat',
       benefit: 'Kunden fragen - KI antwortet sofort'
     },
@@ -32,7 +32,7 @@ const InteractiveKIDemo = () => {
       id: 'email',
       name: 'E-Mail Sortierer',
       icon: Mail,
-      color: 'bg-orange-500',
+      color: 'bg-secondary',
       interface: 'email',
       benefit: 'Wichtige E-Mails zuerst sehen'
     },
@@ -40,7 +40,7 @@ const InteractiveKIDemo = () => {
       id: 'sales',
       name: 'Verkaufs-Helfer',
       icon: TrendingUp,
-      color: 'bg-red-500',
+      color: 'bg-primary',
       interface: 'sales',
       benefit: 'Beste Kunden automatisch finden'
     },
@@ -48,7 +48,7 @@ const InteractiveKIDemo = () => {
       id: 'appointment',
       name: 'Termin-Planer',
       icon: Calendar,
-      color: 'bg-indigo-500',
+      color: 'bg-accent',
       interface: 'calendar',
       benefit: 'Termine buchen ohne Aufwand'
     },
@@ -56,7 +56,7 @@ const InteractiveKIDemo = () => {
       id: 'linkedin',
       name: 'LinkedIn Kontakte',
       icon: Linkedin,
-      color: 'bg-blue-600', 
+      color: 'bg-secondary', 
       interface: 'linkedin',
       benefit: 'Neue Kunden finden automatisch'
     },
@@ -64,7 +64,7 @@ const InteractiveKIDemo = () => {
       id: 'newsletter',
       name: 'Newsletter-Versand',
       icon: Newspaper,
-      color: 'bg-purple-500',
+      color: 'bg-primary',
       interface: 'newsletter',
       benefit: 'Kunden automatisch informieren'
     }
@@ -227,7 +227,7 @@ const InteractiveKIDemo = () => {
                 return (
                   <div 
                     key={index}
-                    className="w-2 bg-green-500 rounded-full transition-all duration-150 ease-in-out"
+                    className="w-2 bg-primary rounded-full transition-all duration-150 ease-in-out"
                     style={{
                       height: `${baseHeight + Math.abs(waveOffset)}px`
                     }}
@@ -466,7 +466,7 @@ const InteractiveKIDemo = () => {
         <div className="p-4">
           {/* Header */}
           <div className="flex items-center gap-3 pb-3 border-b border-border/30 animate-fade-in">
-            <div className="w-3 h-3 bg-green-500 rounded-full shadow-green-500/50 shadow-lg"></div>
+            <div className="w-3 h-3 bg-primary rounded-full shadow-primary/50 shadow-lg"></div>
             <span className="text-sm font-medium text-foreground transition-all duration-300">
               {currentAgent.name} Demo
             </span>

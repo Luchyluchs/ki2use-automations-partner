@@ -102,7 +102,7 @@ const HeroSection = () => {
 
           {/* Interactive KI Demo */}
           <div className="lg:col-span-5 relative flex items-center justify-center">
-            <div className="enhanced-reveal stagger-delay-4 tilt-hover">
+            <div className="enhanced-reveal stagger-delay-4">
               <InteractiveKIDemo />
             </div>
           </div>
