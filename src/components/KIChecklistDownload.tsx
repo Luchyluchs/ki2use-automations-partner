@@ -3,310 +3,135 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import { Download, FileText, CheckCircle, Target, Users, Settings } from 'lucide-react';
+import { Progress } from "./ui/progress";
+import { CheckCircle, ArrowRight, ArrowLeft, Users, Settings, Target, Mail } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
 
 interface ChecklistItem {
   category: string;
   icon: any;
-  items: {
-    title: string;
-    description: string;
-    priority: 'Hoch' | 'Mittel' | 'Niedrig';
-    benefit: string;
-  }[];
+  title: string;
+  description: string;
+  benefit: string;
+  detailedBenefit: string;
+  timeImpact: string;
+  costImpact: string;
 }
 
 const KIChecklistDownload = () => {
+  const [currentStep, setCurrentStep] = useState(0);
+  const [checkedItems, setCheckedItems] = useState<Record<number, boolean>>({});
   const [email, setEmail] = useState('');
-  const [company, setCompany] = useState('');
+  const [showResults, setShowResults] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showPreview, setShowPreview] = useState(false);
   const { toast } = useToast();
 
   const checklistData: ChecklistItem[] = [
     {
-      category: "Sofortige Automatisierung",
+      category: "Kundenbetreuung",
       icon: Users,
-      items: [
-        {
-          title: "24/7 Website-Chat",
-          description: "Kunden sofort antworten, auch nachts",
-          priority: "Hoch",
-          benefit: "60% weniger Kundenanfragen für Ihr Team"
-        },
-        {
-          title: "E-Mail Sortierung",
-          description: "Wichtige E-Mails automatisch nach oben",
-          priority: "Hoch",
-          benefit: "2-3 Stunden täglich Zeit sparen"
-        }
-      ]
+      title: "24/7 Website-Chat",
+      description: "Ein KI-Assistent beantwortet Kundenanfragen sofort - auch nachts und am Wochenende",
+      benefit: "60% weniger Kundenanfragen für Ihr Team",
+      detailedBenefit: "Stellen Sie sich vor: Ihre Kunden bekommen sofort Antworten, auch wenn Sie schlafen. Häufige Fragen werden automatisch beantwortet, nur komplexe Anfragen landen bei Ihnen.",
+      timeImpact: "2-4 Stunden täglich",
+      costImpact: "Ab 150€/Monat"
     },
     {
-      category: "Mittelfristige Projekte",
-      icon: Settings,
-      items: [
-        {
-          title: "LinkedIn Kontakte",
-          description: "Automatisch neue Kunden finden",
-          priority: "Mittel",
-          benefit: "300% mehr Business-Kontakte"
-        },
-        {
-          title: "Terminplanung",
-          description: "Kunden buchen Termine selbst",
-          priority: "Mittel",
-          benefit: "90% weniger Telefonate für Termine"
-        }
-      ]
+      category: "E-Mail Management",
+      icon: Mail,
+      title: "Intelligente E-Mail-Sortierung",
+      description: "Wichtige E-Mails werden automatisch erkannt und priorisiert",
+      benefit: "2-3 Stunden täglich Zeit sparen",
+      detailedBenefit: "Nie wieder wichtige E-Mails übersehen! Die KI erkennt automatisch, welche E-Mails sofortige Aufmerksamkeit brauchen und sortiert den Rest weg.",
+      timeImpact: "2-3 Stunden täglich",
+      costImpact: "Ab 90€/Monat"
     },
     {
-      category: "Langfristige Vision",
+      category: "Lead-Generierung",
       icon: Target,
-      items: [
-        {
-          title: "Voice-Agent",
-          description: "Telefon-KI nimmt Anrufe entgegen",
-          priority: "Niedrig",
-          benefit: "Nie wieder einen Anruf verpassen"
-        },
-        {
-          title: "Newsletter-Automatik",
-          description: "Kunden automatisch informieren",
-          priority: "Niedrig",
-          benefit: "40% höhere Öffnungsraten"
-        }
-      ]
+      title: "LinkedIn Kontakt-Automatisierung",
+      description: "Finden und kontaktieren Sie automatisch potenzielle Kunden",
+      benefit: "300% mehr qualifizierte Business-Kontakte",
+      detailedBenefit: "Während Sie arbeiten, knüpft die KI neue Geschäftskontakte. Sie finden automatisch Menschen, die Ihre Dienstleistung brauchen.",
+      timeImpact: "5-10 Stunden wöchentlich",
+      costImpact: "Ab 200€/Monat"
+    },
+    {
+      category: "Terminmanagement",
+      icon: Settings,
+      title: "Automatische Terminbuchung",
+      description: "Kunden buchen Termine selbst, ohne Ihr Zutun",
+      benefit: "90% weniger Telefonate für Terminabsprachen",
+      detailedBenefit: "Schluss mit dem Hin-und-Her! Kunden sehen Ihre freien Zeiten und buchen direkt. Automatische Erinnerungen inklusive.",
+      timeImpact: "3-5 Stunden wöchentlich",
+      costImpact: "Ab 120€/Monat"
+    },
+    {
+      category: "Kommunikation",
+      icon: Users,
+      title: "Newsletter-Automatisierung",
+      description: "Personalisierte Newsletter werden automatisch erstellt und versendet",
+      benefit: "40% höhere Öffnungsraten durch Personalisierung",
+      detailedBenefit: "Ihre Kunden bekommen nur relevante Inhalte. Die KI weiß, wer sich für was interessiert und passt jeden Newsletter individuell an.",
+      timeImpact: "4-6 Stunden monatlich",
+      costImpact: "Ab 180€/Monat"
+    },
+    {
+      category: "Telefonsupport",
+      icon: Settings,
+      title: "Voice-Agent für Anrufe",
+      description: "Ein KI-Agent nimmt Anrufe entgegen und hilft Kunden weiter",
+      benefit: "Nie wieder einen wichtigen Anruf verpassen",
+      detailedBenefit: "Auch wenn Sie nicht da sind: Die KI nimmt Anrufe entgegen, beantwortet einfache Fragen und vereinbart Rückrufe.",
+      timeImpact: "Unbegrenzt verfügbar",
+      costImpact: "Ab 250€/Monat"
     }
   ];
 
-  const generatePDF = () => {
-    // Create a comprehensive checklist in HTML format for PDF generation
-    const checklistHTML = `
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>KI-Automatisierung Checkliste - KI2USE</title>
-    <style>
-        body { 
-            font-family: 'Inter', Arial, sans-serif; 
-            line-height: 1.6; 
-            color: hsl(215, 20%, 15%); 
-            max-width: 800px; 
-            margin: 0 auto; 
-            padding: 40px 20px;
-        }
-        .header { 
-            text-align: center; 
-            border-bottom: 3px solid hsl(215, 60%, 25%); 
-            padding-bottom: 20px; 
-            margin-bottom: 40px; 
-        }
-        .header h1 { 
-            color: hsl(215, 60%, 25%); 
-            font-size: 2.2em; 
-            margin-bottom: 10px; 
-        }
-        .header p { 
-            color: hsl(215, 12%, 50%); 
-            font-size: 1.1em; 
-        }
-        .category { 
-            margin-bottom: 30px; 
-            break-inside: avoid; 
-        }
-        .category h2 { 
-            background: linear-gradient(135deg, hsl(215, 60%, 25%), hsl(215, 45%, 45%)); 
-            color: white; 
-            padding: 15px 20px; 
-            border-radius: 8px; 
-            margin-bottom: 15px; 
-            font-size: 1.3em; 
-        }
-        .checklist-item { 
-            border: 1px solid hsl(215, 15%, 92%); 
-            border-radius: 8px; 
-            padding: 20px; 
-            margin-bottom: 15px; 
-            background: white; 
-        }
-        .item-header { 
-            display: flex; 
-            align-items: center; 
-            margin-bottom: 10px; 
-        }
-        .checkbox { 
-            width: 20px; 
-            height: 20px; 
-            border: 2px solid hsl(215, 60%, 25%); 
-            border-radius: 4px; 
-            margin-right: 15px; 
-            flex-shrink: 0; 
-        }
-        .priority { 
-            padding: 4px 12px; 
-            border-radius: 20px; 
-            font-size: 0.8em; 
-            font-weight: 600; 
-            margin-left: auto; 
-        }
-        .priority.hoch { 
-            background: hsl(0, 70%, 95%); 
-            color: hsl(0, 70%, 40%); 
-        }
-        .priority.mittel { 
-            background: hsl(45, 70%, 95%); 
-            color: hsl(45, 70%, 40%); 
-        }
-        .priority.niedrig { 
-            background: hsl(120, 70%, 95%); 
-            color: hsl(120, 70%, 40%); 
-        }
-        .item-title { 
-            font-weight: 600; 
-            font-size: 1.1em; 
-            flex-grow: 1; 
-        }
-        .item-description { 
-            margin-bottom: 8px; 
-            color: hsl(215, 12%, 50%); 
-        }
-        .item-benefit { 
-            background: hsl(215, 60%, 97%); 
-            padding: 10px; 
-            border-radius: 6px; 
-            border-left: 4px solid hsl(215, 60%, 25%); 
-            font-size: 0.9em; 
-        }
-        .evaluation-grid { 
-            display: grid; 
-            grid-template-columns: 1fr 80px 80px 80px; 
-            gap: 10px; 
-            margin-top: 20px; 
-            font-size: 0.9em; 
-        }
-        .eval-header { 
-            font-weight: 600; 
-            border-bottom: 2px solid hsl(215, 60%, 25%); 
-            padding-bottom: 5px; 
-        }
-        .next-steps { 
-            background: hsl(215, 60%, 97%); 
-            border: 2px solid hsl(215, 60%, 25%); 
-            border-radius: 12px; 
-            padding: 25px; 
-            margin-top: 40px; 
-        }
-        .next-steps h3 { 
-            color: hsl(215, 60%, 25%); 
-            margin-bottom: 15px; 
-        }
-        .step { 
-            margin-bottom: 10px; 
-            padding-left: 30px; 
-            position: relative; 
-        }
-        .step::before { 
-            content: counter(step-counter); 
-            counter-increment: step-counter; 
-            position: absolute; 
-            left: 0; 
-            top: 0; 
-            background: hsl(215, 60%, 25%); 
-            color: white; 
-            width: 20px; 
-            height: 20px; 
-            border-radius: 50%; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            font-size: 0.8em; 
-            font-weight: 600; 
-        }
-        .steps-container { 
-            counter-reset: step-counter; 
-        }
-        @media print { 
-            body { padding: 20px; } 
-            .category { page-break-inside: avoid; } 
-        }
-    </style>
-</head>
-<body>
-    <div class="header">
-        <h1>KI-Automatisierung Checkliste</h1>
-        <p>Ihr systematischer Leitfaden für erfolgreiche KI-Implementierung</p>
-        <p><strong>Erstellt für:</strong> ${company || 'Ihr Unternehmen'} | <strong>KI2USE GmbH</strong> | www.ki2use.de</p>
-    </div>
+  const handleItemCheck = (index: number, checked: boolean) => {
+    setCheckedItems(prev => ({
+      ...prev,
+      [index]: checked
+    }));
+  };
 
-    ${checklistData.map(category => `
-        <div class="category">
-            <h2>${category.category}</h2>
-            ${category.items.map(item => `
-                <div class="checklist-item">
-                    <div class="item-header">
-                        <div class="checkbox"></div>
-                        <div class="item-title">${item.title}</div>
-                        <div class="priority ${item.priority.toLowerCase()}">${item.priority}</div>
-                    </div>
-                    <div class="item-description">${item.description}</div>
-                    <div class="item-benefit">
-                        <strong>Nutzen:</strong> ${item.benefit}
-                    </div>
-                    <div class="evaluation-grid">
-                        <div class="eval-header">Bewertungskriterien</div>
-                        <div class="eval-header">Aufwand</div>
-                        <div class="eval-header">Nutzen</div>
-                        <div class="eval-header">Priorität</div>
-                        <div>Technische Umsetzbarkeit</div>
-                        <div>□ Niedrig □ Mittel □ Hoch</div>
-                        <div>□ Niedrig □ Mittel □ Hoch</div>
-                        <div>□ 1 □ 2 □ 3</div>
-                        <div>Organisatorische Bereitschaft</div>
-                        <div>□ Niedrig □ Mittel □ Hoch</div>
-                        <div>□ Niedrig □ Mittel □ Hoch</div>
-                        <div>□ 1 □ 2 □ 3</div>
-                        <div>Mitarbeiterakzeptanz</div>
-                        <div>□ Niedrig □ Mittel □ Hoch</div>
-                        <div>□ Niedrig □ Mittel □ Hoch</div>
-                        <div>□ 1 □ 2 □ 3</div>
-                    </div>
-                </div>
-            `).join('')}
-        </div>
-    `).join('')}
+  const handleNext = () => {
+    if (currentStep < checklistData.length - 1) {
+      setCurrentStep(prev => prev + 1);
+    } else {
+      setShowResults(true);
+    }
+  };
 
-    <div class="next-steps">
-        <h3>Ihre nächsten Schritte zur KI-Automatisierung</h3>
-        <div class="steps-container">
-            <div class="step"><strong>Bewertung durchführen:</strong> Nutzen Sie die Bewertungsraster, um Ihre individuellen Prioritäten zu definieren.</div>
-            <div class="step"><strong>Quick Wins identifizieren:</strong> Beginnen Sie mit Prozessen, die hohen Nutzen bei geringem Aufwand bieten.</div>
-            <div class="step"><strong>Budget planen:</strong> Kalkulieren Sie Ihre Investition mit unserem ROI-Rechner auf www.ki2use.de/roi-rechner</div>
-            <div class="step"><strong>Beratungsgespräch buchen:</strong> Lassen Sie sich von unseren KI-Experten individuell beraten.</div>
-            <div class="step"><strong>Pilotprojekt starten:</strong> Beginnen Sie mit einem ausgewählten Bereich für erste Erfahrungen.</div>
-        </div>
-    </div>
+  const handlePrev = () => {
+    if (currentStep > 0) {
+      setCurrentStep(prev => prev - 1);
+    }
+  };
 
-    <div style="margin-top: 40px; text-align: center; border-top: 2px solid hsl(215, 15%, 92%); padding-top: 20px; color: hsl(215, 12%, 50%);">
-        <p><strong>KI2USE GmbH</strong> - Ihr Partner für professionelle KI-Automatisierung</p>
-        <p>📧 info@ki2use.de | 🌐 www.ki2use.de | 📱 Kostenloses Beratungsgespräch buchen</p>
-        <p><em>Diese Checkliste wurde speziell für deutsche KMUs entwickelt und berücksichtigt DSGVO-Anforderungen.</em></p>
-    </div>
-</body>
-</html>`;
+  const checkedCount = Object.values(checkedItems).filter(Boolean).length;
+  const progress = ((currentStep + 1) / checklistData.length) * 100;
+  const currentItem = checklistData[currentStep];
 
-    // Create and download PDF
-    const blob = new Blob([checklistHTML], { type: 'text/html' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `KI-Automatisierung-Checkliste-KI2USE-${company || 'Unternehmen'}.html`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+  const calculatePotentialSavings = () => {
+    const selectedItems = checklistData.filter((_, index) => checkedItems[index]);
+    const totalHourlySavings = selectedItems.reduce((acc, item) => {
+      if (item.timeImpact.includes('täglich')) {
+        const hours = parseInt(item.timeImpact);
+        return acc + (hours * 22); // 22 Arbeitstage pro Monat
+      } else if (item.timeImpact.includes('wöchentlich')) {
+        const hours = parseInt(item.timeImpact);
+        return acc + (hours * 4); // 4 Wochen pro Monat
+      } else if (item.timeImpact.includes('monatlich')) {
+        const hours = parseInt(item.timeImpact);
+        return acc + hours;
+      }
+      return acc + 20; // Fallback für "unbegrenzt"
+    }, 0);
+    
+    const monthlySavings = totalHourlySavings * 50; // 50€ pro Stunde
+    return { totalHourlySavings, monthlySavings };
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -316,15 +141,12 @@ const KIChecklistDownload = () => {
     setIsSubmitting(true);
     
     try {
-      // Simulate API call
+      // Hier später der Webhook für E-Mail-Versand
       await new Promise(resolve => setTimeout(resolve, 1500));
       
-      // Generate and download the PDF
-      generatePDF();
-      
       toast({
-        title: "Download gestartet!",
-        description: `Die KI-Schnellcheck-Liste wird heruntergeladen.`,
+        title: "Analyse wird versendet!",
+        description: "Sie erhalten Ihre personalisierte KI-Automatisierungs-Analyse in wenigen Minuten per E-Mail.",
       });
     } catch (error) {
       toast({
@@ -337,125 +159,194 @@ const KIChecklistDownload = () => {
     }
   };
 
-  return (
-    <Card className="w-full max-w-4xl mx-auto">
-      <CardHeader className="text-center">
-        <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
-          <FileText className="w-8 h-8 text-primary-foreground" />
-        </div>
-        <CardTitle className="text-2xl">
-          KI-Schnellcheck für Ihr Unternehmen
-        </CardTitle>
-        <p className="text-muted-foreground">
-          6 konkrete Automatisierungs-Möglichkeiten mit sofortiger Prioritätsbewertung.
-          Perfekt für den schnellen Überblick - keine komplizierte Analyse.
-        </p>
-      </CardHeader>
-      
-      <CardContent className="space-y-6">
-        {!showPreview ? (
-          <>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-              <div className="bg-primary/10 border border-primary/20 rounded-lg p-4 text-center">
-                <CheckCircle className="w-8 h-8 text-primary mx-auto mb-2" />
-                <div className="font-semibold text-sm">6 konkrete Schritte</div>
-                <div className="text-xs text-muted-foreground">Sofort umsetzbar</div>
-              </div>
-              <div className="bg-primary/10 border border-primary/20 rounded-lg p-4 text-center">
-                <Target className="w-8 h-8 text-primary mx-auto mb-2" />
-                <div className="font-semibold text-sm">Klare Prioritäten</div>
-                <div className="text-xs text-muted-foreground">Was zuerst angehen</div>
-              </div>
-              <div className="bg-primary/10 border border-primary/20 rounded-lg p-4 text-center">
-                <Settings className="w-8 h-8 text-primary mx-auto mb-2" />
-                <div className="font-semibold text-sm">Keine Technik-Vorkenntnisse</div>
-                <div className="text-xs text-muted-foreground">Einfach verständlich</div>
-              </div>
+  if (showResults) {
+    const { totalHourlySavings, monthlySavings } = calculatePotentialSavings();
+    const selectedItems = checklistData.filter((_, index) => checkedItems[index]);
+    
+    return (
+      <Card className="w-full max-w-4xl mx-auto">
+        <CardHeader className="text-center">
+          <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
+            <CheckCircle className="w-8 h-8 text-primary-foreground" />
+          </div>
+          <CardTitle className="text-3xl">Ihre KI-Automatisierungs-Analyse</CardTitle>
+          <p className="text-muted-foreground">
+            Basierend auf Ihren {checkedCount} ausgewählten Bereichen
+          </p>
+        </CardHeader>
+        
+        <CardContent className="space-y-8">
+          {/* Potenzial-Übersicht */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-6 text-center">
+              <div className="text-3xl font-bold text-green-600 mb-2">{totalHourlySavings}h</div>
+              <div className="font-medium">Gesparte Zeit pro Monat</div>
             </div>
+            <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6 text-center">
+              <div className="text-3xl font-bold text-blue-600 mb-2">{monthlySavings.toLocaleString()}€</div>
+              <div className="font-medium">Geschätzter Wert pro Monat</div>
+            </div>
+          </div>
 
-            <Button 
-              variant="ghost" 
-              onClick={() => setShowPreview(true)}
-              className="w-full mb-4"
-            >
-              Kurz-Checkliste ansehen
-            </Button>
+          {/* Ausgewählte Automatisierungen */}
+          <div className="space-y-4">
+            <h3 className="text-xl font-semibold">Ihre gewählten Automatisierungen:</h3>
+            {selectedItems.map((item, index) => (
+              <div key={index} className="bg-primary/5 border border-primary/20 rounded-lg p-4">
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-green-500 mt-1" />
+                  <div className="flex-1">
+                    <h4 className="font-semibold">{item.title}</h4>
+                    <p className="text-sm text-muted-foreground mb-2">{item.detailedBenefit}</p>
+                    <div className="flex gap-4 text-xs">
+                      <span className="bg-green-100 dark:bg-green-900/30 text-green-700 px-2 py-1 rounded">
+                        ⏱ {item.timeImpact} gesparte Zeit
+                      </span>
+                      <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-700 px-2 py-1 rounded">
+                        💰 {item.costImpact}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
 
+          {/* E-Mail-Eingabe */}
+          <div className="bg-primary/10 border border-primary/20 rounded-lg p-6">
+            <h3 className="text-xl font-semibold mb-4 text-center">
+              Erhalten Sie Ihre detaillierte Analyse per E-Mail
+            </h3>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <Label htmlFor="checklist-email">E-Mail für sofortigen Download *</Label>
+                <Label htmlFor="result-email">E-Mail-Adresse für Ihre persönliche Analyse:</Label>
                 <Input
-                  id="checklist-email"
+                  id="result-email"
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="ihre@email.de"
                   required
+                  className="mt-2"
                 />
               </div>
               
               <Button 
                 type="submit" 
-                className="w-full bg-gradient-primary hover:shadow-elevated text-lg py-6"
+                className="w-full bg-gradient-primary text-lg py-4"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? "Wird heruntergeladen..." : "Sofort kostenlos herunterladen"}
-                <Download className="w-5 h-5 ml-2" />
+                {isSubmitting ? "Wird versendet..." : "Kostenlose Analyse per E-Mail erhalten"}
+                <Mail className="w-5 h-5 ml-2" />
               </Button>
             </form>
             
-            <p className="text-xs text-muted-foreground text-center">
-              Sofortiger Download • 100% kostenlos • Keine Anmeldung • Nur 1 Seite
+            <p className="text-xs text-muted-foreground text-center mt-4">
+              Sie erhalten: Detaillierte Roadmap • ROI-Berechnung • Nächste Schritte • Kostenlose Beratung
             </p>
-          </>
-        ) : (
-          <div className="space-y-6">
+          </div>
+
+          <div className="text-center">
             <Button 
-              variant="outline" 
-              onClick={() => setShowPreview(false)}
-              className="mb-4"
+              variant="ghost" 
+              onClick={() => {
+                setShowResults(false);
+                setCurrentStep(0);
+                setCheckedItems({});
+              }}
             >
-              ← Zurück zum Download
+              Auswahl ändern
             </Button>
-            
-            <div className="space-y-6 max-h-96 overflow-y-auto border rounded-lg p-4">
-              {checklistData.map((category, categoryIndex) => {
-                const IconComponent = category.icon;
-                return (
-                  <div key={categoryIndex} className="space-y-3">
-                    <div className="flex items-center gap-3 pb-2 border-b">
-                      <IconComponent className="w-5 h-5 text-primary" />
-                      <h4 className="font-semibold text-lg">{category.category}</h4>
-                    </div>
-                    {category.items.map((item, itemIndex) => (
-                      <div key={itemIndex} className="border rounded-lg p-4 bg-muted/30">
-                        <div className="flex items-start gap-3 mb-2">
-                          <div className="w-4 h-4 border-2 border-primary rounded mt-1 flex-shrink-0"></div>
-                          <div className="flex-1">
-                            <div className="flex items-start justify-between">
-                              <h5 className="font-medium">{item.title}</h5>
-                              <span className={`text-xs px-2 py-1 rounded-full ${
-                                item.priority === 'Hoch' ? 'bg-red-100 text-red-800' :
-                                item.priority === 'Mittel' ? 'bg-yellow-100 text-yellow-800' :
-                                'bg-green-100 text-green-800'
-                              }`}>
-                                {item.priority}
-                              </span>
-                            </div>
-                            <p className="text-sm text-muted-foreground mb-2">{item.description}</p>
-                            <div className="bg-primary/10 p-2 rounded text-sm">
-                              <strong>Nutzen:</strong> {item.benefit}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                );
-              })}
+          </div>
+        </CardContent>
+      </Card>
+    );
+  }
+
+  return (
+    <Card className="w-full max-w-4xl mx-auto">
+      <CardHeader>
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center gap-3">
+            <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center">
+              <currentItem.icon className="w-6 h-6 text-primary-foreground" />
+            </div>
+            <div>
+              <CardTitle className="text-xl">KI-Automatisierungs-Check</CardTitle>
+              <p className="text-sm text-muted-foreground">
+                Schritt {currentStep + 1} von {checklistData.length}
+              </p>
             </div>
           </div>
-        )}
+          <div className="text-right">
+            <div className="text-sm text-muted-foreground">Ausgewählt</div>
+            <div className="text-2xl font-bold text-primary">{checkedCount}</div>
+          </div>
+        </div>
+        <Progress value={progress} className="w-full" />
+      </CardHeader>
+      
+      <CardContent className="space-y-6">
+        {/* Aktueller Check-Punkt */}
+        <div className="space-y-4">
+          <div className="flex items-start gap-4">
+            <div className="flex-shrink-0">
+              <input
+                type="checkbox"
+                id={`item-${currentStep}`}
+                checked={checkedItems[currentStep] || false}
+                onChange={(e) => handleItemCheck(currentStep, e.target.checked)}
+                className="w-6 h-6 text-primary border-2 border-primary/30 rounded focus:ring-primary"
+              />
+            </div>
+            <div className="flex-1">
+              <label htmlFor={`item-${currentStep}`} className="cursor-pointer">
+                <h3 className="text-xl font-semibold mb-2">{currentItem.title}</h3>
+                <p className="text-muted-foreground mb-4">{currentItem.description}</p>
+              </label>
+              
+              <div className="bg-gradient-subtle rounded-lg p-4 space-y-3">
+                <div className="font-medium text-primary">Was bedeutet das für Sie?</div>
+                <p className="text-sm">{currentItem.detailedBenefit}</p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
+                  <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded p-3">
+                    <div className="text-xs font-medium text-green-700 mb-1">ZEITERSPARNIS</div>
+                    <div className="font-semibold">{currentItem.timeImpact}</div>
+                  </div>
+                  <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded p-3">
+                    <div className="text-xs font-medium text-blue-700 mb-1">INVESTITION</div>
+                    <div className="font-semibold">{currentItem.costImpact}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Navigation */}
+        <div className="flex justify-between items-center pt-6">
+          <Button 
+            variant="outline" 
+            onClick={handlePrev}
+            disabled={currentStep === 0}
+          >
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Zurück
+          </Button>
+          
+          <div className="text-sm text-muted-foreground">
+            {checkedCount > 0 && `${checkedCount} Bereiche ausgewählt`}
+          </div>
+          
+          <Button 
+            onClick={handleNext}
+            className="bg-gradient-primary"
+          >
+            {currentStep === checklistData.length - 1 ? "Analyse zeigen" : "Weiter"}
+            <ArrowRight className="w-4 h-4 ml-2" />
+          </Button>
+        </div>
       </CardContent>
     </Card>
   );
