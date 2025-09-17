@@ -38,15 +38,15 @@ const FloatingVoiceAgent: React.FC = () => {
 
   return (
     <>
-      {/* Floating Button - Goes behind chatbot when open */}
+      {/* Floating Button - Positioned above bottom nav on mobile */}
       <Button
         onClick={() => setIsOpen(true)}
-        className={`fixed bottom-6 left-6 w-36 h-12 rounded-xl bg-gradient-primary text-primary-foreground shadow-primary hover-scale float-element ${
-          isChatbotOpen ? 'z-30' : 'z-50'
+        className={`fixed bottom-20 left-4 lg:bottom-6 lg:left-6 w-32 lg:w-36 h-10 lg:h-12 rounded-lg lg:rounded-xl bg-gradient-primary text-primary-foreground shadow-primary hover-scale float-element ${
+          isChatbotOpen ? 'z-30' : 'z-40'
         }`}
-        size="lg"
+        size="sm"
       >
-        <span className="text-sm font-bold text-primary-foreground text-center">
+        <span className="text-xs lg:text-sm font-bold text-primary-foreground text-center">
           Voice Agent testen
         </span>
       </Button>

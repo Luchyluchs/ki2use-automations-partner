@@ -210,29 +210,30 @@ const NewChatbot = () => {
 
   return (
     <>
-      {/* Floating Chat Button */}
-      <div className="fixed bottom-6 right-6 z-40">
+      {/* Floating Chat Button - Positioned above bottom nav on mobile */}
+      <div className="fixed bottom-20 right-4 lg:bottom-6 lg:right-6 z-40">
         <Button
           onClick={() => setIsOpen(!isOpen)}
-          className="w-14 h-14 rounded-full bg-gradient-primary text-primary-foreground shadow-primary hover-scale float-element"
+          className="w-12 h-12 lg:w-14 lg:h-14 rounded-full bg-gradient-primary text-primary-foreground shadow-primary hover-scale float-element"
           size="sm"
         >
           {isOpen ? (
-            <X className="w-6 h-6" />
+            <X className="w-5 h-5 lg:w-6 lg:h-6" />
           ) : (
-            <MessageCircle className="w-6 h-6" />
+            <MessageCircle className="w-5 h-5 lg:w-6 lg:h-6" />
           )}
         </Button>
       </div>
 
-      {/* Chat Window */}
+      {/* Chat Window - Adjusted positioning for mobile bottom nav */}
       {isOpen && (
         <div 
           data-chatbot-window="true"
           className="fixed bottom-2 left-2 right-2 sm:right-6 sm:left-auto sm:w-96 md:w-[450px] lg:w-[500px] bg-card border border-card-border rounded-2xl shadow-elevated z-50 flex flex-col animate-scale-in" 
           style={{
-            height: Math.min(600, viewportHeight - 100) + 'px',
-            maxHeight: Math.min(600, viewportHeight - 100) + 'px'
+            height: Math.min(600, viewportHeight - 120) + 'px', // Adjusted for mobile bottom nav
+            maxHeight: Math.min(600, viewportHeight - 120) + 'px',
+            marginBottom: window.innerWidth < 1024 ? '64px' : '0px' // Space for mobile bottom nav
           }}
         >
           {/* Header */}
@@ -336,7 +337,7 @@ const NewChatbot = () => {
               </Button>
             </div>
             <p className="text-xs text-muted-foreground mt-2 text-center">
-              🤖 Das könnte der Chatbot Ihrer Unternehmenswebsite sein
+              Das könnte der Chatbot Ihrer Unternehmenswebsite sein
             </p>
           </div>
         </div>

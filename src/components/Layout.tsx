@@ -4,7 +4,6 @@ import { Menu, X, Brain } from "lucide-react";
 import { useState } from "react";
 import Chatbot from "./Chatbot";
 import MobileBottomNav from "./MobileBottomNav";
-import FloatingActionButton from "./FloatingActionButton";
 const Layout = ({
   children
 }: {
@@ -128,7 +127,6 @@ const Layout = ({
       </footer>
       <Chatbot />
       <MobileBottomNav />
-      <FloatingActionButton />
     </div>;
 };
 export default Layout;
