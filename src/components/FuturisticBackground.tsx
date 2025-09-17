@@ -108,8 +108,8 @@ const FuturisticBackground = () => {
 
       // Get current CSS variables for theming
       const computedStyle = getComputedStyle(document.documentElement);
-      const primaryHsl = computedStyle.getPropertyValue('--primary').trim();
-      const accentHsl = computedStyle.getPropertyValue('--accent').trim();
+      const primaryHsl = computedStyle.getPropertyValue('--primary').trim().replace(/\s+/g, ', ');
+      const accentHsl = computedStyle.getPropertyValue('--accent').trim().replace(/\s+/g, ', ');
 
       const particles = particlesRef.current;
       const connections = getConnections(particles);
