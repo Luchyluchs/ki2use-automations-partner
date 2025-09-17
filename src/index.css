@@ -18,54 +18,54 @@ Corporate design for German KMUs - trustworthy, modern, efficient
 
 @layer base {
   :root {
-    /* Dezente Professionelle Farbpalette */
-    --primary: 215 25% 35%;
+    /* Dezente Professionelle Farbpalette - Bläulich */
+    --primary: 210 40% 35%;
     --primary-foreground: 0 0% 98%;
-    --primary-hover: 215 25% 30%;
+    --primary-hover: 210 45% 30%;
     
-    /* Subtile Sekundärfarben */
-    --secondary: 215 15% 45%;
+    /* Subtile Sekundärfarben - Bläulich */
+    --secondary: 210 25% 45%;
     --secondary-foreground: 0 0% 98%;
-    --secondary-hover: 215 15% 40%;
+    --secondary-hover: 210 30% 40%;
     
-    /* Dezenter Akzent */
-    --accent: 215 20% 55%;
+    /* Dezenter Akzent - Bläulich */
+    --accent: 210 35% 55%;
     --accent-foreground: 0 0% 98%;
-    --accent-hover: 215 20% 50%;
+    --accent-hover: 210 40% 50%;
     
     /* Pure Background System */
     --background: 0 0% 100%;
-    --foreground: 215 20% 15%;
+    --foreground: 210 25% 15%;
     
     /* Minimal Card System */
     --card: 0 0% 100%;
-    --card-foreground: 215 20% 15%;
-    --card-border: 215 15% 92%;
+    --card-foreground: 210 25% 15%;
+    --card-border: 210 20% 92%;
     
-    /* Subtle Muted Content */
-    --muted: 215 15% 97%;
-    --muted-foreground: 215 15% 35%;
+    /* Subtle Muted Content - Bläulich */
+    --muted: 210 20% 97%;
+    --muted-foreground: 210 20% 35%;
     
-    /* Clean Interactive Elements */
-    --border: 215 15% 92%;
+    /* Clean Interactive Elements - Bläulich */
+    --border: 210 20% 92%;
     --input: 0 0% 100%;
-    --ring: 215 25% 35%;
+    --ring: 210 40% 35%;
     
     /* Status Colors */
     --destructive: 0 65% 55%;
     --destructive-foreground: 0 0% 98%;
     
-    /* Enhanced Gradients for better contrast */
-    --gradient-primary: linear-gradient(135deg, hsl(215 30% 25%) 0%, hsl(215 25% 35%) 50%, hsl(215 20% 45%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(215 35% 15%) 0%, hsl(215 30% 25%) 50%, hsl(215 25% 35%) 100%);
-    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(215 10% 98%) 50%, hsl(215 8% 97%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(215 8% 99%) 100%);
-    --gradient-text: linear-gradient(135deg, hsl(215 25% 35%) 0%, hsl(215 20% 55%) 100%);
+    /* Enhanced Gradients for better contrast - Bläulich */
+    --gradient-primary: linear-gradient(135deg, hsl(210 45% 25%) 0%, hsl(210 40% 35%) 50%, hsl(210 35% 45%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(210 50% 15%) 0%, hsl(210 45% 25%) 50%, hsl(210 40% 35%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(210 15% 98%) 50%, hsl(210 12% 97%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(210 12% 99%) 100%);
+    --gradient-text: linear-gradient(135deg, hsl(210 40% 35%) 0%, hsl(210 35% 55%) 100%);
     
-    /* Dezente Schatten */
+    /* Dezente Schatten - Bläulich */
     --shadow-card: 0 1px 3px 0 hsl(0 0% 0% / 0.05), 0 1px 2px -1px hsl(0 0% 0% / 0.05);
     --shadow-elevated: 0 8px 15px -3px hsl(0 0% 0% / 0.08), 0 4px 6px -2px hsl(0 0% 0% / 0.05);
-    --shadow-primary: 0 4px 12px -2px hsl(215 25% 35% / 0.15), 0 2px 4px -1px hsl(215 25% 35% / 0.08);
+    --shadow-primary: 0 4px 12px -2px hsl(210 40% 35% / 0.15), 0 2px 4px -1px hsl(210 40% 35% / 0.08);
     --shadow-soft: 0 1px 2px 0 hsl(0 0% 0% / 0.03);
     
   /* Typography Scale */
