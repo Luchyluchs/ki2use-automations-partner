@@ -21,6 +21,17 @@ const NewDemoInterface: React.FC<NewDemoInterfaceProps> = ({
   remainingTime
 }) => {
   const [activeTab, setActiveTab] = useState('assistants');
+  
+  const handleTabChange = (value: string) => {
+    // Prevent automatic scrolling when switching tabs
+    const currentScrollPosition = window.scrollY;
+    setActiveTab(value);
+    
+    // Restore scroll position after tab change
+    requestAnimationFrame(() => {
+      window.scrollTo(0, currentScrollPosition);
+    });
+  };
   const formatTime = (seconds: number): string => {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
@@ -76,7 +87,7 @@ const NewDemoInterface: React.FC<NewDemoInterfaceProps> = ({
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
+        <Tabs value={activeTab} onValueChange={handleTabChange} className="space-y-6">
           <TabsList className="grid w-full grid-cols-2 lg:w-auto lg:grid-cols-2">
             <TabsTrigger value="assistants" className="flex items-center gap-2">
               <MessageSquare className="w-4 h-4" />
