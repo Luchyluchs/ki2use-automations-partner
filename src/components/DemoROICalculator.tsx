@@ -75,11 +75,11 @@ const DemoROICalculator: React.FC = () => {
   return (
     <div className="space-y-6">
       <div className="text-center mb-8">
-        <div className="flex items-center justify-center gap-2 mb-4">
-          <Calculator className="w-8 h-8 text-primary" />
-          <h1 className="text-3xl font-bold">Demo ROI-Rechner</h1>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-2 mb-4">
+          <Calculator className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
+          <h1 className="text-2xl sm:text-3xl font-bold text-center">Demo ROI-Rechner</h1>
         </div>
-        <p className="text-muted-foreground">
+        <p className="text-muted-foreground text-sm sm:text-base text-center px-4">
           Berechnen Sie Ihre individuelle Kostenersparnis durch KI-Automatisierung
         </p>
       </div>
@@ -211,18 +211,20 @@ const DemoROICalculator: React.FC = () => {
           {/* ROI Overview */}
           <Card className="border-primary/20 bg-primary/5">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <TrendingUp className="w-5 h-5 text-primary" />
-                ROI-Ergebnisse
-                <div className="ml-2 text-xs bg-muted px-2 py-1 rounded-full">
+              <CardTitle className="flex flex-col sm:flex-row sm:items-center gap-2">
+                <div className="flex items-center gap-2">
+                  <TrendingUp className="w-5 h-5 text-primary" />
+                  ROI-Ergebnisse
+                </div>
+                <div className="text-xs bg-muted px-2 py-1 rounded-full text-muted-foreground">
                   Return on Investment = Rendite der Investition
                 </div>
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-2 gap-4 mb-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-primary">
+                  <div className="text-2xl sm:text-3xl font-bold text-primary">
                     {results.roi > 0 ? '+' : ''}{results.roi}%
                   </div>
                   <div className="text-sm text-muted-foreground">ROI im ersten Jahr</div>
@@ -234,7 +236,7 @@ const DemoROICalculator: React.FC = () => {
                   </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-green-600">
+                  <div className="text-2xl sm:text-3xl font-bold text-green-600">
                     {results.paybackMonths}
                   </div>
                   <div className="text-sm text-muted-foreground">Monate bis Amortisation</div>
@@ -276,13 +278,13 @@ const DemoROICalculator: React.FC = () => {
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="text-center p-4 bg-accent/10 rounded-lg">
+                <div className="text-center p-3 sm:p-4 bg-accent/10 rounded-lg">
                   <Clock className="w-8 h-8 mx-auto mb-2 text-accent" />
                   <div className="text-2xl font-bold">{results.timeSavedPerWeek}h</div>
                   <div className="text-sm text-muted-foreground">Zeit/Woche gespart</div>
                 </div>
                 
-                <div className="text-center p-4 bg-secondary/10 rounded-lg">
+                <div className="text-center p-3 sm:p-4 bg-secondary/10 rounded-lg">
                   <Users className="w-8 h-8 mx-auto mb-2 text-secondary" />
                   <div className="text-2xl font-bold">{results.automatedTasksPerWeek}</div>
                   <div className="text-sm text-muted-foreground">Automatisierte Aufgaben/Woche</div>

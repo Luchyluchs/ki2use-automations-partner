@@ -59,7 +59,7 @@ const NewDemoInterface: React.FC<NewDemoInterfaceProps> = ({
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-2">
                 <Shield className="w-6 h-6 text-primary" />
-                <h1 className="text-xl font-bold">KI2USE Demoportal</h1>
+                <h1 className="text-lg sm:text-xl font-bold">KI2USE Demoportal</h1>
               </div>
               <Badge variant="secondary" className="hidden sm:inline-flex">
                 {customer.name}
@@ -67,7 +67,7 @@ const NewDemoInterface: React.FC<NewDemoInterfaceProps> = ({
             </div>
             
             <div className="flex items-center gap-4">
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <div className="flex items-center gap-1 sm:gap-2 text-sm text-muted-foreground">
                 <Clock className="w-4 h-4" />
                 <span className="hidden sm:inline">Session:</span>
                 <span className="font-mono">{formatTime(remainingTime)}</span>

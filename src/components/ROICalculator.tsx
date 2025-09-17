@@ -211,13 +211,15 @@ const ROICalculator = () => {
           </Card>
 
            <Card className="p-6 bg-gradient-to-br from-green-50 to-green-100 dark:from-green-950 dark:to-green-900">
-             <div className="flex items-center gap-2 mb-4">
-               <Clock className="w-5 h-5 text-green-600" />
-               <h4 className="font-semibold text-green-800 dark:text-green-200">ROI-Analyse</h4>
-               <div className="ml-2 text-xs bg-white/20 px-2 py-1 rounded-full text-green-700 dark:text-green-300">
-                 Return on Investment = Rendite der Investition
-               </div>
-             </div>
+            <div className="flex items-center gap-2 mb-4">
+              <Clock className="w-5 h-5 text-green-600" />
+              <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
+                <h4 className="font-semibold text-green-800 dark:text-green-200">ROI-Analyse</h4>
+                <div className="text-xs bg-white/20 px-2 py-1 rounded-full text-green-700 dark:text-green-300">
+                  Return on Investment = Rendite der Investition
+                </div>
+              </div>
+            </div>
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
                 <span>Jährliche Rendite:</span>

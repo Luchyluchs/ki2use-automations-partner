@@ -169,7 +169,7 @@ const DemoContactForm: React.FC<DemoContactFormProps> = ({
           {/* Hidden CSRF token field */}
           <input type="hidden" name="csrf_token" value={csrfToken} />
           
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <Label htmlFor="demo-name" className="text-sm">Name *</Label>
               <Input
@@ -195,7 +195,7 @@ const DemoContactForm: React.FC<DemoContactFormProps> = ({
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <Label htmlFor="demo-company" className="text-sm">Unternehmen</Label>
               <Input
