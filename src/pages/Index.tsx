@@ -8,6 +8,7 @@ import LeadMagnetsSection from "@/components/LeadMagnetsSection";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
 import ScrollProgressIndicator from "@/components/ScrollProgressIndicator";
 import FloatingBackground from "@/components/FloatingElements";
+import FuturisticBackground from "@/components/FuturisticBackground";
 import { useScrollReveal, useEnhancedParallax, useMagneticCursor } from "@/hooks/useScrollAnimations";
 import { useExitIntent } from "@/hooks/useExitIntent";
 
@@ -19,6 +20,7 @@ const Index = () => {
   
   return (
     <>
+      <FuturisticBackground />
       <ScrollProgressIndicator />
       <Layout>
         <div className="relative">

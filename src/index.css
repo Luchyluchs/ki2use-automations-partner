@@ -44,7 +44,7 @@ Corporate design for German KMUs - trustworthy, modern, efficient
     
     /* Subtle Muted Content */
     --muted: 215 15% 97%;
-    --muted-foreground: 215 12% 50%;
+    --muted-foreground: 215 15% 35%;
     
     /* Clean Interactive Elements */
     --border: 215 15% 92%;
@@ -118,7 +118,7 @@ Corporate design for German KMUs - trustworthy, modern, efficient
     --accent-hover: 155 65% 45%;
     
     --muted: 220 15% 15%;
-    --muted-foreground: 220 15% 65%;
+    --muted-foreground: 220 15% 75%;
     
     --border: 220 15% 20%;
     --input: 220 15% 15%;
