@@ -19,7 +19,8 @@ const ROICalculator = () => {
     newsletter: { monthly: 180, setup: 1000, name: "Newsletter" },
     voice: { monthly: 250, setup: 1600, name: "Voice-Agent" },
     sales: { monthly: 200, setup: 1400, name: "Sales Assistent" },
-    socialmedia: { monthly: 160, setup: 1200, name: "Social Media" }
+    socialmedia: { monthly: 160, setup: 1200, name: "Social Media" },
+    custom: { monthly: 100, setup: 2000, name: "Maßgeschneiderte Lösung" }
   };
 
   const currentCosts = {
@@ -110,6 +111,12 @@ const ROICalculator = () => {
                   <div className="flex flex-col">
                     <span className="font-semibold">Social Media Assistent</span>
                     <span className="text-sm text-muted-foreground">€160/Monat + €1.200 Setup</span>
+                  </div>
+                </SelectItem>
+                <SelectItem value="custom" className="py-3 pl-10 pr-4 text-base">
+                  <div className="flex flex-col">
+                    <span className="font-semibold">Maßgeschneiderte Lösung</span>
+                    <span className="text-sm text-muted-foreground">€100/Monat + Ab €2.000 Setup</span>
                   </div>
                 </SelectItem>
               </SelectContent>

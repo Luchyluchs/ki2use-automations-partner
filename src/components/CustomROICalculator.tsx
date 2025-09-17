@@ -12,7 +12,7 @@ const CustomROICalculator = () => {
   // Kosten für maßgeschneiderte Lösung
   const customAgentCosts = {
     monthly: 100,
-    setup: 5000
+    setup: 2000
   };
 
   const currentCosts = {
@@ -87,7 +87,7 @@ const CustomROICalculator = () => {
             <div className="space-y-1 text-sm">
               <div className="flex justify-between">
                 <span>Entwicklungskosten:</span>
-                <span className="font-semibold">{customAgentCosts.setup.toLocaleString()}€</span>
+                <span className="font-semibold">Ab {customAgentCosts.setup.toLocaleString()}€</span>
               </div>
               <div className="flex justify-between">
                 <span>Monatliche Wartung:</span>
@@ -127,7 +127,7 @@ const CustomROICalculator = () => {
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
                 <span>Entwicklungskosten:</span>
-                <span className="font-medium">{customAgentCosts.setup.toLocaleString()}€</span>
+                <span className="font-medium">Ab {customAgentCosts.setup.toLocaleString()}€</span>
               </div>
               <div className="flex justify-between">
                 <span>Monatliche Wartung:</span>

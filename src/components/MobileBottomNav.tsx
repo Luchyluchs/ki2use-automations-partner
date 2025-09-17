@@ -27,7 +27,7 @@ const MobileBottomNav = () => {
     {
       icon: Zap,
       label: "Agenten",
-      href: "/standard-agenten",
+      href: "/massgeschneiderte-agenten",
       primary: false
     },
     {
