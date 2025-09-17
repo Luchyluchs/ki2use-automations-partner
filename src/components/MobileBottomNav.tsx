@@ -14,7 +14,7 @@ const MobileBottomNav = () => {
     },
     {
       icon: Calculator,
-      label: "Kosten-Rechner",
+      label: "Rechner",
       href: "/roi-rechner",
       primary: false
     },
