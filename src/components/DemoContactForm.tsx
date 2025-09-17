@@ -165,7 +165,7 @@ const DemoContactForm: React.FC<DemoContactFormProps> = ({
           </div>
         )}
         
-        <form onSubmit={handleSubmit} className="space-y-4 h-full flex flex-col">
+        <form onSubmit={handleSubmit} className="space-y-4">
           {/* Hidden CSRF token field */}
           <input type="hidden" name="csrf_token" value={csrfToken} />
           
@@ -217,14 +217,14 @@ const DemoContactForm: React.FC<DemoContactFormProps> = ({
             </div>
           </div>
 
-          <div className="flex-1">
+          <div>
             <Label htmlFor="demo-message" className="text-sm">Nachricht *</Label>
             <Textarea
               id="demo-message"
               name="message"
               required
               placeholder="Beschreiben Sie Ihre Anfrage..."
-              className={`mt-1 min-h-20 resize-none ${errors.message ? 'border-destructive' : ''}`}
+              className={`mt-1 h-24 resize-none ${errors.message ? 'border-destructive' : ''}`}
             />
             {errors.message && <p className="text-xs text-destructive mt-1">{errors.message}</p>}
           </div>
