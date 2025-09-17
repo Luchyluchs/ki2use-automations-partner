@@ -221,21 +221,21 @@ const DemoROICalculator: React.FC = () => {
                 <div className="flex justify-between items-center p-3 bg-card rounded-lg">
                   <span className="text-sm">Jährliche Einsparungen:</span>
                   <Badge variant="secondary" className="bg-green-100 text-green-800">
-                    €{results.annualSavings.toLocaleString()}
+                    {results.annualSavings.toLocaleString()}€
                   </Badge>
                 </div>
                 
                 <div className="flex justify-between items-center p-3 bg-card rounded-lg">
                   <span className="text-sm">Jährliche KI-Kosten:</span>
                   <Badge variant="outline">
-                    €{results.annualKICosts.toLocaleString()}
+                    {results.annualKICosts.toLocaleString()}€
                   </Badge>
                 </div>
                 
                 <div className="flex justify-between items-center p-3 bg-primary/10 rounded-lg border border-primary/20">
                   <span className="text-sm font-medium">Netto-Einsparungen:</span>
                   <Badge className="bg-primary text-primary-foreground">
-                    €{results.netSavings.toLocaleString()}
+                    {results.netSavings.toLocaleString()}€
                   </Badge>
                 </div>
               </div>
@@ -267,7 +267,7 @@ const DemoROICalculator: React.FC = () => {
               
               <div className="mt-4 p-4 bg-muted/50 rounded-lg">
                 <p className="text-sm text-center">
-                  <strong>Wöchentliche Einsparungen:</strong> €{results.weeklySavings.toLocaleString()}
+                  <strong>Wöchentliche Einsparungen:</strong> {results.weeklySavings.toLocaleString()}€
                 </p>
               </div>
             </CardContent>
