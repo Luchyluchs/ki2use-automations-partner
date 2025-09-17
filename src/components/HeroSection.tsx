@@ -1,4 +1,3 @@
-
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
 import CalendlyButton from "./CalendlyButton";
@@ -11,9 +10,7 @@ import { useEffect } from "react";
 const HeroSection = () => {
   useScrollReveal();
   useEnhancedParallax();
-  
-  return (
-    <section className="relative overflow-hidden min-h-screen sm:min-h-[90vh] md:min-h-screen flex items-center bg-gradient-hero text-primary-foreground -mt-2 sm:pt-2 lg:-mt-20">
+  return <section className="relative overflow-hidden min-h-screen sm:min-h-[90vh] md:min-h-screen flex items-center bg-gradient-hero text-primary-foreground -mt-2 sm:pt-2 lg:-mt-20">
       {/* Enhanced Parallax Background Elements */}
       <div className="absolute inset-0 bg-grid-pattern opacity-[0.02] parallax-slow"></div>
       
@@ -26,9 +23,7 @@ const HeroSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 items-center">
           {/* Content */}
           <div className="lg:col-span-7 text-center lg:text-left space-y-6 sm:space-y-8">
-            <div className="enhanced-reveal inline-flex items-center rounded-full px-3 py-2 text-xs sm:text-sm font-medium bg-primary/30 text-primary border border-primary/50 mb-4 sm:mb-6 mt-8 sm:mt-12 backdrop-blur-sm">
-              🚀 Deutschlands KI-Experten für KMUs
-            </div>
+            <div className="enhanced-reveal inline-flex items-center rounded-full px-3 py-2 text-xs sm:text-sm font-medium bg-primary/30 text-primary border border-primary/50 mb-4 sm:mb-6 mt-8 sm:mt-12 backdrop-blur-sm">🚀 KI-Assistenten - Made in Germany</div>
             
             <div className="enhanced-reveal stagger-delay-1 mb-4 sm:mb-6 text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight drop-shadow-xl">
               Revolutioniere dein Business mit{" "}
@@ -40,54 +35,31 @@ const HeroSection = () => {
             </div>
             
             <div className="enhanced-reveal stagger-delay-2 text-base sm:text-lg lg:text-xl text-white/90 mb-6 sm:mb-8 leading-relaxed drop-shadow-lg">
-              <TypingAnimation 
-                text="Professionelle KI-Automatisierung für deutsche Unternehmen."
-                speed={30}
-                delay={1000}
-              />
+              <TypingAnimation text="Professionelle KI-Automatisierung für deutsche Unternehmen." speed={30} delay={1000} />
               <br />
               <span className="text-white font-semibold gradient-text-animated drop-shadow-lg"> Bis zu 80% weniger Arbeitszeit</span> bei 
               höchster Qualität und DSGVO-Konformität.
             </div>
             
             <div className="enhanced-reveal stagger-delay-3 flex flex-col gap-4 justify-center lg:justify-start max-w-lg mx-auto lg:mx-0">
-              <CalendlyButton 
-                text="Kostenloses Erstgespräch sichern (30 Min.)" 
-                variant="cta" 
-                size="lg" 
-                className="text-sm sm:text-base px-6 py-4 shadow-primary gradient-primary hover:shadow-elevated transition-all duration-300 min-h-14 whitespace-normal text-center leading-relaxed w-full" 
-                icon={false} 
-              />
+              <CalendlyButton text="Kostenloses Erstgespräch sichern (30 Min.)" variant="cta" size="lg" className="text-sm sm:text-base px-6 py-4 shadow-primary gradient-primary hover:shadow-elevated transition-all duration-300 min-h-14 whitespace-normal text-center leading-relaxed w-full" icon={false} />
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <EnhancedButton 
-                  variant="outline" 
-                  size="lg" 
-                  asChild 
-                  magnetic 
-                  className="text-sm px-4 py-3 border-2 border-white/60 text-white bg-white/10 backdrop-blur-sm hover:bg-white hover:text-primary hover:border-white hover:shadow-elevated transition-all duration-300 min-h-12"
-                >
+                <EnhancedButton variant="outline" size="lg" asChild magnetic className="text-sm px-4 py-3 border-2 border-white/60 text-white bg-white/10 backdrop-blur-sm hover:bg-white hover:text-primary hover:border-white hover:shadow-elevated transition-all duration-300 min-h-12">
                   <Link to="/roi-rechner">ROI berechnen</Link>
                 </EnhancedButton>
-                <EnhancedButton 
-                  variant="ghost" 
-                  size="lg" 
-                  asChild 
-                  glowEffect
-                  className="text-sm px-4 py-3 text-white/90 bg-white/5 backdrop-blur-sm border border-white/20 hover:bg-white/20 hover:text-white transition-all duration-300 min-h-12"
-                >
+                <EnhancedButton variant="ghost" size="lg" asChild glowEffect className="text-sm px-4 py-3 text-white/90 bg-white/5 backdrop-blur-sm border border-white/20 hover:bg-white/20 hover:text-white transition-all duration-300 min-h-12">
                   <Link to="/standard-agenten">Agenten ansehen</Link>
                 </EnhancedButton>
               </div>
               <div className="text-center">
-                <Button 
-                  variant="link" 
-                  className="text-sm text-white/80 hover:text-white drop-shadow-lg"
-                  onClick={() => {
-                    const element = document.getElementById('lead-magnets');
-                    element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                  }}
-                >
+                <Button variant="link" className="text-sm text-white/80 hover:text-white drop-shadow-lg" onClick={() => {
+                const element = document.getElementById('lead-magnets');
+                element?.scrollIntoView({
+                  behavior: 'smooth',
+                  block: 'start'
+                });
+              }}>
                   Oder starten Sie mit kostenlosen Ressourcen
                 </Button>
               </div>
@@ -102,7 +74,6 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
 export default HeroSection;
