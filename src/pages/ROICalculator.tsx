@@ -155,7 +155,7 @@ const ROICalculatorPage = () => {
               text="Kostenloses Erstgespräch sichern (30 Min.)"
               variant="accent"
               size="xl"
-              className="bg-white text-primary hover:bg-white/90"
+              className="bg-card text-foreground hover:bg-muted"
               icon={false}
             />
 

@@ -11,8 +11,8 @@ const CTASection = () => {
   return (
     <section className="section-padding bg-primary relative overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl parallax-slow"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-white/3 rounded-full blur-3xl parallax-slow"></div>
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl parallax-slow"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/3 rounded-full blur-3xl parallax-slow"></div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-4xl mx-auto text-center text-primary-foreground">
@@ -55,7 +55,7 @@ const CTASection = () => {
               text="Kostenloses Erstgespräch sichern (30 Min.)"
               variant="accent"
               size="xl"
-              className="bg-white text-primary hover:bg-white/90 text-lg"
+              className="bg-card text-foreground hover:bg-muted text-lg"
               icon={false}
             />
             

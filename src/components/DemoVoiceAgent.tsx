@@ -132,7 +132,8 @@ const DemoVoiceAgent: React.FC<DemoVoiceAgentProps> = ({
             ) : (
               <Button 
                 onClick={endConversation}
-                className="w-full bg-red-600 hover:bg-red-700 text-white hover:scale-105 transition-all duration-200"
+                className="w-full"
+                variant="danger"
                 size="lg"
               >
                 <PhoneOff className="w-4 h-4 mr-2" />

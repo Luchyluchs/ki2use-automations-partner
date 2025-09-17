@@ -201,7 +201,7 @@ const InteractiveKIDemo = () => {
             </div>
             <div className="flex items-center gap-3 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
               <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
-                <IconComponent className="w-5 h-5 text-white" />
+                <IconComponent className="w-5 h-5 text-primary-foreground" />
               </div>
               <div className="flex-1">
                 <div className="text-sm font-medium">Max Mustermann</div>
@@ -415,7 +415,7 @@ const InteractiveKIDemo = () => {
         
         <div className="flex items-center gap-2 min-w-0 flex-1 justify-center">
           <div className={`w-8 h-8 ${currentAgent.color} rounded-lg flex items-center justify-center transition-all duration-500 shadow-sm`}>
-            <currentAgent.icon className="w-4 h-4 text-white transition-transform duration-300" />
+            <currentAgent.icon className="w-4 h-4 text-primary-foreground transition-transform duration-300" />
           </div>
           <div className="text-center transition-all duration-300">
             <div className="font-medium text-sm truncate animate-fade-in">{currentAgent.name}</div>

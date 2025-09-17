@@ -18,20 +18,20 @@ Corporate design for German KMUs - trustworthy, modern, efficient
 
 @layer base {
   :root {
-    /* Harmonized Color System based on foreground tone */
-    --primary: 215 60% 25%;
+    /* Dezente Professionelle Farbpalette */
+    --primary: 215 25% 35%;
     --primary-foreground: 0 0% 98%;
-    --primary-hover: 215 60% 20%;
+    --primary-hover: 215 25% 30%;
     
-    /* Contemporary Slate matching foreground */
-    --secondary: 215 30% 30%;
+    /* Subtile Sekundärfarben */
+    --secondary: 215 15% 45%;
     --secondary-foreground: 0 0% 98%;
-    --secondary-hover: 215 30% 25%;
+    --secondary-hover: 215 15% 40%;
     
-    /* Elegant Accent complementary to foreground */
-    --accent: 215 45% 45%;
+    /* Dezenter Akzent */
+    --accent: 215 20% 55%;
     --accent-foreground: 0 0% 98%;
-    --accent-hover: 215 45% 40%;
+    --accent-hover: 215 20% 50%;
     
     /* Pure Background System */
     --background: 0 0% 100%;
@@ -49,20 +49,24 @@ Corporate design for German KMUs - trustworthy, modern, efficient
     /* Clean Interactive Elements */
     --border: 215 15% 92%;
     --input: 0 0% 100%;
-    --ring: 215 60% 25%;
+    --ring: 215 25% 35%;
     
-    /* Bold Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(215 60% 25%) 0%, hsl(215 60% 35%) 50%, hsl(215 45% 45%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(215 60% 25%) 0%, hsl(215 50% 35%) 50%, hsl(215 45% 45%) 100%);
-    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(215 20% 98%) 50%, hsl(215 15% 97%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(215 15% 99%) 100%);
-    --gradient-text: linear-gradient(135deg, hsl(215 60% 25%) 0%, hsl(215 45% 45%) 100%);
+    /* Status Colors */
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 0 0% 98%;
     
-    /* Modern Shadows */
-    --shadow-card: 0 1px 3px 0 hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
-    --shadow-elevated: 0 20px 25px -5px hsl(0 0% 0% / 0.1), 0 8px 10px -6px hsl(0 0% 0% / 0.1);
-    --shadow-primary: 0 10px 25px -5px hsl(215 60% 25% / 0.25), 0 8px 10px -6px hsl(215 60% 25% / 0.1);
-    --shadow-soft: 0 1px 2px 0 hsl(0 0% 0% / 0.05);
+    /* Dezente Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(215 25% 35%) 0%, hsl(215 20% 45%) 50%, hsl(215 15% 55%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(215 25% 35%) 0%, hsl(215 20% 45%) 50%, hsl(215 15% 55%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(215 10% 98%) 50%, hsl(215 8% 97%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(215 8% 99%) 100%);
+    --gradient-text: linear-gradient(135deg, hsl(215 25% 35%) 0%, hsl(215 20% 55%) 100%);
+    
+    /* Dezente Schatten */
+    --shadow-card: 0 1px 3px 0 hsl(0 0% 0% / 0.05), 0 1px 2px -1px hsl(0 0% 0% / 0.05);
+    --shadow-elevated: 0 8px 15px -3px hsl(0 0% 0% / 0.08), 0 4px 6px -2px hsl(0 0% 0% / 0.05);
+    --shadow-primary: 0 4px 12px -2px hsl(215 25% 35% / 0.15), 0 2px 4px -1px hsl(215 25% 35% / 0.08);
+    --shadow-soft: 0 1px 2px 0 hsl(0 0% 0% / 0.03);
     
   /* Typography Scale */
   
@@ -223,17 +227,17 @@ Corporate design for German KMUs - trustworthy, modern, efficient
     box-shadow: var(--shadow-soft);
   }
   
-  /* Interactive Effects */
+  /* Dezente Interactive Effects */
   .hover-lift {
-    @apply transition-all duration-300 ease-smooth hover:translate-y-[-8px] hover:shadow-elevated;
+    @apply transition-all duration-300 ease-smooth hover:translate-y-[-3px] hover:shadow-elevated;
   }
 
   .hover-scale {
-    @apply transition-transform duration-200 hover:scale-105;
+    @apply transition-transform duration-300 hover:scale-[1.02];
   }
 
   .hover-glow {
-    @apply transition-all duration-300 hover:shadow-glow;
+    @apply transition-all duration-300 hover:shadow-primary;
   }
 
   .interactive-card {

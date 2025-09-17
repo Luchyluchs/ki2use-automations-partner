@@ -109,7 +109,7 @@ export const EnhancedButton: React.FC<EnhancedButtonProps> = ({
       {rippleEffect && ripples.map(ripple => (
         <span
           key={ripple.id}
-          className="absolute bg-white/30 rounded-full animate-ping"
+          className="absolute bg-primary/30 rounded-full animate-ping"
           style={{
             left: ripple.x - 10,
             top: ripple.y - 10,
@@ -121,7 +121,7 @@ export const EnhancedButton: React.FC<EnhancedButtonProps> = ({
       ))}
       
       {/* Gradient overlay on hover */}
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 translate-x-[-100%] hover:translate-x-[100%] transform transition-transform duration-700" />
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary-foreground/10 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 translate-x-[-100%] hover:translate-x-[100%] transform transition-transform duration-700" />
     </Button>
   );
 };

@@ -57,7 +57,7 @@ const Contact = () => {
                 text="Jetzt kostenlosen Termin buchen"
                 variant="accent"
                 size="lg"
-                className="w-full bg-white text-primary hover:bg-white/90 mb-4"
+                className="w-full bg-card text-foreground hover:bg-muted mb-4"
                 icon={false}
               />
               

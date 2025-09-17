@@ -42,7 +42,7 @@ const Layout = ({
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-2 sm:space-x-3">
               <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                <Brain className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                <Brain className="w-5 h-5 sm:w-6 sm:h-6 text-primary-foreground" />
               </div>
               <div className="text-xl sm:text-2xl font-bold gradient-text">KI2USE</div>
             </Link>

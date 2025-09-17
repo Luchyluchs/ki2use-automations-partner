@@ -386,7 +386,7 @@ const Training = () => {
               Schulungskonzepte, die perfekt zu Ihrem Team und Ihren Zielen passen.
             </p>
 
-            <Button variant="accent" size="xl" asChild className="bg-white text-primary hover:bg-white/90 hover-scale">
+            <Button variant="accent" size="xl" asChild className="bg-card text-foreground hover:bg-muted hover-scale">
               <Link to="/kontakt">
                 Kostenloses Beratungsgespräch für Schulungen
               </Link>
