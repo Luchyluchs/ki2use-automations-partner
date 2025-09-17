@@ -88,6 +88,7 @@ const DemoROICalculator: React.FC = () => {
                   value={employees}
                   onChange={(e) => setEmployees(e.target.value)}
                   placeholder="50"
+                  className="placeholder:text-muted-foreground/50 text-foreground font-medium"
                 />
               </div>
               
@@ -101,7 +102,7 @@ const DemoROICalculator: React.FC = () => {
                     value={avgSalary}
                     onChange={(e) => setAvgSalary(e.target.value)}
                     placeholder="50000"
-                    className="pl-8"
+                    className="pl-8 placeholder:text-muted-foreground/50 text-foreground font-medium"
                   />
                 </div>
               </div>
@@ -116,6 +117,7 @@ const DemoROICalculator: React.FC = () => {
                   value={timePerTask}
                   onChange={(e) => setTimePerTask(e.target.value)}
                   placeholder="15"
+                  className="placeholder:text-muted-foreground/50 text-foreground font-medium"
                 />
               </div>
               
@@ -127,6 +129,7 @@ const DemoROICalculator: React.FC = () => {
                   value={tasksPerWeek}
                   onChange={(e) => setTasksPerWeek(e.target.value)}
                   placeholder="100"
+                  className="placeholder:text-muted-foreground/50 text-foreground font-medium"
                 />
               </div>
             </div>
@@ -143,6 +146,7 @@ const DemoROICalculator: React.FC = () => {
                   setAutomationPercentage(value === '' ? '' : num.toString());
                 }}
                 placeholder="70"
+                className="placeholder:text-muted-foreground/50 text-foreground font-medium"
               />
             </div>
 
@@ -150,7 +154,7 @@ const DemoROICalculator: React.FC = () => {
             
             <div className="space-y-4">
               <h3 className="font-semibold text-lg flex items-center gap-2">
-                <DollarSign className="w-5 h-5" />
+                <span className="text-primary font-bold">€</span>
                 KI-Kosten
               </h3>
               
@@ -164,7 +168,7 @@ const DemoROICalculator: React.FC = () => {
                     value={integrationCosts}
                     onChange={(e) => setIntegrationCosts(e.target.value)}
                     placeholder="5000"
-                    className="pl-8"
+                    className="pl-8 placeholder:text-muted-foreground/50 text-foreground font-medium"
                   />
                 </div>
               </div>
@@ -179,7 +183,7 @@ const DemoROICalculator: React.FC = () => {
                     value={monthlyCosts}
                     onChange={(e) => setMonthlyCosts(e.target.value)}
                     placeholder="500"
-                    className="pl-8"
+                    className="pl-8 placeholder:text-muted-foreground/50 text-foreground font-medium"
                   />
                 </div>
               </div>
