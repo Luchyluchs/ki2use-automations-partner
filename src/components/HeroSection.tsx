@@ -46,7 +46,7 @@ const HeroSection = () => {
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <EnhancedButton variant="outline" size="lg" asChild magnetic className="text-sm px-4 py-3 border-2 border-white/60 text-white bg-white/10 backdrop-blur-sm hover:bg-white hover:text-primary hover:border-white hover:shadow-elevated transition-all duration-300 min-h-12">
-                  <Link to="/roi-rechner">ROI berechnen</Link>
+                  <Link to="/roi-rechner">Kosteneinsparungen berechnen</Link>
                 </EnhancedButton>
                 <EnhancedButton variant="ghost" size="lg" asChild glowEffect className="text-sm px-4 py-3 text-white/90 bg-white/5 backdrop-blur-sm border border-white/20 hover:bg-white/20 hover:text-white transition-all duration-300 min-h-12">
                   <Link to="/standard-agenten">Agenten ansehen</Link>
