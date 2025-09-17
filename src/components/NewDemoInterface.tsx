@@ -23,13 +23,27 @@ const NewDemoInterface: React.FC<NewDemoInterfaceProps> = ({
   const [activeTab, setActiveTab] = useState('assistants');
   
   const handleTabChange = (value: string) => {
-    // Prevent automatic scrolling when switching tabs
+    // Store current scroll position
     const currentScrollPosition = window.scrollY;
+    
+    // Temporarily disable smooth scrolling
+    document.documentElement.style.scrollBehavior = 'auto';
+    
+    // Change tab
     setActiveTab(value);
     
-    // Restore scroll position after tab change
+    // Use multiple methods to ensure scroll position is maintained
     requestAnimationFrame(() => {
       window.scrollTo(0, currentScrollPosition);
+      
+      requestAnimationFrame(() => {
+        window.scrollTo(0, currentScrollPosition);
+        
+        // Re-enable smooth scrolling after a delay
+        setTimeout(() => {
+          document.documentElement.style.scrollBehavior = '';
+        }, 100);
+      });
     });
   };
   const formatTime = (seconds: number): string => {
