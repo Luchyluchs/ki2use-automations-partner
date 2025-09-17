@@ -146,11 +146,23 @@ const BusinessAnalysisTool = () => {
     } else {
       setShowResults(true);
     }
+    
+    // Auto-scroll to top of the analysis tool
+    const element = document.getElementById('business-analysis');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
 
   const handlePrev = () => {
     if (currentStep > 0) {
       setCurrentStep(prev => prev - 1);
+    }
+    
+    // Auto-scroll to top of the analysis tool
+    const element = document.getElementById('business-analysis');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
@@ -287,75 +299,63 @@ const BusinessAnalysisTool = () => {
           </p>
         </CardHeader>
         
-        <CardContent className="space-y-8">
-          {/* Aktuelle Situation */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 rounded-lg p-6 text-center">
-              <div className="text-3xl font-bold text-orange-600 mb-2">{impact.totalWeeklyTimeSpent}h</div>
-              <div className="font-medium">Zeitaufwand pro Woche</div>
-              <div className="text-sm text-muted-foreground">für manuelle Prozesse</div>
+        <CardContent className="space-y-6">
+          {/* Kompakte Übersicht */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 rounded-lg p-4 text-center">
+              <div className="text-2xl font-bold text-orange-600 mb-1">{impact.totalWeeklyTimeSpent}h</div>
+              <div className="text-sm font-medium">Zeitaufwand pro Woche</div>
             </div>
-            <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-6 text-center">
-              <div className="text-3xl font-bold text-red-600 mb-2">{impact.painScore}%</div>
-              <div className="font-medium">Frustrations-Level</div>
-              <div className="text-sm text-muted-foreground">bei aktuellen Prozessen</div>
+            <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4 text-center">
+              <div className="text-2xl font-bold text-red-600 mb-1">{impact.painScore}%</div>
+              <div className="text-sm font-medium">Frustrations-Level</div>
             </div>
-            <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6 text-center">
-              <div className="text-3xl font-bold text-blue-600 mb-2">{impact.monthlyTimeCost.toLocaleString()}€</div>
-              <div className="font-medium">Monatliche Kosten</div>
-              <div className="text-sm text-muted-foreground">für manuelle Arbeit</div>
+            <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 text-center">
+              <div className="text-2xl font-bold text-blue-600 mb-1">{impact.monthlyTimeCost.toLocaleString()}€</div>
+              <div className="text-sm font-medium">Monatliche Kosten</div>
             </div>
           </div>
 
           {/* Debug Info - Temporär zur Fehlerbehebung */}
-          <details className="bg-gray-100 p-4 rounded text-xs">
-            <summary>Debug Info (wird später entfernt)</summary>
-            <pre>{JSON.stringify({
-              answers,
-              interests,
-              impact
-            }, null, 2)}</pre>
-          </details>
-
           {/* Automatisierungs-Potenzial */}
           {impact.interestedAreas > 0 && (
-            <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-green-800 dark:text-green-200 mb-4">
+            <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-4">
+              <h3 className="text-lg font-semibold text-green-800 dark:text-green-200 mb-3">
                 🚀 Ihr Automatisierungs-Potenzial
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="text-center">
                   <div className="text-2xl font-bold text-green-600">{impact.potentialMonthlySavings.toLocaleString()}€</div>
-                  <div className="font-medium">Potenzielle Ersparnis/Monat</div>
+                  <div className="text-sm font-medium">Potenzielle Ersparnis/Monat</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold text-green-600">{impact.interestedAreas}</div>
-                  <div className="font-medium">Interessante Automatisierungen</div>
+                  <div className="text-sm font-medium">Interessante Automatisierungen</div>
                 </div>
               </div>
             </div>
           )}
 
-          {/* Empfohlene Automatisierungen */}
+          {/* Empfohlene Automatisierungen - Kompakt */}
           {interestedQuestions.length > 0 && (
-            <div className="space-y-4">
-              <h3 className="text-xl font-semibold">Ihre ausgewählten Automatisierungen:</h3>
+            <div className="space-y-3">
+              <h3 className="text-lg font-semibold">Ihre ausgewählten Automatisierungen:</h3>
               {interestedQuestions.map((question, index) => (
-                <div key={index} className="bg-primary/5 border border-primary/20 rounded-lg p-4">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-green-500 mt-1" />
-                    <div className="flex-1">
-                      <h4 className="font-semibold">{question.automationPotential.title}</h4>
-                      <p className="text-sm text-muted-foreground mb-2">{question.automationPotential.description}</p>
-                      <div className="flex gap-4 text-xs">
+                <div key={index} className="bg-primary/5 border border-primary/20 rounded-lg p-3">
+                  <div className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
+                    <div className="flex-1 min-w-0">
+                      <h4 className="font-medium text-sm">{question.automationPotential.title}</h4>
+                      <p className="text-xs text-muted-foreground mb-2">{question.automationPotential.description}</p>
+                      <div className="flex flex-wrap gap-2 text-xs">
                         <span className="bg-green-100 dark:bg-green-900/30 text-green-700 px-2 py-1 rounded">
-                          ⏱ {question.automationPotential.timeSaved} gesparte Zeit
+                          {question.automationPotential.timeSaved}
                         </span>
                         <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-700 px-2 py-1 rounded">
-                          💰 {question.automationPotential.cost}
+                          {question.automationPotential.cost}
                         </span>
                         <span className="bg-purple-100 dark:bg-purple-900/30 text-purple-700 px-2 py-1 rounded">
-                          📈 {question.automationPotential.roi}
+                          {question.automationPotential.roi}
                         </span>
                       </div>
                     </div>
@@ -365,14 +365,14 @@ const BusinessAnalysisTool = () => {
             </div>
           )}
 
-          {/* E-Mail-Eingabe */}
-          <div className="bg-primary/10 border border-primary/20 rounded-lg p-6">
-            <h3 className="text-xl font-semibold mb-4 text-center">
+          {/* E-Mail-Eingabe - Kompakt */}
+          <div className="bg-primary/10 border border-primary/20 rounded-lg p-4">
+            <h3 className="text-lg font-semibold mb-3 text-center">
               Erhalten Sie Ihre detaillierte Analyse + Roadmap
             </h3>
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-3">
               <div>
-                <Label htmlFor="company-name">Ihr Unternehmen:</Label>
+                <Label htmlFor="company-name" className="text-sm">Ihr Unternehmen:</Label>
                 <Input
                   id="company-name"
                   type="text"
@@ -380,12 +380,12 @@ const BusinessAnalysisTool = () => {
                   onChange={(e) => setCompanyName(e.target.value)}
                   placeholder="Ihr Firmenname"
                   required
-                  className="mt-2"
+                  className="mt-1"
                 />
               </div>
               
               <div>
-                <Label htmlFor="business-email">E-Mail für Ihre personalisierte Business-Analyse:</Label>
+                <Label htmlFor="business-email" className="text-sm">E-Mail für Ihre personalisierte Business-Analyse:</Label>
                 <Input
                   id="business-email"
                   type="email"
@@ -393,21 +393,21 @@ const BusinessAnalysisTool = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="ihre@email.de"
                   required
-                  className="mt-2"
+                  className="mt-1"
                 />
               </div>
               
               <Button 
                 type="submit" 
-                className="w-full bg-gradient-primary text-lg py-4"
+                className="w-full bg-gradient-primary text-base py-3"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? "Wird versendet..." : "Detaillierte Analyse erhalten"}
-                <Mail className="w-5 h-5 ml-2" />
+                <Mail className="w-4 h-4 ml-2" />
               </Button>
             </form>
             
-            <p className="text-xs text-muted-foreground text-center mt-4">
+            <p className="text-xs text-muted-foreground text-center mt-3">
               Sie erhalten: Detaillierte Roadmap • Priorisierung • Zeitplan • ROI-Berechnung • 30min Beratungsgespräch
             </p>
           </div>

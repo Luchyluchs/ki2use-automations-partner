@@ -71,7 +71,7 @@ const LeadMagnetsSection = () => {
                   </div>
                 </div>
                 
-                <div className="lg:min-h-[600px]">
+                <div className="lg:min-h-[500px]">
                   <div id="business-analysis">
                     <BusinessAnalysisTool />
                   </div>
