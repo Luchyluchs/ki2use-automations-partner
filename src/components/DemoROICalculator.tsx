@@ -26,7 +26,7 @@ const DemoROICalculator: React.FC = () => {
     const numMonthlyCosts = Number(monthlyCosts) || 0;
 
     // Current costs
-    const hourlyWage = numAvgSalary / (52 * 40); // Weekly hours
+    const hourlyWage = numAvgSalary / (52 * 40); // Yearly salary / (weeks * hours per week)
     const weeklyTaskCosts = (numTimePerTask / 60) * numTasksPerWeek * hourlyWage;
     const annualTaskCosts = weeklyTaskCosts * 52;
     
@@ -35,12 +35,25 @@ const DemoROICalculator: React.FC = () => {
     const weeklySavings = (numTimePerTask / 60) * automatedTasks * hourlyWage;
     const annualSavings = weeklySavings * 52;
     
-    // ROI calculation
+    // ROI calculation - Fixed logic
     const annualKICosts = numMonthlyCosts * 12;
-    const totalCosts = numIntegrationCosts + annualKICosts;
-    const netSavings = annualSavings - annualKICosts;
-    const roi = ((netSavings) / totalCosts) * 100;
-    const paybackMonths = numIntegrationCosts / (weeklySavings * 4.33);
+    const netSavings = annualSavings - annualKICosts; // Net savings per year
+    const roi = numIntegrationCosts > 0 ? (netSavings / numIntegrationCosts) * 100 : 0; // ROI based on integration investment
+    const paybackMonths = weeklySavings > 0 ? numIntegrationCosts / (weeklySavings * 4.33) : 0;
+    
+    // Debug logging
+    console.log('ROI Calculation Debug:', {
+      inputs: { numAvgSalary, numTimePerTask, numTasksPerWeek, numAutomationPercentage, numIntegrationCosts, numMonthlyCosts },
+      hourlyWage: Math.round(hourlyWage * 100) / 100,
+      weeklyTaskCosts: Math.round(weeklyTaskCosts),
+      annualTaskCosts: Math.round(annualTaskCosts),
+      automatedTasks: Math.round(automatedTasks),
+      weeklySavings: Math.round(weeklySavings),
+      annualSavings: Math.round(annualSavings),
+      annualKICosts: Math.round(annualKICosts),
+      netSavings: Math.round(netSavings),
+      roi: Math.round(roi)
+    });
     
     return {
       annualTaskCosts: Math.round(annualTaskCosts),
