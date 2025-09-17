@@ -85,8 +85,15 @@ const HeroSection = () => {
                 </EnhancedButton>
               </div>
               <div className="text-center">
-                <Button variant="link" asChild className="text-sm text-white/80 hover:text-white drop-shadow-lg">
-                  <Link to="#lead-magnets">Oder starten Sie mit kostenlosen Ressourcen</Link>
+                <Button 
+                  variant="link" 
+                  className="text-sm text-white/80 hover:text-white drop-shadow-lg"
+                  onClick={() => {
+                    const element = document.getElementById('lead-magnets');
+                    element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }}
+                >
+                  Oder starten Sie mit kostenlosen Ressourcen
                 </Button>
               </div>
             </div>
