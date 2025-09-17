@@ -418,8 +418,8 @@ const InteractiveKIDemo = () => {
             <currentAgent.icon className="w-4 h-4 text-primary-foreground transition-transform duration-300" />
           </div>
           <div className="text-center transition-all duration-300">
-            <div className="font-medium text-sm truncate animate-fade-in">{currentAgent.name}</div>
-            <div className="text-xs text-muted-foreground truncate animate-fade-in delay-75">{currentAgent.benefit}</div>
+            <div className="font-medium text-sm truncate animate-fade-in text-white">{currentAgent.name}</div>
+            <div className="text-xs text-white/90 truncate animate-fade-in delay-75 font-medium">{currentAgent.benefit}</div>
           </div>
         </div>
         
