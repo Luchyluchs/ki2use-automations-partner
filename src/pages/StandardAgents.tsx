@@ -146,7 +146,7 @@ const StandardAgents = () => {
       {/* Important Note */}
       <section className="section-padding bg-muted">
          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto bg-gradient-primary rounded-2xl p-8 text-center text-primary-foreground hover-scale">
+          <div className="max-w-2xl mx-auto bg-gradient-primary rounded-2xl p-6 text-center text-primary-foreground hover-scale">
             <h3 className="scroll-reveal text-xl font-semibold mb-4">
               Wichtiger Hinweis für KMUs
             </h3>
