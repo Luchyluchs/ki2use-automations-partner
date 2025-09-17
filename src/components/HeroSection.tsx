@@ -38,7 +38,7 @@ const HeroSection = () => {
               <div className="enhanced-reveal stagger-delay-1 mb-4 sm:mb-6 text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight drop-shadow-xl">
                 Revolutioniere dein Business mit{" "}
                 <GradientText animated>
-                  <span className="font-extrabold nowrap-ki-assistant glitch-text drop-shadow-xl" data-text="KI-Assistenten">
+                  <span className="font-extrabold nowrap-ki-assistant drop-shadow-xl" data-text="KI-Assistenten">
                     KI-Assistenten
                   </span>
                 </GradientText>
