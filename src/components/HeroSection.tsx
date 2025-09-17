@@ -13,7 +13,7 @@ const HeroSection = () => {
   useEnhancedParallax();
   
   return (
-    <section className="relative overflow-hidden min-h-screen sm:min-h-[90vh] md:min-h-screen flex items-center bg-gradient-hero -mt-2 sm:pt-2 lg:-mt-20">
+    <section className="relative overflow-hidden min-h-screen sm:min-h-[90vh] md:min-h-screen flex items-center bg-gradient-hero text-primary-foreground -mt-2 sm:pt-2 lg:-mt-20">
       {/* Enhanced Parallax Background Elements */}
       <div className="absolute inset-0 bg-grid-pattern opacity-[0.02] parallax-slow"></div>
       
@@ -32,10 +32,10 @@ const HeroSection = () => {
             
             <TextReveal 
               text="Revolutioniere dein Business mit KI-Assistenten"
-              className="mb-4 sm:mb-6 text-foreground text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight"
+              className="mb-4 sm:mb-6 text-primary-foreground text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight"
               delay={200}
             >
-              <div className="enhanced-reveal stagger-delay-1 mb-4 sm:mb-6 text-foreground text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
+              <div className="enhanced-reveal stagger-delay-1 mb-4 sm:mb-6 text-primary-foreground text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
                 Revolutioniere dein Business mit{" "}
                 <GradientText animated>
                   <span className="font-extrabold nowrap-ki-assistant glitch-text" data-text="KI-Assistenten">
@@ -45,14 +45,14 @@ const HeroSection = () => {
               </div>
             </TextReveal>
             
-            <div className="enhanced-reveal stagger-delay-2 text-base sm:text-lg lg:text-xl text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
+            <div className="enhanced-reveal stagger-delay-2 text-base sm:text-lg lg:text-xl text-primary-foreground/80 mb-6 sm:mb-8 leading-relaxed">
               <TypingAnimation 
                 text="Professionelle KI-Automatisierung für deutsche Unternehmen."
                 speed={30}
                 delay={1000}
               />
               <br />
-              <span className="text-foreground font-semibold gradient-text-animated"> Bis zu 80% weniger Arbeitszeit</span> bei 
+              <span className="text-primary-foreground font-semibold gradient-text-animated"> Bis zu 80% weniger Arbeitszeit</span> bei 
               höchster Qualität und DSGVO-Konformität.
             </div>
             
@@ -85,7 +85,7 @@ const HeroSection = () => {
                 </EnhancedButton>
               </div>
               <div className="text-center">
-                <Button variant="link" asChild className="text-sm text-muted-foreground hover:text-primary">
+                <Button variant="link" asChild className="text-sm text-primary-foreground/80 hover:text-primary-foreground">
                   <Link to="#lead-magnets">Oder starten Sie mit kostenlosen Ressourcen</Link>
                 </Button>
               </div>
@@ -93,7 +93,7 @@ const HeroSection = () => {
             
             {/* Capacity indicator */}
             <div className="scroll-reveal stagger-delay-4 mt-3 sm:mt-4 text-center">
-              <div className="inline-flex items-center gap-1.5 text-xs text-muted-foreground/80">
+              <div className="inline-flex items-center gap-1.5 text-xs text-primary-foreground/80">
                 <div className="w-1.5 h-1.5 bg-orange-500 rounded-full"></div>
                 <span>Nur noch 15 Plätze diesen Monat</span>
               </div>
