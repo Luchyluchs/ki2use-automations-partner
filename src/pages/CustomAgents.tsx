@@ -118,7 +118,7 @@ const CustomAgents = () => {
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
               <div>
-                <h2 className="text-3xl font-semibold mb-6">
+                <h2 className="text-2xl md:text-3xl font-bold mb-6">
                   Einzigartige Geschäftsanforderungen verdienen einzigartige Lösungen
                 </h2>
                 <p className="text-muted-foreground mb-6 leading-relaxed">Hier analysieren wir spezifische Geschäftsanforderungen von Unternehmen und entwickeln einzigartige KI-Agenten oder Automatisierungsworkflows, die perfekt auf die individuellen Prozesse zugeschnitten sind.</p>
