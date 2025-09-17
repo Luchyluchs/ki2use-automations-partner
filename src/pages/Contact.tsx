@@ -5,7 +5,7 @@ import ContactForm from "@/components/ContactForm";
 import VoiceAgent from "@/components/VoiceAgent";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowLeft, Calendar, Mail, Phone } from "lucide-react";
+import { ArrowLeft, Calendar, Mail, Phone, Clock, MessageCircle, Headphones } from "lucide-react";
 import CalendlyButton from "@/components/CalendlyButton";
 
 const Contact = () => {
@@ -18,96 +18,134 @@ const Contact = () => {
   
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="bg-gradient-subtle py-20">
+      {/* Hero Section - Compact */}
+      <section className="bg-gradient-subtle pt-12 pb-8">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
-            <Button variant="ghost" size="sm" asChild className="mb-8">
+          <div className="max-w-4xl mx-auto">
+            <Button variant="ghost" size="sm" asChild className="mb-6">
               <Link to="/">
                 <ArrowLeft className="w-4 h-4 mr-2" />
-                Zurück zur Startseite
+                Zurück
               </Link>
             </Button>
             
-            <h1 className="mb-6">
-              Kostenlose{" "}
-              <span className="text-primary">Beratung vereinbaren</span>
-            </h1>
-            <p className="text-xl text-muted-foreground">
-              Sprechen Sie mit unseren KI-Experten und entdecken Sie Ihr Automatisierungspotenzial.
-            </p>
+            <div className="text-center max-w-2xl mx-auto">
+              <h1 className="text-4xl md:text-5xl font-bold mb-4">
+                Sprechen wir über Ihre{" "}
+                <span className="text-primary">KI-Automatisierung</span>
+              </h1>
+              <p className="text-lg text-muted-foreground">
+                Drei einfache Wege, um mit uns in Kontakt zu treten
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Main Content - Single Column Layout */}
-      <section className="py-16 bg-background">
+      {/* Main Content - Asymmetric Grid */}
+      <section className="py-12 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl mx-auto space-y-12">
+          <div className="max-w-6xl mx-auto">
             
-            {/* Primary CTA */}
-            <div className="text-center">
-              <div className="bg-gradient-primary rounded-2xl p-8 text-primary-foreground">
-                <h2 className="text-2xl font-bold mb-4">
-                  30-Minuten Beratungsgespräch
-                </h2>
-                <p className="opacity-90 mb-6">
-                  Vereinbaren Sie einen Termin und erhalten Sie eine individuelle Analyse 
-                  Ihres Automatisierungspotenzials.
-                </p>
-                
-                <CalendlyButton 
-                  text="Kostenlosen Termin buchen"
-                  variant="cta"
-                  size="lg"
-                  className="bg-white text-primary hover:bg-gray-50"
-                  icon={true}
-                />
-              </div>
-            </div>
-
-            {/* Voice Agent */}
-            <div className="text-center">
-              <h3 className="text-xl font-semibold mb-4">
-                Oder sprechen Sie sofort mit unserem KI-Agenten
-              </h3>
-              <div className="bg-muted rounded-2xl p-6">
-                <VoiceAgent />
-              </div>
-            </div>
-
-            {/* Contact Form */}
-            <div className="text-center">
-              <h3 className="text-xl font-semibold mb-6">
-                Schriftliche Anfrage senden
-              </h3>
-              <ContactForm />
-            </div>
-
-            {/* Contact Info */}
-            <div className="bg-muted rounded-2xl p-8">
-              <h3 className="text-xl font-semibold text-center mb-6">
-                Direkter Kontakt
-              </h3>
-              
-              <div className="space-y-6 max-w-md mx-auto">
-                <div className="flex items-center space-x-4">
-                  <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
-                    <Mail className="w-5 h-5 text-primary-foreground" />
+            {/* Primary Action - Calendly (Prominent but not overwhelming) */}
+            <div className="mb-16">
+              <div className="bg-gradient-primary rounded-2xl p-8 md:p-12 text-primary-foreground max-w-4xl mx-auto">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                  <div className="lg:col-span-2">
+                    <h2 className="text-2xl md:text-3xl font-bold mb-4">
+                      30-Min. Beratungsgespräch
+                    </h2>
+                    <p className="opacity-90 text-lg">
+                      Persönliche Analyse Ihres Automatisierungspotenzials 
+                      mit konkreten Empfehlungen.
+                    </p>
                   </div>
-                  <div>
-                    <div className="font-medium">info@ki2use.de</div>
-                    <div className="text-sm text-muted-foreground">Antwort innerhalb 24h</div>
+                  <div className="text-center lg:text-right">
+                    <CalendlyButton 
+                      text="Termin buchen"
+                      variant="cta"
+                      size="lg"
+                      className="bg-white text-primary hover:bg-gray-50 w-full lg:w-auto"
+                      icon={true}
+                    />
+                    <div className="mt-3 text-sm opacity-80">
+                      <Clock className="w-4 h-4 inline mr-1" />
+                      Kostenlos & unverbindlich
+                    </div>
                   </div>
                 </div>
+              </div>
+            </div>
 
-                <div className="flex items-center space-x-4">
+            {/* Alternative Options - Balanced Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+              
+              {/* Voice Agent */}
+              <div className="bg-card border border-card-border rounded-2xl p-8 h-full">
+                <div className="flex items-center gap-3 mb-6">
                   <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
-                    <Phone className="w-5 h-5 text-primary-foreground" />
+                    <Headphones className="w-5 h-5 text-primary-foreground" />
                   </div>
                   <div>
-                    <div className="font-medium">+49 162 63 19 474</div>
-                    <div className="text-sm text-muted-foreground">Mo-Fr: 9:00-18:00 Uhr</div>
+                    <h3 className="text-xl font-semibold">KI-Agent sprechen</h3>
+                    <p className="text-sm text-muted-foreground">Sofort verfügbar</p>
+                  </div>
+                </div>
+                
+                <p className="text-muted-foreground mb-6">
+                  Starten Sie ein Gespräch mit unserem intelligenten Voice-Agent. 
+                  Ideal für erste Fragen und schnelle Beratung.
+                </p>
+                
+                <VoiceAgent />
+              </div>
+
+              {/* Contact Form */}
+              <div className="bg-card border border-card-border rounded-2xl p-8 h-full">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
+                    <MessageCircle className="w-5 h-5 text-primary-foreground" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold">Nachricht senden</h3>
+                    <p className="text-sm text-muted-foreground">Antwort binnen 24h</p>
+                  </div>
+                </div>
+                
+                <p className="text-muted-foreground mb-6">
+                  Beschreiben Sie Ihr Anliegen und erhalten Sie eine 
+                  persönliche Antwort von unseren Experten.
+                </p>
+                
+                <ContactForm />
+              </div>
+            </div>
+
+            {/* Direct Contact - Compact Footer */}
+            <div className="bg-muted rounded-2xl p-6">
+              <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div>
+                  <h4 className="font-semibold mb-2">Direkter Kontakt bevorzugt?</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Rufen Sie an oder schreiben Sie eine E-Mail
+                  </p>
+                </div>
+                
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <div className="flex items-center gap-3">
+                    <Mail className="w-5 h-5 text-primary" />
+                    <div>
+                      <div className="font-medium">info@ki2use.de</div>
+                      <div className="text-xs text-muted-foreground">24h Antwortzeit</div>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center gap-3">
+                    <Phone className="w-5 h-5 text-primary" />
+                    <div>
+                      <div className="font-medium">+49 162 63 19 474</div>
+                      <div className="text-xs text-muted-foreground">Mo-Fr: 9-18 Uhr</div>
+                    </div>
                   </div>
                 </div>
               </div>
