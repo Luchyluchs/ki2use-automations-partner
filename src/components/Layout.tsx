@@ -3,7 +3,6 @@ import { Button } from "./ui/button";
 import { Menu, X, Brain } from "lucide-react";
 import { useState } from "react";
 import Chatbot from "./Chatbot";
-import FloatingRobot from "./FloatingRobot";
 const Layout = ({
   children
 }: {
@@ -126,7 +125,6 @@ const Layout = ({
         </div>
       </footer>
       <Chatbot />
-      <FloatingRobot />
     </div>;
 };
 export default Layout;
