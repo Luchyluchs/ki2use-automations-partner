@@ -140,10 +140,6 @@ const DemoVoiceAgent: React.FC<DemoVoiceAgentProps> = ({
                 Gespräch beenden
               </Button>
             )}
-            
-            <p className="text-xs text-muted-foreground">
-              💡 Agent-ID: {agentId.slice(-8)}... | Diese Technologie kann in Ihre Systeme integriert werden
-            </p>
           </div>
         </div>
       </CardContent>
