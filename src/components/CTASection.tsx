@@ -43,15 +43,7 @@ const CTASection = () => {
           </div>
 
           <div className="scroll-reveal stagger-delay-2 space-y-6">
-            <div className="flex justify-center">
-              <UrgencyTimer 
-                title="Nur noch 15 Plätze verfügbar" 
-                subtitle="Beratungskapazität fast ausgeschöpft"
-                variant="warning"
-              />
-            </div>
-            
-            <CalendlyButton 
+            <CalendlyButton
               text="Kostenloses Erstgespräch sichern (30 Min.)"
               variant="accent"
               size="xl"
