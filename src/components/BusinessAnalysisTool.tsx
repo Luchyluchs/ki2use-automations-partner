@@ -34,6 +34,7 @@ const BusinessAnalysisTool = () => {
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [interests, setInterests] = useState<Record<string, boolean>>({});
   const [email, setEmail] = useState('');
+  const [companyName, setCompanyName] = useState('');
   const [showResults, setShowResults] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
@@ -206,7 +207,7 @@ const BusinessAnalysisTool = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email) return;
+    if (!email || !companyName) return;
 
     setIsSubmitting(true);
     
@@ -217,6 +218,7 @@ const BusinessAnalysisTool = () => {
       
       const analysisData = {
         email,
+        companyName,
         timestamp: new Date().toISOString(),
         currentSituation: {
           totalWeeklyTimeSpent: impact.totalWeeklyTimeSpent,
@@ -370,6 +372,19 @@ const BusinessAnalysisTool = () => {
             </h3>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
+                <Label htmlFor="company-name">Ihr Unternehmen:</Label>
+                <Input
+                  id="company-name"
+                  type="text"
+                  value={companyName}
+                  onChange={(e) => setCompanyName(e.target.value)}
+                  placeholder="Ihr Firmenname"
+                  required
+                  className="mt-2"
+                />
+              </div>
+              
+              <div>
                 <Label htmlFor="business-email">E-Mail für Ihre personalisierte Business-Analyse:</Label>
                 <Input
                   id="business-email"
@@ -387,7 +402,7 @@ const BusinessAnalysisTool = () => {
                 className="w-full bg-gradient-primary text-lg py-4"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? "Wird versendet..." : "Detaillierte Analyse + kostenlose Beratung erhalten"}
+                {isSubmitting ? "Wird versendet..." : "Detaillierte Analyse erhalten"}
                 <Mail className="w-5 h-5 ml-2" />
               </Button>
             </form>
