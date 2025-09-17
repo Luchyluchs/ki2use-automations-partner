@@ -149,31 +149,49 @@ const KIReadinessQuiz = () => {
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="text-center">
-            <div className="text-4xl font-bold text-primary mb-2">{score}/12 Punkte</div>
-            <p className="text-muted-foreground">{recommendation.description}</p>
-          </div>
-          
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <Label htmlFor="quiz-email">E-Mail für detaillierte Analyse:</Label>
-              <Input
-                id="quiz-email"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="ihre@email.de"
-                required
-              />
+            <div className="text-4xl font-bold text-primary mb-4">{score}/12 Punkte</div>
+            <div className="bg-primary/10 border border-primary/20 rounded-lg p-6 mb-6">
+              <p className="text-lg font-medium mb-2">{recommendation.description}</p>
+              <div className="mt-4 space-y-2">
+                {score >= 10 && (
+                  <div className="bg-green-50 dark:bg-green-900/20 p-3 rounded-lg">
+                    ✅ <strong>Empfehlung:</strong> Sie können sofort mit 2-3 KI-Agenten starten
+                  </div>
+                )}
+                {score >= 7 && score < 10 && (
+                  <div className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg">
+                    💡 <strong>Empfehlung:</strong> Beginnen Sie mit einem Chat-Bot oder E-Mail-Sortierung
+                  </div>
+                )}
+                {score < 7 && (
+                  <div className="bg-orange-50 dark:bg-orange-900/20 p-3 rounded-lg">
+                    🎯 <strong>Empfehlung:</strong> Lassen Sie uns gemeinsam den perfekten Einstieg finden
+                  </div>
+                )}
+              </div>
             </div>
             
             <Button 
-              type="submit" 
-              className="w-full bg-gradient-primary"
-              disabled={isSubmitting}
+              className="w-full bg-gradient-primary text-lg py-4"
+              onClick={() => window.open('https://calendly.com/ki2use/beratung', '_blank')}
             >
-              {isSubmitting ? "Wird gesendet..." : "Detaillierte Analyse anfordern"}
+              {recommendation.action}
             </Button>
-          </form>
+            
+            <div className="mt-4 space-y-2">
+              <Button 
+                variant="ghost" 
+                className="w-full"
+                onClick={() => {
+                  setShowResult(false);
+                  setCurrentQuestion(0);
+                  setAnswers({});
+                }}
+              >
+                Test wiederholen
+              </Button>
+            </div>
+          </div>
         </CardContent>
       </Card>
     );

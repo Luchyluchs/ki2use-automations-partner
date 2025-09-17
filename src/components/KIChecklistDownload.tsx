@@ -26,92 +26,56 @@ const KIChecklistDownload = () => {
 
   const checklistData: ChecklistItem[] = [
     {
-      category: "Kommunikation & Kundenbetreuung",
+      category: "Sofortige Automatisierung",
       icon: Users,
       items: [
         {
-          title: "24/7 Chatbot für Kundenanfragen",
-          description: "Automatische Bearbeitung wiederkehrender Kundenfragen",
+          title: "24/7 Website-Chat",
+          description: "Kunden sofort antworten, auch nachts",
           priority: "Hoch",
-          benefit: "Bis zu 60% weniger Supportanfragen für Mitarbeiter"
+          benefit: "60% weniger Kundenanfragen für Ihr Team"
         },
         {
-          title: "LinkedIn-Automatisierung",
-          description: "Professionelle Netzwerkpflege und Lead-Generierung",
-          priority: "Mittel",
-          benefit: "300% mehr qualifizierte Business-Kontakte"
-        },
-        {
-          title: "Newsletter-Automatisierung",
-          description: "Personalisierte E-Mail-Kampagnen basierend auf Kundenverhalten",
-          priority: "Mittel",
-          benefit: "40% höhere Öffnungsraten durch Personalisierung"
-        },
-        {
-          title: "Voice-Agent für Telefonsupport",
-          description: "Intelligente Anrufweiterleitung und Erstberatung",
-          priority: "Niedrig",
-          benefit: "50% Entlastung der Telefonzentrale"
+          title: "E-Mail Sortierung",
+          description: "Wichtige E-Mails automatisch nach oben",
+          priority: "Hoch",
+          benefit: "2-3 Stunden täglich Zeit sparen"
         }
       ]
     },
     {
-      category: "Interne Prozesse & Organisation",
+      category: "Mittelfristige Projekte",
       icon: Settings,
       items: [
         {
-          title: "E-Mail-Kategorisierung",
-          description: "Automatische Sortierung und Priorisierung eingehender E-Mails",
-          priority: "Hoch",
-          benefit: "2-3 Stunden täglich Zeit für wichtigere Aufgaben"
-        },
-        {
-          title: "Dokumenten-Management",
-          description: "KI-gestützte Archivierung und Suchfunktionen",
+          title: "LinkedIn Kontakte",
+          description: "Automatisch neue Kunden finden",
           priority: "Mittel",
-          benefit: "80% schnellere Dokumentenfindung"
+          benefit: "300% mehr Business-Kontakte"
         },
         {
-          title: "Terminplanung-Assistent",
-          description: "Intelligente Koordination von Meetings und Terminen",
+          title: "Terminplanung",
+          description: "Kunden buchen Termine selbst",
           priority: "Mittel",
-          benefit: "Eliminiert 90% des Hin-und-Her bei Terminabsprachen"
-        },
-        {
-          title: "Workflow-Automatisierung",
-          description: "Verknüpfung verschiedener Software-Tools und Prozesse",
-          priority: "Hoch",
-          benefit: "Bis zu 70% weniger manuelle Dateneingabe"
+          benefit: "90% weniger Telefonate für Termine"
         }
       ]
     },
     {
-      category: "Strategie & Implementierung",
+      category: "Langfristige Vision",
       icon: Target,
       items: [
         {
-          title: "KI-Bereitschaftsanalyse",
-          description: "Bewertung der technischen und organisatorischen Voraussetzungen",
-          priority: "Hoch",
-          benefit: "Vermeidet kostspielige Fehlentscheidungen"
+          title: "Voice-Agent",
+          description: "Telefon-KI nimmt Anrufe entgegen",
+          priority: "Niedrig",
+          benefit: "Nie wieder einen Anruf verpassen"
         },
         {
-          title: "Mitarbeiter-Schulungen",
-          description: "Strukturierte Einführung in KI-Tools und -Prozesse",
-          priority: "Hoch",
-          benefit: "95% Akzeptanz durch professionelle Einführung"
-        },
-        {
-          title: "Schrittweise Implementierung",
-          description: "Phaseweise Einführung beginnend mit Quick Wins",
-          priority: "Hoch",
-          benefit: "Minimiert Risiken und zeigt schnelle Erfolge"
-        },
-        {
-          title: "Erfolgs-Monitoring",
-          description: "Regelmäßige Erfolgsmessung und Optimierung",
-          priority: "Mittel",
-          benefit: "Kontinuierliche Verbesserung der ROI"
+          title: "Newsletter-Automatik",
+          description: "Kunden automatisch informieren",
+          priority: "Niedrig",
+          benefit: "40% höhere Öffnungsraten"
         }
       ]
     }
@@ -347,7 +311,7 @@ const KIChecklistDownload = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || !company) return;
+    if (!email) return;
 
     setIsSubmitting(true);
     
@@ -359,8 +323,8 @@ const KIChecklistDownload = () => {
       generatePDF();
       
       toast({
-        title: "Checkliste wird heruntergeladen!",
-        description: `Die personalisierte KI-Checkliste für ${company} wird in wenigen Sekunden heruntergeladen.`,
+        title: "Download gestartet!",
+        description: `Die KI-Schnellcheck-Liste wird heruntergeladen.`,
       });
     } catch (error) {
       toast({
@@ -380,11 +344,11 @@ const KIChecklistDownload = () => {
           <FileText className="w-8 h-8 text-primary-foreground" />
         </div>
         <CardTitle className="text-2xl">
-          KI-Automatisierung Checkliste
+          KI-Schnellcheck für Ihr Unternehmen
         </CardTitle>
         <p className="text-muted-foreground">
-          Systematischer Leitfaden zur Identifikation und Bewertung von Automatisierungspotenzialen 
-          in Ihrem Unternehmen - basierend auf unserer Expertise mit 500+ erfolgreichen KI-Implementierungen.
+          6 konkrete Automatisierungs-Möglichkeiten mit sofortiger Prioritätsbewertung.
+          Perfekt für den schnellen Überblick - keine komplizierte Analyse.
         </p>
       </CardHeader>
       
@@ -394,18 +358,18 @@ const KIChecklistDownload = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
               <div className="bg-primary/10 border border-primary/20 rounded-lg p-4 text-center">
                 <CheckCircle className="w-8 h-8 text-primary mx-auto mb-2" />
-                <div className="font-semibold text-sm">15 konkrete Prüfpunkte</div>
-                <div className="text-xs text-muted-foreground">Für alle Unternehmensbereiche</div>
+                <div className="font-semibold text-sm">6 konkrete Schritte</div>
+                <div className="text-xs text-muted-foreground">Sofort umsetzbar</div>
               </div>
               <div className="bg-primary/10 border border-primary/20 rounded-lg p-4 text-center">
                 <Target className="w-8 h-8 text-primary mx-auto mb-2" />
-                <div className="font-semibold text-sm">Bewertungsmatrix</div>
-                <div className="text-xs text-muted-foreground">Aufwand vs. Nutzen bewerten</div>
+                <div className="font-semibold text-sm">Klare Prioritäten</div>
+                <div className="text-xs text-muted-foreground">Was zuerst angehen</div>
               </div>
               <div className="bg-primary/10 border border-primary/20 rounded-lg p-4 text-center">
                 <Settings className="w-8 h-8 text-primary mx-auto mb-2" />
-                <div className="font-semibold text-sm">Implementierungs-Roadmap</div>
-                <div className="text-xs text-muted-foreground">Schritt-für-Schritt Anleitung</div>
+                <div className="font-semibold text-sm">Keine Technik-Vorkenntnisse</div>
+                <div className="text-xs text-muted-foreground">Einfach verständlich</div>
               </div>
             </div>
 
@@ -414,33 +378,20 @@ const KIChecklistDownload = () => {
               onClick={() => setShowPreview(true)}
               className="w-full mb-4"
             >
-              Checkliste-Vorschau ansehen
+              Kurz-Checkliste ansehen
             </Button>
 
             <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <Label htmlFor="company">Firmenname *</Label>
-                  <Input
-                    id="company"
-                    type="text"
-                    value={company}
-                    onChange={(e) => setCompany(e.target.value)}
-                    placeholder="Ihr Unternehmen GmbH"
-                    required
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="checklist-email">E-Mail-Adresse *</Label>
-                  <Input
-                    id="checklist-email"
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="ihre@email.de"
-                    required
-                  />
-                </div>
+              <div>
+                <Label htmlFor="checklist-email">E-Mail für sofortigen Download *</Label>
+                <Input
+                  id="checklist-email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="ihre@email.de"
+                  required
+                />
               </div>
               
               <Button 
@@ -448,13 +399,13 @@ const KIChecklistDownload = () => {
                 className="w-full bg-gradient-primary hover:shadow-elevated text-lg py-6"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? "Checkliste wird erstellt..." : "Kostenlose Checkliste herunterladen"}
+                {isSubmitting ? "Wird heruntergeladen..." : "Sofort kostenlos herunterladen"}
                 <Download className="w-5 h-5 ml-2" />
               </Button>
             </form>
             
             <p className="text-xs text-muted-foreground text-center">
-              Sofortiger Download • 100% kostenlos • Keine Verpflichtung • DSGVO-konform
+              Sofortiger Download • 100% kostenlos • Keine Anmeldung • Nur 1 Seite
             </p>
           </>
         ) : (
