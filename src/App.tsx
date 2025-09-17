@@ -9,6 +9,7 @@ import NewChatbot from "./components/NewChatbot";
 import FloatingVoiceAgent from "./components/FloatingVoiceAgent";
 import CookieConsentBanner from "./components/CookieConsentBanner";
 import SecurityMonitor from "./components/SecurityMonitor";
+import MobileBottomNav from "./components/MobileBottomNav";
 import Index from "./pages/Index";
 import StandardAgents from "./pages/StandardAgents";
 import CustomAgents from "./pages/CustomAgents";
@@ -50,6 +51,7 @@ const App = () => (
         <NewChatbot />
         <FloatingVoiceAgent />
         <CookieConsentBanner />
+        <MobileBottomNav />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
