@@ -52,25 +52,28 @@ const Contact = () => {
               <div className="bg-gradient-primary rounded-2xl p-8 md:p-12 text-primary-foreground max-w-4xl mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
                   <div className="lg:col-span-2">
-                    <h2 className="text-2xl md:text-3xl font-bold mb-4">
-                      30-Min. Beratungsgespräch
+                    <h2 className="text-2xl md:text-3xl font-bold mb-2">
+                      Kostenloses Beratungsgespräch
                     </h2>
-                    <p className="opacity-90 text-lg">
-                      Persönliche Analyse Ihres Automatisierungspotenzials 
-                      mit konkreten Empfehlungen.
+                    <p className="text-lg mb-2 opacity-90">
+                      30 Minuten persönliche KI-Beratung
+                    </p>
+                    <p className="opacity-80">
+                      Individuelle Analyse Ihres Automatisierungspotenzials 
+                      mit konkreten, unverbindlichen Empfehlungen.
                     </p>
                   </div>
                   <div className="text-center lg:text-right">
                     <CalendlyButton 
-                      text="Termin buchen"
+                      text="Kostenlose Beratung buchen"
                       variant="cta"
                       size="lg"
                       className="bg-white text-primary hover:bg-gray-50 w-full lg:w-auto"
-                      icon={true}
+                      icon={false}
                     />
                     <div className="mt-3 text-sm opacity-80">
                       <Clock className="w-4 h-4 inline mr-1" />
-                      Kostenlos & unverbindlich
+                      100% kostenlos & unverbindlich
                     </div>
                   </div>
                 </div>
