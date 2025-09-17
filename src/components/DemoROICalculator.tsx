@@ -7,31 +7,40 @@ import { Badge } from '@/components/ui/badge';
 import { Calculator, TrendingUp, DollarSign, Clock, Users, Zap } from 'lucide-react';
 
 const DemoROICalculator: React.FC = () => {
-  const [employees, setEmployees] = useState(50);
-  const [avgSalary, setAvgSalary] = useState(50000);
-  const [timePerTask, setTimePerTask] = useState(15);
-  const [tasksPerWeek, setTasksPerWeek] = useState(100);
-  const [automationPercentage, setAutomationPercentage] = useState(70);
-  const [integrationCosts, setIntegrationCosts] = useState(5000);
-  const [monthlyCosts, setMonthlyCosts] = useState(500);
+  const [employees, setEmployees] = useState("50");
+  const [avgSalary, setAvgSalary] = useState("50000");
+  const [timePerTask, setTimePerTask] = useState("15");
+  const [tasksPerWeek, setTasksPerWeek] = useState("100");
+  const [automationPercentage, setAutomationPercentage] = useState("70");
+  const [integrationCosts, setIntegrationCosts] = useState("5000");
+  const [monthlyCosts, setMonthlyCosts] = useState("500");
 
   const calculateROI = useCallback(() => {
+    // Convert strings to numbers, defaulting to 0 if empty or invalid
+    const numEmployees = Number(employees) || 0;
+    const numAvgSalary = Number(avgSalary) || 0;
+    const numTimePerTask = Number(timePerTask) || 0;
+    const numTasksPerWeek = Number(tasksPerWeek) || 0;
+    const numAutomationPercentage = Number(automationPercentage) || 0;
+    const numIntegrationCosts = Number(integrationCosts) || 0;
+    const numMonthlyCosts = Number(monthlyCosts) || 0;
+
     // Current costs
-    const hourlyWage = avgSalary / (52 * 40); // Weekly hours
-    const weeklyTaskCosts = (timePerTask / 60) * tasksPerWeek * hourlyWage;
+    const hourlyWage = numAvgSalary / (52 * 40); // Weekly hours
+    const weeklyTaskCosts = (numTimePerTask / 60) * numTasksPerWeek * hourlyWage;
     const annualTaskCosts = weeklyTaskCosts * 52;
     
     // Savings through automation
-    const automatedTasks = tasksPerWeek * (automationPercentage / 100);
-    const weeklySavings = (timePerTask / 60) * automatedTasks * hourlyWage;
+    const automatedTasks = numTasksPerWeek * (numAutomationPercentage / 100);
+    const weeklySavings = (numTimePerTask / 60) * automatedTasks * hourlyWage;
     const annualSavings = weeklySavings * 52;
     
     // ROI calculation
-    const annualKICosts = monthlyCosts * 12;
-    const totalCosts = integrationCosts + annualKICosts;
+    const annualKICosts = numMonthlyCosts * 12;
+    const totalCosts = numIntegrationCosts + annualKICosts;
     const netSavings = annualSavings - annualKICosts;
     const roi = ((netSavings) / totalCosts) * 100;
-    const paybackMonths = integrationCosts / (weeklySavings * 4.33);
+    const paybackMonths = numIntegrationCosts / (weeklySavings * 4.33);
     
     return {
       annualTaskCosts: Math.round(annualTaskCosts),
@@ -42,7 +51,7 @@ const DemoROICalculator: React.FC = () => {
       paybackMonths: Math.round(paybackMonths * 10) / 10,
       weeklySavings: Math.round(weeklySavings),
       automatedTasksPerWeek: Math.round(automatedTasks),
-      timeSavedPerWeek: Math.round((automatedTasks * timePerTask) / 60)
+      timeSavedPerWeek: Math.round((automatedTasks * numTimePerTask) / 60)
     };
   }, [employees, avgSalary, timePerTask, tasksPerWeek, automationPercentage, integrationCosts, monthlyCosts]);
 
@@ -75,22 +84,26 @@ const DemoROICalculator: React.FC = () => {
                 <Label htmlFor="employees">Anzahl Mitarbeiter</Label>
                 <Input
                   id="employees"
-                  type="number"
+                  type="text"
                   value={employees}
-                  onChange={(e) => setEmployees(Number(e.target.value))}
-                  min="1"
+                  onChange={(e) => setEmployees(e.target.value)}
+                  placeholder="50"
                 />
               </div>
               
               <div>
-                <Label htmlFor="avgSalary">Durchschnittsgehalt (€/Jahr)</Label>
-                <Input
-                  id="avgSalary"
-                  type="number"
-                  value={avgSalary}
-                  onChange={(e) => setAvgSalary(Number(e.target.value))}
-                  min="0"
-                />
+                <Label htmlFor="avgSalary">Durchschnittsgehalt</Label>
+                <div className="relative">
+                  <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground">€</span>
+                  <Input
+                    id="avgSalary"
+                    type="text"
+                    value={avgSalary}
+                    onChange={(e) => setAvgSalary(e.target.value)}
+                    placeholder="50000"
+                    className="pl-8"
+                  />
+                </div>
               </div>
             </div>
 
@@ -99,10 +112,10 @@ const DemoROICalculator: React.FC = () => {
                 <Label htmlFor="timePerTask">Zeit pro Aufgabe (Min)</Label>
                 <Input
                   id="timePerTask"
-                  type="number"
+                  type="text"
                   value={timePerTask}
-                  onChange={(e) => setTimePerTask(Number(e.target.value))}
-                  min="1"
+                  onChange={(e) => setTimePerTask(e.target.value)}
+                  placeholder="15"
                 />
               </div>
               
@@ -110,10 +123,10 @@ const DemoROICalculator: React.FC = () => {
                 <Label htmlFor="tasksPerWeek">Aufgaben pro Woche</Label>
                 <Input
                   id="tasksPerWeek"
-                  type="number"
+                  type="text"
                   value={tasksPerWeek}
-                  onChange={(e) => setTasksPerWeek(Number(e.target.value))}
-                  min="1"
+                  onChange={(e) => setTasksPerWeek(e.target.value)}
+                  placeholder="100"
                 />
               </div>
             </div>
@@ -122,11 +135,14 @@ const DemoROICalculator: React.FC = () => {
               <Label htmlFor="automation">Automatisierungsgrad (%)</Label>
               <Input
                 id="automation"
-                type="number"
+                type="text"
                 value={automationPercentage}
-                onChange={(e) => setAutomationPercentage(Math.min(100, Math.max(0, Number(e.target.value))))}
-                min="0"
-                max="100"
+                onChange={(e) => {
+                  const value = e.target.value;
+                  const num = Math.min(100, Math.max(0, Number(value) || 0));
+                  setAutomationPercentage(value === '' ? '' : num.toString());
+                }}
+                placeholder="70"
               />
             </div>
 
@@ -139,25 +155,33 @@ const DemoROICalculator: React.FC = () => {
               </h3>
               
               <div>
-                <Label htmlFor="integrationCosts">Einmalige Integrationskosten (€)</Label>
-                <Input
-                  id="integrationCosts"
-                  type="number"
-                  value={integrationCosts}
-                  onChange={(e) => setIntegrationCosts(Number(e.target.value))}
-                  min="0"
-                />
+                <Label htmlFor="integrationCosts">Einmalige Integrationskosten</Label>
+                <div className="relative">
+                  <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground">€</span>
+                  <Input
+                    id="integrationCosts"
+                    type="text"
+                    value={integrationCosts}
+                    onChange={(e) => setIntegrationCosts(e.target.value)}
+                    placeholder="5000"
+                    className="pl-8"
+                  />
+                </div>
               </div>
               
               <div>
-                <Label htmlFor="monthlyCosts">Monatliche Wartungskosten (€)</Label>
-                <Input
-                  id="monthlyCosts"
-                  type="number"
-                  value={monthlyCosts}
-                  onChange={(e) => setMonthlyCosts(Number(e.target.value))}
-                  min="0"
-                />
+                <Label htmlFor="monthlyCosts">Monatliche Wartungskosten</Label>
+                <div className="relative">
+                  <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground">€</span>
+                  <Input
+                    id="monthlyCosts"
+                    type="text"
+                    value={monthlyCosts}
+                    onChange={(e) => setMonthlyCosts(e.target.value)}
+                    placeholder="500"
+                    className="pl-8"
+                  />
+                </div>
               </div>
             </div>
           </CardContent>
