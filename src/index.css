@@ -499,12 +499,30 @@ Corporate design for German KMUs - trustworthy, modern, efficient
     80% { transform: translate(2px, -2px); }
   }
 
-  @keyframes glitch-2 {
-    0%, 100% { transform: translate(0); }
-    20% { transform: translate(2px, 2px); }
-    40% { transform: translate(2px, -2px); }
-    60% { transform: translate(-2px, 2px); }
-    80% { transform: translate(-2px, -2px); }
+  /* Mobile-specific optimizations */
+  .mobile-touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .mobile-safe-area {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* Prevent zooming on form inputs on iOS */
+  input[type="text"], 
+  input[type="email"], 
+  input[type="tel"], 
+  textarea, 
+  select {
+    font-size: 16px;
+  }
+
+  @media (max-width: 768px) {
+    .mobile-touch-target {
+      min-height: 48px;
+      min-width: 48px;
+    }
   }
 
   /* Stagger Delays */

@@ -1,5 +1,6 @@
 import { Clock, Euro, TrendingUp, CheckCircle } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollAnimations";
+import MobileBenefitsCards from "./MobileBenefitsCards";
 
 const KIBenefitsSection = () => {
   useScrollReveal();
@@ -38,21 +39,22 @@ const KIBenefitsSection = () => {
       <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/8 rounded-full blur-3xl parallax-slow"></div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="text-center mb-12 scroll-reveal">
+        <div className="text-center mb-8 lg:mb-12 scroll-reveal">
           <div className="inline-flex items-center rounded-full px-4 py-2 text-sm font-medium bg-primary/10 text-primary border border-primary/20 mb-6">
-            💡 Einfach erklärt
+            Einfach erklärt
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6 leading-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-4 lg:mb-6 leading-tight">
             <span className="nowrap-ki-assistant">KI-Assistenten</span> = <span className="text-primary">Digitale Mitarbeiter</span><br/>
             für Ihren Arbeitsalltag
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base lg:text-xl text-muted-foreground max-w-3xl mx-auto">
             Stellen Sie sich vor: Ein digitaler Assistent, der nie müde wird, nie Fehler macht und rund um die Uhr für Sie arbeitet.
             Hier sind die realistischen Verbesserungen, die unsere KI-Automatisierung in deutschen KMUs erzielt.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        {/* Desktop: Original cards */}
+        <div className="hidden lg:grid lg:grid-cols-2 gap-8 mb-12">
           {benefits.map((benefit, index) => {
             const IconComponent = benefit.icon;
             return (
@@ -80,10 +82,14 @@ const KIBenefitsSection = () => {
           })}
         </div>
 
+        {/* Mobile: Compact benefit cards */}
+        <div className="lg:hidden mb-8">
+          <MobileBenefitsCards />
+        </div>
+
         <div className="text-center scroll-reveal stagger-delay-3">
-          <div className="inline-flex items-center justify-center space-x-2 text-lg text-muted-foreground bg-muted/50 rounded-full px-6 py-3 backdrop-blur-sm">
+          <div className="inline-flex items-center justify-center space-x-2 text-base lg:text-lg text-muted-foreground bg-muted/50 rounded-full px-4 lg:px-6 py-2 lg:py-3 backdrop-blur-sm">
             <span>Neugierig geworden?</span>
-            <span className="text-2xl">👇</span>
           </div>
           <p className="text-sm text-muted-foreground mt-2">Schauen Sie sich unsere Lösungen an</p>
         </div>

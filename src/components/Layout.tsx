@@ -3,6 +3,8 @@ import { Button } from "./ui/button";
 import { Menu, X, Brain } from "lucide-react";
 import { useState } from "react";
 import Chatbot from "./Chatbot";
+import MobileBottomNav from "./MobileBottomNav";
+import FloatingActionButton from "./FloatingActionButton";
 const Layout = ({
   children
 }: {
@@ -82,7 +84,7 @@ const Layout = ({
       </header>
 
       {/* Main Content */}
-      <main>{children}</main>
+      <main className="pb-20 lg:pb-0">{children}</main>
 
       {/* Footer */}
       <footer className="bg-muted border-t border-card-border">
@@ -125,6 +127,8 @@ const Layout = ({
         </div>
       </footer>
       <Chatbot />
+      <MobileBottomNav />
+      <FloatingActionButton />
     </div>;
 };
 export default Layout;
