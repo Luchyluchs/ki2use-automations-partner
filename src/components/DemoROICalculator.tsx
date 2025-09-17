@@ -25,13 +25,14 @@ const DemoROICalculator: React.FC = () => {
     const numIntegrationCosts = Number(integrationCosts) || 0;
     const numMonthlyCosts = Number(monthlyCosts) || 0;
 
-    // Current costs
+    // Current costs - include number of employees
     const hourlyWage = numAvgSalary / (52 * 40); // Yearly salary / (weeks * hours per week)
-    const weeklyTaskCosts = (numTimePerTask / 60) * numTasksPerWeek * hourlyWage;
+    const totalWeeklyTasks = numTasksPerWeek * numEmployees; // Total tasks across all employees
+    const weeklyTaskCosts = (numTimePerTask / 60) * totalWeeklyTasks * hourlyWage;
     const annualTaskCosts = weeklyTaskCosts * 52;
     
-    // Savings through automation
-    const automatedTasks = numTasksPerWeek * (numAutomationPercentage / 100);
+    // Savings through automation - based on total tasks
+    const automatedTasks = totalWeeklyTasks * (numAutomationPercentage / 100);
     const weeklySavings = (numTimePerTask / 60) * automatedTasks * hourlyWage;
     const annualSavings = weeklySavings * 52;
     
@@ -43,8 +44,9 @@ const DemoROICalculator: React.FC = () => {
     
     // Debug logging
     console.log('ROI Calculation Debug:', {
-      inputs: { numAvgSalary, numTimePerTask, numTasksPerWeek, numAutomationPercentage, numIntegrationCosts, numMonthlyCosts },
+      inputs: { numEmployees, numAvgSalary, numTimePerTask, numTasksPerWeek, numAutomationPercentage, numIntegrationCosts, numMonthlyCosts },
       hourlyWage: Math.round(hourlyWage * 100) / 100,
+      totalWeeklyTasks,
       weeklyTaskCosts: Math.round(weeklyTaskCosts),
       annualTaskCosts: Math.round(annualTaskCosts),
       automatedTasks: Math.round(automatedTasks),
@@ -135,7 +137,7 @@ const DemoROICalculator: React.FC = () => {
               </div>
               
               <div>
-                <Label htmlFor="tasksPerWeek">Aufgaben pro Woche</Label>
+                <Label htmlFor="tasksPerWeek">Aufgaben pro Mitarbeiter/Woche</Label>
                 <Input
                   id="tasksPerWeek"
                   type="text"
