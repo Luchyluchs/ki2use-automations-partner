@@ -6,7 +6,6 @@ import UrgencyTimer from "./UrgencyTimer";
 import EnhancedButton from "./EnhancedButton";
 import TextReveal, { GradientText, TypingAnimation } from "./TextRevealAnimation";
 import { useScrollReveal, useEnhancedParallax } from "@/hooks/useScrollAnimations";
-import { useIsMobile } from "@/hooks/use-mobile";
 import { useEffect } from "react";
 const HeroSection = () => {
   useScrollReveal();
@@ -41,7 +40,16 @@ const HeroSection = () => {
             </p>
           </div>
           
-          <div className="enhanced-reveal stagger-delay-2 space-y-6">
+          <div className="enhanced-reveal stagger-delay-2 bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10">
+            <p className="text-sm text-white/80 mb-2">
+              <span className="text-primary font-semibold">83%</span> aller Unternehmen sehen KI als Top-Priorität
+            </p>
+            <p className="text-xs text-white/60">
+              Aber nur wenige wissen, <span className="text-white font-medium">wie sie es richtig integrieren...</span>
+            </p>
+          </div>
+          
+          <div className="enhanced-reveal stagger-delay-3 space-y-6">
             <CalendlyButton 
               text="Kostenloses Beratungsgespräch" 
               variant="cta" 
@@ -58,7 +66,7 @@ const HeroSection = () => {
                 element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
               }}
             >
-              Kostenlose Ressourcen ansehen
+              Gratis Tools & Guides entdecken
             </Button>
           </div>
         </div>
