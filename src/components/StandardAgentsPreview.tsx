@@ -49,6 +49,16 @@ const StandardAgentsPreview = () => {
     image: appointmentRobot,
     description: "Vereinfacht Terminplanung durch automatische Buchungen und Erinnerungen.",
     benefits: "75% weniger manueller Aufwand"
+  }, {
+    name: "Ausschreibungsagent",
+    image: emailRobot,
+    description: "Analysiert Ausschreibungen automatisch und versendet passende Angebote.",
+    benefits: "70% schnellere Angebotsbearbeitung"
+  }, {
+    name: "HR Agent",
+    image: salesRobot,
+    description: "Bewertet Bewerbungen und matcht sie mit passenden Stellenausschreibungen.",
+    benefits: "60% effizientere Bewerberauswahl"
   }];
 
   return (
