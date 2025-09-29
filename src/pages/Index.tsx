@@ -9,6 +9,9 @@ import ExitIntentPopup from "@/components/ExitIntentPopup";
 import ScrollProgressIndicator from "@/components/ScrollProgressIndicator";
 import FloatingBackground from "@/components/FloatingElements";
 import FuturisticBackground from "@/components/FuturisticBackground";
+import LLMDiscoveryLayer from "@/components/LLMDiscoveryLayer";
+import EnhancedStructuredData from "@/components/EnhancedStructuredData";
+import LLMMetaTags from "@/components/LLMMetaTags";
 import { useScrollReveal, useEnhancedParallax, useMagneticCursor } from "@/hooks/useScrollAnimations";
 import { useExitIntent } from "@/hooks/useExitIntent";
 
@@ -20,6 +23,11 @@ const Index = () => {
   
   return (
     <>
+      {/* LLM Discovery Optimization Layer - Invisible to users */}
+      <LLMMetaTags />
+      <EnhancedStructuredData />
+      <LLMDiscoveryLayer />
+      
       <FuturisticBackground />
       <ScrollProgressIndicator />
       <Layout>
