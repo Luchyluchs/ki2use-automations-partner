@@ -61,6 +61,18 @@ const StandardAgents = () => {
     features: ["Automatische Terminbuchung", "Kalender-Synchronisation", "SMS/E-Mail-Erinnerungen", "Konflikt-Vermeidung", "Multi-Standort-Support"],
     benefits: ["75% weniger manueller Aufwand", "Keine Terminüberschneidungen", "Automatische Erinnerungen", "24/7 Buchungsmöglichkeit"],
     useCases: ["Arzttermine", "Beratungsgespräche", "Service-Termine", "Schulungsbuchungen"]
+  }, {
+    name: "Ausschreibungs-Assistent",
+    description: "Analysiert Ausschreibungen automatisch, identifiziert passende Geschäftsmöglichkeiten und erstellt individualisierte Angebote für maximale Erfolgsaussichten.",
+    features: ["Automatische Ausschreibungsanalyse", "Relevanz-Bewertung", "Angebotserstellung", "Deadline-Management", "Konkurrenzanalyse"],
+    benefits: ["70% schnellere Angebotsbearbeitung", "Höhere Zuschlagswahrscheinlichkeit", "Systematische Marktbearbeitung", "Automatisierte Dokumentation"],
+    useCases: ["Öffentliche Ausschreibungen", "Private Ausschreibungen", "EU-weite Vergabeverfahren", "Rahmenverträge"]
+  }, {
+    name: "HR Assistent",
+    description: "Bewertet Bewerbungen automatisch und matcht sie mit passenden Stellenausschreibungen für eine effiziente und objektive Personalauswahl.",
+    features: ["CV-Analyse", "Skill-Matching", "Bewertungs-Scoring", "Interview-Terminierung", "Absagen-Automatisierung"],
+    benefits: ["60% effizientere Bewerberauswahl", "Objektive Bewertungskriterien", "Schnellere Time-to-Hire", "DSGVO-konforme Verarbeitung"],
+    useCases: ["Stellenbesetzung", "Bewerbermanagement", "Talent-Pool-Aufbau", "Vorauswahl-Prozesse"]
   }];
   return <Layout>
       <StandardAgentsFAQ />
