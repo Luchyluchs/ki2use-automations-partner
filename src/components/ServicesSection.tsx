@@ -30,46 +30,40 @@ const ServicesSection = () => {
     link: "/ki-schulungen",
     cta: "Schulungen buchen"
   }];
-  return <section className="section-padding bg-background relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute top-0 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl parallax-slow"></div>
-      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-accent/5 rounded-full blur-3xl parallax-slow"></div>
-      
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="text-center mb-8 lg:mb-16">
-          <h2 className="scroll-reveal mb-4 lg:mb-6 text-2xl sm:text-3xl lg:text-5xl font-bold">
+  return <section className="section-padding bg-background relative overflow-hidden py-24">      
+      <div className="container mx-auto px-6 lg:px-12 relative">
+        <div className="mb-20">
+          <h2 className="scroll-reveal mb-6 text-4xl lg:text-5xl font-thin text-foreground">
             Unsere Kernkompetenzen
           </h2>
-            <p className="scroll-reveal stagger-delay-1 text-base lg:text-xl text-muted-foreground max-w-3xl mx-auto">
-              Drei speziell entwickelte Bereiche, die Ihr Unternehmen effizienter 
-              und zukunftssicherer machen – mit bewährten Automatisierungslösungen.
-            </p>
+          <p className="scroll-reveal stagger-delay-1 text-xl text-muted-foreground max-w-2xl font-light">
+            Drei speziell entwickelte Bereiche, die Ihr Unternehmen effizienter 
+            und zukunftssicherer machen.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-          {/* Desktop: Original cards, Mobile: Hidden */}
-          <div className="hidden lg:grid lg:grid-cols-3 lg:gap-8 lg:col-span-3">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-0 lg:gap-0">
+          {/* Desktop: Modern minimal cards */}
+          <div className="hidden lg:grid lg:grid-cols-3 lg:gap-0 lg:col-span-3">
             {services.map((service, index) => {
             const IconComponent = service.icon;
-            return <div key={index} className={`scroll-scale stagger-delay-${index + 1} bg-card border border-card-border rounded-2xl p-6 shadow-card hover-lift cursor-pointer transform hover:scale-105 transition-all duration-500`}>
-                  <div className="mb-6">
-                    <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mb-4 hover-scale">
-                      <IconComponent className="w-6 h-6 text-primary-foreground" />
-                    </div>
-                    <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
-                    <p className="text-muted-foreground text-base">{service.description}</p>
+            return <div key={index} className={`scroll-scale stagger-delay-${index + 1} group bg-card/30 border-r border-card-border/50 last:border-r-0 p-10 transition-all duration-500 hover:bg-card/50`}>
+                  <div className="mb-8">
+                    <IconComponent className="w-8 h-8 text-primary mb-6 opacity-60 group-hover:opacity-100 transition-opacity duration-300" strokeWidth={1.5} />
+                    <h3 className="text-2xl font-light mb-4 text-foreground">{service.title}</h3>
+                    <p className="text-muted-foreground text-base font-light leading-relaxed">{service.description}</p>
                   </div>
 
-                  <ul className="space-y-2 mb-6">
+                  <ul className="space-y-3 mb-8">
                     {service.features.map((feature, featureIndex) => <li key={featureIndex} className="flex items-start">
-                        <div className="w-2 h-2 bg-accent rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                        <span className="text-sm text-muted-foreground">{feature}</span>
+                        <span className="text-primary mr-3 text-xl font-light">—</span>
+                        <span className="text-sm text-muted-foreground font-light">{feature}</span>
                       </li>)}
                   </ul>
 
-                  <Button variant="outline" className="w-full hover-scale transition-all duration-200 min-h-11" asChild>
-                    <Link to={service.link}>{service.cta}</Link>
-                  </Button>
+                  <Link to={service.link} className="inline-flex items-center text-sm font-light text-primary hover:text-primary-hover transition-colors duration-300 group-hover:translate-x-1 transition-transform">
+                    {service.cta} <span className="ml-2">→</span>
+                  </Link>
                 </div>;
           })}
           </div>
