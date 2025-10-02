@@ -18,56 +18,56 @@ Corporate design for German KMUs - trustworthy, modern, efficient
 
 @layer base {
   :root {
-    /* Modern Cyan/Teal Color Palette - Inspired by Neura Robotics */
-    --primary: 195 85% 45%;
+    /* Neura-inspired Dark Theme - Deep slate with cyan accents */
+    --primary: 189 94% 43%;
     --primary-foreground: 0 0% 100%;
-    --primary-hover: 195 85% 40%;
+    --primary-hover: 189 94% 38%;
     
-    /* Secondary Teal Colors */
-    --secondary: 185 60% 50%;
-    --secondary-foreground: 0 0% 100%;
-    --secondary-hover: 185 65% 45%;
-    
-    /* Accent Cyan */
-    --accent: 190 80% 55%;
-    --accent-foreground: 0 0% 100%;
-    --accent-hover: 190 85% 50%;
-    
-    /* Clean Background System */
-    --background: 0 0% 100%;
-    --foreground: 200 15% 15%;
+    /* Dark Background System */
+    --background: 200 20% 10%;
+    --foreground: 0 0% 95%;
     
     /* Minimal Card System */
-    --card: 0 0% 100%;
-    --card-foreground: 200 15% 15%;
-    --card-border: 195 20% 90%;
+    --card: 200 15% 13%;
+    --card-foreground: 0 0% 95%;
+    --card-border: 200 10% 20%;
     
-    /* Subtle Muted Content */
-    --muted: 195 15% 96%;
-    --muted-foreground: 195 10% 40%;
+    /* Muted Content */
+    --muted: 200 15% 15%;
+    --muted-foreground: 200 10% 60%;
     
-    /* Clean Interactive Elements */
-    --border: 195 20% 88%;
-    --input: 0 0% 100%;
-    --ring: 195 85% 45%;
+    /* Secondary Colors */
+    --secondary: 200 15% 18%;
+    --secondary-foreground: 0 0% 95%;
+    --secondary-hover: 200 15% 22%;
+    
+    /* Accent Cyan */
+    --accent: 189 94% 43%;
+    --accent-foreground: 0 0% 100%;
+    --accent-hover: 189 94% 38%;
+    
+    /* Interactive Elements */
+    --border: 200 10% 20%;
+    --input: 200 15% 13%;
+    --ring: 189 94% 43%;
     
     /* Status Colors */
     --destructive: 0 65% 55%;
     --destructive-foreground: 0 0% 100%;
     
-    /* Modern Gradients - Cyan/Teal theme */
-    --gradient-primary: linear-gradient(135deg, hsl(195 85% 45%) 0%, hsl(185 70% 50%) 50%, hsl(190 80% 55%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(200 30% 12%) 0%, hsl(195 50% 20%) 40%, hsl(190 60% 30%) 100%);
-    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(195 20% 98%) 50%, hsl(195 15% 96%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(195 15% 98%) 100%);
-    --gradient-text: linear-gradient(135deg, hsl(195 85% 45%) 0%, hsl(190 80% 60%) 100%);
-    --gradient-mesh: linear-gradient(135deg, hsl(195 70% 50% / 0.1) 0%, hsl(190 75% 55% / 0.05) 100%);
+    /* Neura-style Gradients - Dark slate to cyan */
+    --gradient-primary: linear-gradient(135deg, hsl(189 94% 43%) 0%, hsl(189 85% 50%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(200 25% 8%) 0%, hsl(197 35% 12%) 30%, hsl(193 45% 18%) 60%, hsl(189 60% 25%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(200 20% 10%) 0%, hsl(200 18% 12%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(200 15% 13%) 0%, hsl(200 18% 15%) 100%);
+    --gradient-text: linear-gradient(135deg, hsl(189 94% 60%) 0%, hsl(189 85% 70%) 100%);
+    --gradient-mesh: linear-gradient(135deg, hsl(189 70% 40% / 0.08) 0%, hsl(189 60% 35% / 0.03) 100%);
     
-    /* Modern Shadows with Cyan tint */
-    --shadow-card: 0 1px 3px 0 hsl(195 30% 20% / 0.06), 0 1px 2px -1px hsl(195 30% 20% / 0.06);
-    --shadow-elevated: 0 10px 25px -5px hsl(195 40% 30% / 0.12), 0 4px 10px -2px hsl(195 40% 30% / 0.08);
-    --shadow-primary: 0 8px 20px -4px hsl(195 85% 45% / 0.25), 0 4px 8px -2px hsl(195 85% 45% / 0.15);
-    --shadow-soft: 0 1px 2px 0 hsl(195 20% 30% / 0.04);
+    /* Subtle Shadows */
+    --shadow-card: 0 1px 3px 0 hsl(0 0% 0% / 0.3);
+    --shadow-elevated: 0 10px 25px -5px hsl(0 0% 0% / 0.4);
+    --shadow-primary: 0 8px 20px -4px hsl(189 94% 43% / 0.3);
+    --shadow-soft: 0 1px 2px 0 hsl(0 0% 0% / 0.2);
     
   /* Typography Scale */
   

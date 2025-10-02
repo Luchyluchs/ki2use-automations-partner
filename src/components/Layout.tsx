@@ -36,44 +36,41 @@ const Layout = ({
     return false;
   };
   return <div className="min-h-screen bg-background">
-      {/* Navigation */}
-      <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 sm:h-20 items-center justify-between">
+      {/* Navigation - Neura Style */}
+      <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur-md border-b border-white/5">
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className="flex h-20 items-center justify-between">
             {/* Logo */}
-            <Link to="/" className="flex items-center space-x-2 sm:space-x-3">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                <Brain className="w-5 h-5 sm:w-6 sm:h-6 text-primary-foreground" />
-              </div>
-              <div className="text-xl sm:text-2xl font-bold gradient-text">KI2USE</div>
+            <Link to="/" className="flex items-center space-x-3">
+              <div className="text-2xl font-light text-white tracking-tight">KI2USE</div>
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8 ml-8 xl:ml-12">
-              {navigation.map(item => <Link key={item.name} to={item.href} className={`text-sm font-medium transition-all duration-200 px-3 py-2 rounded-lg min-h-9 flex items-center ${isActive(item.href) ? "text-primary bg-primary/10" : "text-muted-foreground hover:text-foreground hover:bg-muted/50"}`}>
+            <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2">
+              {navigation.map(item => <Link key={item.name} to={item.href} className={`text-sm font-light transition-all duration-300 px-4 py-2 rounded-full ${isActive(item.href) ? "text-white bg-white/10" : "text-white/70 hover:text-white hover:bg-white/5"}`}>
                   {item.name}
                 </Link>)}
-              <Button variant="hero" size="sm" asChild className="ml-3 xl:ml-4 min-h-9">
-                <Link to="/kontakt">Kostenloses Beratungsgespräch</Link>
+              <Button variant="default" size="sm" asChild className="ml-6 bg-primary hover:bg-primary-hover text-white font-light rounded-full px-6">
+                <Link to="/kontakt">Beratung</Link>
               </Button>
             </nav>
 
             {/* Mobile menu button */}
-            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="lg:hidden p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-all duration-200 min-h-11 min-w-11 flex items-center justify-center">
-              {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="lg:hidden p-2 rounded-full text-white/70 hover:text-white hover:bg-white/5 transition-all duration-200">
+              {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
           </div>
 
           {/* Mobile Navigation */}
-          {isMenuOpen && <div className="lg:hidden border-t border-border/50 py-4 sm:py-6 bg-background/95 backdrop-blur-xl">
-              <nav className="flex flex-col space-y-1 sm:space-y-3">
-                {navigation.map(item => <Link key={item.name} to={item.href} onClick={() => setIsMenuOpen(false)} className={`text-sm sm:text-base font-medium transition-all duration-200 px-4 py-3 rounded-lg min-h-11 flex items-center ${isActive(item.href) ? "text-primary bg-primary/10" : "text-muted-foreground hover:text-foreground hover:bg-muted/50"}`}>
+          {isMenuOpen && <div className="lg:hidden border-t border-white/5 py-6 bg-background/98 backdrop-blur-md">
+              <nav className="flex flex-col space-y-2">
+                {navigation.map(item => <Link key={item.name} to={item.href} onClick={() => setIsMenuOpen(false)} className={`text-base font-light transition-all duration-300 px-4 py-3 rounded-full ${isActive(item.href) ? "text-white bg-white/10" : "text-white/70 hover:text-white hover:bg-white/5"}`}>
                     {item.name}
                   </Link>)}
-                <div className="px-4 pt-2">
-                  <Button variant="hero" size="sm" asChild className="w-full min-h-11">
+                <div className="px-4 pt-4">
+                  <Button variant="default" size="sm" asChild className="w-full bg-primary hover:bg-primary-hover text-white font-light rounded-full">
                     <Link to="/kontakt" onClick={() => setIsMenuOpen(false)}>
-                      Kostenloses Beratungsgespräch
+                      Beratung
                     </Link>
                   </Button>
                 </div>
