@@ -212,6 +212,16 @@ export default {
 					'75%': {
 						transform: 'rotate(-1deg)'
 					}
+				},
+				'pulse-slow': {
+					'0%, 100%': {
+						opacity: '0.3',
+						transform: 'scale(1)'
+					},
+					'50%': {
+						opacity: '0.5',
+						transform: 'scale(1.05)'
+					}
 				}
 			},
 			animation: {
@@ -227,7 +237,8 @@ export default {
 				'text-reveal': 'text-reveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
 				'blob-bounce': 'blob-bounce 8s ease-in-out infinite',
 				'shimmer': 'shimmer 2s linear infinite',
-				'tilt': 'tilt 10s ease-in-out infinite'
+				'tilt': 'tilt 10s ease-in-out infinite',
+				'pulse-slow': 'pulse-slow 6s ease-in-out infinite'
 			}
 		}
 	},
