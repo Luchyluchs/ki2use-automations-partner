@@ -5,8 +5,8 @@ const AboutSection = () => {
   useScrollReveal();
 
   return (
-    <section id="ueber-uns" className="section-padding bg-background relative overflow-hidden py-16">
-      <div className="container mx-auto px-6 lg:px-12 relative">
+    <section id="ueber-uns" className="section-padding relative overflow-hidden py-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-4xl">
           <h2 className="scroll-reveal text-4xl lg:text-5xl font-thin text-foreground mb-8">
             Warum KI2USE?
