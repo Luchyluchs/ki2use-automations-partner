@@ -14,7 +14,7 @@ const HeroSection = () => {
       <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-cyan-500/5 rounded-full blur-3xl"></div>
       <div className="absolute bottom-1/3 left-1/4 w-[500px] h-[500px] bg-cyan-400/5 rounded-full blur-3xl"></div>
       
-      <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-12 sm:pt-6 sm:pb-16 lg:py-12 xl:py-16">
+      <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-12 sm:pt-4 sm:pb-16 lg:py-8 xl:py-10">
         {/* Mobile Layout */}
         <div className="block lg:hidden text-left space-y-8 max-w-md mx-auto px-6">
           <div className="enhanced-reveal inline-flex items-center rounded-full px-5 py-2 text-xs font-light bg-white/5 text-white/80 border border-white/10">
