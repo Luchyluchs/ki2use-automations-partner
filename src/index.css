@@ -539,4 +539,52 @@ Corporate design for German KMUs - trustworthy, modern, efficient
   .stagger-delay-4 { transition-delay: 0.4s; }
   .stagger-delay-5 { transition-delay: 0.5s; }
   .stagger-delay-6 { transition-delay: 0.6s; }
+
+  /* Micro-Interactions */
+  .micro-hover {
+    @apply transition-all duration-300 ease-out;
+  }
+  .micro-hover:hover {
+    @apply -translate-y-0.5;
+    filter: brightness(1.05);
+  }
+
+  .link-underline {
+    position: relative;
+  }
+  .link-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: hsl(var(--primary));
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .link-underline:hover::after {
+    width: 100%;
+  }
+
+  .focus-ring {
+    @apply outline-none ring-0 transition-shadow duration-200;
+  }
+  .focus-ring:focus-visible {
+    @apply ring-2 ring-primary/50 ring-offset-2 ring-offset-background;
+  }
+
+  /* Smooth appear animation for lazy-loaded sections */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
 }
