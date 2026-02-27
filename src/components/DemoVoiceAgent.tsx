@@ -35,7 +35,8 @@ const DemoVoiceAgent: React.FC<DemoVoiceAgentProps> = ({
       
       // Gespräch mit Agent-ID starten
       await conversation.startSession({
-        agentId: agentId
+        agentId: agentId,
+        connectionType: 'webrtc'
       });
     } catch {
       alert('Mikrofon-Zugriff ist erforderlich für den Sprachagenten.');
