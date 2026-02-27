@@ -23,7 +23,7 @@ const LeadMagnetsSection = () => {
         </div>
 
         <div className="w-full max-w-6xl mx-auto">
-          <Card className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 border-primary/20">
+          <Card className="bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20">
             <CardContent className="p-8">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
                 <div>
