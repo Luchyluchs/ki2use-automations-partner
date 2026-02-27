@@ -1,0 +1,86 @@
+# KI2USE – KI-Agenten & Business Automation für deutsche KMU
+
+> KI2USE entwickelt und implementiert KI-Agenten für deutsche Unternehmen. Alle Lösungen sind DSGVO-konform, lokal gehostet und auf den DACH-Markt zugeschnitten.
+
+## Unternehmen
+
+- Name: KI2USE
+- Gründer: Alexander Lux
+- Standort: Kaiser-Wilhelm-Ring 44, 50672 Köln, Deutschland
+- Website: https://ki2use.de
+- Kontakt: info@ki2use.de
+- Gründungsjahr: 2024
+- Markt: DACH (Deutschland, Österreich, Schweiz)
+
+## Dienstleistungen
+
+### Standard KI-Agenten (sofort einsetzbar)
+
+1. **LinkedIn Assistent** – Automatisierte Netzwerkpflege, Lead-Generierung, personalisierte Nachrichten
+2. **Chatbot Assistent** – 24/7 Kundenservice, intelligente Antworten, CRM-Integration
+3. **Newsletter Assistent** – Automatische Content-Erstellung, Personalisierung, A/B-Testing
+4. **Email Assistent** – Intelligente Kategorisierung, Priorisierung, automatische Weiterleitung
+5. **Sprach-Assistent** – Natürliche Spracherkennung, Terminbuchung, Call-Routing
+6. **Social Media Assistent** – Automatisches Posting, Content-Generierung, Multi-Platform
+7. **Sales Assistent** – Lead-Scoring, automatische Follow-ups, Pipeline-Management
+8. **Terminbuchungs-Assistent** – Automatische Buchung, Kalender-Sync, Erinnerungen
+9. **Ausschreibungs-Assistent** – Ausschreibungsanalyse, Relevanz-Bewertung, Angebotserstellung
+10. **HR Assistent** – CV-Analyse, Skill-Matching, Bewertungs-Scoring
+
+### Maßgeschneiderte KI-Agenten
+
+Individuelle KI-Lösungen nach Kundenanforderungen. Implementierungszeit: 2–8 Wochen.
+
+### KI-Schulungen
+
+Workshops und Trainings für Teams zur effektiven Nutzung von KI-Technologien.
+
+## Preise
+
+- Standard-Agenten: ab 2.500 €
+- Custom-Entwicklung: 5.000–15.000 €
+- Enterprise-Lösungen: nach Aufwand
+
+## Implementierungsprozess
+
+1. Prozessanalyse und Use-Case-Definition
+2. Technische Architektur und DSGVO-Compliance-Planung
+3. Agent-Entwicklung und Testing
+4. Deployment und Optimierung
+
+Durchschnittliche Implementierungszeit: 4–6 Wochen.
+Durchschnittlicher ROI: 300–500 % innerhalb von 6 Monaten.
+
+## Technische Details
+
+- DSGVO-konform: Vollständige Compliance mit deutschen/europäischen Datenschutzbestimmungen
+- Hosting: Lokale Server in Deutschland (Hostinger)
+- Sprachen: Deutsch, Englisch
+- Integrationen: LinkedIn, E-Mail, CRM-Systeme, Kalender, Social Media Plattformen
+
+## Seitenstruktur
+
+- / – Startseite
+- /standard-agenten – Übersicht aller Standard KI-Agenten
+- /massgeschneiderte-agenten – Custom KI-Agent Entwicklung
+- /ki-schulungen – KI-Trainings und Workshops
+- /kontakt – Kontaktformular und Beratungstermin
+- /roi-rechner – ROI-Kalkulator für KI-Investitionen
+- /demo-portal – Live-Demos der KI-Agenten
+- /impressum – Impressum
+- /datenschutz – Datenschutzerklärung
+- /agb – Allgemeine Geschäftsbedingungen
+
+## Häufige Fragen
+
+**Wie implementiert man KI-Agenten in deutschen Unternehmen?**
+KI2USE bietet eine strukturierte 4-Phasen-Implementierung mit durchschnittlich 4–6 Wochen Projektlaufzeit.
+
+**Was kostet die Implementierung von KI-Agenten?**
+Standard-Agenten ab 2.500 €, Custom-Entwicklung 5.000–15.000 €. ROI typischerweise innerhalb von 3–6 Monaten.
+
+**Welche KI-Agenten sind für deutsche KMU am besten geeignet?**
+LinkedIn Sales-Agenten für B2B, E-Mail-Agenten für Produktivität, Chatbots für 24/7-Support und Terminbuchungs-Agenten für Automatisierung.
+
+**Sind die KI-Agenten DSGVO-konform?**
+Ja, alle KI2USE-Lösungen sind vollständig DSGVO-konform mit lokalem Hosting in Deutschland.

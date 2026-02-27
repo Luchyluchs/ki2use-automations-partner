@@ -22,6 +22,7 @@ const contactSchema = z.object({
 const ContactForm = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [honeypot, setHoneypot] = useState('');
   const webhookUrl = "https://n8n.srv929188.hstgr.cloud/webhook/kontaktformular";
   const { toast } = useToast();
   
@@ -51,6 +52,16 @@ const ContactForm = () => {
         title: "Zu viele Anfragen",
         description: `Bitte warten Sie ${rateLimitCheck.remainingTime} Sekunden, bevor Sie erneut versuchen.`,
         variant: "destructive",
+      });
+      return;
+    }
+
+    // Honeypot check - bots fill hidden fields
+    if (honeypot) {
+      logSecurityEvent('suspicious_activity', { type: 'honeypot_triggered', userAgent: navigator.userAgent });
+      toast({
+        title: "Nachricht erfolgreich versendet!",
+        description: "Wir werden uns innerhalb von 24 Stunden bei Ihnen melden.",
       });
       return;
     }
@@ -159,6 +170,19 @@ const ContactForm = () => {
       <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
         {/* Hidden CSRF token field */}
         <input type="hidden" name="csrf_token" value={csrfToken} />
+        {/* Honeypot field - invisible to users, catches bots */}
+        <div className="absolute -left-[9999px]" aria-hidden="true">
+          <label htmlFor="website_url">Website</label>
+          <input
+            type="text"
+            id="website_url"
+            name="website_url"
+            tabIndex={-1}
+            autoComplete="off"
+            value={honeypot}
+            onChange={(e) => setHoneypot(e.target.value)}
+          />
+        </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
           <div>
             <Label htmlFor="name" className="text-sm sm:text-base">Name *</Label>
