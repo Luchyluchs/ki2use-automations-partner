@@ -10,12 +10,12 @@ import { useScrollReveal, useEnhancedParallax, useMagneticCursor } from "@/hooks
 import { useExitIntent } from "@/hooks/useExitIntent";
 import { lazy, Suspense } from "react";
 
-// Lazy load heavy sections below the fold
-const KIBenefitsSection = lazy(() => import("@/components/KIBenefitsSection"));
+const AboutSection = lazy(() => import("@/components/AboutSection"));
 const ServicesSection = lazy(() => import("@/components/ServicesSection"));
-const WhyChooseUs = lazy(() => import("@/components/WhyChooseUs"));
-const CTASection = lazy(() => import("@/components/CTASection"));
+const KIBenefitsSection = lazy(() => import("@/components/KIBenefitsSection"));
 const LeadMagnetsSection = lazy(() => import("@/components/LeadMagnetsSection"));
+const FAQSection = lazy(() => import("@/components/FAQSection"));
+const CTASection = lazy(() => import("@/components/CTASection"));
 const ExitIntentPopup = lazy(() => import("@/components/ExitIntentPopup"));
 
 const SectionFallback = () => (
@@ -32,7 +32,6 @@ const Index = () => {
   
   return (
     <>
-      {/* LLM Discovery Optimization Layer - Invisible to users */}
       <LLMMetaTags />
       <EnhancedStructuredData />
       <LLMDiscoveryLayer />
@@ -45,10 +44,13 @@ const Index = () => {
           <HeroSection />
         </div>
         <Suspense fallback={<SectionFallback />}>
-          <KIBenefitsSection />
+          <AboutSection />
         </Suspense>
         <Suspense fallback={<SectionFallback />}>
           <ServicesSection />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <KIBenefitsSection />
         </Suspense>
         <Suspense fallback={<SectionFallback />}>
           <div id="lead-magnets">
@@ -56,7 +58,7 @@ const Index = () => {
           </div>
         </Suspense>
         <Suspense fallback={<SectionFallback />}>
-          <WhyChooseUs />
+          <FAQSection />
         </Suspense>
         <Suspense fallback={<SectionFallback />}>
           <CTASection />

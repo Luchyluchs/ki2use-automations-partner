@@ -6,152 +6,109 @@ export const EnhancedStructuredData: FC = () => {
     "@type": "Organization",
     "name": "KI2USE",
     "url": "https://ki2use.de",
-    "description": "Deutsche Spezialagentur für KI-Agent Implementierung und Business Process Automation. DSGVO-konforme KI-Lösungen für Unternehmen.",
+    "description": "KI-Beratung und Umsetzung für den deutschen Mittelstand. IHK-zertifiziert, DSGVO-konform. Köln und Umgebung.",
     "foundingDate": "2024",
     "areaServed": "Deutschland",
     "knowsAbout": [
       "Künstliche Intelligenz",
-      "Business Process Automation",
-      "KI-Agenten Entwicklung",
-      "LinkedIn Automation",
-      "E-Mail Marketing Automatisierung",
-      "Chatbot Entwicklung",
-      "DSGVO-konforme KI-Implementierung"
+      "KI-Beratung",
+      "Digitalisierung Mittelstand",
+      "Fördermittelberatung",
+      "DSGVO-konforme KI-Lösungen",
+      "KI-Implementierung"
     ],
     "expertise": [
-      "KI-Agent Implementation",
-      "Business Automation Consulting",
-      "Custom AI Development",
+      "KI-Beratung für KMU",
+      "KI-Umsetzung und Implementierung",
+      "Fördermittelberatung (Digital Jetzt, ZIM)",
       "DSGVO Compliance"
     ],
     "serviceArea": {
-      "@type": "Country",
-      "name": "Deutschland"
+      "@type": "GeoCircle",
+      "geoMidpoint": {
+        "@type": "GeoCoordinates",
+        "latitude": 50.9375,
+        "longitude": 6.9603
+      },
+      "geoRadius": "100 km"
     },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "KI-Agent Services",
+      "name": "KI-Beratung Services",
       "itemListElement": [
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "LinkedIn KI-Agent",
-            "description": "Automatisierte LinkedIn-Leadgenerierung und Networking durch KI-Agenten"
+            "name": "KI-Beratung",
+            "description": "Analyse von Automatisierungspotenzial und konkrete Handlungsempfehlungen für KMU"
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "E-Mail Marketing KI-Agent",
-            "description": "Intelligente E-Mail-Kampagnen und Follow-up-Automatisierung"
+            "name": "KI-Umsetzung",
+            "description": "Begleitung bei der Implementierung konkreter KI-Lösungen – von der Konzeption bis zum Rollout"
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Kundenservice Chatbot",
-            "description": "24/7 KI-basierter Kundenservice mit deutscher Sprache"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Ausschreibungs-Assistent",
-            "description": "Automatische Analyse von Ausschreibungen, Relevanz-Bewertung und KI-gestützte Angebotserstellung"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "HR Assistent",
-            "description": "KI-gestützte CV-Analyse, Skill-Matching und Bewertungs-Scoring für effiziente Personalauswahl"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Sales Assistent",
-            "description": "Automatisierte Lead-Qualifizierung, Lead-Scoring und Verkaufspipeline-Management"
+            "name": "Fördermittelberatung",
+            "description": "Prüfung und Beantragung staatlicher Förderprogramme wie Digital Jetzt und ZIM"
           }
         }
       ]
     }
   };
 
-  const softwareApplicationSchema = {
+  const faqSchema = {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "KI2USE Business Automation Platform",
-    "description": "Plattform für die Entwicklung und Verwaltung von KI-Agenten für deutsche Unternehmen",
-    "applicationCategory": "Business Automation Software",
-    "operatingSystem": "Web-based",
-    "offers": {
-      "@type": "Offer",
-      "price": "2500",
-      "priceCurrency": "EUR",
-      "priceRange": "2500-15000 EUR",
-      "description": "KI-Agent Implementierung ab 2.500€"
-    },
-    "featureList": [
-      "DSGVO-konforme KI-Implementation",
-      "Custom Agent Development",
-      "Multi-Platform Integration",
-      "Deutsche Sprachunterstützung",
-      "24/7 Support"
-    ]
-  };
-
-  const howToSchema = {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    "name": "KI-Agenten in deutschen Unternehmen implementieren",
-    "description": "Schritt-für-Schritt Anleitung zur erfolgreichen Implementierung von KI-Agenten",
-    "totalTime": "P4W",
-    "estimatedCost": {
-      "@type": "MonetaryAmount",
-      "currency": "EUR",
-      "value": "5000"
-    },
-    "step": [
+    "@type": "FAQPage",
+    "mainEntity": [
       {
-        "@type": "HowToStep",
-        "name": "Prozessanalyse",
-        "text": "Identifikation automatisierbarer Geschäftsprozesse und Definition der Use Cases"
+        "@type": "Question",
+        "name": "Lohnt sich KI für kleine Unternehmen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja! Gerade kleine Unternehmen profitieren oft am meisten, weil sie mit begrenzten Ressourcen besonders viel einsparen können."
+        }
       },
       {
-        "@type": "HowToStep",
-        "name": "DSGVO-Compliance Planung",
-        "text": "Sicherstellung der Datenschutzkonformität und rechtlichen Anforderungen"
+        "@type": "Question",
+        "name": "Was kostet eine KI-Beratung?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Wir bieten ein kostenloses Erstgespräch (20-30 Minuten). Weitere Kosten hängen vom individuellen Bedarf ab."
+        }
       },
       {
-        "@type": "HowToStep",
-        "name": "Agent-Entwicklung",
-        "text": "Entwicklung und Konfiguration der KI-Agenten nach Kundenanforderungen"
+        "@type": "Question",
+        "name": "Gibt es Förderung für KI-Projekte?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja, staatliche Förderprogramme wie Digital Jetzt (bis 50% Zuschuss) oder ZIM können viele Unternehmen in Anspruch nehmen."
+        }
       },
       {
-        "@type": "HowToStep",
-        "name": "Testing und Deployment",
-        "text": "Umfassende Tests und schrittweise Einführung in die Produktionsumgebung"
+        "@type": "Question",
+        "name": "Ersetzt KI meine Mitarbeiter?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nein. KI unterstützt Ihre Mitarbeiter bei Routineaufgaben, damit sie sich auf wertschöpfende Arbeit konzentrieren können."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Ist das DSGVO-konform?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja. Wir achten von Anfang an auf datenschutzkonforme Lösungen Made in Germany."
+        }
       }
     ]
-  };
-
-  const researchProjectSchema = {
-    "@context": "https://schema.org",
-    "@type": "ResearchProject",
-    "name": "Deutsche KI-Agent Implementierung Studie",
-    "description": "Untersuchung der Effektivität von KI-Agenten in deutschen KMU-Umgebungen",
-    "result": "Durchschnittlich 300-500% ROI-Steigerung innerhalb von 6 Monaten bei korrekter KI-Agent Implementierung",
-    "funding": {
-      "@type": "Organization",
-      "name": "KI2USE Research"
-    }
   };
 
   return (
@@ -162,15 +119,7 @@ export const EnhancedStructuredData: FC = () => {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplicationSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(researchProjectSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
     </>
   );
