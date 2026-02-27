@@ -117,7 +117,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             <div className="sm:col-span-2 lg:col-span-2">
-              <div className="text-xl sm:text-2xl font-bold text-primary mb-3 sm:mb-4">KI2USE</div>
+              <div className="text-xl sm:text-2xl font-light text-white mb-3 sm:mb-4">KI2USE</div>
               <p className="text-sm sm:text-base text-white/60 max-w-md leading-relaxed">
                 KI-Beratung & Umsetzung für den deutschen Mittelstand. 
                 Verständlich, bezahlbar, DSGVO-konform.

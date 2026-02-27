@@ -29,7 +29,7 @@ const TrustIndicators = () => {
   ];
 
   return (
-    <div className="flex flex-wrap items-center justify-center gap-4 text-xs sm:text-sm text-muted-foreground">
+    <div className="flex flex-wrap items-center justify-center gap-4 text-xs sm:text-sm text-white/70">
       {indicators.map((indicator, index) => {
         const IconComponent = indicator.icon;
         return (
