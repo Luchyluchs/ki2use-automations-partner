@@ -5,12 +5,13 @@ import { useScrollReveal } from "@/hooks/useScrollAnimations";
 const CTASection = () => {
   useScrollReveal();
   return (
-    <section className="section-padding bg-primary relative overflow-hidden">
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl parallax-slow"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/3 rounded-full blur-3xl parallax-slow"></div>
+    <section className="section-padding bg-gradient-hero relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-mesh"></div>
+      <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-cyan-500/5 rounded-full blur-3xl parallax-slow"></div>
+      <div className="absolute bottom-1/3 left-1/4 w-[500px] h-[500px] bg-cyan-400/5 rounded-full blur-3xl parallax-slow"></div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="max-w-3xl mx-auto text-center text-primary-foreground">
+        <div className="max-w-3xl mx-auto text-center text-white">
           <h2 className="scroll-reveal text-3xl lg:text-4xl font-thin mb-6">
             Bereit für den nächsten Schritt?
           </h2>
