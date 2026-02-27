@@ -5,8 +5,10 @@ import BusinessAnalysisTool from './BusinessAnalysisTool';
 
 const LeadMagnetsSection = () => {
   return (
-    <section className="py-16 bg-gradient-to-br from-background via-muted/30 to-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 bg-gradient-hero relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-mesh"></div>
+      <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-cyan-500/5 rounded-full blur-3xl"></div>
+      <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
             <Brain className="w-4 h-4" />
