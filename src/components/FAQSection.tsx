@@ -1,0 +1,65 @@
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion";
+import { useScrollReveal } from "@/hooks/useScrollAnimations";
+
+const faqs = [
+  {
+    question: "Lohnt sich KI für kleine Unternehmen?",
+    answer: "Ja! Gerade kleine Unternehmen profitieren oft am meisten, weil sie mit begrenzten Ressourcen besonders viel einsparen können. Es muss nicht kompliziert sein – manchmal reichen einfache Tools."
+  },
+  {
+    question: "Was kostet eine KI-Beratung?",
+    answer: "Das hängt von Ihrem Bedarf ab. Wir bieten ein kostenloses Erstgespräch (20–30 Minuten), in dem wir gemeinsam schauen, ob und wie wir Ihnen helfen können."
+  },
+  {
+    question: "Wir haben kein großes Budget – geht das trotzdem?",
+    answer: "Absolut. Wir prüfen auch staatliche Förderprogramme wie \"Digital Jetzt\" (bis 50% Zuschuss) oder ZIM, die viele Unternehmen in Anspruch nehmen können."
+  },
+  {
+    question: "Ersetzt KI meine Mitarbeiter?",
+    answer: "Nein. KI unterstützt Ihre Mitarbeiter, ersetzt sie nicht. Es geht darum, langweilige Routineaufgaben zu automatisieren – damit sich Ihr Team auf kreative und wertschöpfende Arbeit konzentrieren kann."
+  },
+  {
+    question: "Ist das DSGVO-konform?",
+    answer: "Ja. Wir achten von Anfang an auf datenschutzkonforme Lösungen Made in Germany."
+  }
+];
+
+const FAQSection = () => {
+  useScrollReveal();
+
+  return (
+    <section id="faq" className="section-padding bg-background relative overflow-hidden py-24">
+      <div className="container mx-auto px-6 lg:px-12 relative">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="scroll-reveal text-3xl lg:text-4xl font-thin text-foreground mb-4 text-center">
+            Häufige Fragen
+          </h2>
+          <p className="scroll-reveal stagger-delay-1 text-muted-foreground text-center mb-12">
+            Ehrliche Antworten auf die wichtigsten Fragen rund um KI im Mittelstand.
+          </p>
+
+          <div className="scroll-reveal stagger-delay-2">
+            <Accordion type="single" collapsible className="space-y-2">
+              {faqs.map((faq, index) => (
+                <AccordionItem 
+                  key={index} 
+                  value={`faq-${index}`} 
+                  className="border border-card-border/50 rounded-xl px-6 bg-card/20 data-[state=open]:bg-card/40 transition-colors"
+                >
+                  <AccordionTrigger className="text-left font-medium text-foreground hover:no-underline py-5">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground leading-relaxed pb-5">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default FAQSection;

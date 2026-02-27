@@ -1,50 +1,27 @@
-import { Button } from "./ui/button";
-import { Link } from "react-router-dom";
-import { Calendar, MessageCircle, Phone } from "lucide-react";
 import CalendlyButton from "./CalendlyButton";
 import TrustIndicators from "./TrustIndicators";
-import UrgencyTimer from "./UrgencyTimer";
 import { useScrollReveal } from "@/hooks/useScrollAnimations";
 
 const CTASection = () => {
   useScrollReveal();
   return (
     <section className="section-padding bg-primary relative overflow-hidden">
-      {/* Background Elements */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl parallax-slow"></div>
       <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/3 rounded-full blur-3xl parallax-slow"></div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="max-w-4xl mx-auto text-center text-primary-foreground">
-          <h2 className="scroll-reveal mb-6">
-            Was Sie in 30 Minuten erfahren werden
+        <div className="max-w-3xl mx-auto text-center text-primary-foreground">
+          <h2 className="scroll-reveal text-3xl lg:text-4xl font-thin mb-6">
+            Bereit für den nächsten Schritt?
           </h2>
-          <p className="scroll-reveal stagger-delay-1 text-xl mb-8 opacity-90 leading-relaxed">
-            Kostenloses Erstgespräch ohne Verpflichtung - erfahren Sie konkret, 
-            welches Automatisierungspotenzial in Ihrem Unternehmen steckt.
+          <p className="scroll-reveal stagger-delay-1 text-xl mb-10 opacity-90 leading-relaxed">
+            Vereinbaren Sie jetzt Ihr kostenloses Erstgespräch. 
+            Wir finden gemeinsam heraus, wie KI Ihr Unternehmen voranbringt – ganz ohne Verpflichtung.
           </p>
-
-          <div className="scroll-scale grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-            <div className="stagger-delay-1 bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 hover-scale transform hover:scale-105 transition-all duration-500">
-              <Calendar className="w-8 h-8 mx-auto mb-4" />
-              <h3 className="font-semibold mb-2">Konkrete KI-Potenziale</h3>
-              <p className="text-sm opacity-80">Welche Ihrer Prozesse sich sofort automatisieren lassen</p>
-            </div>
-            <div className="stagger-delay-2 bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 hover-scale transform hover:scale-105 transition-all duration-500">
-              <MessageCircle className="w-8 h-8 mx-auto mb-4" />
-              <h3 className="font-semibold mb-2">Realistische Zeitersparnis</h3>
-              <p className="text-sm opacity-80">Wie viele Stunden Sie pro Woche einsparen können</p>
-            </div>
-            <div className="stagger-delay-3 bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 hover-scale transform hover:scale-105 transition-all duration-500">
-              <Phone className="w-8 h-8 mx-auto mb-4" />
-              <h3 className="font-semibold mb-2">Nächste Schritte</h3>
-              <p className="text-sm opacity-80">Unverbindliche Roadmap für Ihr Unternehmen</p>
-            </div>
-          </div>
 
           <div className="scroll-reveal stagger-delay-2 space-y-6">
             <CalendlyButton
-              text="Kostenloses Erstgespräch sichern (30 Min.)"
+              text="Jetzt Termin sichern"
               variant="accent"
               size="xl"
               className="bg-card text-foreground hover:bg-muted text-lg"
@@ -54,10 +31,13 @@ const CTASection = () => {
             <TrustIndicators />
             
             <p className="text-sm opacity-75">
-              ✓ Unverbindlich & kostenlos ✓ Keine Verpflichtung ✓ Einfach mal schauen
+              ✓ Unverbindlich & kostenlos ✓ 20–30 Minuten ✓ Keine Verpflichtung
+            </p>
+            
+            <p className="text-xs opacity-50 mt-4">
+              Köln und Umgebung · Regionaler Ansprechpartner · Ehrliche Beratung ohne Tech-Blabla
             </p>
           </div>
-
         </div>
       </div>
     </section>
