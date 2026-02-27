@@ -174,7 +174,7 @@ const Datenschutz = () => {
 
                 <h2 className="mt-8">8. Aktualität und Änderung dieser Datenschutzerklärung</h2>
                 <p className="text-muted-foreground text-sm">
-                  Diese Datenschutzerklärung ist aktuell gültig und hat den Stand August 2025. Durch die Weiterentwicklung unserer Website und Angebote oder aufgrund geänderter gesetzlicher bzw. behördlicher Vorgaben kann es notwendig werden, diese Datenschutzerklärung zu ändern.
+                  Diese Datenschutzerklärung ist aktuell gültig und hat den Stand Februar 2026. Durch die Weiterentwicklung unserer Website und Angebote oder aufgrund geänderter gesetzlicher bzw. behördlicher Vorgaben kann es notwendig werden, diese Datenschutzerklärung zu ändern.
                 </p>
 
               </div>

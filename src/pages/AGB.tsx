@@ -21,7 +21,7 @@ const AGB = () => {
             
             <div className="bg-card border border-card-border rounded-2xl p-8 shadow-card">
               <div className="prose prose-sm max-w-none">
-                <p className="text-muted-foreground text-sm mb-6">Stand: 06.08.2025</p>
+                <p className="text-muted-foreground text-sm mb-6">Stand: 27.02.2026</p>
 
                 <h2>§ 1 Geltungsbereich und Anbieter</h2>
                 <p className="text-muted-foreground text-sm">

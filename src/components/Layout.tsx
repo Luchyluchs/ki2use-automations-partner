@@ -118,7 +118,7 @@ const Layout = ({
           </div>
           
           <div className="border-t border-card-border mt-6 sm:mt-8 pt-6 sm:pt-8 text-center text-muted-foreground">
-            <p className="text-xs sm:text-sm">&copy; 2024 KI2USE. Alle Rechte vorbehalten.</p>
+            <p className="text-xs sm:text-sm">&copy; 2024–2026 KI2USE. Alle Rechte vorbehalten.</p>
           </div>
         </div>
       </footer>

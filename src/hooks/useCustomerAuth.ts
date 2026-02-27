@@ -24,7 +24,7 @@ interface CustomerCredentials {
 const customerCredentials: CustomerCredentials[] = [
   {
     username: 'C3',
-    password: 'KI2USE2025',
+    password: 'KI2USE2026',
     customerConfig: {
       id: 'c3-marketing',
       name: 'C3 Marketing Agentur',
@@ -41,7 +41,7 @@ const customerCredentials: CustomerCredentials[] = [
   },
   {
     username: 'Surma',
-    password: 'KI2USE2025',
+    password: 'KI2USE2026',
     customerConfig: {
       id: 'surma-marketing',
       name: 'Surma Marketing Agentur',
