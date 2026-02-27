@@ -1,22 +1,21 @@
 
 
-# Abstände zwischen Navigationsleiste und Inhalten reduzieren
+# ElevenLabs Voice Agent optimieren
 
-## Problem
-- Die **HeroSection** hat `min-h-screen`, was sie auf die volle Bildschirmhöhe zwingt -- dadurch entsteht viel Leerraum zwischen Headline und dem nächsten Abschnitt.
-- Die **HeroSection** nutzt `space-y-12` (3rem Abstand) zwischen den Elementen, was die Elemente weit auseinanderzieht.
-- Die **AboutSection** hat sowohl `section-padding` als auch `py-24`, die sich überlagern und doppelt Abstand erzeugen.
+## Aktueller Stand
+Die Agent-ID `agent_6501k4ckhy26e568zy2z9bkvn6vx` ist bereits korrekt in `VoiceAgent.tsx` gesetzt und wird ueber `FloatingVoiceAgent` auf der gesamten Website angezeigt.
 
-## Änderungen
-
-### 1. HeroSection.tsx
-- `min-h-screen` ersetzen durch `min-h-[70vh]` oder `min-h-[80vh]` -- genug Präsenz, aber kein unnötiger Leerraum
-- Mobile `space-y-12` auf `space-y-8` reduzieren
-- Desktop `space-y-12` auf `space-y-8` reduzieren
-
-### 2. AboutSection.tsx
-- `py-24` entfernen (kollidiert mit `section-padding`) und durch `py-16` ersetzen, damit ein einheitlicher, moderater Abstand bleibt
+## Aenderung
+`connectionType: "webrtc"` zu den `startSession`-Aufrufen hinzufuegen -- das ist die von ElevenLabs empfohlene Verbindungsmethode fuer niedrigere Latenz und bessere Audioqualitaet.
 
 ### Betroffene Dateien
-- `src/components/HeroSection.tsx` (3 kleine Änderungen)
-- `src/components/AboutSection.tsx` (1 Klassen-Änderung)
+
+**1. src/components/VoiceAgent.tsx (Zeile 26-28)**
+- `startSession({ agentId: '...' })` erweitern um `connectionType: "webrtc"`
+
+**2. src/components/DemoVoiceAgent.tsx (Zeile 39-41)**
+- Gleiche Aenderung: `connectionType: "webrtc"` hinzufuegen
+
+### Technische Details
+- Kein neues Package noetig (`@11labs/react` ist bereits installiert)
+- WebRTC nutzt direkte Peer-to-Peer-Verbindung statt WebSocket, was die Audio-Latenz deutlich reduziert
