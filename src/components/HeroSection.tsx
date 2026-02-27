@@ -9,14 +9,14 @@ const HeroSection = () => {
   useEnhancedParallax();
 
   return (
-    <section className="relative overflow-hidden min-h-screen flex items-center bg-gradient-hero text-white">
+    <section className="relative overflow-hidden min-h-[80vh] flex items-center bg-gradient-hero text-white">
       <div className="absolute inset-0 bg-gradient-mesh"></div>
       <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-cyan-500/5 rounded-full blur-3xl"></div>
       <div className="absolute bottom-1/3 left-1/4 w-[500px] h-[500px] bg-cyan-400/5 rounded-full blur-3xl"></div>
       
       <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-12 sm:pt-6 sm:pb-16 lg:py-12 xl:py-16">
         {/* Mobile Layout */}
-        <div className="block lg:hidden text-left space-y-12 max-w-md mx-auto px-6">
+        <div className="block lg:hidden text-left space-y-8 max-w-md mx-auto px-6">
           <div className="enhanced-reveal inline-flex items-center rounded-full px-5 py-2 text-xs font-light bg-white/5 text-white/80 border border-white/10">
             IHK-zertifiziert · Made in Germany
           </div>
@@ -50,7 +50,7 @@ const HeroSection = () => {
 
         {/* Desktop Layout */}
         <div className="hidden lg:grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 items-center">
-          <div className="lg:col-span-7 text-left space-y-12">
+          <div className="lg:col-span-7 text-left space-y-8">
             <div className="enhanced-reveal inline-flex items-center rounded-full px-5 py-2 text-xs font-light bg-white/5 text-white/70 border border-white/10">
               IHK-zertifiziert · Made in Germany
             </div>
