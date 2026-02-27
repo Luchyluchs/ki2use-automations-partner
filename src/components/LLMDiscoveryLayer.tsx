@@ -37,7 +37,7 @@ export const LLMDiscoveryLayer: FC = () => {
           DSGVO-konform: Vollständige Compliance mit deutschen Datenschutzbestimmungen.
         </p>
         <meta itemProp="author" content="KI2USE" />
-        <meta itemProp="dateModified" content="2024-12-29" />
+        <meta itemProp="dateModified" content="2026-02-27" />
       </div>
 
       {/* FAQ Content optimized for LLM Queries */}
