@@ -113,41 +113,41 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <Breadcrumbs />
       <main className="pb-20 lg:pb-0">{children}</main>
 
-      <footer className="bg-muted border-t border-card-border">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12">
+      <footer className="bg-gradient-hero relative overflow-hidden border-t border-white/10">
+        <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             <div className="sm:col-span-2 lg:col-span-2">
               <div className="text-xl sm:text-2xl font-bold text-primary mb-3 sm:mb-4">KI2USE</div>
-              <p className="text-sm sm:text-base text-muted-foreground max-w-md leading-relaxed">
+              <p className="text-sm sm:text-base text-white/60 max-w-md leading-relaxed">
                 KI-Beratung & Umsetzung für den deutschen Mittelstand. 
                 Verständlich, bezahlbar, DSGVO-konform.
               </p>
-              <p className="text-xs text-muted-foreground mt-3">
+              <p className="text-xs text-white/40 mt-3">
                 Köln und Umgebung · Regionaler Ansprechpartner
               </p>
             </div>
             
             <div>
-              <h3 className="font-semibold text-foreground mb-3 sm:mb-4 text-sm sm:text-base">Leistungen</h3>
-              <ul className="space-y-2 text-muted-foreground text-sm sm:text-base">
-                <li><Link to="/kontakt" className="hover:text-foreground transition-smooth block py-1">KI-Beratung</Link></li>
-                <li><Link to="/kontakt" className="hover:text-foreground transition-smooth block py-1">Umsetzung</Link></li>
-                <li><Link to="/kontakt" className="hover:text-foreground transition-smooth block py-1">Förderung</Link></li>
-                <li><Link to="/demoportal" className="hover:text-foreground transition-smooth block py-1">Demoportal</Link></li>
+              <h3 className="font-semibold text-white mb-3 sm:mb-4 text-sm sm:text-base">Leistungen</h3>
+              <ul className="space-y-2 text-white/60 text-sm sm:text-base">
+                <li><Link to="/kontakt" className="hover:text-white transition-smooth block py-1">KI-Beratung</Link></li>
+                <li><Link to="/kontakt" className="hover:text-white transition-smooth block py-1">Umsetzung</Link></li>
+                <li><Link to="/kontakt" className="hover:text-white transition-smooth block py-1">Förderung</Link></li>
+                <li><Link to="/demoportal" className="hover:text-white transition-smooth block py-1">Demoportal</Link></li>
               </ul>
             </div>
             
             <div>
-              <h3 className="font-semibold text-foreground mb-3 sm:mb-4 text-sm sm:text-base">Rechtliches</h3>
-              <ul className="space-y-2 text-muted-foreground text-sm sm:text-base">
-                <li><Link to="/impressum" className="hover:text-foreground transition-smooth block py-1">Impressum</Link></li>
-                <li><Link to="/datenschutz" className="hover:text-foreground transition-smooth block py-1">Datenschutzerklärung</Link></li>
-                <li><Link to="/agb" className="hover:text-foreground transition-smooth block py-1">AGB</Link></li>
+              <h3 className="font-semibold text-white mb-3 sm:mb-4 text-sm sm:text-base">Rechtliches</h3>
+              <ul className="space-y-2 text-white/60 text-sm sm:text-base">
+                <li><Link to="/impressum" className="hover:text-white transition-smooth block py-1">Impressum</Link></li>
+                <li><Link to="/datenschutz" className="hover:text-white transition-smooth block py-1">Datenschutzerklärung</Link></li>
+                <li><Link to="/agb" className="hover:text-white transition-smooth block py-1">AGB</Link></li>
               </ul>
             </div>
           </div>
           
-          <div className="border-t border-card-border mt-6 sm:mt-8 pt-6 sm:pt-8 text-center text-muted-foreground">
+          <div className="border-t border-white/10 mt-6 sm:mt-8 pt-6 sm:pt-8 text-center text-white/50">
             <p className="text-xs sm:text-sm">&copy; 2024–2026 KI2USE. Alle Rechte vorbehalten.</p>
           </div>
         </div>
