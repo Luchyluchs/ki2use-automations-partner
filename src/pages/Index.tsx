@@ -1,11 +1,5 @@
 import Layout from "@/components/Layout";
 import HeroSection from "@/components/HeroSection";
-import KIBenefitsSection from "@/components/KIBenefitsSection";
-import ServicesSection from "@/components/ServicesSection";
-import WhyChooseUs from "@/components/WhyChooseUs";
-import CTASection from "@/components/CTASection";
-import LeadMagnetsSection from "@/components/LeadMagnetsSection";
-import ExitIntentPopup from "@/components/ExitIntentPopup";
 import ScrollProgressIndicator from "@/components/ScrollProgressIndicator";
 import FloatingBackground from "@/components/FloatingElements";
 import FuturisticBackground from "@/components/FuturisticBackground";
@@ -14,6 +8,21 @@ import EnhancedStructuredData from "@/components/EnhancedStructuredData";
 import LLMMetaTags from "@/components/LLMMetaTags";
 import { useScrollReveal, useEnhancedParallax, useMagneticCursor } from "@/hooks/useScrollAnimations";
 import { useExitIntent } from "@/hooks/useExitIntent";
+import { lazy, Suspense } from "react";
+
+// Lazy load heavy sections below the fold
+const KIBenefitsSection = lazy(() => import("@/components/KIBenefitsSection"));
+const ServicesSection = lazy(() => import("@/components/ServicesSection"));
+const WhyChooseUs = lazy(() => import("@/components/WhyChooseUs"));
+const CTASection = lazy(() => import("@/components/CTASection"));
+const LeadMagnetsSection = lazy(() => import("@/components/LeadMagnetsSection"));
+const ExitIntentPopup = lazy(() => import("@/components/ExitIntentPopup"));
+
+const SectionFallback = () => (
+  <div className="py-20 flex items-center justify-center">
+    <div className="w-8 h-8 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
+  </div>
+);
 
 const Index = () => {
   useScrollReveal();
@@ -35,14 +44,26 @@ const Index = () => {
           <FloatingBackground />
           <HeroSection />
         </div>
-        <KIBenefitsSection />
-        <ServicesSection />
-        <div id="lead-magnets">
-          <LeadMagnetsSection />
-        </div>
-        <WhyChooseUs />
-        <CTASection />
-        <ExitIntentPopup isOpen={showExitPopup} onClose={closePopup} />
+        <Suspense fallback={<SectionFallback />}>
+          <KIBenefitsSection />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <ServicesSection />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <div id="lead-magnets">
+            <LeadMagnetsSection />
+          </div>
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <WhyChooseUs />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <CTASection />
+        </Suspense>
+        <Suspense fallback={null}>
+          <ExitIntentPopup isOpen={showExitPopup} onClose={closePopup} />
+        </Suspense>
       </Layout>
     </>
   );

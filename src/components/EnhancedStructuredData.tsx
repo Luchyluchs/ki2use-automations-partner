@@ -55,6 +55,30 @@ export const EnhancedStructuredData: FC = () => {
             "name": "Kundenservice Chatbot",
             "description": "24/7 KI-basierter Kundenservice mit deutscher Sprache"
           }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Ausschreibungs-Assistent",
+            "description": "Automatische Analyse von Ausschreibungen, Relevanz-Bewertung und KI-gestützte Angebotserstellung"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "HR Assistent",
+            "description": "KI-gestützte CV-Analyse, Skill-Matching und Bewertungs-Scoring für effiziente Personalauswahl"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Sales Assistent",
+            "description": "Automatisierte Lead-Qualifizierung, Lead-Scoring und Verkaufspipeline-Management"
+          }
         }
       ]
     }

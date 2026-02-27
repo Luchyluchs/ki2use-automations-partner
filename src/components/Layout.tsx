@@ -4,6 +4,7 @@ import { Menu, X, Brain } from "lucide-react";
 import { useState } from "react";
 import Chatbot from "./Chatbot";
 import MobileBottomNav from "./MobileBottomNav";
+import Breadcrumbs from "./Breadcrumbs";
 const Layout = ({
   children
 }: {
@@ -78,6 +79,9 @@ const Layout = ({
             </div>}
         </div>
       </header>
+
+      {/* Breadcrumbs */}
+      <Breadcrumbs />
 
       {/* Main Content */}
       <main className="pb-20 lg:pb-0">{children}</main>

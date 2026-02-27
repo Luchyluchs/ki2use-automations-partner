@@ -10,6 +10,22 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
+# AI Crawlers - explicitly allowed
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
 User-agent: *
 Allow: /
 
@@ -19,7 +35,7 @@ Sitemap: https://ki2use.de/sitemap.xml
 # Crawl-delay for respectful crawling
 Crawl-delay: 1
 
-# Disallow admin/temp areas (if any exist in the future)
+# Disallow admin/temp areas
 Disallow: /admin/
 Disallow: /tmp/
 Disallow: /*.json$
