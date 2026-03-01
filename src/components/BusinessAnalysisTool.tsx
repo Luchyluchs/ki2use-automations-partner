@@ -40,101 +40,101 @@ const BusinessAnalysisTool = () => {
   const { toast } = useToast();
 
   const analysisQuestions: AnalysisQuestion[] = [
-    {
-      id: "customer_service",
-      category: "Kundenbetreuung",
-      icon: Users,
-      question: "Wie interessiert sind Sie an einer Automatisierung der Kundenbetreuung?",
-      currentStateQuestion: "Wie handhaben Sie aktuell Kundenanfragen außerhalb der Geschäftszeiten?",
-      options: [
-        { value: "manual", label: "Kunden müssen bis zum nächsten Tag warten", timeSpent: 0, painLevel: 3 },
-        { value: "phone", label: "Wir haben einen Anrufbeantworter", timeSpent: 2, painLevel: 2 },
-        { value: "email", label: "E-Mails werden am nächsten Tag bearbeitet", timeSpent: 1, painLevel: 2 },
-        { value: "none", label: "Wir haben 24/7 Bereitschaft", timeSpent: 10, painLevel: 5 }
-      ],
-      automationPotential: {
-        title: "24/7 KI-Chat-Assistent",
-        description: "Ihre Kunden erhalten sofort Antworten auf häufige Fragen. Komplexe Anfragen werden automatisch an Sie weitergeleitet.",
-        timeSaved: "15-20 Stunden/Woche",
-        cost: "150€/Monat + 1.100€ Setup",
-        roi: "ROI nach 3-4 Monaten"
-      }
-    },
-    {
-      id: "email_management", 
-      category: "E-Mail Verwaltung",
-      icon: Mail,
-      question: "Wie interessiert sind Sie an intelligenter E-Mail-Sortierung?",
-      currentStateQuestion: "Wie viel Zeit verbringen Sie täglich mit E-Mail-Verwaltung?",
-      options: [
-        { value: "minimal", label: "Unter 30 Minuten", timeSpent: 2, painLevel: 1 },
-        { value: "moderate", label: "1-2 Stunden", timeSpent: 7, painLevel: 2 },
-        { value: "significant", label: "3-4 Stunden", timeSpent: 15, painLevel: 4 },
-        { value: "overwhelming", label: "Mehr als 4 Stunden", timeSpent: 20, painLevel: 5 }
-      ],
-      automationPotential: {
-        title: "Intelligente E-Mail-Sortierung",
-        description: "Wichtige E-Mails werden automatisch priorisiert. Spam und unwichtige E-Mails verschwinden automatisch.",
-        timeSaved: "10-15 Stunden/Woche",
-        cost: "90€/Monat + 800€ Setup", 
-        roi: "ROI nach 2-3 Monaten"
-      }
-    },
-    {
-      id: "lead_generation",
-      category: "Kundengewinnung", 
-      icon: TrendingUp,
-      question: "Wie interessiert sind Sie an automatisierter Kundengewinnung?",
-      currentStateQuestion: "Wie finden Sie aktuell neue Kunden?",
-      options: [
-        { value: "referrals", label: "Hauptsächlich durch Empfehlungen", timeSpent: 2, painLevel: 2 },
-        { value: "networking", label: "Aktives Networking und Kaltakquise", timeSpent: 10, painLevel: 3 },
-        { value: "linkedin", label: "Manuelle LinkedIn-Suche", timeSpent: 8, painLevel: 4 },
-        { value: "struggling", label: "Kundenakquise ist ein großes Problem", timeSpent: 15, painLevel: 5 }
-      ],
-      automationPotential: {
-        title: "LinkedIn-Automatisierung",
-        description: "Die KI findet und kontaktiert automatisch potenzielle Kunden in Ihrer Zielgruppe.",
-        timeSaved: "20-25 Stunden/Woche",
-        cost: "200€/Monat + 1.300€ Setup",
-        roi: "ROI nach 2-3 Monaten"
-      }
-    },
-    {
-      id: "appointment_booking",
-      category: "Terminplanung",
-      icon: Calendar, 
-      question: "Wie interessiert sind Sie an automatischer Terminbuchung?",
-      currentStateQuestion: "Wie vereinbaren Sie aktuell Termine mit Kunden?",
-      options: [
-        { value: "phone", label: "Telefonisch - viel Hin und Her", timeSpent: 5, painLevel: 4 },
-        { value: "email", label: "Per E-Mail - dauert lange", timeSpent: 3, painLevel: 3 },
-        { value: "calendar", label: "Online-Kalender, aber nicht optimal", timeSpent: 2, painLevel: 2 },
-        { value: "automated", label: "Bereits vollständig automatisiert", timeSpent: 0, painLevel: 1 }
-      ],
-      automationPotential: {
-        title: "Automatische Terminbuchung",
-        description: "Kunden buchen Termine selbstständig. Automatische Erinnerungen und Bestätigungen inklusive.",
-        timeSaved: "8-12 Stunden/Woche",
-        cost: "120€/Monat + 900€ Setup",
-        roi: "ROI nach 2-3 Monaten"
-      }
+  {
+    id: "customer_service",
+    category: "Kundenbetreuung",
+    icon: Users,
+    question: "Wie interessiert sind Sie an einer Automatisierung der Kundenbetreuung?",
+    currentStateQuestion: "Wie handhaben Sie aktuell Kundenanfragen außerhalb der Geschäftszeiten?",
+    options: [
+    { value: "manual", label: "Kunden müssen bis zum nächsten Tag warten", timeSpent: 0, painLevel: 3 },
+    { value: "phone", label: "Wir haben einen Anrufbeantworter", timeSpent: 2, painLevel: 2 },
+    { value: "email", label: "E-Mails werden am nächsten Tag bearbeitet", timeSpent: 1, painLevel: 2 },
+    { value: "none", label: "Wir haben 24/7 Bereitschaft", timeSpent: 10, painLevel: 5 }],
+
+    automationPotential: {
+      title: "24/7 KI-Chat-Assistent",
+      description: "Ihre Kunden erhalten sofort Antworten auf häufige Fragen. Komplexe Anfragen werden automatisch an Sie weitergeleitet.",
+      timeSaved: "15-20 Stunden/Woche",
+      cost: "150€/Monat + 1.100€ Setup",
+      roi: "ROI nach 3-4 Monaten"
     }
-  ];
+  },
+  {
+    id: "email_management",
+    category: "E-Mail Verwaltung",
+    icon: Mail,
+    question: "Wie interessiert sind Sie an intelligenter E-Mail-Sortierung?",
+    currentStateQuestion: "Wie viel Zeit verbringen Sie täglich mit E-Mail-Verwaltung?",
+    options: [
+    { value: "minimal", label: "Unter 30 Minuten", timeSpent: 2, painLevel: 1 },
+    { value: "moderate", label: "1-2 Stunden", timeSpent: 7, painLevel: 2 },
+    { value: "significant", label: "3-4 Stunden", timeSpent: 15, painLevel: 4 },
+    { value: "overwhelming", label: "Mehr als 4 Stunden", timeSpent: 20, painLevel: 5 }],
+
+    automationPotential: {
+      title: "Intelligente E-Mail-Sortierung",
+      description: "Wichtige E-Mails werden automatisch priorisiert. Spam und unwichtige E-Mails verschwinden automatisch.",
+      timeSaved: "10-15 Stunden/Woche",
+      cost: "90€/Monat + 800€ Setup",
+      roi: "ROI nach 2-3 Monaten"
+    }
+  },
+  {
+    id: "lead_generation",
+    category: "Kundengewinnung",
+    icon: TrendingUp,
+    question: "Wie interessiert sind Sie an automatisierter Kundengewinnung?",
+    currentStateQuestion: "Wie finden Sie aktuell neue Kunden?",
+    options: [
+    { value: "referrals", label: "Hauptsächlich durch Empfehlungen", timeSpent: 2, painLevel: 2 },
+    { value: "networking", label: "Aktives Networking und Kaltakquise", timeSpent: 10, painLevel: 3 },
+    { value: "linkedin", label: "Manuelle LinkedIn-Suche", timeSpent: 8, painLevel: 4 },
+    { value: "struggling", label: "Kundenakquise ist ein großes Problem", timeSpent: 15, painLevel: 5 }],
+
+    automationPotential: {
+      title: "LinkedIn-Automatisierung",
+      description: "Die KI findet und kontaktiert automatisch potenzielle Kunden in Ihrer Zielgruppe.",
+      timeSaved: "20-25 Stunden/Woche",
+      cost: "200€/Monat + 1.300€ Setup",
+      roi: "ROI nach 2-3 Monaten"
+    }
+  },
+  {
+    id: "appointment_booking",
+    category: "Terminplanung",
+    icon: Calendar,
+    question: "Wie interessiert sind Sie an automatischer Terminbuchung?",
+    currentStateQuestion: "Wie vereinbaren Sie aktuell Termine mit Kunden?",
+    options: [
+    { value: "phone", label: "Telefonisch - viel Hin und Her", timeSpent: 5, painLevel: 4 },
+    { value: "email", label: "Per E-Mail - dauert lange", timeSpent: 3, painLevel: 3 },
+    { value: "calendar", label: "Online-Kalender, aber nicht optimal", timeSpent: 2, painLevel: 2 },
+    { value: "automated", label: "Bereits vollständig automatisiert", timeSpent: 0, painLevel: 1 }],
+
+    automationPotential: {
+      title: "Automatische Terminbuchung",
+      description: "Kunden buchen Termine selbstständig. Automatische Erinnerungen und Bestätigungen inklusive.",
+      timeSaved: "8-12 Stunden/Woche",
+      cost: "120€/Monat + 900€ Setup",
+      roi: "ROI nach 2-3 Monaten"
+    }
+  }];
+
 
   const currentQuestion = analysisQuestions[currentStep];
-  const progress = ((currentStep + 1) / analysisQuestions.length) * 100;
+  const progress = (currentStep + 1) / analysisQuestions.length * 100;
   const currentAnswer = answers[currentQuestion?.id] || '';
 
   const handleAnswerChange = (value: string) => {
-    setAnswers(prev => ({
+    setAnswers((prev) => ({
       ...prev,
       [currentQuestion.id]: value
     }));
   };
 
   const handleInterestChange = (questionId: string, interested: boolean) => {
-    setInterests(prev => ({
+    setInterests((prev) => ({
       ...prev,
       [questionId]: interested
     }));
@@ -142,11 +142,11 @@ const BusinessAnalysisTool = () => {
 
   const handleNext = () => {
     if (currentStep < analysisQuestions.length - 1) {
-      setCurrentStep(prev => prev + 1);
+      setCurrentStep((prev) => prev + 1);
     } else {
       setShowResults(true);
     }
-    
+
     // Auto-scroll to top of the analysis tool
     const element = document.getElementById('business-analysis');
     if (element) {
@@ -156,9 +156,9 @@ const BusinessAnalysisTool = () => {
 
   const handlePrev = () => {
     if (currentStep > 0) {
-      setCurrentStep(prev => prev - 1);
+      setCurrentStep((prev) => prev - 1);
     }
-    
+
     // Auto-scroll to top of the analysis tool
     const element = document.getElementById('business-analysis');
     if (element) {
@@ -172,28 +172,28 @@ const BusinessAnalysisTool = () => {
     let interestedAreas = 0;
     let potentialMonthlySavings = 0;
 
-    analysisQuestions.forEach(question => {
+    analysisQuestions.forEach((question) => {
       const answer = answers[question.id];
       const isInterested = interests[question.id];
-      
+
       if (answer) {
-        const option = question.options.find(opt => opt.value === answer);
+        const option = question.options.find((opt) => opt.value === answer);
         if (option) {
           totalWeeklyTimeSpent += option.timeSpent;
           totalPainPoints += option.painLevel;
         }
       }
-      
+
       if (isInterested) {
         interestedAreas++;
         // Extrahiere Zahlen aus timeSaved String (z.B. "15-20 Stunden/Woche" -> 15)
         const timeSavedMatch = question.automationPotential.timeSaved.match(/(\d+)/);
         const timeSavedNum = timeSavedMatch ? parseInt(timeSavedMatch[1]) : 10;
-        
+
         // Berechne Einsparungen basierend auf aktueller Antwort
         const currentAnswer = answers[question.id];
         if (currentAnswer) {
-          const currentOption = question.options.find(opt => opt.value === currentAnswer);
+          const currentOption = question.options.find((opt) => opt.value === currentAnswer);
           if (currentOption) {
             // Berechne Ersparnis: (aktuelle Zeit - verbleibende Zeit nach Automatisierung) * 50€/h * 4 Wochen
             const currentWeeklyTime = currentOption.timeSpent;
@@ -206,7 +206,7 @@ const BusinessAnalysisTool = () => {
     });
 
     const monthlyTimeCost = totalWeeklyTimeSpent * 4 * 50; // 50€/Stunde
-    const painScore = Math.round((totalPainPoints / (analysisQuestions.length * 5)) * 100);
+    const painScore = Math.round(totalPainPoints / (analysisQuestions.length * 5) * 100);
 
     return {
       totalWeeklyTimeSpent,
@@ -222,12 +222,12 @@ const BusinessAnalysisTool = () => {
     if (!email || !companyName) return;
 
     setIsSubmitting(true);
-    
+
     try {
       // Sammle alle Daten für die professionelle E-Mail-Analyse
       const impact = calculateBusinessImpact();
-      const interestedQuestions = analysisQuestions.filter(q => interests[q.id]);
-      
+      const interestedQuestions = analysisQuestions.filter((q) => interests[q.id]);
+
       const analysisData = {
         email,
         companyName,
@@ -236,16 +236,16 @@ const BusinessAnalysisTool = () => {
           totalWeeklyTimeSpent: impact.totalWeeklyTimeSpent,
           monthlyTimeCost: impact.monthlyTimeCost,
           painScore: impact.painScore,
-          processDetails: analysisQuestions.map(q => ({
+          processDetails: analysisQuestions.map((q) => ({
             category: q.category,
             question: q.currentStateQuestion,
             answer: answers[q.id],
-            answerLabel: q.options.find(opt => opt.value === answers[q.id])?.label || "Nicht beantwortet",
-            timeSpent: q.options.find(opt => opt.value === answers[q.id])?.timeSpent || 0,
-            painLevel: q.options.find(opt => opt.value === answers[q.id])?.painLevel || 0
+            answerLabel: q.options.find((opt) => opt.value === answers[q.id])?.label || "Nicht beantwortet",
+            timeSpent: q.options.find((opt) => opt.value === answers[q.id])?.timeSpent || 0,
+            painLevel: q.options.find((opt) => opt.value === answers[q.id])?.painLevel || 0
           }))
         },
-        interestedAutomations: interestedQuestions.map(q => ({
+        interestedAutomations: interestedQuestions.map((q) => ({
           category: q.category,
           title: q.automationPotential.title,
           description: q.automationPotential.description,
@@ -257,7 +257,7 @@ const BusinessAnalysisTool = () => {
         potentialImpact: {
           interestedAreas: impact.interestedAreas,
           potentialMonthlySavings: impact.potentialMonthlySavings,
-          estimatedROI: impact.potentialMonthlySavings > 0 ? Math.round((impact.potentialMonthlySavings / 800) * 100) : 0, // Geschätzte Investition 800€/Monat
+          estimatedROI: impact.potentialMonthlySavings > 0 ? Math.round(impact.potentialMonthlySavings / 800 * 100) : 0, // Geschätzte Investition 800€/Monat
           paybackPeriod: impact.potentialMonthlySavings > 800 ? Math.ceil(2000 / (impact.potentialMonthlySavings - 800)) : "12+" // Setup-Kosten 2000€
         },
         analysisType: 'business_analysis'
@@ -265,18 +265,18 @@ const BusinessAnalysisTool = () => {
 
       // Hier wird später der Webhook für professionelle E-Mail-Analyse eingebaut
       console.log('Business Analysis Data:', analysisData);
-      
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
+
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+
       toast({
         title: "Analyse wird versendet!",
-        description: "Sie erhalten Ihre detaillierte Business-Analyse in wenigen Minuten per E-Mail.",
+        description: "Sie erhalten Ihre detaillierte Business-Analyse in wenigen Minuten per E-Mail."
       });
     } catch (error) {
       toast({
         title: "Fehler",
         description: "Bitte versuchen Sie es erneut.",
-        variant: "destructive",
+        variant: "destructive"
       });
     } finally {
       setIsSubmitting(false);
@@ -285,8 +285,8 @@ const BusinessAnalysisTool = () => {
 
   if (showResults) {
     const impact = calculateBusinessImpact();
-    const interestedQuestions = analysisQuestions.filter(q => interests[q.id]);
-    
+    const interestedQuestions = analysisQuestions.filter((q) => interests[q.id]);
+
     return (
       <Card className="w-full max-w-4xl mx-auto">
         <CardHeader className="text-center">
@@ -318,8 +318,8 @@ const BusinessAnalysisTool = () => {
 
           {/* Debug Info - Temporär zur Fehlerbehebung */}
           {/* Automatisierungs-Potenzial */}
-          {impact.interestedAreas > 0 && (
-            <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-4">
+          {impact.interestedAreas > 0 &&
+          <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-4">
               <h3 className="text-lg font-semibold text-green-800 dark:text-green-200 mb-3">
                 🚀 Ihr Automatisierungs-Potenzial
               </h3>
@@ -334,14 +334,14 @@ const BusinessAnalysisTool = () => {
                 </div>
               </div>
             </div>
-          )}
+          }
 
           {/* Empfohlene Automatisierungen - Kompakt */}
-          {interestedQuestions.length > 0 && (
-            <div className="space-y-3">
+          {interestedQuestions.length > 0 &&
+          <div className="space-y-3">
               <h3 className="text-lg font-semibold">Ihre ausgewählten Automatisierungen:</h3>
-              {interestedQuestions.map((question, index) => (
-                <div key={index} className="bg-primary/5 border border-primary/20 rounded-lg p-3">
+              {interestedQuestions.map((question, index) =>
+            <div key={index} className="bg-primary/5 border border-primary/20 rounded-lg p-3">
                   <div className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
                     <div className="flex-1 min-w-0">
@@ -361,9 +361,9 @@ const BusinessAnalysisTool = () => {
                     </div>
                   </div>
                 </div>
-              ))}
+            )}
             </div>
-          )}
+          }
 
           {/* E-Mail-Eingabe - Kompakt */}
           <div className="bg-primary/10 border border-primary/20 rounded-lg p-4">
@@ -380,8 +380,8 @@ const BusinessAnalysisTool = () => {
                   onChange={(e) => setCompanyName(e.target.value)}
                   placeholder="Ihr Firmenname"
                   required
-                  className="mt-1"
-                />
+                  className="mt-1" />
+
               </div>
               
               <div>
@@ -393,15 +393,15 @@ const BusinessAnalysisTool = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="ihre@email.de"
                   required
-                  className="mt-1"
-                />
+                  className="mt-1" />
+
               </div>
               
-              <Button 
-                type="submit" 
+              <Button
+                type="submit"
                 className="w-full bg-gradient-primary text-base py-3"
-                disabled={isSubmitting}
-              >
+                disabled={isSubmitting}>
+
                 {isSubmitting ? "Wird versendet..." : "Detaillierte Analyse erhalten"}
                 <Mail className="w-4 h-4 ml-2" />
               </Button>
@@ -413,21 +413,21 @@ const BusinessAnalysisTool = () => {
           </div>
 
           <div className="text-center">
-            <Button 
-              variant="ghost" 
+            <Button
+              variant="ghost"
               onClick={() => {
                 setShowResults(false);
                 setCurrentStep(0);
                 setAnswers({});
                 setInterests({});
-              }}
-            >
+              }}>
+
               Analyse wiederholen
             </Button>
           </div>
         </CardContent>
-      </Card>
-    );
+      </Card>);
+
   }
 
   if (!currentQuestion) return null;
@@ -455,33 +455,33 @@ const BusinessAnalysisTool = () => {
         <div className="space-y-6">
           {/* IST-Zustand Frage */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-primary">
-              📊 Wie ist Ihre aktuelle Situation?
+            <h3 className="text-lg font-semibold text-primary">Wie ist Ihre aktuelle Situation?
+
             </h3>
             <p className="text-muted-foreground">{currentQuestion.currentStateQuestion}</p>
             
             <RadioGroup value={currentAnswer} onValueChange={handleAnswerChange}>
-              {currentQuestion.options.map((option) => (
-                <div key={option.value} className="flex items-center space-x-3 p-3 border rounded-lg hover:bg-muted/50">
+              {currentQuestion.options.map((option) =>
+              <div key={option.value} className="flex items-center space-x-3 p-3 border rounded-lg hover:bg-muted/50">
                   <RadioGroupItem value={option.value} id={option.value} />
                   <Label htmlFor={option.value} className="flex-1 cursor-pointer">
                     <div className="flex justify-between items-center">
                       <span>{option.label}</span>
-                      {option.timeSpent > 0 && (
-                        <span className="text-xs text-muted-foreground">
+                      {option.timeSpent > 0 &&
+                    <span className="text-xs text-muted-foreground">
                           ~{option.timeSpent}h/Woche
                         </span>
-                      )}
+                    }
                     </div>
                   </Label>
                 </div>
-              ))}
+              )}
             </RadioGroup>
           </div>
 
           {/* Automatisierungs-Potenzial anzeigen */}
-          {currentAnswer && (
-            <div className="bg-gradient-subtle rounded-lg p-4 space-y-4">
+          {currentAnswer &&
+          <div className="bg-gradient-subtle rounded-lg p-4 space-y-4">
               <h3 className="text-lg font-semibold text-primary">
                 🚀 Automatisierungs-Möglichkeit für Sie:
               </h3>
@@ -511,55 +511,55 @@ const BusinessAnalysisTool = () => {
                   <p className="font-medium text-primary mb-3">{currentQuestion.question}</p>
                   <div className="flex gap-3">
                     <Button
-                      variant={interests[currentQuestion.id] === true ? "default" : "outline"}
-                      size="sm"
-                      onClick={() => handleInterestChange(currentQuestion.id, true)}
-                    >
+                    variant={interests[currentQuestion.id] === true ? "default" : "outline"}
+                    size="sm"
+                    onClick={() => handleInterestChange(currentQuestion.id, true)}>
+
                       ✅ Ja, interessiert mich
                     </Button>
                     <Button
-                      variant={interests[currentQuestion.id] === false ? "default" : "outline"}
-                      size="sm"
-                      onClick={() => handleInterestChange(currentQuestion.id, false)}
-                    >
+                    variant={interests[currentQuestion.id] === false ? "default" : "outline"}
+                    size="sm"
+                    onClick={() => handleInterestChange(currentQuestion.id, false)}>
+
                       ❌ Nicht relevant
                     </Button>
                   </div>
                 </div>
               </div>
             </div>
-          )}
+          }
         </div>
 
         {/* Navigation */}
         <div className="flex justify-between items-center pt-6">
-          <Button 
-            variant="outline" 
+          <Button
+            variant="outline"
             onClick={handlePrev}
-            disabled={currentStep === 0}
-          >
+            disabled={currentStep === 0}>
+
             <ArrowLeft className="w-4 h-4 mr-2" />
             Zurück
           </Button>
           
           <div className="text-sm text-muted-foreground">
-            {Object.values(interests).filter(Boolean).length > 0 && 
-              `${Object.values(interests).filter(Boolean).length} Automatisierungen ausgewählt`
+            {Object.values(interests).filter(Boolean).length > 0 &&
+            `${Object.values(interests).filter(Boolean).length} Automatisierungen ausgewählt`
             }
           </div>
           
-          <Button 
+          <Button
             onClick={handleNext}
             disabled={!currentAnswer}
-            className="bg-gradient-primary"
-          >
+            className="bg-gradient-primary">
+
             {currentStep === analysisQuestions.length - 1 ? "Analyse zeigen" : "Weiter"}
             <ArrowRight className="w-4 h-4 ml-2" />
           </Button>
         </div>
       </CardContent>
-    </Card>
-  );
+    </Card>);
+
 };
 
 export default BusinessAnalysisTool;
