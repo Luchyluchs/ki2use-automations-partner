@@ -51,13 +51,13 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="leistungen" className="scroll-reveal section-padding relative overflow-hidden py-6 sm:py-10 lg:py-16">
+    <section id="leistungen" className="section-padding relative overflow-hidden py-6 sm:py-10 lg:py-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="mb-10 sm:mb-14 lg:mb-20">
-          <h2 className="scroll-reveal mb-6 text-4xl lg:text-5xl font-thin text-foreground">
+        <div className="mb-10 sm:mb-14 lg:mb-20 scroll-reveal">
+          <h2 className="mb-6 text-4xl lg:text-5xl font-thin text-foreground">
             Unsere Leistungen
           </h2>
-          <p className="scroll-reveal stagger-delay-1 text-xl text-muted-foreground max-w-2xl font-light">
+          <p className="text-xl text-muted-foreground max-w-2xl font-light">
             Von der ersten Idee bis zur fertigen Lösung – wir begleiten Sie auf dem Weg zur KI-Nutzung.
           </p>
         </div>
