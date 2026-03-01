@@ -1,43 +1,26 @@
 
-
-## ROI-Rechner Seite: Scroll-Effekte, Hover-Effekte und Farbanpassung
+## Standard-Agenten Seite: Scroll-Effekte und Farbanpassung
 
 ### Problem
-Die ROI-Rechner Seite (/roi-rechner) hat drei Defizite:
-1. Keine Scroll-Reveal-Animationen auf den meisten Sektionen
-2. Fehlende Hover-/Maus-Effekte auf den Schritt-Karten und dem Rechner
-3. Zu grelle/helle Blautoene (besonders CTA-Sektion und Icon-Kreise)
+Die Seite `/standard-agenten` hat:
+1. Scroll-Effekte sind teilweise vorhanden (scroll-scale auf Karten), aber der Header-Bereich, ROI-Sektion und CTA-Sektion haben keine funktionierenden Reveal-Effekte
+2. Die CTA-Sektion ("Wichtiger Hinweis") verwendet `bg-gradient-primary` -- zu grell, passt nicht zum gedaempften Neura-Design
+3. Die `bg-muted` Hintergrundfarbe der CTA-Sektion erzeugt einen harten Bruch
+4. Redundante Hook-Aufrufe (`useScrollReveal`, `useParallax`, `useScrollFade`) -- der globale Observer im Layout reicht
 
-### Aenderungen
+### Aenderungen an `src/pages/StandardAgents.tsx`
 
-**1. ROICalculator.tsx (Seite) -- Scroll- und Hover-Effekte hinzufuegen**
+**Scroll-Effekte ergaenzen:**
+- ROI-Calculator Sektion: Container bekommt `scroll-scale`
+- CTA-Sektion ("Wichtiger Hinweis"): Inner-Card bekommt `scroll-reveal`
 
-- Benefits-Grid (3 Karten: Kostentransparenz, Amortisationszeit, Agenten-Analyse):
-  - Jede Karte bekommt `scroll-reveal` Klasse
-  - `hover-lift` ist bereits vorhanden (gut)
+**Farben abdaempfen:**
+- CTA-Card: `bg-gradient-primary` ersetzen durch `bg-gradient-hero` (passend zum Rest der Seite)
+- CTA-Sektion Hintergrund: `bg-muted` ersetzen durch `bg-background` fuer nahtlosen Uebergang
+- CTA-Button: `bg-card text-foreground hover:bg-muted` anpassen zu `bg-white/10 text-primary-foreground hover:bg-white/20` fuer bessere Harmonie mit dem dunkleren Gradient
 
-- Rechner-Sektion:
-  - Container bekommt `scroll-scale` Klasse
-
-- "So funktioniert die Agenten-Berechnung"-Sektion:
-  - Ueberschrift-Block bekommt `scroll-reveal`
-  - Beschreibungstext bekommt `fade-in-element`
-  - Jede der 4 Schritt-Karten bekommt `scroll-reveal` und `hover-lift`
-
-- CTA-Sektion:
-  - Textblock bekommt `scroll-reveal`
-
-**2. ROICalculator.tsx (Seite) -- Grelle Blautoene abdunkeln**
-
-- CTA-Sektion: `bg-gradient-primary` ersetzen durch einen dunkleren, gedaempften Gradient passend zum Neura-Design (z.B. `bg-gradient-hero` oder eine eigene dunklere Variante)
-- Icon-Kreise in Benefits und Steps: `bg-gradient-primary` durch `bg-primary/20` mit `text-primary` Icon ersetzen -- subtiler, weniger grell
-- CTA-Button Styling anpassen: weniger Kontrast, passend zum dunkleren Hintergrund
-
-**3. ROICalculator.tsx (Komponente) -- Scroll-Effekte im Rechner selbst**
-
-- Die Result-Cards (Aktuelle Kosten, Mit KI-Assistent, ROI-Analyse) bekommen `hover-lift`
-- Der gesamte Rechner-Container bekommt `scroll-scale`
+**Redundante Hooks entfernen:**
+- `useScrollReveal()`, `useParallax()`, `useScrollFade()` entfernen -- werden bereits global ueber Layout behandelt
 
 ### Betroffene Dateien
-- `src/pages/ROICalculator.tsx` -- Scroll-Klassen + Farbkorrektur
-- `src/components/ROICalculator.tsx` -- Hover-Effekte auf Result-Cards
+- `src/pages/StandardAgents.tsx`
