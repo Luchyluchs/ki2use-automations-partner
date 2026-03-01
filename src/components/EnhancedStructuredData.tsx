@@ -20,7 +20,7 @@ export const EnhancedStructuredData: FC = () => {
     "expertise": [
       "KI-Beratung für KMU",
       "KI-Umsetzung und Implementierung",
-      "Fördermittelberatung (Digital Jetzt, ZIM)",
+      "Fördermittelberatung",
       "DSGVO Compliance"
     ],
     "serviceArea": {
@@ -52,7 +52,7 @@ export const EnhancedStructuredData: FC = () => {
           "itemOffered": {
             "@type": "Service",
             "name": "Fördermittelberatung",
-            "description": "Prüfung und Beantragung staatlicher Förderprogramme wie Digital Jetzt und ZIM"
+            "description": "Prüfung und Beantragung staatlicher Förderprogramme für KI-Investitionen"
           }
         }
       ]
@@ -84,7 +84,7 @@ export const EnhancedStructuredData: FC = () => {
         "name": "Gibt es Förderung für KI-Projekte?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Ja, staatliche Förderprogramme wie Digital Jetzt (bis 50% Zuschuss) oder ZIM können viele Unternehmen in Anspruch nehmen."
+          "text": "Ja, es gibt zahlreiche staatliche Förderprogramme, die bis zu 50% der Investition abdecken können. KI2USE prüft kostenlos, welche für Ihr Unternehmen in Frage kommen."
         }
       },
       {

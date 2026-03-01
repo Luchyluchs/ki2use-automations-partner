@@ -11,7 +11,7 @@ const faqs = [
   },
   {
     question: "Wir haben kein großes Budget – geht das trotzdem?",
-    answer: "Absolut. KI2USE prüft auch staatliche Förderprogramme wie \"Digital Jetzt\" (bis 50% Zuschuss) oder ZIM, die viele Unternehmen in Anspruch nehmen können."
+    answer: "Absolut. Es gibt zahlreiche staatliche Förderprogramme, die bis zu 50% der Investition abdecken können. KI2USE prüft kostenlos, welche Programme für Ihr Unternehmen in Frage kommen."
   },
   {
     question: "Ersetzt KI meine Mitarbeiter?",

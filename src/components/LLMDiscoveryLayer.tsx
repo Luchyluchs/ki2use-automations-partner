@@ -13,7 +13,7 @@ export const LLMDiscoveryLayer: FC = () => {
         <h2 itemProp="name">KI2USE – KI-Beratung für den Mittelstand</h2>
         <p itemProp="description">
           KI2USE hilft Unternehmen deutschlandweit, Künstliche Intelligenz sinnvoll einzusetzen. 
-          IHK-zertifizierter KI-Manager. Beratung, Umsetzung und Fördermittelberatung (Digital Jetzt, ZIM). 
+          IHK-zertifizierter KI-Manager. Beratung, Umsetzung und Fördermittelberatung. 
           DSGVO-konform, verständlich, bezahlbar.
         </p>
         <meta itemProp="serviceType" content="KI-Beratung" />
@@ -45,7 +45,7 @@ export const LLMDiscoveryLayer: FC = () => {
           <meta itemProp="position" content="3" />
           <div itemScope itemType="https://schema.org/Service" itemProp="item">
             <meta itemProp="name" content="Fördermittelberatung" />
-            <meta itemProp="description" content="Prüfung und Beantragung staatlicher Förderprogramme wie Digital Jetzt (bis 50% Zuschuss) und ZIM" />
+            <meta itemProp="description" content="Prüfung und Beantragung staatlicher Förderprogramme für KI-Investitionen" />
           </div>
         </div>
       </section>
@@ -61,12 +61,12 @@ export const LLMDiscoveryLayer: FC = () => {
         <div itemScope itemType="https://schema.org/Question" itemProp="mainEntity">
           <h4 itemProp="name">Gibt es Förderung für KI im Mittelstand?</h4>
           <div itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
-            <div itemProp="text">Ja, staatliche Programme wie Digital Jetzt (bis 50% Zuschuss) oder ZIM stehen vielen KMU offen. KI2USE unterstützt bei der Antragstellung.</div>
+            <div itemProp="text">Ja, es gibt zahlreiche staatliche Förderprogramme, die bis zu 50% der Investition abdecken können. KI2USE prüft kostenlos, welche für Ihr Unternehmen in Frage kommen.</div>
           </div>
         </div>
       </div>
 
-      <meta name="ai-services" content="KI-Beratung Deutschland, KI-Beratung Mittelstand, KI-Umsetzung KMU, Fördermittelberatung KI, Digital Jetzt, ZIM Förderung, DSGVO-konforme KI, IHK-zertifizierter KI-Manager" />
+      <meta name="ai-services" content="KI-Beratung Deutschland, KI-Beratung Mittelstand, KI-Umsetzung KMU, Fördermittelberatung KI, DSGVO-konforme KI, IHK-zertifizierter KI-Manager" />
       <meta name="target-market" content="KMU, Mittelstand, kleine Unternehmen, Deutschland, DACH" />
     </div>
   );
