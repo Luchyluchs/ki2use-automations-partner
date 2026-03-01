@@ -9,37 +9,31 @@ interface Particle {
   size: number;
 }
 
-interface Connection {
-  x1: number;
-  y1: number;
-  x2: number;
-  y2: number;
-  opacity: number;
-}
-
 const FuturisticBackground = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationRef = useRef<number>();
   const particlesRef = useRef<Particle[]>([]);
-  const mouseRef = useRef({ x: 0, y: 0 });
+  const mouseRef = useRef({ x: -1000, y: -1000 });
+  const smoothMouseRef = useRef({ x: -1000, y: -1000 });
+  const isDesktopRef = useRef(true);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
+
+    isDesktopRef.current = !('ontouchstart' in window);
 
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };
 
-    const createParticles = () => {
+    const createParticles = (): Particle[] => {
       const particles: Particle[] = [];
-      const particleCount = Math.min(50, Math.floor((canvas.width * canvas.height) / 15000));
-      
-      for (let i = 0; i < particleCount; i++) {
+      const count = Math.min(50, Math.floor((canvas.width * canvas.height) / 15000));
+      for (let i = 0; i < count; i++) {
         particles.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
@@ -49,108 +43,127 @@ const FuturisticBackground = () => {
           size: Math.random() * 1.5 + 0.5
         });
       }
-      
       return particles;
     };
 
-    const updateParticles = (particles: Particle[]) => {
-      particles.forEach(particle => {
-        particle.x += particle.vx;
-        particle.y += particle.vy;
+    const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 
-        // Wrap around edges
-        if (particle.x < 0) particle.x = canvas.width;
-        if (particle.x > canvas.width) particle.x = 0;
-        if (particle.y < 0) particle.y = canvas.height;
-        if (particle.y > canvas.height) particle.y = 0;
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        // Subtle mouse interaction
-        const dx = mouseRef.current.x - particle.x;
-        const dy = mouseRef.current.y - particle.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-        
-        if (distance < 100) {
-          const force = (100 - distance) / 100 * 0.002;
-          particle.vx -= dx * force;
-          particle.vy -= dy * force;
+      // Smooth mouse interpolation
+      smoothMouseRef.current.x = lerp(smoothMouseRef.current.x, mouseRef.current.x, 0.08);
+      smoothMouseRef.current.y = lerp(smoothMouseRef.current.y, mouseRef.current.y, 0.08);
+      const sm = smoothMouseRef.current;
+
+      const style = getComputedStyle(document.documentElement);
+      const primaryHsl = style.getPropertyValue('--primary').trim().replace(/\s+/g, ', ');
+      const accentHsl = style.getPropertyValue('--accent').trim().replace(/\s+/g, ', ');
+
+      const particles = particlesRef.current;
+
+      // Update particles
+      particles.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < 0) p.x = canvas.width;
+        if (p.x > canvas.width) p.x = 0;
+        if (p.y < 0) p.y = canvas.height;
+        if (p.y > canvas.height) p.y = 0;
+
+        // Magnetic attraction toward cursor
+        if (isDesktopRef.current) {
+          const dx = sm.x - p.x;
+          const dy = sm.y - p.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 200 && dist > 5) {
+            const force = (200 - dist) / 200 * 0.003;
+            p.vx += dx * force;
+            p.vy += dy * force;
+          }
         }
-      });
-    };
 
-    const getConnections = (particles: Particle[]): Connection[] => {
-      const connections: Connection[] = [];
-      const maxDistance = 120;
-      
+        // Damping
+        p.vx *= 0.98;
+        p.vy *= 0.98;
+      });
+
+      // Draw mouse glow
+      if (isDesktopRef.current && sm.x > -500) {
+        const glowGradient = ctx.createRadialGradient(sm.x, sm.y, 0, sm.x, sm.y, 250);
+        glowGradient.addColorStop(0, `hsla(${primaryHsl}, 0.12)`);
+        glowGradient.addColorStop(0.4, `hsla(${accentHsl}, 0.05)`);
+        glowGradient.addColorStop(1, `hsla(${primaryHsl}, 0)`);
+        ctx.fillStyle = glowGradient;
+        ctx.fillRect(sm.x - 250, sm.y - 250, 500, 500);
+      }
+
+      // Draw particle connections
+      const maxDist = 120;
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-          
-          if (distance < maxDistance) {
-            const opacity = Math.max(0, (maxDistance - distance) / maxDistance * 0.15);
-            connections.push({
-              x1: particles[i].x,
-              y1: particles[i].y,
-              x2: particles[j].x,
-              y2: particles[j].y,
-              opacity
-            });
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < maxDist) {
+            const opacity = (maxDist - dist) / maxDist * 0.15;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `hsla(${primaryHsl}, ${opacity})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
           }
         }
       }
-      
-      return connections;
-    };
 
-    const draw = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      // Get current CSS variables for theming
-      const computedStyle = getComputedStyle(document.documentElement);
-      const primaryHsl = computedStyle.getPropertyValue('--primary').trim().replace(/\s+/g, ', ');
-      const accentHsl = computedStyle.getPropertyValue('--accent').trim().replace(/\s+/g, ', ');
-
-      const particles = particlesRef.current;
-      const connections = getConnections(particles);
-
-      // Draw connections
-      connections.forEach(connection => {
-        ctx.beginPath();
-        ctx.moveTo(connection.x1, connection.y1);
-        ctx.lineTo(connection.x2, connection.y2);
-        ctx.strokeStyle = `hsla(${primaryHsl}, ${connection.opacity})`;
-        ctx.lineWidth = 0.5;
-        ctx.stroke();
-      });
+      // Draw cursor-to-particle connections
+      if (isDesktopRef.current && sm.x > -500) {
+        particles.forEach(p => {
+          const dx = sm.x - p.x;
+          const dy = sm.y - p.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 180) {
+            const opacity = (180 - dist) / 180 * 0.25;
+            ctx.beginPath();
+            ctx.moveTo(sm.x, sm.y);
+            ctx.lineTo(p.x, p.y);
+            ctx.strokeStyle = `hsla(${primaryHsl}, ${opacity})`;
+            ctx.lineWidth = 0.4;
+            ctx.stroke();
+          }
+        });
+      }
 
       // Draw particles
-      particles.forEach(particle => {
-        ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-        
-        // Gradient for subtle glow
-        const gradient = ctx.createRadialGradient(
-          particle.x, particle.y, 0,
-          particle.x, particle.y, particle.size * 3
-        );
-        gradient.addColorStop(0, `hsla(${accentHsl}, ${particle.opacity})`);
+      particles.forEach(p => {
+        // Brightness boost near cursor
+        let boostOpacity = p.opacity;
+        if (isDesktopRef.current && sm.x > -500) {
+          const dx = sm.x - p.x;
+          const dy = sm.y - p.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 200) {
+            boostOpacity = p.opacity + (200 - dist) / 200 * 0.4;
+          }
+        }
+
+        // Glow
+        const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size * 3);
+        gradient.addColorStop(0, `hsla(${accentHsl}, ${boostOpacity})`);
         gradient.addColorStop(1, `hsla(${accentHsl}, 0)`);
-        
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size * 3, 0, Math.PI * 2);
         ctx.fillStyle = gradient;
         ctx.fill();
-        
-        // Subtle center dot
+
+        // Center dot
         ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.size * 0.3, 0, Math.PI * 2);
-        ctx.fillStyle = `hsla(${primaryHsl}, ${Math.min(particle.opacity * 2, 0.6)})`;
+        ctx.arc(p.x, p.y, p.size * 0.3, 0, Math.PI * 2);
+        ctx.fillStyle = `hsla(${primaryHsl}, ${Math.min(boostOpacity * 2, 0.8)})`;
         ctx.fill();
       });
-    };
 
-    const animate = () => {
-      updateParticles(particlesRef.current);
-      draw();
       animationRef.current = requestAnimationFrame(animate);
     };
 
@@ -164,19 +177,15 @@ const FuturisticBackground = () => {
       particlesRef.current = createParticles();
     };
 
-    // Initialize
     resizeCanvas();
     particlesRef.current = createParticles();
     animate();
 
-    // Event listeners
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('resize', handleResize);
 
     return () => {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
+      if (animationRef.current) cancelAnimationFrame(animationRef.current);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('resize', handleResize);
     };
