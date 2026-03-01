@@ -1,4 +1,3 @@
-import { useScrollReveal, useParallax, useScrollFade } from "@/hooks/useScrollAnimations";
 import { useSEO, SEOTemplates } from "@/hooks/useSEO";
 import { StandardAgentsFAQ } from "@/components/StructuredData";
 import Layout from "@/components/Layout";
@@ -7,10 +6,6 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, CheckCircle, Calendar } from "lucide-react";
 import ROICalculator from "@/components/ROICalculator";
 const StandardAgents = () => {
-  useScrollReveal();
-  useParallax();
-  useScrollFade();
-
   // SEO optimization for Standard Agents page
   useSEO(SEOTemplates.standardAgents);
   const agents = [{
@@ -150,20 +145,20 @@ const StandardAgents = () => {
 
       {/* ROI Calculator */}
       <section className="py-16 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 scroll-scale">
           <ROICalculator />
         </div>
       </section>
 
       {/* Important Note */}
-      <section className="section-padding bg-muted">
+      <section className="section-padding bg-background">
          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl mx-auto bg-gradient-primary rounded-2xl p-6 text-center text-primary-foreground hover-scale">
-            <h3 className="scroll-reveal text-xl font-semibold mb-4">
+          <div className="max-w-2xl mx-auto bg-gradient-hero rounded-2xl p-6 text-center text-primary-foreground hover-scale scroll-reveal">
+            <h3 className="text-xl font-semibold mb-4">
               Wichtiger Hinweis für KMUs
             </h3>
-            <p className="scroll-reveal stagger-delay-1 leading-relaxed mb-6">Alle Standard-Agenten von KI2USE sind über ein persönliches, kostenloses Beratungsgespräch buchbar, in dem wir die unkomplizierte, schnelle und rechtssichere Integration für Ihr Unternehmen besprechen. Die internen Prozesse von der Anfrage bis zur Implementierung werden dabei automatisiert, was unsere Effizienz und Qualität in der Kundenbetreuung beweist.</p>
-            <Button variant="accent" size="lg" asChild className="bg-card text-foreground hover:bg-muted hover-scale">
+            <p className="leading-relaxed mb-6">Alle Standard-Agenten von KI2USE sind über ein persönliches, kostenloses Beratungsgespräch buchbar, in dem wir die unkomplizierte, schnelle und rechtssichere Integration für Ihr Unternehmen besprechen. Die internen Prozesse von der Anfrage bis zur Implementierung werden dabei automatisiert, was unsere Effizienz und Qualität in der Kundenbetreuung beweist.</p>
+            <Button variant="accent" size="lg" asChild className="bg-white/10 text-primary-foreground hover:bg-white/20 hover-scale">
               <Link to="/kontakt">Jetzt Beratungsgespräch vereinbaren</Link>
             </Button>
           </div>
