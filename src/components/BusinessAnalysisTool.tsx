@@ -5,7 +5,7 @@ import { Label } from "./ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Progress } from "./ui/progress";
 import { RadioGroup, RadioGroupItem } from "./ui/radio-group";
-import { CheckCircle, ArrowRight, ArrowLeft, Brain, Users, Mail, Calendar, Clock, TrendingUp } from 'lucide-react';
+import { CheckCircle, ArrowRight, ArrowLeft, Bot, Users, Mail, Calendar, Clock, TrendingUp } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
 
 interface AnalysisQuestion {
@@ -291,7 +291,7 @@ const BusinessAnalysisTool = () => {
       <Card className="w-full max-w-4xl mx-auto">
         <CardHeader className="text-center">
           <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
-            <Brain className="w-8 h-8 text-primary-foreground" />
+            <Bot className="w-8 h-8 text-primary-foreground" />
           </div>
           <CardTitle className="text-3xl">Ihre Business-Automatisierungs-Analyse</CardTitle>
           <p className="text-muted-foreground">
