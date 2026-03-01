@@ -1,4 +1,4 @@
-import { useScrollReveal, useParallax, useScrollFade } from "@/hooks/useScrollAnimations";
+import { useScrollReveal, useParallax, useScrollFade, useMagneticCursor } from "@/hooks/useScrollAnimations";
 import { useSEO, SEOTemplates } from "@/hooks/useSEO";
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
@@ -9,6 +9,7 @@ const Training = () => {
   useScrollReveal();
   useParallax();
   useScrollFade();
+  useMagneticCursor();
   
   // SEO optimization for Training page
   useSEO(SEOTemplates.training);
