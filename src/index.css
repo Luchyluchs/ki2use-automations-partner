@@ -30,7 +30,7 @@ Corporate design for German KMUs - trustworthy, modern, efficient
     /* Minimal Card System */
     --card: 200 15% 13%;
     --card-foreground: 0 0% 95%;
-    --card-border: 200 10% 20%;
+    --card-border: 200 12% 28%;
     
     /* Muted Content */
     --muted: 200 15% 15%;
@@ -104,7 +104,7 @@ Corporate design for German KMUs - trustworthy, modern, efficient
     
     --card: 200 20% 10%;
     --card-foreground: 0 0% 95%;
-    --card-border: 195 15% 18%;
+    --card-border: 195 15% 26%;
     
     --primary: 195 85% 55%;
     --primary-foreground: 200 25% 8%;
