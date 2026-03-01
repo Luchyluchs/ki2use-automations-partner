@@ -1,26 +1,41 @@
 
 
-## Problem
+## Beratungsseite an neue Strategie anpassen
 
-Die `scroll-reveal` Klasse wurde auf den aeussersten Container der Demo-Login-Seite angewandt. Diese Klasse setzt `opacity: 0` und wartet auf ein Scroll-Event, um die Elemente einzublenden. Da die Login-Seite zentriert ist und keinen scrollbaren Inhalt hat, werden die Elemente nie sichtbar.
+### Aktueller Zustand
+Die Kontaktseite (/kontakt) verwendet noch das alte Design: fette Schriften (font-bold), helle Card-Hintergruende (bg-card), und der Fokus liegt generisch auf "KI-Automatisierung" statt auf dem Beratungsansatz.
 
-## Loesung
+### Ziel
+Die Seite soll den Beratungs-Fokus der Hauptseite widerspiegeln und das Neura-Design verwenden.
 
-Die `scroll-reveal` Klasse aus dem aeussersten Container in `src/components/NewDemoLogin.tsx` entfernen. Stattdessen kann eine einfache `fade-in` Animation verwendet werden, die sofort beim Laden abspielt.
+### Aenderungen in `src/pages/Contact.tsx`
 
-### Aenderung
+**1. Hero-Section ueberarbeiten**
+- Titel aendern von "Sprechen wir ueber Ihre KI-Automatisierung" zu einem beratungsorientierten Titel wie "Ihr Weg zur KI beginnt mit einem Gespraech"
+- Untertitel auf den Beratungsprozess ausrichten (Analyse, Empfehlung, Umsetzung)
+- Typografie anpassen: `font-bold` durch `font-thin` ersetzen, passend zum Neura-Design
 
-**Datei: `src/components/NewDemoLogin.tsx` (Zeile 38)**
+**2. Primaerer Beratungsbereich neu gestalten**
+- Den Calendly-Block visuell prominenter als Beratungseinstieg positionieren
+- Text staerker auf "KI-Beratung" und "Erstgespraech" ausrichten statt "Automatisierungspotenzial"
+- Die drei Schritte der Beratungsstrategie einbauen: Analyse → Empfehlung → Umsetzung
+- Card-Stil ersetzen durch schlichteres Design (border-basiert statt bg-card mit Shadow)
 
-Vorher:
-```
-bg-gradient-hero ... scroll-reveal
-```
+**3. Design an Neura-Stil anpassen**
+- `bg-background` Section durch `bg-gradient-hero` ersetzen fuer durchgaengigen dunklen Look
+- Schwere Card-Borders und Shadows reduzieren zugunsten subtiler Trennlinien
+- `font-bold`/`font-semibold` durch `font-thin`/`font-light` ersetzen
+- Gradient-Buttons und Icons dezenter gestalten
 
-Nachher:
-```
-bg-gradient-hero ... animate-fade-in
-```
+**4. Kontaktformular und Voice-Agent beibehalten**
+- Beide bleiben als sekundaere Kontaktoptionen erhalten
+- Visuell dem neuen Stil anpassen (weniger Card-Optik, mehr Minimalismus)
 
-Dies stellt sicher, dass der Inhalt sofort sichtbar ist, waehrend der dunkle Hintergrund (`bg-gradient-hero`) beibehalten wird.
+**5. Direkter Kontakt Footer**
+- `bg-muted` durch subtilere Darstellung ersetzen (z.B. border-top statt farbiger Hintergrund)
+
+### Technische Details
+- Nur `src/pages/Contact.tsx` wird geaendert
+- Alle bestehenden Komponenten (ContactForm, VoiceAgent, CalendlyButton) bleiben unveraendert
+- Scroll-Animationen (scroll-reveal) bleiben aktiv
 
