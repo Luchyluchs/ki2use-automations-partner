@@ -352,12 +352,12 @@ const InteractiveKIDemo = () => {
       </div>
 
       {/* Demo Interface */}
-      <div className={`border border-card-border/30 rounded-xl transition-all duration-500 ${
+      <div className={`border border-card-border/50 rounded-2xl bg-card/30 backdrop-blur-sm shadow-soft transition-all duration-500 ${
         isAnimating ? 'opacity-70' : 'opacity-100'
       }`}>
-        <div className="p-4">
-          <div className="flex items-center gap-3 pb-3 border-b border-card-border/20 animate-fade-in">
-            <div className="w-3 h-3 bg-primary rounded-full"></div>
+        <div className="p-5">
+          <div className="flex items-center gap-3 pb-3 mb-1 border-b border-card-border/30 animate-fade-in">
+            <div className="w-3 h-3 bg-primary rounded-full shadow-[0_0_8px_hsl(var(--primary)/0.4)]"></div>
             <span className="text-sm font-light text-foreground">{currentAgent.name} Demo</span>
           </div>
 
@@ -367,7 +367,7 @@ const InteractiveKIDemo = () => {
             {renderInterface()}
           </div>
 
-          <div className="pt-3 border-t border-card-border/20 text-center animate-fade-in delay-200">
+          <div className="pt-3 border-t border-card-border/30 text-center animate-fade-in delay-200">
             <p className="text-xs text-muted-foreground font-light">
               {currentAgent.interface === 'chat' && '💡 Aus jedem Website-Besucher kann ein Kunde werden'}
               {currentAgent.interface === 'linkedin' && '🎯 Neue Kontakte finden sich selbst'}  
