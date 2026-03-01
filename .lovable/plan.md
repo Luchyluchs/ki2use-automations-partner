@@ -1,25 +1,56 @@
 
-# Fliessender Hintergrund-Gradient
 
-## Problem
-Jede Section auf der Seite hat einzeln die Klasse `bg-gradient-hero`. Da der Gradient bei jeder Section neu startet, entstehen sichtbare Kanten/Abstuefungen zwischen den Sektionen. Das wirkt abgehackt statt fliessend.
+## Navigation vereinheitlichen + Foerderung-Seite erstellen
 
-## Loesung
-Die `bg-gradient-hero` Klasse wird von den einzelnen Sections entfernt und stattdessen einmalig auf einen uebergreifenden Wrapper im Layout gelegt. So fliesst der Gradient nahtlos ueber die gesamte Seite.
+### Problem
+Mobile und Desktop-Navigation haben komplett unterschiedliche Eintraege. Die Navigationen sollen logisch gleich sein.
 
-## Betroffene Dateien
+### Einheitliche Navigation (6 Punkte)
 
-### 1. `src/components/Layout.tsx`
-- Den `<main>` Tag mit `bg-gradient-hero` versehen, damit der Gradient einmal ueber den gesamten Content laeuft
+| Eintrag | Link | Ersetzt |
+|---|---|---|
+| Start | `/` | bleibt |
+| Beratung | `/beratung` | bleibt |
+| KI-Agenten | `/standard-agenten` | "Leistungen" (Desktop) / "Agenten" (Mobile) |
+| KI-Rechner | `/roi-rechner` | neu in Desktop, existiert in Mobile |
+| Foerderung | `/foerderung` | neu (eigene Seite) |
+| Demo | `/demoportal` | existiert in Mobile, neu in Desktop |
 
-### 2. `src/pages/CustomAgents.tsx` (aktuelle Seite)
-- `bg-gradient-hero` von allen 5 Sections entfernen (Header, Description, Process Steps, Advantages, ROI Calculator, CTA)
+### Aenderungen
 
-### 3. `src/pages/Contact.tsx`
-- `bg-gradient-hero` von beiden Sections entfernen
+**1. Neue Seite: `src/pages/Foerderung.tsx`**
+- Eigene Seite fuer Foerdermittel/Zuschuesse
+- Aufbau: Hero, Foerderprogramme, Ablauf, CTA
+- Stil konsistent mit Beratung.tsx
 
-### 4. Weitere Seiten pruefen und anpassen
-- `src/pages/Index.tsx`, `src/pages/StandardAgents.tsx`, `src/pages/Training.tsx`, `src/pages/DemoPortal.tsx` und alle anderen Seiten, die `bg-gradient-hero` auf einzelnen Sections verwenden, werden ebenfalls bereinigt
+**2. Desktop-Navigation (`src/components/Layout.tsx`)**
+- Navigation-Array ersetzen durch: Start, Beratung, KI-Agenten, KI-Rechner, Foerderung, Demo
+- Alle als direkte Links (keine Anchor-Links mehr auf `/#leistungen`, `/#ueber-uns`, `/#faq`)
+- Footer aktualisieren: "Leistungen" wird "Angebot" mit korrekten Links zu `/beratung`, `/standard-agenten`, `/foerderung`, `/demoportal`
 
-## Ergebnis
-Ein durchgehender, fliessender Gradient ueber die gesamte Seite ohne sichtbare Brueche zwischen Sektionen.
+**3. Mobile-Navigation (`src/components/MobileBottomNav.tsx`)**
+- Gleiche Logik: Start, Beratung, KI-Agenten, KI-Rechner, Foerderung, Demo
+- Problem: 6 Items passen nicht gut in eine Bottom-Nav (max 5 empfohlen)
+- Loesung: Die 5 wichtigsten in der Bottom-Nav, Rest ueber Hamburger-Menu erreichbar. Vorschlag fuer Bottom-Nav: Start, KI-Agenten, Beratung (primary), KI-Rechner, Demo. Foerderung ueber Header-Menu erreichbar.
+
+**4. ServicesSection.tsx + MobileServiceCards.tsx**
+- Umbauen zu kompakten Teaser-Karten: Beratung, KI-Agenten, Foerderung
+- Kurzer Text + "Mehr erfahren"-Link statt langer Feature-Listen
+
+**5. App.tsx**
+- Neue Route `/foerderung` hinzufuegen
+
+**6. Index.tsx**
+- Anchor-Links (`/#leistungen`, `/#ueber-uns`, `/#faq`) werden nicht mehr aus der Navigation referenziert, die Sections bleiben aber auf der Seite bestehen
+
+### Dateien
+
+| Datei | Aktion |
+|---|---|
+| `src/pages/Foerderung.tsx` | Neu erstellen |
+| `src/components/Layout.tsx` | Nav-Items + Footer aktualisieren |
+| `src/components/MobileBottomNav.tsx` | Items angleichen |
+| `src/components/ServicesSection.tsx` | Zu Teasern umbauen |
+| `src/components/MobileServiceCards.tsx` | Analog anpassen |
+| `src/App.tsx` | Route `/foerderung` hinzufuegen |
+
