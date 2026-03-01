@@ -50,16 +50,16 @@ const Contact = () => {
             
             {/* Primary Action - Calendly (Prominent but not overwhelming) */}
             <div className="mb-16">
-              <div className="bg-gradient-primary rounded-2xl p-6 md:p-10 text-primary-foreground max-w-5xl mx-auto shadow-elevated">
+              <div className="bg-card border border-card-border rounded-2xl p-6 md:p-10 max-w-5xl mx-auto shadow-elevated">
                 <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 items-center">
                   <div className="lg:col-span-3">
-                    <h2 className="text-2xl md:text-3xl font-bold mb-2">
+                    <h2 className="text-2xl md:text-3xl font-bold mb-2 text-foreground">
                       Kostenloses Beratungsgespräch
                     </h2>
-                    <p className="text-lg mb-2 opacity-90">
+                    <p className="text-lg mb-2 text-muted-foreground">
                       30 Minuten persönliche KI-Beratung
                     </p>
-                    <p className="opacity-80">
+                    <p className="text-muted-foreground">
                       Individuelle Analyse Ihres Automatisierungspotenzials 
                       mit konkreten, unverbindlichen Empfehlungen.
                     </p>
@@ -69,10 +69,10 @@ const Contact = () => {
                       text="Kostenlosen Beratungstermin buchen"
                       variant="cta"
                       size="lg"
-                      className="bg-white text-primary hover:bg-gray-50 w-full px-6 py-4 text-base font-semibold"
+                      className="bg-primary text-primary-foreground hover:bg-primary/90 w-full px-6 py-4 text-base font-semibold"
                       icon={false}
                     />
-                    <div className="mt-3 text-sm opacity-80">
+                    <div className="mt-3 text-sm text-muted-foreground">
                       <Clock className="w-4 h-4 inline mr-1" />
                       100% kostenlos & unverbindlich
                     </div>
