@@ -161,7 +161,7 @@ const CustomAgents = () => {
           </div>
 
           <div className="relative">
-            <div className="absolute top-20 left-0 right-0 h-px bg-card-border/20 hidden lg:block"></div>
+            
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 relative z-10">
               {processSteps.map((step, index) => (
