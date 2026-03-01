@@ -5,6 +5,7 @@ import { useState } from "react";
 import Chatbot from "./Chatbot";
 import MobileBottomNav from "./MobileBottomNav";
 import Breadcrumbs from "./Breadcrumbs";
+import FuturisticBackground from "./FuturisticBackground";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -39,6 +40,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <div className="min-h-screen bg-background">
+      <FuturisticBackground />
       <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur-md border-b border-white/5">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="flex h-20 items-center justify-between">

@@ -2,7 +2,6 @@ import Layout from "@/components/Layout";
 import HeroSection from "@/components/HeroSection";
 import ScrollProgressIndicator from "@/components/ScrollProgressIndicator";
 import FloatingBackground from "@/components/FloatingElements";
-import FuturisticBackground from "@/components/FuturisticBackground";
 import LLMDiscoveryLayer from "@/components/LLMDiscoveryLayer";
 import EnhancedStructuredData from "@/components/EnhancedStructuredData";
 import LLMMetaTags from "@/components/LLMMetaTags";
@@ -36,7 +35,7 @@ const Index = () => {
       <EnhancedStructuredData />
       <LLMDiscoveryLayer />
       
-      <FuturisticBackground />
+      <ScrollProgressIndicator />
       <ScrollProgressIndicator />
       <Layout>
         <div className="relative">
