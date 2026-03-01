@@ -1,13 +1,16 @@
-import { useEffect, useRef, useCallback } from 'react';
+import { useEffect, useRef } from 'react';
 
-export const useScrollReveal = () => {
-  useEffect(() => {
-    const observer = new IntersectionObserver(
+// Singleton IntersectionObserver for scroll reveal
+let globalObserver: IntersectionObserver | null = null;
+let observerRefCount = 0;
+
+const getObserver = (): IntersectionObserver => {
+  if (!globalObserver) {
+    globalObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('revealed');
-            // Add stagger delay for child elements
             const children = entry.target.querySelectorAll('.stagger-child');
             children.forEach((child, index) => {
               setTimeout(() => {
@@ -16,7 +19,6 @@ export const useScrollReveal = () => {
             });
           } else {
             entry.target.classList.remove('revealed');
-            // Remove revealed class from children when scrolling out
             const children = entry.target.querySelectorAll('.stagger-child');
             children.forEach((child) => {
               child.classList.remove('revealed');
@@ -29,25 +31,39 @@ export const useScrollReveal = () => {
         rootMargin: '0px 0px -50px 0px',
       }
     );
+  }
+  return globalObserver;
+};
+
+export const useScrollReveal = () => {
+  useEffect(() => {
+    const observer = getObserver();
+    observerRefCount++;
 
     const elements = document.querySelectorAll('.scroll-reveal, .scroll-scale, .fade-in-element, .scale-in-element, .enhanced-reveal');
     elements.forEach((el) => observer.observe(el));
 
-    return () => observer.disconnect();
+    return () => {
+      elements.forEach((el) => observer.unobserve(el));
+      observerRefCount--;
+      if (observerRefCount <= 0) {
+        globalObserver?.disconnect();
+        globalObserver = null;
+        observerRefCount = 0;
+      }
+    };
   }, []);
 };
 
-// Enhanced parallax with performance optimizations
+// Enhanced parallax with GPU acceleration
 export const useEnhancedParallax = () => {
   useEffect(() => {
     let ticking = false;
-    let scrollY = 0;
 
     const handleScroll = () => {
-      scrollY = window.pageYOffset;
-      
       if (!ticking) {
         requestAnimationFrame(() => {
+          const scrollY = window.pageYOffset;
           const parallaxElements = document.querySelectorAll('.parallax-slow, .parallax-medium, .parallax-fast');
           
           parallaxElements.forEach((element) => {
@@ -55,10 +71,9 @@ export const useEnhancedParallax = () => {
             const speed = element.classList.contains('parallax-fast') ? -0.8 :
                          element.classList.contains('parallax-medium') ? -0.5 : -0.3;
             
-            // Only animate if element is in viewport
             if (rect.bottom >= 0 && rect.top <= window.innerHeight) {
               const yPos = scrollY * speed;
-              (element as HTMLElement).style.setProperty('--scroll-y', `${yPos}px`);
+              (element as HTMLElement).style.transform = `translate3d(0, ${yPos}px, 0)`;
             }
           });
           
@@ -73,16 +88,18 @@ export const useEnhancedParallax = () => {
   }, []);
 };
 
-// Magnetic cursor effect
+// Magnetic cursor effect with proper cleanup
 export const useMagneticCursor = () => {
   useEffect(() => {
     const magneticElements = document.querySelectorAll('.magnetic');
+    const handlers = new Map<Element, { move: EventListener; leave: EventListener }>();
     
     magneticElements.forEach((element) => {
-      const handleMouseMove = (e: MouseEvent) => {
+      const handleMouseMove = (e: Event) => {
+        const mouseEvent = e as MouseEvent;
         const rect = element.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
+        const x = mouseEvent.clientX - rect.left - rect.width / 2;
+        const y = mouseEvent.clientY - rect.top - rect.height / 2;
         
         const distance = Math.sqrt(x * x + y * y);
         const maxDistance = 100;
@@ -91,23 +108,23 @@ export const useMagneticCursor = () => {
           const strength = (maxDistance - distance) / maxDistance;
           const moveX = (x / distance) * strength * 10;
           const moveY = (y / distance) * strength * 10;
-          
-          (element as HTMLElement).style.transform = `translate(${moveX}px, ${moveY}px)`;
+          (element as HTMLElement).style.transform = `translate3d(${moveX}px, ${moveY}px, 0)`;
         }
       };
       
       const handleMouseLeave = () => {
-        (element as HTMLElement).style.transform = 'translate(0px, 0px)';
+        (element as HTMLElement).style.transform = 'translate3d(0, 0, 0)';
       };
       
-      element.addEventListener('mousemove', handleMouseMove as EventListener);
+      handlers.set(element, { move: handleMouseMove, leave: handleMouseLeave });
+      element.addEventListener('mousemove', handleMouseMove);
       element.addEventListener('mouseleave', handleMouseLeave);
     });
     
     return () => {
-      magneticElements.forEach((element) => {
-        element.removeEventListener('mousemove', () => {});
-        element.removeEventListener('mouseleave', () => {});
+      handlers.forEach((h, el) => {
+        el.removeEventListener('mousemove', h.move);
+        el.removeEventListener('mouseleave', h.leave);
       });
     };
   }, []);
@@ -125,7 +142,7 @@ export const useParallax = () => {
           
           parallaxElements.forEach((element) => {
             const rate = scrolled * -0.5;
-            (element as HTMLElement).style.setProperty('--scroll-y', `${rate}px`);
+            (element as HTMLElement).style.transform = `translate3d(0, ${rate}px, 0)`;
           });
           
           ticking = false;
@@ -164,7 +181,7 @@ export const useScrollFade = () => {
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Check on mount
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 };

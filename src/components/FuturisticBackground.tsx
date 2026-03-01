@@ -17,6 +17,8 @@ const FuturisticBackground = () => {
   const smoothMouseRef = useRef({ x: -1000, y: -1000 });
   const isDesktopRef = useRef(true);
 
+  const cachedColorsRef = useRef({ primaryHsl: '', accentHsl: '' });
+
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -25,11 +27,17 @@ const FuturisticBackground = () => {
 
     isDesktopRef.current = !('ontouchstart' in window);
 
+    const cacheColors = () => {
+      const style = getComputedStyle(document.documentElement);
+      cachedColorsRef.current.primaryHsl = style.getPropertyValue('--primary').trim().replace(/\s+/g, ', ');
+      cachedColorsRef.current.accentHsl = style.getPropertyValue('--accent').trim().replace(/\s+/g, ', ');
+    };
+
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+      cacheColors();
     };
-
     const createParticles = (): Particle[] => {
       const particles: Particle[] = [];
       const count = Math.min(50, Math.floor((canvas.width * canvas.height) / 15000));
@@ -56,9 +64,7 @@ const FuturisticBackground = () => {
       smoothMouseRef.current.y = lerp(smoothMouseRef.current.y, mouseRef.current.y, 0.08);
       const sm = smoothMouseRef.current;
 
-      const style = getComputedStyle(document.documentElement);
-      const primaryHsl = style.getPropertyValue('--primary').trim().replace(/\s+/g, ', ');
-      const accentHsl = style.getPropertyValue('--accent').trim().replace(/\s+/g, ', ');
+      const { primaryHsl, accentHsl } = cachedColorsRef.current;
 
       const particles = particlesRef.current;
 
