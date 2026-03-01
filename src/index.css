@@ -57,7 +57,7 @@ Corporate design for German KMUs - trustworthy, modern, efficient
     
     /* Neura-style Gradients - Dark slate to cyan */
     --gradient-primary: linear-gradient(135deg, hsl(189 80% 35%) 0%, hsl(189 70% 42%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(210 20% 7%) 0%, hsl(205 18% 9%) 40%, hsl(200 15% 11%) 70%, hsl(195 12% 13%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(200 25% 8%) 0%, hsl(197 35% 12%) 30%, hsl(193 45% 18%) 60%, hsl(189 55% 22%) 100%);
     --gradient-subtle: linear-gradient(180deg, hsl(200 20% 10%) 0%, hsl(200 18% 12%) 100%);
     --gradient-card: linear-gradient(145deg, hsl(200 15% 13%) 0%, hsl(200 18% 15%) 100%);
     --gradient-text: linear-gradient(135deg, hsl(189 75% 48%) 0%, hsl(189 70% 55%) 100%);
@@ -126,7 +126,7 @@ Corporate design for German KMUs - trustworthy, modern, efficient
     --ring: 195 85% 55%;
     
     --gradient-primary: linear-gradient(135deg, hsl(195 85% 55%), hsl(190 80% 60%));
-    --gradient-hero: linear-gradient(135deg, hsl(210 20% 7%) 0%, hsl(205 18% 9%) 40%, hsl(200 15% 11%) 70%, hsl(195 12% 13%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(200 30% 10%) 0%, hsl(195 40% 18%) 50%, hsl(190 50% 25%) 100%);
     --gradient-subtle: linear-gradient(180deg, hsl(200 25% 8%) 0%, hsl(200 20% 10%) 100%);
     
     --shadow-card: 0 4px 24px -8px hsl(0 0% 0% / 0.30);

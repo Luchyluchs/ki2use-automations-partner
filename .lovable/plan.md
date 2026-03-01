@@ -1,27 +1,41 @@
 
 
-# Hintergrund-Gradient anpassen: Dunkler, klassischer Stil
+## Beratungsseite an neue Strategie anpassen
 
-## Ziel
-Den `bg-gradient-hero` Hintergrund auf der gesamten Seite dunkler und klassischer gestalten -- weniger Cyan-Akzent, mehr tiefes Dunkelblau/Schwarz.
+### Aktueller Zustand
+Die Kontaktseite (/kontakt) verwendet noch das alte Design: fette Schriften (font-bold), helle Card-Hintergruende (bg-card), und der Fokus liegt generisch auf "KI-Automatisierung" statt auf dem Beratungsansatz.
 
-## Technische Umsetzung
+### Ziel
+Die Seite soll den Beratungs-Fokus der Hauptseite widerspiegeln und das Neura-Design verwenden.
 
-### Datei: `src/index.css`
+### Aenderungen in `src/pages/Contact.tsx`
 
-Die CSS-Variable `--gradient-hero` wird angepasst:
+**1. Hero-Section ueberarbeiten**
+- Titel aendern von "Sprechen wir ueber Ihre KI-Automatisierung" zu einem beratungsorientierten Titel wie "Ihr Weg zur KI beginnt mit einem Gespraech"
+- Untertitel auf den Beratungsprozess ausrichten (Analyse, Empfehlung, Umsetzung)
+- Typografie anpassen: `font-bold` durch `font-thin` ersetzen, passend zum Neura-Design
 
-**Aktuell:**
-```css
---gradient-hero: linear-gradient(135deg, hsl(200 25% 8%) 0%, hsl(197 35% 12%) 30%, hsl(193 45% 18%) 60%, hsl(189 55% 22%) 100%);
-```
+**2. Primaerer Beratungsbereich neu gestalten**
+- Den Calendly-Block visuell prominenter als Beratungseinstieg positionieren
+- Text staerker auf "KI-Beratung" und "Erstgespraech" ausrichten statt "Automatisierungspotenzial"
+- Die drei Schritte der Beratungsstrategie einbauen: Analyse → Empfehlung → Umsetzung
+- Card-Stil ersetzen durch schlichteres Design (border-basiert statt bg-card mit Shadow)
 
-**Neu (dunkler, klassischer):**
-```css
---gradient-hero: linear-gradient(135deg, hsl(210 20% 7%) 0%, hsl(205 18% 9%) 40%, hsl(200 15% 11%) 70%, hsl(195 12% 13%) 100%);
-```
+**3. Design an Neura-Stil anpassen**
+- `bg-background` Section durch `bg-gradient-hero` ersetzen fuer durchgaengigen dunklen Look
+- Schwere Card-Borders und Shadows reduzieren zugunsten subtiler Trennlinien
+- `font-bold`/`font-semibold` durch `font-thin`/`font-light` ersetzen
+- Gradient-Buttons und Icons dezenter gestalten
 
-Die Farben werden deutlich dunkler und entsaettigter -- naeher an Schwarz mit nur einem minimalen, kuehlen Blauton. Das ergibt einen eleganten, klassischen dunklen Hintergrund ohne auffaellige Cyan-Akzente.
+**4. Kontaktformular und Voice-Agent beibehalten**
+- Beide bleiben als sekundaere Kontaktoptionen erhalten
+- Visuell dem neuen Stil anpassen (weniger Card-Optik, mehr Minimalismus)
 
-Die gleiche Anpassung wird auch fuer den `.dark`-Modus vorgenommen, damit beide konsistent sind.
+**5. Direkter Kontakt Footer**
+- `bg-muted` durch subtilere Darstellung ersetzen (z.B. border-top statt farbiger Hintergrund)
+
+### Technische Details
+- Nur `src/pages/Contact.tsx` wird geaendert
+- Alle bestehenden Komponenten (ContactForm, VoiceAgent, CalendlyButton) bleiben unveraendert
+- Scroll-Animationen (scroll-reveal) bleiben aktiv
 
