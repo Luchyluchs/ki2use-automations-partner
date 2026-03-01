@@ -35,7 +35,7 @@ const NewDemoLogin: React.FC<NewDemoLoginProps> = ({ onLogin }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-hero flex items-center justify-center p-4 pb-20 lg:pb-4 scroll-reveal">
+    <div className="min-h-screen bg-gradient-hero flex items-center justify-center p-4 pb-20 lg:pb-4 animate-fade-in">
       <div className="w-full max-w-md space-y-6">
         {/* Back to Homepage Link */}
         <div className="text-center">
