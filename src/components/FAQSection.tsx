@@ -1,5 +1,4 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion";
-import { useScrollReveal } from "@/hooks/useScrollAnimations";
 
 const faqs = [
   {
@@ -25,7 +24,6 @@ const faqs = [
 ];
 
 const FAQSection = () => {
-  useScrollReveal();
 
   return (
     <section id="faq" className="section-padding relative overflow-hidden py-24">

@@ -9,7 +9,7 @@ const LeadMagnetsSection = () => {
       <div className="absolute inset-0 bg-gradient-mesh"></div>
       <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-cyan-500/5 rounded-full blur-3xl"></div>
       <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 scroll-reveal">
           <h2 className="text-3xl md:text-4xl font-thin text-white mb-6">
             Entdecken Sie Ihr <span className="text-primary">KI-Automatisierungs-Potenzial</span>
           </h2>
@@ -20,7 +20,7 @@ const LeadMagnetsSection = () => {
         </div>
 
         <div className="w-full max-w-6xl mx-auto">
-          <Card className="bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20">
+          <Card className="bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20 scroll-scale">
             <CardContent className="p-8">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
                 <div>
@@ -70,7 +70,7 @@ const LeadMagnetsSection = () => {
         </div>
 
         {/* Newsletter Section */}
-        <div className="mt-16">
+        <div className="mt-16 scroll-reveal">
           <NewsletterSignup />
         </div>
       </div>
