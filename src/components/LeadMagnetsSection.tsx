@@ -24,14 +24,9 @@ const LeadMagnetsSection = () => {
             <CardContent className="p-8">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
                 <div>
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center">
-                      <Brain className="w-6 h-6 text-primary-foreground" />
-                    </div>
-                    <div>
+                  <div className="mb-4">
                       <h3 className="text-2xl font-light text-white">Smart Business-Analyse</h3>
                       <p className="text-sm text-primary font-light">IST-Zustand vs. Potenzial</p>
-                    </div>
                   </div>
                   
                   <p className="text-white/60 mb-6 text-lg font-light">
