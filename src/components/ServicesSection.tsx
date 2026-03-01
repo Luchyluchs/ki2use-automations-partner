@@ -35,11 +35,11 @@ const ServicesSection = () => {
     {
       icon: BadgeEuro,
       title: "Förderung",
-      description: "Wir prüfen, welche staatlichen Förderprogramme (Digital Jetzt, ZIM und mehr) für Sie in Frage kommen – und unterstützen bei der Antragstellung.",
+      description: "Wir prüfen, welche staatlichen Förderprogramme für Sie in Frage kommen – und unterstützen bei der Antragstellung.",
       features: [
         "Fördermittel-Check für Ihr Unternehmen",
-        "Digital Jetzt (bis 50% Zuschuss)",
-        "ZIM-Förderung prüfen",
+        "Bis zu 50% Zuschuss möglich",
+        "Passende Programme identifizieren",
         "Unterstützung bei der Antragstellung",
         "Maximale Fördersumme sichern"
       ],
