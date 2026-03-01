@@ -90,23 +90,23 @@ const CustomAgents = () => {
   return <Layout>
       <CustomAgentsFAQ />
       {/* Header */}
-      <section className="bg-gradient-subtle pt-6 pb-16 relative overflow-hidden">
+      <section className="bg-gradient-hero pt-6 pb-16 relative overflow-hidden">
         <div className="absolute top-0 right-1/4 w-72 h-72 bg-primary/5 rounded-full blur-3xl parallax-slow"></div>
         <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl parallax-slow"></div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="max-w-4xl mx-auto text-center scroll-reveal">
-            <Button variant="ghost" size="sm" asChild className="mb-8 hover-scale">
+          <div className="max-w-4xl mx-auto text-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 hover-scale scroll-reveal">
+            <Button variant="ghost" size="sm" asChild className="mb-8 hover-scale text-primary-foreground">
               <Link to="/">
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Zurück zur Startseite
               </Link>
             </Button>
             
-            <h1 className="mb-6 scroll-reveal stagger-delay-1">
+            <h1 className="mb-6 text-primary-foreground scroll-reveal stagger-delay-1">
               Maßgeschneiderte{" "}
               <span className="text-primary">KI-Automatisierung</span> für Ihren Erfolg
             </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed scroll-reveal stagger-delay-2">
+            <p className="text-xl text-white/70 leading-relaxed scroll-reveal stagger-delay-2">
               Einzigartige KI-Agenten und Automatisierungsworkflows, die perfekt auf Ihre 
               individuellen Geschäftsprozesse zugeschnitten sind. Maximale Effizienz durch passgenaue Digitalisierung.
             </p>
