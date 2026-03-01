@@ -21,7 +21,7 @@ const MobileBottomNav = () => {
     {
       icon: Phone,
       label: "Beratung",
-      href: "/kontakt",
+      href: "/beratung",
       primary: true
     },
     {
