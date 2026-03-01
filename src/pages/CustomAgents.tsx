@@ -1,3 +1,4 @@
+import { useScrollReveal, useParallax, useScrollFade } from "@/hooks/useScrollAnimations";
 import { useSEO, SEOTemplates } from "@/hooks/useSEO";
 import { CustomAgentsFAQ } from "@/components/StructuredData";
 import Layout from "@/components/Layout";
@@ -8,6 +9,10 @@ import CustomROICalculator from "@/components/CustomROICalculator";
 import CalendlyButton from "@/components/CalendlyButton";
 
 const CustomAgents = () => {
+  useScrollReveal();
+  useParallax();
+  useScrollFade();
+
   // SEO optimization for Custom Agents page
   useSEO(SEOTemplates.customAgents);
 

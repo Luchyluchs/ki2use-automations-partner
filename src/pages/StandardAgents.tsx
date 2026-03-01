@@ -1,3 +1,4 @@
+import { useScrollReveal, useParallax, useScrollFade } from "@/hooks/useScrollAnimations";
 import { useSEO, SEOTemplates } from "@/hooks/useSEO";
 import { StandardAgentsFAQ } from "@/components/StructuredData";
 import Layout from "@/components/Layout";
@@ -6,6 +7,9 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, CheckCircle, Calendar } from "lucide-react";
 import ROICalculator from "@/components/ROICalculator";
 const StandardAgents = () => {
+  useScrollReveal();
+  useParallax();
+  useScrollFade();
   // SEO optimization for Standard Agents page
   useSEO(SEOTemplates.standardAgents);
   const agents = [{
