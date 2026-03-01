@@ -217,12 +217,12 @@ const ROICalculator = () => {
             </div>
           </Card>
 
-           <Card className="p-6 bg-gradient-to-br from-green-50 to-green-100 dark:from-green-950 dark:to-green-900 hover-lift">
+           <Card className="p-6 bg-gradient-to-br from-accent/5 to-primary/5 hover-lift">
             <div className="flex items-center gap-2 mb-4">
-              <Clock className="w-5 h-5 text-green-600" />
+              <Clock className="w-5 h-5 text-accent" />
               <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
-                <h4 className="font-semibold text-green-800 dark:text-green-200">ROI-Analyse</h4>
-                <div className="text-xs bg-white/20 px-2 py-1 rounded-full text-green-700 dark:text-green-300">
+                <h4 className="font-semibold">ROI-Analyse</h4>
+                <div className="text-xs bg-accent/10 px-2 py-1 rounded-full text-muted-foreground">
                   Return on Investment = Rendite der Investition
                 </div>
               </div>
@@ -230,7 +230,7 @@ const ROICalculator = () => {
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
                 <span>Jährliche Rendite:</span>
-                <span className="text-green-600 font-bold text-lg">
+                <span className="text-accent font-bold text-lg">
                   {yearlyROI > 0 ? '+' : ''}{yearlyROI.toFixed(0)}%
                 </span>
               </div>
