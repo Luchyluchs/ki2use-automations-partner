@@ -23,26 +23,26 @@ const AboutSection = () => {
             </p>
           </div>
 
-          <div className="scroll-scale stagger-delay-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mt-8 sm:mt-12">
-             <div className="flex items-start space-x-3 sm:space-x-4 p-4 sm:p-6 bg-card/30 rounded-xl border border-card-border/50">
-              <Award className="w-6 h-6 text-primary flex-shrink-0 mt-1" strokeWidth={1.5} />
+           <div className="scroll-scale stagger-delay-2 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 mt-8 sm:mt-12">
+             <div className="flex items-start space-x-3 sm:space-x-4 p-4 sm:p-5 bg-card/30 rounded-xl border border-card-border/50">
+              <Award className="w-5 h-5 sm:w-6 sm:h-6 text-primary flex-shrink-0 mt-1" strokeWidth={1.5} />
               <div>
-                <h3 className="font-medium text-foreground mb-1">IHK-zertifiziert</h3>
-                <p className="text-sm text-muted-foreground">Geprüfter KI-Manager – IHK Düsseldorf</p>
+                <h3 className="font-medium text-foreground mb-1 text-sm sm:text-base">IHK-zertifiziert</h3>
+                <p className="text-xs sm:text-sm text-muted-foreground">Geprüfter KI-Manager – IHK Düsseldorf</p>
               </div>
             </div>
-             <div className="flex items-start space-x-3 sm:space-x-4 p-4 sm:p-6 bg-card/30 rounded-xl border border-card-border/50">
-              <Shield className="w-6 h-6 text-primary flex-shrink-0 mt-1" strokeWidth={1.5} />
+             <div className="flex items-start space-x-3 sm:space-x-4 p-4 sm:p-5 bg-card/30 rounded-xl border border-card-border/50">
+              <Shield className="w-5 h-5 sm:w-6 sm:h-6 text-primary flex-shrink-0 mt-1" strokeWidth={1.5} />
               <div>
-                <h3 className="font-medium text-foreground mb-1">DSGVO-konform</h3>
-                <p className="text-sm text-muted-foreground">Datenschutz von Anfang an mitgedacht</p>
+                <h3 className="font-medium text-foreground mb-1 text-sm sm:text-base">DSGVO-konform</h3>
+                <p className="text-xs sm:text-sm text-muted-foreground">Datenschutz von Anfang an mitgedacht</p>
               </div>
             </div>
-            <div className="flex items-start space-x-3 sm:space-x-4 p-4 sm:p-6 bg-card/30 rounded-xl border border-card-border/50 sm:col-span-2 md:col-span-1">
-              <Users className="w-6 h-6 text-primary flex-shrink-0 mt-1" strokeWidth={1.5} />
+            <div className="flex items-start space-x-3 sm:space-x-4 p-4 sm:p-5 bg-card/30 rounded-xl border border-card-border/50">
+              <Users className="w-5 h-5 sm:w-6 sm:h-6 text-primary flex-shrink-0 mt-1" strokeWidth={1.5} />
               <div>
-                <h3 className="font-medium text-foreground mb-1">Deutschlandweit</h3>
-                <p className="text-sm text-muted-foreground">Persönlicher Ansprechpartner für Ihr Projekt</p>
+                <h3 className="font-medium text-foreground mb-1 text-sm sm:text-base">Deutschlandweit</h3>
+                <p className="text-xs sm:text-sm text-muted-foreground">Persönlicher Ansprechpartner für Ihr Projekt</p>
               </div>
             </div>
           </div>
