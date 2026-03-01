@@ -246,8 +246,8 @@ const CustomAgents = () => {
       </section>
 
       {/* ROI Calculator */}
-      <section className="section-padding bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 scroll-scale">
+      <section className="section-padding bg-gradient-hero">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 scroll-reveal">
           <div className="text-center mb-12 scroll-reveal">
             <h2 className="mb-6 scroll-reveal stagger-delay-1">
               Berechnen Sie Ihre{" "}
