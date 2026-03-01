@@ -3,7 +3,7 @@ import TrustIndicators from "./TrustIndicators";
 
 const CTASection = () => {
   return (
-    <section className="section-padding bg-gradient-hero relative overflow-hidden">
+    <section className="section-padding relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-mesh"></div>
       <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-cyan-500/5 rounded-full blur-3xl parallax-slow"></div>
       <div className="absolute bottom-1/3 left-1/4 w-[500px] h-[500px] bg-cyan-400/5 rounded-full blur-3xl parallax-slow"></div>

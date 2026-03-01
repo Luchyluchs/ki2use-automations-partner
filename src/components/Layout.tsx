@@ -113,7 +113,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       </header>
 
       <Breadcrumbs />
-      <main className="pb-20 lg:pb-0">{children}</main>
+      <main className="pb-20 lg:pb-0 bg-gradient-hero">{children}</main>
 
       <footer className="bg-gradient-hero relative overflow-hidden border-t border-white/10">
         <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12">

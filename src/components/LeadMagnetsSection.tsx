@@ -5,7 +5,7 @@ import BusinessAnalysisTool from './BusinessAnalysisTool';
 
 const LeadMagnetsSection = () => {
   return (
-    <section className="py-16 bg-gradient-hero relative overflow-hidden">
+    <section className="py-16 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-mesh"></div>
       <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-cyan-500/5 rounded-full blur-3xl"></div>
       <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">

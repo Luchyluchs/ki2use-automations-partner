@@ -80,7 +80,7 @@ const StandardAgents = () => {
     <Layout>
       <StandardAgentsFAQ />
       {/* Header */}
-      <section className="bg-gradient-hero pt-6 pb-16 relative overflow-hidden">
+      <section className="pt-6 pb-16 relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="max-w-4xl mx-auto text-center scroll-reveal">
             <Button variant="ghost" size="sm" asChild className="mb-8">
@@ -103,7 +103,7 @@ const StandardAgents = () => {
       </section>
 
       {/* Agents Grid */}
-      <section className="pb-16 pt-4 bg-gradient-hero relative overflow-hidden">
+      <section className="pb-16 pt-4 relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {agents.map((agent, index) => (
@@ -152,14 +152,14 @@ const StandardAgents = () => {
       </section>
 
       {/* ROI Calculator */}
-      <section className="py-16 bg-gradient-hero">
+      <section className="py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 scroll-scale">
           <ROICalculator />
         </div>
       </section>
 
       {/* Important Note */}
-      <section className="section-padding bg-gradient-hero">
+      <section className="section-padding">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto border border-card-border/30 rounded-2xl p-6 text-center scroll-reveal">
             <h3 className="text-xl font-light mb-4">

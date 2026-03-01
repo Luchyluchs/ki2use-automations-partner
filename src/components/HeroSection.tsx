@@ -9,7 +9,7 @@ const HeroSection = () => {
   useEnhancedParallax();
 
   return (
-    <section className="relative overflow-hidden min-h-[80vh] flex items-center bg-gradient-hero text-white">
+    <section className="relative overflow-hidden min-h-[80vh] flex items-center text-white">
       <div className="absolute inset-0 bg-gradient-mesh"></div>
       <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-cyan-500/5 rounded-full blur-3xl"></div>
       <div className="absolute bottom-1/3 left-1/4 w-[500px] h-[500px] bg-cyan-400/5 rounded-full blur-3xl"></div>
