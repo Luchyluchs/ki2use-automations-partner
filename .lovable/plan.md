@@ -1,32 +1,43 @@
 
 
-## Scroll-Effekt auf der ganzen Seite reparieren
+## ROI-Rechner Seite: Scroll-Effekte, Hover-Effekte und Farbanpassung
 
 ### Problem
-Nach Analyse des Codes gibt es zwei Hauptursachen:
+Die ROI-Rechner Seite (/roi-rechner) hat drei Defizite:
+1. Keine Scroll-Reveal-Animationen auf den meisten Sektionen
+2. Fehlende Hover-/Maus-Effekte auf den Schritt-Karten und dem Rechner
+3. Zu grelle/helle Blautoene (besonders CTA-Sektion und Icon-Kreise)
 
-1. **LeadMagnetsSection hat keine Animations-Klassen** -- weder die Ueberschrift noch die Card noch der Newsletter-Bereich haben `scroll-reveal` oder `scroll-scale` Klassen. Deshalb passiert dort beim Scrollen nichts.
+### Aenderungen
 
-2. **Elemente verschwinden wieder** -- der Observer entfernt `revealed` wenn ein Element den Viewport verlaesst (Zeile 16-22 in useScrollAnimations.ts). Das fuehrt zu Flackern und dazu, dass Inhalte beim Zurueckscrollen kurz verschwinden und neu einblenden.
+**1. ROICalculator.tsx (Seite) -- Scroll- und Hover-Effekte hinzufuegen**
 
-### Loesung
+- Benefits-Grid (3 Karten: Kostentransparenz, Amortisationszeit, Agenten-Analyse):
+  - Jede Karte bekommt `scroll-reveal` Klasse
+  - `hover-lift` ist bereits vorhanden (gut)
 
-**1. useScrollAnimations.ts -- "Reveal once" Logik**
-- Die `else`-Branch entfernen, die `revealed` wieder wegnimmt
-- Elemente nach dem Reveal mit `unobserve()` vom Observer abmelden (spart auch Performance)
-- Stagger-Children bleiben dauerhaft sichtbar nach erstem Einblenden
+- Rechner-Sektion:
+  - Container bekommt `scroll-scale` Klasse
 
-**2. LeadMagnetsSection.tsx -- Fehlende Animations-Klassen ergaenzen**
-- Ueberschrift-Block: `scroll-reveal`
-- Haupt-Card: `scroll-scale`
-- Newsletter-Block: `scroll-reveal`
+- "So funktioniert die Agenten-Berechnung"-Sektion:
+  - Ueberschrift-Block bekommt `scroll-reveal`
+  - Beschreibungstext bekommt `fade-in-element`
+  - Jede der 4 Schritt-Karten bekommt `scroll-reveal` und `hover-lift`
 
-**3. CTASection.tsx -- Redundanten Hook-Aufruf entfernen**
-- `useScrollReveal()` wird bereits in Index.tsx aufgerufen und beobachtet global alle Elemente
-- Der zusaetzliche Aufruf in CTASection ist unnoetig
+- CTA-Sektion:
+  - Textblock bekommt `scroll-reveal`
+
+**2. ROICalculator.tsx (Seite) -- Grelle Blautoene abdunkeln**
+
+- CTA-Sektion: `bg-gradient-primary` ersetzen durch einen dunkleren, gedaempften Gradient passend zum Neura-Design (z.B. `bg-gradient-hero` oder eine eigene dunklere Variante)
+- Icon-Kreise in Benefits und Steps: `bg-gradient-primary` durch `bg-primary/20` mit `text-primary` Icon ersetzen -- subtiler, weniger grell
+- CTA-Button Styling anpassen: weniger Kontrast, passend zum dunkleren Hintergrund
+
+**3. ROICalculator.tsx (Komponente) -- Scroll-Effekte im Rechner selbst**
+
+- Die Result-Cards (Aktuelle Kosten, Mit KI-Assistent, ROI-Analyse) bekommen `hover-lift`
+- Der gesamte Rechner-Container bekommt `scroll-scale`
 
 ### Betroffene Dateien
-- `src/hooks/useScrollAnimations.ts` -- Reveal-once + unobserve
-- `src/components/LeadMagnetsSection.tsx` -- Animations-Klassen hinzufuegen
-- `src/components/CTASection.tsx` -- Redundanten useScrollReveal entfernen
-
+- `src/pages/ROICalculator.tsx` -- Scroll-Klassen + Farbkorrektur
+- `src/components/ROICalculator.tsx` -- Hover-Effekte auf Result-Cards
