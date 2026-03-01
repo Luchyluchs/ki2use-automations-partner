@@ -78,8 +78,8 @@ const ROICalculatorPage = () => {
       </section>
 
       {/* ROI Calculator */}
-      <section className="section-padding bg-muted">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 scroll-scale">
+      <section className="section-padding bg-gradient-hero">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 scroll-reveal">
           <ROICalculator />
         </div>
       </section>
