@@ -74,7 +74,7 @@ const Training = () => {
   return (
     <Layout>
       {/* Header */}
-      <section className="bg-gradient-hero pt-6 pb-16">
+      <section className="pt-6 pb-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center scroll-reveal">
             <Button variant="ghost" size="sm" asChild className="mb-8">
@@ -97,7 +97,7 @@ const Training = () => {
       </section>
 
       {/* Description */}
-      <section className="section-padding bg-gradient-hero">
+      <section className="section-padding">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
@@ -139,7 +139,7 @@ const Training = () => {
       </section>
 
       {/* Training Programs */}
-      <section className="section-padding bg-gradient-hero">
+      <section className="section-padding">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 scroll-reveal">
             <h2 className="mb-6 font-thin tracking-tight">
@@ -228,7 +228,7 @@ const Training = () => {
       </section>
 
       {/* Benefits */}
-      <section className="section-padding bg-gradient-hero">
+      <section className="section-padding">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 scroll-reveal">
             <h2 className="mb-6 font-thin tracking-tight">
@@ -258,7 +258,7 @@ const Training = () => {
       </section>
 
       {/* Target Groups */}
-      <section className="section-padding bg-gradient-hero">
+      <section className="section-padding">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 scroll-reveal">
             <h2 className="mb-6 font-thin tracking-tight">
@@ -295,7 +295,7 @@ const Training = () => {
       </section>
 
       {/* CTA */}
-      <section className="section-padding bg-gradient-hero">
+      <section className="section-padding">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center scroll-reveal">
             <div className="border-t border-card-border/20 pt-12">

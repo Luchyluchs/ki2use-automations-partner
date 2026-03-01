@@ -17,7 +17,7 @@ const ROICalculatorPage = () => {
   return (
     <Layout>
       {/* Header */}
-      <section className="bg-gradient-hero pt-6 pb-16">
+      <section className="pt-6 pb-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center scroll-reveal">
             <Button variant="ghost" size="sm" asChild className="mb-8">
@@ -40,7 +40,7 @@ const ROICalculatorPage = () => {
       </section>
 
       {/* Benefits Overview */}
-      <section className="section-padding bg-gradient-hero">
+      <section className="section-padding">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             <div className="border border-card-border/30 rounded-xl p-6 text-center scroll-reveal">
@@ -77,14 +77,14 @@ const ROICalculatorPage = () => {
       </section>
 
       {/* ROI Calculator */}
-      <section className="section-padding bg-gradient-hero">
+      <section className="section-padding">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 scroll-reveal">
           <ROICalculator />
         </div>
       </section>
 
       {/* How it Works */}
-      <section className="section-padding bg-gradient-hero">
+      <section className="section-padding">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 scroll-reveal">
             <h2 className="mb-6 font-thin tracking-tight">
@@ -141,7 +141,7 @@ const ROICalculatorPage = () => {
       </section>
 
       {/* CTA */}
-      <section className="section-padding bg-gradient-hero">
+      <section className="section-padding">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center scroll-reveal">
             <div className="border-t border-card-border/20 pt-12">

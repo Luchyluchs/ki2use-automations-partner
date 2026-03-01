@@ -91,7 +91,7 @@ const CustomAgents = () => {
     <Layout>
       <CustomAgentsFAQ />
       {/* Header */}
-      <section className="bg-gradient-hero pt-6 pb-16 relative overflow-hidden">
+      <section className="pt-6 pb-16 relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="max-w-4xl mx-auto text-center scroll-reveal">
             <Button variant="ghost" size="sm" asChild className="mb-8">
@@ -114,7 +114,7 @@ const CustomAgents = () => {
       </section>
 
       {/* Description */}
-      <section className="section-padding bg-gradient-hero relative overflow-hidden">
+      <section className="section-padding relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
@@ -147,7 +147,7 @@ const CustomAgents = () => {
       </section>
 
       {/* Process Steps */}
-      <section className="section-padding bg-gradient-hero relative overflow-hidden">
+      <section className="section-padding relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 scroll-reveal">
             <h2 className="mb-6 scroll-reveal stagger-delay-1 font-thin tracking-tight">
@@ -205,7 +205,7 @@ const CustomAgents = () => {
       </section>
 
       {/* Advantages */}
-      <section className="section-padding bg-gradient-hero">
+      <section className="section-padding">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 scroll-reveal">
             <h2 className="mb-6 scroll-reveal stagger-delay-1 font-thin tracking-tight">
@@ -232,7 +232,7 @@ const CustomAgents = () => {
       </section>
 
       {/* ROI Calculator */}
-      <section className="section-padding bg-gradient-hero">
+      <section className="section-padding">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 scroll-reveal">
           <div className="text-center mb-12 scroll-reveal">
             <h2 className="mb-6 scroll-reveal stagger-delay-1 font-thin tracking-tight">
@@ -248,7 +248,7 @@ const CustomAgents = () => {
       </section>
 
       {/* CTA */}
-      <section className="section-padding bg-gradient-hero">
+      <section className="section-padding">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center scroll-reveal">
             <div className="border-t border-card-border/20 pt-12">
