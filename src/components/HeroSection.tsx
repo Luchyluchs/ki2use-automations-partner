@@ -16,7 +16,7 @@ const HeroSection = () => {
       
       <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 pt-0 pb-12 sm:pt-0 sm:pb-16 lg:py-0 xl:py-0">
         {/* Mobile Layout */}
-        <div className="block lg:hidden text-left space-y-8 max-w-md mx-auto px-6 pt-8">
+        <div className="block lg:hidden text-left space-y-5 max-w-md mx-auto px-6 pt-6">
           <div className="enhanced-reveal inline-flex items-center rounded-full px-5 py-2 text-xs font-light bg-white/5 text-white/80 border border-white/10">
             IHK-zertifiziert · Made in Germany
           </div>
