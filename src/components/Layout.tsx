@@ -14,10 +14,10 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   const navigation = [
     { name: "Start", href: "/" },
     { name: "Beratung", href: "/beratung" },
-    { name: "Leistungen", href: "/#leistungen" },
-    { name: "Über uns", href: "/#ueber-uns" },
-    { name: "FAQ", href: "/#faq" },
-    { name: "Kontakt", href: "/kontakt" },
+    { name: "KI-Agenten", href: "/standard-agenten" },
+    { name: "KI-Rechner", href: "/roi-rechner" },
+    { name: "Förderung", href: "/foerderung" },
+    { name: "Demo", href: "/demoportal" },
   ];
 
   const isActive = (href: string) => {
@@ -28,15 +28,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
   const handleNavClick = (href: string) => {
     setIsMenuOpen(false);
-    if (href.startsWith("/#")) {
-      const id = href.replace("/#", "");
-      if (location.pathname === "/") {
-        const el = document.getElementById(id);
-        el?.scrollIntoView({ behavior: "smooth" });
-      } else {
-        window.location.href = href;
-      }
-    }
   };
 
   return (
@@ -50,25 +41,15 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             </Link>
 
             <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2">
-              {navigation.map(item => 
-                item.href.startsWith("/#") ? (
-                  <button
-                    key={item.name}
-                    onClick={() => handleNavClick(item.href)}
-                    className={`text-sm font-light transition-all duration-300 px-4 py-2 rounded-full text-white/70 hover:text-white hover:bg-white/5`}
-                  >
-                    {item.name}
-                  </button>
-                ) : (
-                  <Link
-                    key={item.name}
-                    to={item.href}
-                    className={`text-sm font-light transition-all duration-300 px-4 py-2 rounded-full ${isActive(item.href) ? "text-white bg-white/10" : "text-white/70 hover:text-white hover:bg-white/5"}`}
-                  >
-                    {item.name}
-                  </Link>
-                )
-              )}
+              {navigation.map(item => (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className={`text-sm font-light transition-all duration-300 px-4 py-2 rounded-full ${isActive(item.href) ? "text-white bg-white/10" : "text-white/70 hover:text-white hover:bg-white/5"}`}
+                >
+                  {item.name}
+                </Link>
+              ))}
               <Button variant="default" size="sm" asChild className="ml-6 bg-primary hover:bg-primary-hover text-white font-light rounded-full px-6">
                 <Link to="/kontakt">Erstgespräch</Link>
               </Button>
@@ -82,26 +63,16 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           {isMenuOpen && (
             <div className="lg:hidden border-t border-white/5 py-6 bg-background/98 backdrop-blur-md">
               <nav className="flex flex-col space-y-2">
-                {navigation.map(item => 
-                  item.href.startsWith("/#") ? (
-                    <button
-                      key={item.name}
-                      onClick={() => handleNavClick(item.href)}
-                      className="text-base font-light transition-all duration-300 px-4 py-3 rounded-full text-white/70 hover:text-white hover:bg-white/5 text-left"
-                    >
-                      {item.name}
-                    </button>
-                  ) : (
-                    <Link
-                      key={item.name}
-                      to={item.href}
-                      onClick={() => setIsMenuOpen(false)}
-                      className={`text-base font-light transition-all duration-300 px-4 py-3 rounded-full ${isActive(item.href) ? "text-white bg-white/10" : "text-white/70 hover:text-white hover:bg-white/5"}`}
-                    >
-                      {item.name}
-                    </Link>
-                  )
-                )}
+                {navigation.map(item => (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className={`text-base font-light transition-all duration-300 px-4 py-3 rounded-full ${isActive(item.href) ? "text-white bg-white/10" : "text-white/70 hover:text-white hover:bg-white/5"}`}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
                 <div className="px-4 pt-4">
                   <Button variant="default" size="sm" asChild className="w-full bg-primary hover:bg-primary-hover text-white font-light rounded-full">
                     <Link to="/kontakt" onClick={() => setIsMenuOpen(false)}>Erstgespräch</Link>
@@ -131,11 +102,12 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             </div>
             
             <div>
-              <h3 className="font-semibold text-white mb-3 sm:mb-4 text-sm sm:text-base">Leistungen</h3>
+              <h3 className="font-semibold text-white mb-3 sm:mb-4 text-sm sm:text-base">Angebot</h3>
               <ul className="space-y-2 text-white/60 text-sm sm:text-base">
-                <li><Link to="/kontakt" className="hover:text-white transition-smooth block py-1">KI-Beratung</Link></li>
-                <li><Link to="/kontakt" className="hover:text-white transition-smooth block py-1">Umsetzung</Link></li>
-                <li><Link to="/kontakt" className="hover:text-white transition-smooth block py-1">Förderung</Link></li>
+                <li><Link to="/beratung" className="hover:text-white transition-smooth block py-1">KI-Beratung</Link></li>
+                <li><Link to="/standard-agenten" className="hover:text-white transition-smooth block py-1">KI-Agenten</Link></li>
+                <li><Link to="/foerderung" className="hover:text-white transition-smooth block py-1">Förderung</Link></li>
+                <li><Link to="/roi-rechner" className="hover:text-white transition-smooth block py-1">KI-Rechner</Link></li>
                 <li><Link to="/demoportal" className="hover:text-white transition-smooth block py-1">Demoportal</Link></li>
               </ul>
             </div>

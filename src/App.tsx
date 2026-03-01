@@ -17,6 +17,7 @@ import ROICalculatorPage from "./pages/ROICalculator";
 import Training from "./pages/Training";
 import Contact from "./pages/Contact";
 import Beratung from "./pages/Beratung";
+import Foerderung from "./pages/Foerderung";
 
 import Impressum from "./pages/Impressum";
 import Datenschutz from "./pages/Datenschutz";
@@ -43,6 +44,7 @@ const App = () => (
           <Route path="/ki-schulungen" element={<Training />} />
           
           <Route path="/beratung" element={<Beratung />} />
+          <Route path="/foerderung" element={<Foerderung />} />
           <Route path="/kontakt" element={<Contact />} />
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/datenschutz" element={<Datenschutz />} />
