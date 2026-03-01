@@ -50,53 +50,51 @@ const Contact = () => {
             {/* Primary: Beratungsgespräch mit 3-Schritt-Prozess */}
             <div className="mb-16 scroll-reveal">
               <div className="border border-card-border/30 rounded-2xl p-6 md:p-10 max-w-5xl mx-auto">
-                <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
-                  <div className="lg:col-span-3">
-                    <h2 className="text-2xl md:text-3xl font-thin mb-3 text-foreground tracking-tight">
-                      Kostenloses Erstgespräch
-                    </h2>
-                    <p className="text-muted-foreground font-light mb-6">
-                      30 Minuten persönliche KI-Beratung — individuell auf Ihr Unternehmen zugeschnitten.
-                    </p>
-                    
-                    {/* 3-Schritt Beratungsprozess */}
-                    <div className="space-y-4">
-                      <div className="flex items-start gap-3">
-                        <div className="w-8 h-8 rounded-full border border-primary/30 flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <Search className="w-4 h-4 text-primary" />
-                        </div>
-                        <div>
-                          <p className="text-sm font-light text-foreground">Analyse</p>
-                          <p className="text-sm text-muted-foreground font-light">Wir analysieren Ihre Prozesse und identifizieren KI-Potenziale</p>
-                        </div>
+                <div>
+                  <h2 className="text-2xl md:text-3xl font-thin mb-3 text-foreground tracking-tight">
+                    Kostenloses Erstgespräch
+                  </h2>
+                  <p className="text-muted-foreground font-light mb-6">
+                    30 Minuten persönliche KI-Beratung — individuell auf Ihr Unternehmen zugeschnitten.
+                  </p>
+                  
+                  {/* 3-Schritt Beratungsprozess */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div className="flex items-start gap-3">
+                      <div className="w-8 h-8 rounded-full border border-primary/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Search className="w-4 h-4 text-primary" />
                       </div>
-                      <div className="flex items-start gap-3">
-                        <div className="w-8 h-8 rounded-full border border-primary/30 flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <Lightbulb className="w-4 h-4 text-primary" />
-                        </div>
-                        <div>
-                          <p className="text-sm font-light text-foreground">Empfehlung</p>
-                          <p className="text-sm text-muted-foreground font-light">Sie erhalten konkrete, unverbindliche Handlungsempfehlungen</p>
-                        </div>
+                      <div>
+                        <p className="text-sm font-light text-foreground">Analyse</p>
+                        <p className="text-sm text-muted-foreground font-light">Wir analysieren Ihre Prozesse und identifizieren KI-Potenziale</p>
                       </div>
-                      <div className="flex items-start gap-3">
-                        <div className="w-8 h-8 rounded-full border border-primary/30 flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <Rocket className="w-4 h-4 text-primary" />
-                        </div>
-                        <div>
-                          <p className="text-sm font-light text-foreground">Umsetzung</p>
-                          <p className="text-sm text-muted-foreground font-light">Gemeinsam setzen wir die passende Lösung für Sie um</p>
-                        </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="w-8 h-8 rounded-full border border-primary/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Lightbulb className="w-4 h-4 text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-light text-foreground">Empfehlung</p>
+                        <p className="text-sm text-muted-foreground font-light">Sie erhalten konkrete, unverbindliche Handlungsempfehlungen</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="w-8 h-8 rounded-full border border-primary/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Rocket className="w-4 h-4 text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-light text-foreground">Umsetzung</p>
+                        <p className="text-sm text-muted-foreground font-light">Gemeinsam setzen wir die passende Lösung für Sie um</p>
                       </div>
                     </div>
                   </div>
                   
-                  <div className="lg:col-span-2 flex flex-col items-center lg:items-end justify-center lg:pt-4">
+                  <div className="flex flex-col items-center">
                     <CalendlyButton 
                       text="Beratungsgespräch vereinbaren"
                       variant="cta"
                       size="lg"
-                      className="w-full"
+                      className="max-w-md w-full"
                       icon={false}
                     />
                     <div className="mt-3 text-sm text-muted-foreground font-light">
