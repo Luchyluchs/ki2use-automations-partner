@@ -51,9 +51,9 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="leistungen" className="section-padding relative overflow-hidden py-24">
+    <section id="leistungen" className="section-padding relative overflow-hidden py-12 sm:py-16 lg:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="mb-20">
+        <div className="mb-10 sm:mb-14 lg:mb-20">
           <h2 className="scroll-reveal mb-6 text-4xl lg:text-5xl font-thin text-foreground">
             Unsere Leistungen
           </h2>
