@@ -5,7 +5,7 @@ import ContactForm from "@/components/ContactForm";
 import VoiceAgent from "@/components/VoiceAgent";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowLeft, Calendar, Mail, Phone, Clock, MessageCircle, Headphones } from "lucide-react";
+import { ArrowLeft, Mail, Phone, Clock, MessageCircle, Headphones, Search, Lightbulb, Rocket } from "lucide-react";
 import CalendlyButton from "@/components/CalendlyButton";
 
 const Contact = () => {
@@ -14,12 +14,11 @@ const Contact = () => {
   useScrollFade();
   useMagneticCursor();
   
-  // SEO optimization for Contact page
   useSEO(SEOTemplates.contact);
   
   return (
     <Layout>
-      {/* Hero Section - Compact */}
+      {/* Hero Section */}
       <section className="bg-gradient-hero pt-6 pb-8">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
@@ -31,48 +30,76 @@ const Contact = () => {
             </Button>
             
             <div className="text-center max-w-2xl mx-auto">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                Sprechen wir über Ihre{" "}
-                <span className="text-primary">KI-Automatisierung</span>
+              <h1 className="text-4xl md:text-5xl font-thin mb-4 tracking-tight">
+                Ihr Weg zur KI beginnt{" "}
+                <span className="text-primary font-light">mit einem Gespräch</span>
               </h1>
-              <p className="text-lg text-muted-foreground">
-                Drei einfache Wege, um mit uns in Kontakt zu treten
+              <p className="text-lg text-muted-foreground font-light">
+                Analyse · Empfehlung · Umsetzung — drei Schritte zu Ihrer individuellen KI-Lösung
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Main Content - Asymmetric Grid */}
-      <section className="py-12 bg-background">
+      {/* Main Content */}
+      <section className="py-12 bg-gradient-hero">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             
-            {/* Primary Action - Calendly (Prominent but not overwhelming) */}
-            <div className="mb-16">
-              <div className="bg-card border border-card-border rounded-2xl p-6 md:p-10 max-w-5xl mx-auto shadow-elevated">
-                <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 items-center">
+            {/* Primary: Beratungsgespräch mit 3-Schritt-Prozess */}
+            <div className="mb-16 scroll-reveal">
+              <div className="border border-card-border/30 rounded-2xl p-6 md:p-10 max-w-5xl mx-auto">
+                <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
                   <div className="lg:col-span-3">
-                    <h2 className="text-2xl md:text-3xl font-bold mb-2 text-foreground">
-                      Kostenloses Beratungsgespräch
+                    <h2 className="text-2xl md:text-3xl font-thin mb-3 text-foreground tracking-tight">
+                      Kostenloses Erstgespräch
                     </h2>
-                    <p className="text-lg mb-2 text-muted-foreground">
-                      30 Minuten persönliche KI-Beratung
+                    <p className="text-muted-foreground font-light mb-6">
+                      30 Minuten persönliche KI-Beratung — individuell auf Ihr Unternehmen zugeschnitten.
                     </p>
-                    <p className="text-muted-foreground">
-                      Individuelle Analyse Ihres Automatisierungspotenzials 
-                      mit konkreten, unverbindlichen Empfehlungen.
-                    </p>
+                    
+                    {/* 3-Schritt Beratungsprozess */}
+                    <div className="space-y-4">
+                      <div className="flex items-start gap-3">
+                        <div className="w-8 h-8 rounded-full border border-primary/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <Search className="w-4 h-4 text-primary" />
+                        </div>
+                        <div>
+                          <p className="text-sm font-light text-foreground">Analyse</p>
+                          <p className="text-sm text-muted-foreground font-light">Wir analysieren Ihre Prozesse und identifizieren KI-Potenziale</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="w-8 h-8 rounded-full border border-primary/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <Lightbulb className="w-4 h-4 text-primary" />
+                        </div>
+                        <div>
+                          <p className="text-sm font-light text-foreground">Empfehlung</p>
+                          <p className="text-sm text-muted-foreground font-light">Sie erhalten konkrete, unverbindliche Handlungsempfehlungen</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="w-8 h-8 rounded-full border border-primary/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <Rocket className="w-4 h-4 text-primary" />
+                        </div>
+                        <div>
+                          <p className="text-sm font-light text-foreground">Umsetzung</p>
+                          <p className="text-sm text-muted-foreground font-light">Gemeinsam setzen wir die passende Lösung für Sie um</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div className="lg:col-span-2 text-center lg:text-right">
+                  
+                  <div className="lg:col-span-2 flex flex-col items-center lg:items-end justify-center lg:pt-4">
                     <CalendlyButton 
-                      text="Kostenlosen Beratungstermin buchen"
+                      text="Beratungsgespräch vereinbaren"
                       variant="cta"
                       size="lg"
-                      className="bg-primary text-primary-foreground hover:bg-primary/90 w-full px-6 py-4 text-base font-semibold"
+                      className="w-full"
                       icon={false}
                     />
-                    <div className="mt-3 text-sm text-muted-foreground">
+                    <div className="mt-3 text-sm text-muted-foreground font-light">
                       <Clock className="w-4 h-4 inline mr-1" />
                       100% kostenlos & unverbindlich
                     </div>
@@ -81,22 +108,22 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Alternative Options - Balanced Grid */}
+            {/* Sekundäre Optionen */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
               
               {/* Contact Form */}
-              <div className="bg-card border border-card-border rounded-2xl p-8 h-full">
+              <div className="border border-card-border/30 rounded-2xl p-8 h-full scroll-reveal">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
-                    <MessageCircle className="w-5 h-5 text-primary-foreground" />
+                  <div className="w-10 h-10 rounded-full border border-primary/30 flex items-center justify-center">
+                    <MessageCircle className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold">Nachricht senden</h3>
-                    <p className="text-sm text-muted-foreground">Antwort binnen 24h</p>
+                    <h3 className="text-xl font-light">Nachricht senden</h3>
+                    <p className="text-sm text-muted-foreground font-light">Antwort binnen 24h</p>
                   </div>
                 </div>
                 
-                <p className="text-muted-foreground mb-6">
+                <p className="text-muted-foreground font-light mb-6">
                   Beschreiben Sie Ihr Anliegen und erhalten Sie eine 
                   persönliche Antwort von unseren Experten.
                 </p>
@@ -105,18 +132,18 @@ const Contact = () => {
               </div>
 
               {/* Voice Agent */}
-              <div className="bg-card border border-card-border rounded-2xl p-8 h-full">
+              <div className="border border-card-border/30 rounded-2xl p-8 h-full scroll-reveal">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
-                    <Headphones className="w-5 h-5 text-primary-foreground" />
+                  <div className="w-10 h-10 rounded-full border border-primary/30 flex items-center justify-center">
+                    <Headphones className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold">KI-Agent sprechen</h3>
-                    <p className="text-sm text-muted-foreground">Sofort verfügbar</p>
+                    <h3 className="text-xl font-light">KI-Agent sprechen</h3>
+                    <p className="text-sm text-muted-foreground font-light">Sofort verfügbar</p>
                   </div>
                 </div>
                 
-                <p className="text-muted-foreground mb-6">
+                <p className="text-muted-foreground font-light mb-6">
                   Starten Sie ein Gespräch mit unserem intelligenten Voice-Agent. 
                   Ideal für erste Fragen und schnelle Beratung.
                 </p>
@@ -125,12 +152,12 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Direct Contact - Compact Footer */}
-            <div className="bg-muted rounded-2xl p-6">
+            {/* Direkter Kontakt */}
+            <div className="border-t border-card-border/20 pt-8 scroll-reveal">
               <div className="flex flex-col md:flex-row justify-between items-center gap-6">
                 <div>
-                  <h4 className="font-semibold mb-2">Direkter Kontakt bevorzugt?</h4>
-                  <p className="text-sm text-muted-foreground">
+                  <h4 className="font-light mb-2">Direkter Kontakt bevorzugt?</h4>
+                  <p className="text-sm text-muted-foreground font-light">
                     Rufen Sie an oder schreiben Sie eine E-Mail
                   </p>
                 </div>
@@ -139,16 +166,16 @@ const Contact = () => {
                   <div className="flex items-center gap-3">
                     <Mail className="w-5 h-5 text-primary" />
                     <div>
-                      <div className="font-medium">info@ki2use.de</div>
-                      <div className="text-xs text-muted-foreground">24h Antwortzeit</div>
+                      <div className="font-light">info@ki2use.de</div>
+                      <div className="text-xs text-muted-foreground font-light">24h Antwortzeit</div>
                     </div>
                   </div>
                   
                   <div className="flex items-center gap-3">
                     <Phone className="w-5 h-5 text-primary" />
                     <div>
-                      <div className="font-medium">+49 162 63 19 474</div>
-                      <div className="text-xs text-muted-foreground">Mo-Fr: 9-18 Uhr</div>
+                      <div className="font-light">+49 162 63 19 474</div>
+                      <div className="text-xs text-muted-foreground font-light">Mo-Fr: 9-18 Uhr</div>
                     </div>
                   </div>
                 </div>
