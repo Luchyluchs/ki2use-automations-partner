@@ -78,7 +78,7 @@ const KIBenefitsSection = () => {
 
         <div className="text-center scroll-reveal stagger-delay-3">
           <p className="text-sm text-muted-foreground font-light">
-            Neugierig geworden? Schauen Sie sich unsere Leistungen an →
+            Neugierig geworden? Schauen Sie sich die Leistungen von KI2USE an →
           </p>
         </div>
       </div>

@@ -17,7 +17,7 @@ const CTASection = () => {
           </h2>
           <p className="scroll-reveal stagger-delay-1 text-xl mb-10 opacity-90 leading-relaxed">
             Vereinbaren Sie jetzt Ihr kostenloses Erstgespräch. 
-            Wir finden gemeinsam heraus, wie KI Ihr Unternehmen voranbringt – ganz ohne Verpflichtung.
+            Gemeinsam finden Sie heraus, wie KI Ihr Unternehmen voranbringt – ganz ohne Verpflichtung.
           </p>
 
           <div className="scroll-reveal stagger-delay-2 space-y-6">
@@ -36,7 +36,7 @@ const CTASection = () => {
             </p>
             
             <p className="text-xs opacity-50 mt-4">
-              Köln und Umgebung · Regionaler Ansprechpartner · Ehrliche Beratung ohne Tech-Blabla
+              Deutschlandweit · Persönlicher Ansprechpartner · Ehrliche Beratung ohne Tech-Blabla
             </p>
           </div>
         </div>

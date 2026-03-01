@@ -174,10 +174,10 @@ export const generateProfessionalAnalysisEmail = (data: AnalysisData): string =>
 
             <div class="cta-section">
                 <h3>🎯 Ihre nächsten Schritte</h3>
-                <p><strong>Basierend auf Ihrer Analyse empfehlen wir ein kostenloses 30-minütiges Strategiegespräch.</strong></p>
+                <p><strong>Basierend auf Ihrer Analyse empfiehlt KI2USE ein kostenloses 30-minütiges Strategiegespräch.</strong></p>
                 <p>In diesem Gespräch:</p>
                 <ul style="text-align: left; display: inline-block;">
-                    <li>Verfeinern wir Ihre Automatisierungsstrategie</li>
+                    <li>Ihre Automatisierungsstrategie wird verfeinert</li>
                     <li>Erstellen einen konkreten Implementierungsplan</li>
                     <li>Berechnen exakte ROI-Zahlen für Ihr Unternehmen</li>
                     <li>Definieren Quick-Wins für den sofortigen Einstieg</li>
@@ -188,7 +188,7 @@ export const generateProfessionalAnalysisEmail = (data: AnalysisData): string =>
             <div class="highlight-box">
                 <h3>⚡ Warum KI2USE der richtige Partner für Sie ist:</h3>
                 <ul>
-                    <li><strong>Spezialisiert auf deutsche KMUs:</strong> Wir verstehen Ihre Herausforderungen</li>
+                    <li><strong>Spezialisiert auf deutsche KMUs:</strong> KI2USE versteht Ihre Herausforderungen</li>
                     <li><strong>DSGVO-konform:</strong> Alle Lösungen entsprechen deutschen Datenschutzstandards</li>
                     <li><strong>Bewährte Methodik:</strong> Über 200 erfolgreiche KI-Implementierungen</li>
                     <li><strong>Komplettservice:</strong> Von der Beratung bis zur Implementierung</li>
