@@ -43,9 +43,9 @@ const ROICalculatorPage = () => {
       <section className="section-padding bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            <div className="bg-card border border-card-border rounded-xl p-6 text-center shadow-card hover-lift">
-              <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Euro className="w-6 h-6 text-primary-foreground" />
+            <div className="bg-card border border-card-border rounded-xl p-6 text-center shadow-card hover-lift scroll-reveal">
+              <div className="w-12 h-12 bg-primary/15 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <Euro className="w-6 h-6 text-primary" />
               </div>
               <h3 className="font-semibold mb-2">Kostentransparenz</h3>
               <p className="text-muted-foreground text-sm">
@@ -53,9 +53,9 @@ const ROICalculatorPage = () => {
               </p>
             </div>
             
-            <div className="bg-card border border-card-border rounded-xl p-6 text-center shadow-card hover-lift">
-              <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Clock className="w-6 h-6 text-primary-foreground" />
+            <div className="bg-card border border-card-border rounded-xl p-6 text-center shadow-card hover-lift scroll-reveal">
+              <div className="w-12 h-12 bg-primary/15 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <Clock className="w-6 h-6 text-primary" />
               </div>
               <h3 className="font-semibold mb-2">Amortisationszeit</h3>
               <p className="text-muted-foreground text-sm">
@@ -63,9 +63,9 @@ const ROICalculatorPage = () => {
               </p>
             </div>
             
-            <div className="bg-card border border-card-border rounded-xl p-6 text-center shadow-card hover-lift">
-              <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4">
-                <TrendingUp className="w-6 h-6 text-primary-foreground" />
+            <div className="bg-card border border-card-border rounded-xl p-6 text-center shadow-card hover-lift scroll-reveal">
+              <div className="w-12 h-12 bg-primary/15 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <TrendingUp className="w-6 h-6 text-primary" />
               </div>
               <h3 className="font-semibold mb-2">Agenten-Analyse</h3>
               <p className="text-muted-foreground text-sm">
@@ -78,7 +78,7 @@ const ROICalculatorPage = () => {
 
       {/* ROI Calculator */}
       <section className="section-padding bg-muted">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 scroll-scale">
           <ROICalculator />
         </div>
       </section>
@@ -86,19 +86,19 @@ const ROICalculatorPage = () => {
       {/* How it Works */}
       <section className="section-padding bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 scroll-reveal">
             <h2 className="mb-6 scale-in-element">
               So funktioniert die{" "}
               <span className="text-primary">Agenten-Berechnung</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto fade-in-element">
               Unser Rechner basiert auf bewährten Berechnungsmethoden und realen Projekterfahrungen
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-card border border-card-border rounded-xl p-6 text-center shadow-card">
-              <div className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 text-primary-foreground font-bold">
+            <div className="bg-card border border-card-border rounded-xl p-6 text-center shadow-card scroll-reveal hover-lift">
+              <div className="w-8 h-8 bg-primary/15 rounded-full flex items-center justify-center mx-auto mb-4 text-primary font-bold">
                 1
               </div>
               <h3 className="font-semibold mb-2">Ist-Analyse</h3>
@@ -107,8 +107,8 @@ const ROICalculatorPage = () => {
               </p>
             </div>
 
-            <div className="bg-card border border-card-border rounded-xl p-6 text-center shadow-card">
-              <div className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 text-primary-foreground font-bold">
+            <div className="bg-card border border-card-border rounded-xl p-6 text-center shadow-card scroll-reveal hover-lift">
+              <div className="w-8 h-8 bg-primary/15 rounded-full flex items-center justify-center mx-auto mb-4 text-primary font-bold">
                 2
               </div>
               <h3 className="font-semibold mb-2">Agent-Auswahl</h3>
@@ -117,8 +117,8 @@ const ROICalculatorPage = () => {
               </p>
             </div>
 
-            <div className="bg-card border border-card-border rounded-xl p-6 text-center shadow-card">
-              <div className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 text-primary-foreground font-bold">
+            <div className="bg-card border border-card-border rounded-xl p-6 text-center shadow-card scroll-reveal hover-lift">
+              <div className="w-8 h-8 bg-primary/15 rounded-full flex items-center justify-center mx-auto mb-4 text-primary font-bold">
                 3
               </div>
               <h3 className="font-semibold mb-2">Kostenvergleich</h3>
@@ -127,8 +127,8 @@ const ROICalculatorPage = () => {
               </p>
             </div>
 
-            <div className="bg-card border border-card-border rounded-xl p-6 text-center shadow-card">
-              <div className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 text-primary-foreground font-bold">
+            <div className="bg-card border border-card-border rounded-xl p-6 text-center shadow-card scroll-reveal hover-lift">
+              <div className="w-8 h-8 bg-primary/15 rounded-full flex items-center justify-center mx-auto mb-4 text-primary font-bold">
                 4
               </div>
               <h3 className="font-semibold mb-2">Agenten-Ergebnis</h3>
@@ -141,9 +141,9 @@ const ROICalculatorPage = () => {
       </section>
 
       {/* CTA */}
-      <section className="section-padding bg-gradient-primary">
+      <section className="section-padding bg-gradient-hero">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center text-primary-foreground">
+          <div className="max-w-4xl mx-auto text-center text-primary-foreground scroll-reveal">
             <h2 className="mb-6">
               Überzeugt von den Zahlen?
             </h2>
