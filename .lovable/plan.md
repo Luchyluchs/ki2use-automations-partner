@@ -1,26 +1,26 @@
 
-## Standard-Agenten Seite: Scroll-Effekte und Farbanpassung
 
-### Problem
-Die Seite `/standard-agenten` hat:
-1. Scroll-Effekte sind teilweise vorhanden (scroll-scale auf Karten), aber der Header-Bereich, ROI-Sektion und CTA-Sektion haben keine funktionierenden Reveal-Effekte
-2. Die CTA-Sektion ("Wichtiger Hinweis") verwendet `bg-gradient-primary` -- zu grell, passt nicht zum gedaempften Neura-Design
-3. Die `bg-muted` Hintergrundfarbe der CTA-Sektion erzeugt einen harten Bruch
-4. Redundante Hook-Aufrufe (`useScrollReveal`, `useParallax`, `useScrollFade`) -- der globale Observer im Layout reicht
+## Problem
 
-### Aenderungen an `src/pages/StandardAgents.tsx`
+Die `scroll-reveal` Klasse wurde auf den aeussersten Container der Demo-Login-Seite angewandt. Diese Klasse setzt `opacity: 0` und wartet auf ein Scroll-Event, um die Elemente einzublenden. Da die Login-Seite zentriert ist und keinen scrollbaren Inhalt hat, werden die Elemente nie sichtbar.
 
-**Scroll-Effekte ergaenzen:**
-- ROI-Calculator Sektion: Container bekommt `scroll-scale`
-- CTA-Sektion ("Wichtiger Hinweis"): Inner-Card bekommt `scroll-reveal`
+## Loesung
 
-**Farben abdaempfen:**
-- CTA-Card: `bg-gradient-primary` ersetzen durch `bg-gradient-hero` (passend zum Rest der Seite)
-- CTA-Sektion Hintergrund: `bg-muted` ersetzen durch `bg-background` fuer nahtlosen Uebergang
-- CTA-Button: `bg-card text-foreground hover:bg-muted` anpassen zu `bg-white/10 text-primary-foreground hover:bg-white/20` fuer bessere Harmonie mit dem dunkleren Gradient
+Die `scroll-reveal` Klasse aus dem aeussersten Container in `src/components/NewDemoLogin.tsx` entfernen. Stattdessen kann eine einfache `fade-in` Animation verwendet werden, die sofort beim Laden abspielt.
 
-**Redundante Hooks entfernen:**
-- `useScrollReveal()`, `useParallax()`, `useScrollFade()` entfernen -- werden bereits global ueber Layout behandelt
+### Aenderung
 
-### Betroffene Dateien
-- `src/pages/StandardAgents.tsx`
+**Datei: `src/components/NewDemoLogin.tsx` (Zeile 38)**
+
+Vorher:
+```
+bg-gradient-hero ... scroll-reveal
+```
+
+Nachher:
+```
+bg-gradient-hero ... animate-fade-in
+```
+
+Dies stellt sicher, dass der Inhalt sofort sichtbar ist, waehrend der dunkle Hintergrund (`bg-gradient-hero`) beibehalten wird.
+
