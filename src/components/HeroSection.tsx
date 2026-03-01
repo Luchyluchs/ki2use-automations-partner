@@ -29,7 +29,7 @@ const HeroSection = () => {
               </span>
             </h1>
             <p className="text-lg text-white/60 leading-relaxed font-light">
-              Wir helfen Unternehmen in Köln und Umgebung, Künstliche Intelligenz sinnvoll einzusetzen – ohne Hype, mit echten Ergebnissen.
+              KI2USE hilft Unternehmen deutschlandweit, Künstliche Intelligenz sinnvoll einzusetzen – ohne Hype, mit echten Ergebnissen.
             </p>
           </div>
           
@@ -65,7 +65,7 @@ const HeroSection = () => {
             </div>
             
             <div className="enhanced-reveal stagger-delay-2 text-xl lg:text-2xl text-white/60 leading-relaxed font-light max-w-2xl">
-              Wir helfen Unternehmen in Köln und Umgebung, Künstliche Intelligenz sinnvoll einzusetzen – ohne Hype, mit echten Ergebnissen.
+              KI2USE hilft Unternehmen deutschlandweit, Künstliche Intelligenz sinnvoll einzusetzen – ohne Hype, mit echten Ergebnissen.
             </div>
             
             <div className="enhanced-reveal stagger-delay-3 flex flex-col sm:flex-row gap-4 items-start">

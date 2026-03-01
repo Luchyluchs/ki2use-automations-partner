@@ -8,11 +8,11 @@ const faqs = [
   },
   {
     question: "Was kostet eine KI-Beratung?",
-    answer: "Das hängt von Ihrem Bedarf ab. Wir bieten ein kostenloses Erstgespräch (20–30 Minuten), in dem wir gemeinsam schauen, ob und wie wir Ihnen helfen können."
+    answer: "Das hängt von Ihrem Bedarf ab. KI2USE bietet ein kostenloses Erstgespräch (20–30 Minuten), um gemeinsam zu schauen, ob und wie KI2USE helfen kann."
   },
   {
     question: "Wir haben kein großes Budget – geht das trotzdem?",
-    answer: "Absolut. Wir prüfen auch staatliche Förderprogramme wie \"Digital Jetzt\" (bis 50% Zuschuss) oder ZIM, die viele Unternehmen in Anspruch nehmen können."
+    answer: "Absolut. KI2USE prüft auch staatliche Förderprogramme wie \"Digital Jetzt\" (bis 50% Zuschuss) oder ZIM, die viele Unternehmen in Anspruch nehmen können."
   },
   {
     question: "Ersetzt KI meine Mitarbeiter?",
@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     question: "Ist das DSGVO-konform?",
-    answer: "Ja. Wir achten von Anfang an auf datenschutzkonforme Lösungen Made in Germany."
+    answer: "Ja. KI2USE achtet von Anfang an auf datenschutzkonforme Lösungen Made in Germany."
   }
 ];
 

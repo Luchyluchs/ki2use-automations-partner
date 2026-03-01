@@ -15,7 +15,7 @@ const AboutSection = () => {
           <div className="scroll-reveal stagger-delay-1 text-lg text-muted-foreground leading-relaxed max-w-3xl space-y-6">
             <p>
               Der Mittelstand braucht keine überladenen Technologie-Versprechen, sondern praxisnahe Lösungen. 
-              Wir bei KI2USE glauben daran, dass KI kein Hexenwerk sein muss – sie sollte einfach nur funktionieren.
+              KI2USE steht dafür, dass KI kein Hexenwerk sein muss – sie sollte einfach nur funktionieren.
             </p>
             <p>
               Als zertifizierter KI-Manager (IHK Düsseldorf) unterstütze ich Unternehmen dabei, 
@@ -41,8 +41,8 @@ const AboutSection = () => {
             <div className="flex items-start space-x-4 p-6 bg-card/30 rounded-xl border border-card-border/50">
               <Users className="w-6 h-6 text-primary flex-shrink-0 mt-1" strokeWidth={1.5} />
               <div>
-                <h3 className="font-medium text-foreground mb-1">Regional verankert</h3>
-                <p className="text-sm text-muted-foreground">Persönlicher Ansprechpartner in Köln</p>
+                <h3 className="font-medium text-foreground mb-1">Deutschlandweit</h3>
+                <p className="text-sm text-muted-foreground">Persönlicher Ansprechpartner für Ihr Projekt</p>
               </div>
             </div>
           </div>

@@ -123,7 +123,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                 Verständlich, bezahlbar, DSGVO-konform.
               </p>
               <p className="text-xs text-white/40 mt-3">
-                Köln und Umgebung · Regionaler Ansprechpartner
+                Deutschlandweit · Persönlicher Ansprechpartner
               </p>
             </div>
             

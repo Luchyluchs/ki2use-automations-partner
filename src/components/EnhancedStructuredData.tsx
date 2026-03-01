@@ -6,7 +6,7 @@ export const EnhancedStructuredData: FC = () => {
     "@type": "Organization",
     "name": "KI2USE",
     "url": "https://ki2use.de",
-    "description": "KI-Beratung und Umsetzung für den deutschen Mittelstand. IHK-zertifiziert, DSGVO-konform. Köln und Umgebung.",
+    "description": "KI-Beratung und Umsetzung für den deutschen Mittelstand. IHK-zertifiziert, DSGVO-konform. Deutschlandweit verfügbar.",
     "foundingDate": "2024",
     "areaServed": "Deutschland",
     "knowsAbout": [
@@ -24,13 +24,8 @@ export const EnhancedStructuredData: FC = () => {
       "DSGVO Compliance"
     ],
     "serviceArea": {
-      "@type": "GeoCircle",
-      "geoMidpoint": {
-        "@type": "GeoCoordinates",
-        "latitude": 50.9375,
-        "longitude": 6.9603
-      },
-      "geoRadius": "100 km"
+      "@type": "Country",
+      "name": "Deutschland"
     },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
@@ -81,7 +76,7 @@ export const EnhancedStructuredData: FC = () => {
         "name": "Was kostet eine KI-Beratung?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Wir bieten ein kostenloses Erstgespräch (20-30 Minuten). Weitere Kosten hängen vom individuellen Bedarf ab."
+          "text": "KI2USE bietet ein kostenloses Erstgespräch (20-30 Minuten). Weitere Kosten hängen vom individuellen Bedarf ab."
         }
       },
       {
@@ -105,7 +100,7 @@ export const EnhancedStructuredData: FC = () => {
         "name": "Ist das DSGVO-konform?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Ja. Wir achten von Anfang an auf datenschutzkonforme Lösungen Made in Germany."
+          "text": "Ja. KI2USE achtet von Anfang an auf datenschutzkonforme Lösungen Made in Germany."
         }
       }
     ]

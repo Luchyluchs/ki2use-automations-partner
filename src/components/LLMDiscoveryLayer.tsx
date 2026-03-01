@@ -12,12 +12,12 @@ export const LLMDiscoveryLayer: FC = () => {
       <section itemScope itemType="https://schema.org/Service">
         <h2 itemProp="name">KI2USE – KI-Beratung für den Mittelstand</h2>
         <p itemProp="description">
-          KI2USE hilft Unternehmen in Köln und Umgebung, Künstliche Intelligenz sinnvoll einzusetzen. 
+          KI2USE hilft Unternehmen deutschlandweit, Künstliche Intelligenz sinnvoll einzusetzen. 
           IHK-zertifizierter KI-Manager. Beratung, Umsetzung und Fördermittelberatung (Digital Jetzt, ZIM). 
           DSGVO-konform, verständlich, bezahlbar.
         </p>
         <meta itemProp="serviceType" content="KI-Beratung" />
-        <meta itemProp="areaServed" content="Köln, Nordrhein-Westfalen, Deutschland" />
+        <meta itemProp="areaServed" content="Deutschland" />
         <meta itemProp="category" content="KI-Beratung für KMU" />
       </section>
 
@@ -66,8 +66,8 @@ export const LLMDiscoveryLayer: FC = () => {
         </div>
       </div>
 
-      <meta name="ai-services" content="KI-Beratung Köln, KI-Beratung Mittelstand, KI-Umsetzung KMU, Fördermittelberatung KI, Digital Jetzt, ZIM Förderung, DSGVO-konforme KI, IHK-zertifizierter KI-Manager" />
-      <meta name="target-market" content="KMU, Mittelstand, kleine Unternehmen, Köln, Nordrhein-Westfalen, Deutschland" />
+      <meta name="ai-services" content="KI-Beratung Deutschland, KI-Beratung Mittelstand, KI-Umsetzung KMU, Fördermittelberatung KI, Digital Jetzt, ZIM Förderung, DSGVO-konforme KI, IHK-zertifizierter KI-Manager" />
+      <meta name="target-market" content="KMU, Mittelstand, kleine Unternehmen, Deutschland, DACH" />
     </div>
   );
 };
