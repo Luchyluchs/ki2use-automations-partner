@@ -13,9 +13,9 @@ const MobileBottomNav = () => {
       primary: false
     },
     {
-      icon: Calculator,
-      label: "Rechner",
-      href: "/roi-rechner",
+      icon: Zap,
+      label: "KI-Agenten",
+      href: "/standard-agenten",
       primary: false
     },
     {
@@ -25,9 +25,9 @@ const MobileBottomNav = () => {
       primary: true
     },
     {
-      icon: Zap,
-      label: "Agenten",
-      href: "/massgeschneiderte-agenten",
+      icon: Calculator,
+      label: "Rechner",
+      href: "/roi-rechner",
       primary: false
     },
     {
