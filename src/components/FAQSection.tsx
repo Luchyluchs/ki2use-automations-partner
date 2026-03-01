@@ -26,7 +26,7 @@ const faqs = [
 const FAQSection = () => {
 
   return (
-    <section id="faq" className="section-padding relative overflow-hidden py-24">
+    <section id="faq" className="section-padding relative overflow-hidden py-24 scroll-mt-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-3xl mx-auto">
           <h2 className="scroll-reveal text-3xl lg:text-4xl font-thin text-foreground mb-4 text-center">
