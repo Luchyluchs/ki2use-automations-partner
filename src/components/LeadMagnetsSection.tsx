@@ -57,14 +57,6 @@ const LeadMagnetsSection = () => {
                     </div>
                   </div>
                   
-                  <div className="bg-white/5 rounded-xl p-6 backdrop-blur-sm border border-white/10">
-                    <div className="text-center">
-                      <Brain className="w-16 h-16 text-primary mx-auto mb-4 opacity-60" />
-                      <div className="text-sm text-white/50 font-light">
-                        IST-Zustand analysieren + Potenzial bewerten
-                      </div>
-                    </div>
-                  </div>
                 </div>
                 
                 <div className="lg:min-h-[500px]">
