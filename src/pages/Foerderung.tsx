@@ -10,6 +10,7 @@ import {
 import CalendlyButton from "@/components/CalendlyButton";
 
 const Foerderung = () => {
+  // Förderung page component
   useScrollReveal();
   useParallax();
   useMagneticCursor();
