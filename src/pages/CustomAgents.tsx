@@ -1,4 +1,3 @@
-import { useScrollReveal, useParallax, useScrollFade } from "@/hooks/useScrollAnimations";
 import { useSEO, SEOTemplates } from "@/hooks/useSEO";
 import { CustomAgentsFAQ } from "@/components/StructuredData";
 import Layout from "@/components/Layout";
@@ -9,12 +8,22 @@ import CustomROICalculator from "@/components/CustomROICalculator";
 import CalendlyButton from "@/components/CalendlyButton";
 
 const CustomAgents = () => {
-  useScrollReveal();
-  useParallax();
-  useScrollFade();
-  
   // SEO optimization for Custom Agents page
   useSEO(SEOTemplates.customAgents);
+
+  const examples = [{
+    title: "Automatisierte Angebotserstellung",
+    description: "Ein KI-Agent, der automatisch Angebote auf Basis von Kundendaten und Marktanalysen erstellt.",
+    roi: "+25% Umsatzsteigerung"
+  }, {
+    title: "Intelligente Rechnungsprüfung",
+    description: "Ein KI-System, das Rechnungen automatisch prüft und Fehler oder Unstimmigkeiten erkennt.",
+    roi: "-15% Bearbeitungskosten"
+  }, {
+    title: "Predictive Maintenance",
+    description: "Ein KI-Agent, der Wartungsbedarf vorhersagt und Ausfallzeiten minimiert.",
+    roi: "-20% Ausfallzeiten"
+  }];
   const processSteps = [{
     step: "01",
     title: "Bedarfsanalyse",
@@ -71,28 +80,15 @@ const CustomAgents = () => {
     title: "Planbare Umsetzung",
     description: "Feste Meilensteine und transparente Kommunikation für kalkulierbare Projektergebnisse."
   }];
-  const examples = [{
-    title: "Intelligenter Produktkonfigurator",
-    industry: "Maschinenbau",
-    description: "KI-gestützter Konfigurator, der komplexe Produktvarianten automatisch zusammenstellt und Angebote generiert.",
-    results: ["40% schnellere Angebotserstellung", "95% Genauigkeit bei Konfigurationen", "60% weniger Rückfragen"]
-  }, {
-    title: "Automatisches Rechnungsmanagement",
-    industry: "Dienstleistung",
-    description: "Vollautomatisierte Erfassung, Kategorisierung und Weiterleitung von Eingangsrechnungen.",
-    results: ["80% Zeitersparnis in der Buchhaltung", "99% korrekte Kategorisierung", "Eliminierung von Medienbrüchen"]
-  }, {
-    title: "Intelligente Personalplanung",
-    industry: "Einzelhandel",
-    description: "KI-Agent für optimale Personalplanung basierend auf Verkaufsprognosen und Mitarbeiterverfügbarkeit.",
-    results: ["25% Reduzierung der Personalkosten", "Höhere Mitarbeiterzufriedenheit", "Optimierte Kundenbetreuung"]
-  }];
+
   return <Layout>
       <CustomAgentsFAQ />
       {/* Header */}
-      <section className="bg-gradient-subtle pt-6 pb-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center fade-in-element">
+      <section className="bg-gradient-subtle pt-6 pb-16 relative overflow-hidden">
+        <div className="absolute top-0 right-1/4 w-72 h-72 bg-primary/5 rounded-full blur-3xl parallax-slow"></div>
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl parallax-slow"></div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="max-w-4xl mx-auto text-center scroll-reveal">
             <Button variant="ghost" size="sm" asChild className="mb-8 hover-scale">
               <Link to="/">
                 <ArrowLeft className="w-4 h-4 mr-2" />
@@ -100,11 +96,11 @@ const CustomAgents = () => {
               </Link>
             </Button>
             
-            <h1 className="mb-6 scale-in-element">
+            <h1 className="mb-6 scroll-reveal stagger-delay-1">
               Maßgeschneiderte{" "}
               <span className="text-primary">KI-Automatisierung</span> für Ihren Erfolg
             </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed fade-in-element">
+            <p className="text-xl text-muted-foreground leading-relaxed scroll-reveal stagger-delay-2">
               Einzigartige KI-Agenten und Automatisierungsworkflows, die perfekt auf Ihre 
               individuellen Geschäftsprozesse zugeschnitten sind. Maximale Effizienz durch passgenaue Digitalisierung.
             </p>
@@ -113,11 +109,12 @@ const CustomAgents = () => {
       </section>
 
       {/* Description */}
-      <section className="section-padding bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="section-padding bg-background relative overflow-hidden">
+        <div className="absolute top-1/3 left-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl parallax-slow"></div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-              <div>
+              <div className="scroll-reveal">
                 <h2 className="text-2xl md:text-3xl font-bold mb-6">
                   Einzigartige Geschäftsanforderungen verdienen einzigartige Lösungen
                 </h2>
@@ -127,7 +124,7 @@ const CustomAgents = () => {
                   höchste Effizienz, Transparenz und eine kalkulierbare Projektumsetzung.
                 </p>
               </div>
-              <div className="bg-card border border-card-border rounded-2xl p-8 shadow-card hover-lift">
+              <div className="bg-card border border-card-border rounded-2xl p-8 shadow-card hover-lift scroll-reveal">
                 <h3 className="font-semibold mb-4">Ihre Vorteile auf einen Blick:</h3>
                 <ul className="space-y-3">
                   {["100% individuell entwickelt", "Nahtlose Integration in bestehende Systeme", "Skalierbar und zukunftssicher", "DSGVO-konform und sicher", "Wartungsverträge verfügbar", "Persönlicher Ansprechpartner"].map((benefit, index) => <li key={index} className="flex items-start">
@@ -142,14 +139,14 @@ const CustomAgents = () => {
       </section>
 
       {/* Process Steps */}
-      <section className="section-padding bg-muted">
+      <section className="section-padding bg-background relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 fade-in-element">
-            <h2 className="mb-6 scale-in-element">
+          <div className="text-center mb-16 scroll-reveal">
+            <h2 className="mb-6 scroll-reveal stagger-delay-1">
               Unser strukturierter{" "}
               <span className="text-primary">Entwicklungsprozess</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto fade-in-element">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto scroll-reveal stagger-delay-2">
               Ein klarer, schrittweiser Ablauf, der Planungssicherheit bietet und 
               den strukturierten, kalkulierbaren Ansatz von KI2USE unterstreicht.
             </p>
@@ -165,12 +162,12 @@ const CustomAgents = () => {
           }}></div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 relative z-10">
-              {processSteps.map((step, index) => <div key={index} className="group relative">
-                  <div className="bg-card border border-card-border rounded-xl p-6 shadow-card hover:shadow-xl transition-all duration-500 text-center h-full transform hover:scale-105 hover:-translate-y-2 cursor-pointer group-hover:bg-gradient-subtle">
+              {processSteps.map((step, index) => <div key={index} className="group relative scroll-reveal" style={{ transitionDelay: `${index * 100}ms` }}>
+                  <div className="bg-card border border-card-border rounded-xl p-6 shadow-card hover:shadow-xl transition-all duration-500 text-center h-full transform hover:scale-105 hover:-translate-y-2 cursor-pointer group-hover:bg-gradient-subtle hover-lift">
                     {/* Floating Step Number */}
                     <div className="relative -mt-10 mb-4">
-                      <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto shadow-lg transform transition-all duration-300 group-hover:rotate-12 group-hover:scale-110">
-                        <span className="text-primary-foreground font-bold text-xl">{step.step}</span>
+                      <div className="w-16 h-16 bg-primary/15 rounded-full flex items-center justify-center mx-auto shadow-lg transform transition-all duration-300 group-hover:rotate-12 group-hover:scale-110">
+                        <span className="text-primary font-bold text-xl">{step.step}</span>
                       </div>
                       {/* Pulse Ring */}
                       <div className="absolute inset-0 w-16 h-16 mx-auto rounded-full border-2 border-primary/30 animate-ping opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -220,8 +217,8 @@ const CustomAgents = () => {
       {/* Advantages */}
       <section className="section-padding bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 fade-in-element">
-            <h2 className="mb-6 scale-in-element">
+          <div className="text-center mb-16 scroll-reveal">
+            <h2 className="mb-6 scroll-reveal stagger-delay-1">
               Warum maßgeschneiderte{" "}
               <span className="text-primary">KI-Lösungen</span>?
             </h2>
@@ -230,9 +227,9 @@ const CustomAgents = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {advantages.map((advantage, index) => {
             const IconComponent = advantage.icon;
-            return <div key={index} className="bg-card border border-card-border rounded-xl p-6 shadow-card hover-lift cursor-pointer text-center">
-                  <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4 hover-scale">
-                    <IconComponent className="w-6 h-6 text-primary-foreground" />
+            return <div key={index} className="bg-card border border-card-border rounded-xl p-6 shadow-card hover-lift cursor-pointer text-center scroll-reveal">
+                  <div className="w-12 h-12 bg-primary/15 rounded-xl flex items-center justify-center mx-auto mb-4 hover-scale">
+                    <IconComponent className="w-6 h-6 text-primary" />
                   </div>
                   <h3 className="font-semibold mb-3">{advantage.title}</h3>
                   <p className="text-muted-foreground text-sm">{advantage.description}</p>
@@ -243,10 +240,10 @@ const CustomAgents = () => {
       </section>
 
       {/* ROI Calculator */}
-      <section className="section-padding bg-muted">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="mb-6 scale-in-element">
+      <section className="section-padding bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 scroll-scale">
+          <div className="text-center mb-12 scroll-reveal">
+            <h2 className="mb-6 scroll-reveal stagger-delay-1">
               Berechnen Sie Ihre{" "}
               <span className="text-primary">Kosteneinsparungen</span>
             </h2>
@@ -264,7 +261,7 @@ const CustomAgents = () => {
       {/* CTA */}
       <section className="section-padding bg-gradient-hero">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center text-primary-foreground">
+          <div className="max-w-4xl mx-auto text-center text-primary-foreground scroll-reveal">
             <h2 className="mb-6">
               Bereit für Ihre individuelle KI-Lösung?
             </h2>
@@ -278,7 +275,7 @@ const CustomAgents = () => {
               text="Kostenloses Beratungsgespräch vereinbaren"
               variant="accent"
               size="xl"
-              className="bg-card text-foreground hover:bg-muted"
+              className="bg-white/10 text-primary-foreground hover:bg-white/20"
               icon={false}
             />
 
