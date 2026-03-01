@@ -58,7 +58,7 @@ const CalendlyButton = ({
   };
 
   return (
-    <div className="w-full px-1 sm:px-0">
+    <div className="w-full px-1 sm:px-0 flex justify-center">
       <PopupButton
         url="https://calendly.com/ki2use-info/30min"
         rootElement={document.getElementById("root")!}
