@@ -1,10 +1,8 @@
 import { Link } from "react-router-dom";
 import { Search, Rocket, BadgeEuro } from "lucide-react";
-import { useScrollReveal } from "@/hooks/useScrollAnimations";
 import MobileServiceCards from "./MobileServiceCards";
 
 const ServicesSection = () => {
-  useScrollReveal();
   const services = [
     {
       icon: Search,

@@ -1,8 +1,6 @@
 import { Award, Shield, Users } from "lucide-react";
-import { useScrollReveal } from "@/hooks/useScrollAnimations";
 
 const AboutSection = () => {
-  useScrollReveal();
 
   return (
     <section id="ueber-uns" className="section-padding relative overflow-hidden py-8 sm:py-10 lg:py-14">

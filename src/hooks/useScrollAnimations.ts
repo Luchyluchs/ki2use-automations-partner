@@ -5,16 +5,27 @@ export const useScrollReveal = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('revealed');
-            const children = entry.target.querySelectorAll('.stagger-child');
-            children.forEach((child, index) => {
-              setTimeout(() => {
-                child.classList.add('revealed');
-              }, index * 100);
-            });
-            observer.unobserve(entry.target);
+          if (!entry.isIntersecting) return;
+
+          const target = entry.target as HTMLElement;
+          if (target.classList.contains('revealed')) {
+            observer.unobserve(target);
+            return;
           }
+
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              target.classList.add('revealed');
+              const children = target.querySelectorAll('.stagger-child');
+              children.forEach((child, index) => {
+                setTimeout(() => {
+                  child.classList.add('revealed');
+                }, index * 100);
+              });
+            });
+          });
+
+          observer.unobserve(target);
         });
       },
       {
@@ -25,7 +36,7 @@ export const useScrollReveal = () => {
 
     // Observe current elements and watch for new ones via MutationObserver
     const SELECTORS = '.scroll-reveal, .scroll-scale, .fade-in-element, .scale-in-element, .enhanced-reveal';
-    
+
     const observeAll = () => {
       document.querySelectorAll(SELECTORS).forEach((el) => observer.observe(el));
     };
