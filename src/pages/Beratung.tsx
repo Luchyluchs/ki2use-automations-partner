@@ -63,8 +63,8 @@ const Beratung = () => {
     {
       icon: Euro,
       title: "Fördermittel & Zuschüsse",
-      description: "Bis zu 50% Ihrer KI-Investition können durch staatliche Förderprogramme gedeckt werden. Wir kennen die Programme und unterstützen Sie bei der Antragstellung.",
-      points: ["Digital Jetzt – bis zu 50.000€ Förderung", "ZIM – für innovative Entwicklungsprojekte", "go-digital – Beratungsförderung für KMU", "Regionale Förderprogramme der Bundesländer"]
+      description: "Es gibt zahlreiche staatliche Förderprogramme, die bis zu 50% Ihrer KI-Investition decken können. Wir prüfen, welche für Ihr Vorhaben in Frage kommen.",
+      points: ["Prüfung Ihrer Förderfähigkeit", "Unterstützung bei der Antragstellung", "Kombination mehrerer Programme", "Maximierung Ihrer Fördersumme"]
     },
     {
       icon: Shield,
@@ -220,34 +220,33 @@ const Beratung = () => {
                   Bis zu 50% Förderung für Ihre KI-Investition
                 </h2>
                 <p className="text-muted-foreground font-light max-w-2xl mx-auto leading-relaxed">
-                  Der Staat fördert die Digitalisierung des Mittelstands aktiv. 
-                  Wir helfen Ihnen, die passenden Programme zu finden und erfolgreich zu beantragen.
+                  Der Staat fördert die Digitalisierung des Mittelstands mit zahlreichen Programmen auf Bundes- und Landesebene. 
+                  Welche davon für Ihr Unternehmen relevant sind, klären wir gemeinsam im Erstgespräch.
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
-                <div className="border border-card-border/30 rounded-xl p-5">
-                  <h4 className="font-light mb-2">Digital Jetzt</h4>
-                  <p className="text-sm text-muted-foreground font-light">Bis zu 50.000€ für digitale Technologien und Mitarbeiterqualifizierung in KMUs.</p>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+                <div className="border border-card-border/30 rounded-xl p-5 text-center">
+                  <div className="text-2xl font-light text-primary mb-2">Bis 50%</div>
+                  <p className="text-sm text-muted-foreground font-light">Zuschuss auf Ihre Investition</p>
                 </div>
-                <div className="border border-card-border/30 rounded-xl p-5">
-                  <h4 className="font-light mb-2">ZIM</h4>
-                  <p className="text-sm text-muted-foreground font-light">Förderung innovativer Entwicklungsprojekte – ideal für maßgeschneiderte KI-Lösungen.</p>
+                <div className="border border-card-border/30 rounded-xl p-5 text-center">
+                  <div className="text-2xl font-light text-primary mb-2">10+</div>
+                  <p className="text-sm text-muted-foreground font-light">Förderprogramme verfügbar</p>
                 </div>
-                <div className="border border-card-border/30 rounded-xl p-5">
-                  <h4 className="font-light mb-2">go-digital</h4>
-                  <p className="text-sm text-muted-foreground font-light">Beratungsförderung speziell für kleine und mittlere Unternehmen bis 100 Mitarbeiter.</p>
-                </div>
-                <div className="border border-card-border/30 rounded-xl p-5">
-                  <h4 className="font-light mb-2">Länderprogramme</h4>
-                  <p className="text-sm text-muted-foreground font-light">Regionale Fördertöpfe der Bundesländer – oft mit schnellerer Bewilligung.</p>
+                <div className="border border-card-border/30 rounded-xl p-5 text-center">
+                  <div className="text-2xl font-light text-primary mb-2">Kostenlos</div>
+                  <p className="text-sm text-muted-foreground font-light">Erstprüfung im Beratungsgespräch</p>
                 </div>
               </div>
 
               <div className="text-center">
-                <p className="text-sm text-muted-foreground font-light">
-                  Im Erstgespräch prüfen wir kostenlos, welche Förderungen für Ihr Vorhaben in Frage kommen.
-                </p>
+                <CalendlyButton
+                  text="Fördermöglichkeiten prüfen lassen"
+                  variant="cta"
+                  size="lg"
+                  icon={false}
+                />
               </div>
             </div>
           </div>
