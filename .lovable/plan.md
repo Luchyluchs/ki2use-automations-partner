@@ -1,41 +1,25 @@
 
+# Fliessender Hintergrund-Gradient
 
-## Beratungsseite an neue Strategie anpassen
+## Problem
+Jede Section auf der Seite hat einzeln die Klasse `bg-gradient-hero`. Da der Gradient bei jeder Section neu startet, entstehen sichtbare Kanten/Abstuefungen zwischen den Sektionen. Das wirkt abgehackt statt fliessend.
 
-### Aktueller Zustand
-Die Kontaktseite (/kontakt) verwendet noch das alte Design: fette Schriften (font-bold), helle Card-Hintergruende (bg-card), und der Fokus liegt generisch auf "KI-Automatisierung" statt auf dem Beratungsansatz.
+## Loesung
+Die `bg-gradient-hero` Klasse wird von den einzelnen Sections entfernt und stattdessen einmalig auf einen uebergreifenden Wrapper im Layout gelegt. So fliesst der Gradient nahtlos ueber die gesamte Seite.
 
-### Ziel
-Die Seite soll den Beratungs-Fokus der Hauptseite widerspiegeln und das Neura-Design verwenden.
+## Betroffene Dateien
 
-### Aenderungen in `src/pages/Contact.tsx`
+### 1. `src/components/Layout.tsx`
+- Den `<main>` Tag mit `bg-gradient-hero` versehen, damit der Gradient einmal ueber den gesamten Content laeuft
 
-**1. Hero-Section ueberarbeiten**
-- Titel aendern von "Sprechen wir ueber Ihre KI-Automatisierung" zu einem beratungsorientierten Titel wie "Ihr Weg zur KI beginnt mit einem Gespraech"
-- Untertitel auf den Beratungsprozess ausrichten (Analyse, Empfehlung, Umsetzung)
-- Typografie anpassen: `font-bold` durch `font-thin` ersetzen, passend zum Neura-Design
+### 2. `src/pages/CustomAgents.tsx` (aktuelle Seite)
+- `bg-gradient-hero` von allen 5 Sections entfernen (Header, Description, Process Steps, Advantages, ROI Calculator, CTA)
 
-**2. Primaerer Beratungsbereich neu gestalten**
-- Den Calendly-Block visuell prominenter als Beratungseinstieg positionieren
-- Text staerker auf "KI-Beratung" und "Erstgespraech" ausrichten statt "Automatisierungspotenzial"
-- Die drei Schritte der Beratungsstrategie einbauen: Analyse → Empfehlung → Umsetzung
-- Card-Stil ersetzen durch schlichteres Design (border-basiert statt bg-card mit Shadow)
+### 3. `src/pages/Contact.tsx`
+- `bg-gradient-hero` von beiden Sections entfernen
 
-**3. Design an Neura-Stil anpassen**
-- `bg-background` Section durch `bg-gradient-hero` ersetzen fuer durchgaengigen dunklen Look
-- Schwere Card-Borders und Shadows reduzieren zugunsten subtiler Trennlinien
-- `font-bold`/`font-semibold` durch `font-thin`/`font-light` ersetzen
-- Gradient-Buttons und Icons dezenter gestalten
+### 4. Weitere Seiten pruefen und anpassen
+- `src/pages/Index.tsx`, `src/pages/StandardAgents.tsx`, `src/pages/Training.tsx`, `src/pages/DemoPortal.tsx` und alle anderen Seiten, die `bg-gradient-hero` auf einzelnen Sections verwenden, werden ebenfalls bereinigt
 
-**4. Kontaktformular und Voice-Agent beibehalten**
-- Beide bleiben als sekundaere Kontaktoptionen erhalten
-- Visuell dem neuen Stil anpassen (weniger Card-Optik, mehr Minimalismus)
-
-**5. Direkter Kontakt Footer**
-- `bg-muted` durch subtilere Darstellung ersetzen (z.B. border-top statt farbiger Hintergrund)
-
-### Technische Details
-- Nur `src/pages/Contact.tsx` wird geaendert
-- Alle bestehenden Komponenten (ContactForm, VoiceAgent, CalendlyButton) bleiben unveraendert
-- Scroll-Animationen (scroll-reveal) bleiben aktiv
-
+## Ergebnis
+Ein durchgehender, fliessender Gradient ueber die gesamte Seite ohne sichtbare Brueche zwischen Sektionen.
