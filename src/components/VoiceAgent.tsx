@@ -60,7 +60,7 @@ const VoiceAgent: React.FC<VoiceAgentProps> = ({ className = '' }) => {
 
         <div>
           <h3 className="text-lg font-semibold mb-1">KI2USE Voice Agent</h3>
-          <p className="text-xs text-primary font-medium mb-3">🧠 Mit KI2USE Expertenwissen trainiert</p>
+          <p className="text-xs text-primary font-medium mb-3">Mit KI2USE Expertenwissen trainiert</p>
           
           <p className="text-muted-foreground text-sm mb-3">
             {isConnected 
@@ -73,9 +73,9 @@ const VoiceAgent: React.FC<VoiceAgentProps> = ({ className = '' }) => {
 
           <div className="bg-muted/50 rounded-lg p-3 mb-3">
             <div className="text-xs text-muted-foreground space-y-1">
-              <div>🎯 <strong>Einsatz:</strong> Kundenservice, Beratung, Terminbuchung</div>
-              <div>📞 <strong>Integration:</strong> Telefon, Website, WhatsApp</div>
-              <div>⚡ <strong>Vorteile:</strong> 24/7 verfügbar, mehrsprachig</div>
+              <div><strong>Einsatz:</strong> Kundenservice, Beratung, Terminbuchung</div>
+              <div><strong>Integration:</strong> Telefon, Website, WhatsApp</div>
+              <div><strong>Vorteile:</strong> 24/7 verfügbar, mehrsprachig</div>
             </div>
           </div>
         </div>
@@ -101,7 +101,7 @@ const VoiceAgent: React.FC<VoiceAgentProps> = ({ className = '' }) => {
           )}
           
           <p className="text-xs text-muted-foreground mt-3">
-            💡 Diese Technologie kann in Ihre Systeme integriert werden
+            Diese Technologie kann in Ihre Systeme integriert werden
           </p>
         </div>
       </div>
