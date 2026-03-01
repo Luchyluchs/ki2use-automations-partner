@@ -3,7 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import NewChatbot from "./components/NewChatbot";
 import FloatingVoiceAgent from "./components/FloatingVoiceAgent";
@@ -45,6 +45,9 @@ const App = () => (
           
           <Route path="/beratung" element={<Beratung />} />
           <Route path="/foerderung" element={<Foerderung />} />
+          <Route path="/förderung" element={<Navigate to="/foerderung" replace />} />
+          <Route path="/foerderungen" element={<Navigate to="/foerderung" replace />} />
+          <Route path="/förderungen" element={<Navigate to="/foerderung" replace />} />
           <Route path="/kontakt" element={<Contact />} />
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/datenschutz" element={<Datenschutz />} />
