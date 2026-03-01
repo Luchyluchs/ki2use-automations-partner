@@ -1,40 +1,18 @@
 
+## Maus-Effekt passend zum KI2USE Design
 
-## Zwei Anpassungen: Geografie erweitern + "Wir" durch "KI2USE" ersetzen
+### Konzept
+Ein subtiler **Cyan-Glow** folgt dem Mauszeiger -- passend zum dunklen Farbschema mit Cyan/Teal-Akzenten und dem KI/Robotik-Thema. Der Effekt erinnert an ein "Scanner"-Licht, das die Seite abtastet.
 
-### 1. "Köln und Umgebung" auf ganz Deutschland erweitern
+### Umsetzung
+Die bestehende `FuturisticBackground.tsx` wird erweitert:
 
-Alle Stellen, die den Eindruck erwecken, KI2USE sei nur regional in Köln aktiv, werden angepasst. Die Adresse in Impressum/Datenschutz/AGB bleibt natuerlich unveraendert (rechtlich erforderlich).
-
-**Betroffene Dateien:**
-- **HeroSection.tsx** (2x) -- "in Koeln und Umgebung" wird zu "deutschlandweit" o.ae.
-- **CTASection.tsx** -- "Koeln und Umgebung - Regionaler Ansprechpartner" entfernen/ersetzen
-- **Layout.tsx** (Footer) -- "Koeln und Umgebung - Regionaler Ansprechpartner" ersetzen
-- **AboutSection.tsx** -- "Regional verankert / Persoenlicher Ansprechpartner in Koeln" aendern zu "Deutschlandweit / Persoenlicher Ansprechpartner"
-- **LLMDiscoveryLayer.tsx** -- "Koeln und Umgebung" und areaServed-Einschraenkung auf Deutschland erweitern
-- **EnhancedStructuredData.tsx** -- serviceArea GeoCircle (100km um Koeln) ersetzen durch `"areaServed": "Deutschland"`
-- **llms.txt** -- Standort bleibt, aber Marktbeschreibung anpassen
-
-### 2. "Wir" durch neutrale KI2USE-Formulierungen ersetzen
-
-Alle oeffentlich sichtbaren Texte, die "wir/uns/unser" verwenden, werden umformuliert. Rechtliche Seiten (Impressum, Datenschutz, AGB) bleiben unveraendert, da dort "wir" rechtlich ueblich ist.
-
-**Betroffene Dateien:**
-- **HeroSection.tsx** -- "Wir helfen Unternehmen..." wird zu "KI2USE hilft Unternehmen..."
-- **CTASection.tsx** -- "Wir finden gemeinsam heraus..." umformulieren
-- **AboutSection.tsx** -- "Wir bei KI2USE glauben..." umformulieren
-- **FAQSection.tsx** -- "Wir bieten...", "Wir pruefen...", "Wir achten..." neutraler formulieren
-- **KIBenefitsSection.tsx** -- "unsere Leistungen" anpassen
-- **EnhancedStructuredData.tsx** -- "Wir bieten...", "Wir achten..." in FAQ-Schema anpassen
-- **LLMDiscoveryLayer.tsx** -- bereits neutral ("KI2USE hilft"), nur Kleinigkeiten pruefen
-- **emailAnalysisTemplates.ts** -- "wir verstehen", "Verfeinern wir" etc. anpassen
+1. **Maus-Glow-Kreis**: Ein weicher, radialer Cyan-Gradient (ca. 200-300px Radius) folgt dem Cursor mit leichter Verzoegerung (smooth trailing)
+2. **Partikel reagieren staerker**: Partikel in der Naehe des Cursors leuchten heller auf und werden leicht angezogen statt abgestossen -- wie ein Magnetfeld
+3. **Verbindungslinien zum Cursor**: Nahe Partikel verbinden sich mit feinen Linien zum Mauszeiger, als wuerde der Cursor ins Netzwerk "eingesteckt"
 
 ### Technische Details
-
-Insgesamt ca. 8-9 Dateien mit jeweils kleinen Textersetzungen. Keine strukturellen Aenderungen, nur Copy-Anpassungen. Die Aenderungen betreffen:
-- Sichtbare UI-Texte (Hero, About, CTA, FAQ, Footer)
-- SEO/LLM-Metadaten (StructuredData, LLMDiscoveryLayer, llms.txt)
-- E-Mail-Templates (emailAnalysisTemplates.ts)
-
-Rechtliche Seiten (Impressum, Datenschutz, AGB) bleiben komplett unveraendert.
-
+- Alles in der bestehenden Canvas-Zeichnung (`FuturisticBackground.tsx`), kein zusaetzliches DOM-Element
+- Smooth-Interpolation der Mausposition (lerp) fuer fluessige Bewegung
+- Farben aus CSS-Variablen (`--primary`, `--accent`) fuer Theme-Konsistenz
+- Effekt nur auf Desktop (kein Touch), performant durch bestehenden `requestAnimationFrame`-Loop
