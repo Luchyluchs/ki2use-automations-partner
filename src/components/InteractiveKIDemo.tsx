@@ -255,7 +255,7 @@ const InteractiveKIDemo = () => {
                     <div className="w-3 h-3 bg-primary rounded-full"></div>
                     <div>
                       <div className="font-light text-foreground">StartUp AG</div>
-                      <div className="text-muted-foreground font-light">Interesse gezeigt, folgt up</div>
+                      <div className="text-muted-foreground font-light">Interesse gezeigt, Follow-up</div>
                     </div>
                   </div>
                   <span className="text-primary font-light">Warm</span>
