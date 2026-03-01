@@ -168,7 +168,7 @@ const CustomAgents = () => {
                 <div key={index} className="group relative scroll-reveal" style={{ transitionDelay: `${index * 100}ms` }}>
                   <div className="border border-card-border/30 rounded-xl p-6 transition-all duration-500 text-center h-full hover:border-primary/30">
                     <div className="relative -mt-10 mb-4">
-                      <div className="w-16 h-16 rounded-full border border-primary/30 flex items-center justify-center mx-auto">
+                      <div className="w-16 h-16 rounded-full border border-primary/30 flex items-center justify-center mx-auto bg-background">
                         <span className="text-primary font-light text-xl">{step.step}</span>
                       </div>
                     </div>
