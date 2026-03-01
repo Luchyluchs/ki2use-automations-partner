@@ -1,9 +1,7 @@
 import CalendlyButton from "./CalendlyButton";
 import TrustIndicators from "./TrustIndicators";
-import { useScrollReveal } from "@/hooks/useScrollAnimations";
 
 const CTASection = () => {
-  useScrollReveal();
   return (
     <section className="section-padding bg-gradient-hero relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-mesh"></div>

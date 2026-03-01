@@ -13,12 +13,7 @@ export const useScrollReveal = () => {
                 child.classList.add('revealed');
               }, index * 100);
             });
-          } else {
-            entry.target.classList.remove('revealed');
-            const children = entry.target.querySelectorAll('.stagger-child');
-            children.forEach((child) => {
-              child.classList.remove('revealed');
-            });
+            observer.unobserve(entry.target);
           }
         });
       },
