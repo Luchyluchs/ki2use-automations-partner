@@ -1,12 +1,8 @@
 import { useEffect, useRef } from 'react';
 
-// Singleton IntersectionObserver for scroll reveal
-let globalObserver: IntersectionObserver | null = null;
-let observerRefCount = 0;
-
-const getObserver = (): IntersectionObserver => {
-  if (!globalObserver) {
-    globalObserver = new IntersectionObserver(
+export const useScrollReveal = () => {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -31,26 +27,25 @@ const getObserver = (): IntersectionObserver => {
         rootMargin: '0px 0px -50px 0px',
       }
     );
-  }
-  return globalObserver;
-};
 
-export const useScrollReveal = () => {
-  useEffect(() => {
-    const observer = getObserver();
-    observerRefCount++;
+    // Observe current elements and watch for new ones via MutationObserver
+    const SELECTORS = '.scroll-reveal, .scroll-scale, .fade-in-element, .scale-in-element, .enhanced-reveal';
+    
+    const observeAll = () => {
+      document.querySelectorAll(SELECTORS).forEach((el) => observer.observe(el));
+    };
 
-    const elements = document.querySelectorAll('.scroll-reveal, .scroll-scale, .fade-in-element, .scale-in-element, .enhanced-reveal');
-    elements.forEach((el) => observer.observe(el));
+    observeAll();
+
+    // Watch for lazy-loaded content
+    const mutationObserver = new MutationObserver(() => {
+      observeAll();
+    });
+    mutationObserver.observe(document.body, { childList: true, subtree: true });
 
     return () => {
-      elements.forEach((el) => observer.unobserve(el));
-      observerRefCount--;
-      if (observerRefCount <= 0) {
-        globalObserver?.disconnect();
-        globalObserver = null;
-        observerRefCount = 0;
-      }
+      observer.disconnect();
+      mutationObserver.disconnect();
     };
   }, []);
 };
