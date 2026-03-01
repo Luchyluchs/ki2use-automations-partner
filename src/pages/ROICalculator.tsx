@@ -1,4 +1,4 @@
-import { useScrollReveal, useParallax, useScrollFade } from "@/hooks/useScrollAnimations";
+import { useScrollReveal, useParallax, useScrollFade, useMagneticCursor } from "@/hooks/useScrollAnimations";
 import { useSEO, SEOTemplates } from "@/hooks/useSEO";
 import Layout from "@/components/Layout";
 import ROICalculator from "@/components/ROICalculator";
@@ -11,6 +11,7 @@ const ROICalculatorPage = () => {
   useScrollReveal();
   useParallax();
   useScrollFade();
+  useMagneticCursor();
   
   // SEO optimization for ROI Calculator page
   useSEO(SEOTemplates.roiCalculator);

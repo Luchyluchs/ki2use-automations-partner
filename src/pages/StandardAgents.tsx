@@ -1,4 +1,4 @@
-import { useScrollReveal, useParallax, useScrollFade } from "@/hooks/useScrollAnimations";
+import { useScrollReveal, useParallax, useScrollFade, useMagneticCursor } from "@/hooks/useScrollAnimations";
 import { useSEO, SEOTemplates } from "@/hooks/useSEO";
 import { StandardAgentsFAQ } from "@/components/StructuredData";
 import Layout from "@/components/Layout";
@@ -10,6 +10,7 @@ const StandardAgents = () => {
   useScrollReveal();
   useParallax();
   useScrollFade();
+  useMagneticCursor();
   // SEO optimization for Standard Agents page
   useSEO(SEOTemplates.standardAgents);
   const agents = [{

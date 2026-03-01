@@ -1,4 +1,4 @@
-import { useScrollReveal, useParallax, useScrollFade } from "@/hooks/useScrollAnimations";
+import { useScrollReveal, useParallax, useScrollFade, useMagneticCursor } from "@/hooks/useScrollAnimations";
 import { useSEO, SEOTemplates } from "@/hooks/useSEO";
 import Layout from "@/components/Layout";
 import ContactForm from "@/components/ContactForm";
@@ -12,6 +12,7 @@ const Contact = () => {
   useScrollReveal();
   useParallax();
   useScrollFade();
+  useMagneticCursor();
   
   // SEO optimization for Contact page
   useSEO(SEOTemplates.contact);
