@@ -39,7 +39,7 @@ const FuturisticBackground = () => {
           y: Math.random() * canvas.height,
           vx: (Math.random() - 0.5) * 0.3,
           vy: (Math.random() - 0.5) * 0.3,
-          opacity: Math.random() * 0.4 + 0.1,
+          opacity: Math.random() * 0.4 + 0.15,
           size: Math.random() * 1.5 + 0.5
         });
       }
@@ -91,8 +91,8 @@ const FuturisticBackground = () => {
       // Draw mouse glow
       if (isDesktopRef.current && sm.x > -500) {
         const glowGradient = ctx.createRadialGradient(sm.x, sm.y, 0, sm.x, sm.y, 250);
-        glowGradient.addColorStop(0, `hsla(${primaryHsl}, 0.12)`);
-        glowGradient.addColorStop(0.4, `hsla(${accentHsl}, 0.05)`);
+        glowGradient.addColorStop(0, `hsla(${primaryHsl}, 0.18)`);
+        glowGradient.addColorStop(0.4, `hsla(${accentHsl}, 0.08)`);
         glowGradient.addColorStop(1, `hsla(${primaryHsl}, 0)`);
         ctx.fillStyle = glowGradient;
         ctx.fillRect(sm.x - 250, sm.y - 250, 500, 500);
@@ -194,8 +194,8 @@ const FuturisticBackground = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 w-full h-full pointer-events-none z-0"
-      style={{ opacity: 0.4 }}
+      className="fixed inset-0 w-full h-full pointer-events-none z-10"
+      style={{ opacity: 0.6 }}
     />
   );
 };
