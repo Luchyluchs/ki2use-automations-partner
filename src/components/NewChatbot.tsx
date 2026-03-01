@@ -212,7 +212,7 @@ const NewChatbot = () => {
     <>
       {/* Floating Chat Toggle - respects safe-area and stays tappable above chat window */}
       <div
-        className="fixed z-[60] bottom-28 right-4 lg:bottom-6 lg:right-6"
+        className="fixed z-[60] bottom-[72px] right-4 lg:bottom-6 lg:right-6"
       >
         <Button
           onClick={() => setIsOpen((v) => !v)}
