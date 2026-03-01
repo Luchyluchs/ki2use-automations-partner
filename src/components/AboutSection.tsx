@@ -3,7 +3,7 @@ import { Award, Shield, Users } from "lucide-react";
 const AboutSection = () => {
 
   return (
-    <section id="ueber-uns" className="section-padding relative overflow-hidden py-8 sm:py-10 lg:py-14">
+    <section id="ueber-uns" className="section-padding relative overflow-hidden py-8 sm:py-10 lg:py-14 scroll-mt-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-4xl">
           <h2 className="scroll-reveal text-3xl sm:text-4xl lg:text-5xl font-thin text-foreground mb-6 sm:mb-8">
