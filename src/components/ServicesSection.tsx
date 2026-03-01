@@ -49,7 +49,7 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="leistungen" className="section-padding relative overflow-hidden py-6 sm:py-10 lg:py-16">
+    <section id="leistungen" className="section-padding bg-gradient-hero relative overflow-hidden py-6 sm:py-10 lg:py-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="mb-10 sm:mb-14 lg:mb-20 scroll-reveal">
           <h2 className="mb-6 text-4xl lg:text-5xl font-thin text-foreground">
