@@ -161,7 +161,7 @@ const ROICalculator = () => {
         </div>
 
         <div className="space-y-4">
-          <Card className="p-6 bg-gradient-to-br from-primary/5 to-accent/5">
+          <Card className="p-6 bg-gradient-to-br from-primary/5 to-accent/5 hover-lift">
             <div className="flex items-center gap-2 mb-4">
               <Euro className="w-5 h-5 text-primary" />
               <h4 className="font-semibold">Aktuelle Kosten</h4>
@@ -182,7 +182,7 @@ const ROICalculator = () => {
             </div>
           </Card>
 
-          <Card className="p-6 bg-gradient-to-br from-accent/5 to-secondary/5">
+          <Card className="p-6 bg-gradient-to-br from-accent/5 to-secondary/5 hover-lift">
             <div className="flex items-center gap-2 mb-4">
               <TrendingUp className="w-5 h-5 text-accent" />
               <h4 className="font-semibold">Mit <span className="nowrap-ki-assistant">KI-Assistent</span></h4>
@@ -217,7 +217,7 @@ const ROICalculator = () => {
             </div>
           </Card>
 
-           <Card className="p-6 bg-gradient-to-br from-green-50 to-green-100 dark:from-green-950 dark:to-green-900">
+           <Card className="p-6 bg-gradient-to-br from-green-50 to-green-100 dark:from-green-950 dark:to-green-900 hover-lift">
             <div className="flex items-center gap-2 mb-4">
               <Clock className="w-5 h-5 text-green-600" />
               <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
