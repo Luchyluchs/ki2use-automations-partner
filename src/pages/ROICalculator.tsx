@@ -18,9 +18,9 @@ const ROICalculatorPage = () => {
   return (
     <Layout>
       {/* Header */}
-      <section className="bg-gradient-subtle pt-6 pb-16">
+      <section className="bg-gradient-hero pt-6 pb-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center fade-in-element">
+          <div className="max-w-4xl mx-auto text-center scroll-reveal">
             <Button variant="ghost" size="sm" asChild className="mb-8 hover-scale">
               <Link to="/">
                 <ArrowLeft className="w-4 h-4 mr-2" />
