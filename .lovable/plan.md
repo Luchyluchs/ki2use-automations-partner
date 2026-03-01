@@ -1,22 +1,39 @@
 
 
-## Problem
-Das Canvas hat `z-0` (z-index: 0) und `opacity: 0.4` -- auf den helleren blauen Sektionen (gradient-hero Bereiche) ist der Kontrast zu gering, um den Effekt zu sehen.
+## Scroll-Effekte Optimierung
 
-## Loesung
+### Aktuelle Probleme
 
-Zwei Anpassungen in `src/components/FuturisticBackground.tsx`:
+1. **ScrollProgressIndicator** loest bei jedem Scroll-Event ein React-Re-Render aus (`useState` + `setState`) -- unnoetig, da nur ein CSS-Transform geaendert wird
+2. **useScrollReveal** wird in mehreren Komponenten aufgerufen (Index, HeroSection, KIBenefitsSection, FAQSection) -- erzeugt mehrere redundante IntersectionObserver
+3. **FuturisticBackground** ruft `getComputedStyle()` in jedem Animations-Frame auf (~60x/Sekunde) -- teuer und unnoetig, da sich die Werte nicht aendern
+4. **useMagneticCursor** hat fehlerhafte Cleanup-Logik (leere Arrow-Functions statt der echten Handler)
+5. **useEnhancedParallax** laeuft parallel zum Canvas-Loop -- koennte zusammengefasst werden
 
-1. **Z-Index erhoehen**: Von `z-0` auf `z-10`, damit das Canvas ueber den Sektions-Hintergruenden liegt
-2. **Opacity erhoehen**: Von `0.4` auf `0.6` fuer bessere Sichtbarkeit auf helleren Bereichen
-3. **Glow-Intensitaet verstaerken**: Die Opazitaet des Maus-Glows von `0.12` / `0.05` auf `0.18` / `0.08` erhoehen, damit er auch auf helleren Hintergruenden sichtbar bleibt
-4. **Partikel heller machen**: Basis-Opacity der Partikel leicht erhoehen (`0.4 + 0.15` statt `0.4 + 0.1`)
+### Geplante Aenderungen
 
-### Aenderungen
-- **Datei**: `src/components/FuturisticBackground.tsx`
-  - Zeile 197: `z-0` zu `z-10` aendern
-  - Zeile 198: `opacity: 0.4` zu `opacity: 0.6` aendern
-  - Zeile 94: Glow center opacity `0.12` zu `0.18`
-  - Zeile 95: Glow mid opacity `0.05` zu `0.08`
-  - Zeile 42: Partikel base opacity erhoehen
+**1. ScrollProgressIndicator.tsx -- DOM-direkt statt React-State**
+- `useState`/`setState` entfernen
+- Stattdessen `useRef` auf das DOM-Element und `element.style.transform` direkt setzen
+- Kein Re-Render mehr bei jedem Scroll
+
+**2. FuturisticBackground.tsx -- CSS-Variablen cachen**
+- `getComputedStyle` einmalig beim Mount und bei Resize auslesen
+- Werte in einer Ref speichern statt in jedem Frame neu abzufragen
+- Spart ~60 Layout-Berechnungen pro Sekunde
+
+**3. useScrollAnimations.ts -- Redundante Observer zusammenfuehren**
+- `useScrollReveal` so anpassen, dass es nur einmal global einen Observer registriert (Singleton-Pattern mit Ref-Counter)
+- `useMagneticCursor` Cleanup korrigieren: echte Handler-Referenzen in `removeEventListener` verwenden
+- `useEnhancedParallax` mit `will-change: transform` und `transform: translate3d()` fuer GPU-Beschleunigung
+
+**4. CSS-Optimierungen in index.css**
+- `scroll-behavior: smooth` nur wenn `prefers-reduced-motion: no-preference`
+- `will-change` Properties gezielter einsetzen (nur waehrend Animation, nicht dauerhaft)
+
+### Zusammenfassung der Dateien
+- `src/components/ScrollProgressIndicator.tsx` -- DOM-direkte Updates
+- `src/components/FuturisticBackground.tsx` -- CSS-Variablen cachen
+- `src/hooks/useScrollAnimations.ts` -- Singleton Observer, Cleanup-Fix, GPU-Hints
+- `src/index.css` -- reduced-motion Support, will-change Optimierung
 
