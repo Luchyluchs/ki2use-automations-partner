@@ -438,7 +438,16 @@ const BusinessAnalysisTool = () => {
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center">
-              <currentQuestion.icon className="w-6 h-6 text-primary-foreground" />
+              <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none" stroke="hsl(var(--primary-foreground))" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="5" y="8" width="14" height="12" rx="2" />
+                <circle cx="9" cy="14" r="1.5" />
+                <circle cx="15" cy="14" r="1.5" />
+                <line x1="9" y1="18" x2="15" y2="18" />
+                <line x1="12" y1="4" x2="12" y2="8" />
+                <circle cx="12" cy="3" r="1" />
+                <line x1="3" y1="13" x2="5" y2="13" />
+                <line x1="19" y1="13" x2="21" y2="13" />
+              </svg>
             </div>
             <div>
               <CardTitle className="text-xl">Business-Analyse</CardTitle>
