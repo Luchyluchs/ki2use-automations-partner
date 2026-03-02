@@ -58,7 +58,7 @@ const NewDemoLogin: React.FC<NewDemoLoginProps> = ({ onLogin }) => {
             <CardDescription className="space-y-2">
               <span className="block">Melden Sie sich mit Ihren personalisierten Zugangsdaten an</span>
               <span className="block text-xs text-muted-foreground/70">
-                Nach einem kostenlosen Erstgespräch erstellen wir Ihre individuelle Demo – 
+                Nach einem kostenlosen Erstgespräch wird eine individuelle Demo erstellt – 
                 maßgeschneidert auf Ihr Unternehmen. Die Zugangsdaten erhalten Sie per E-Mail.
               </span>
             </CardDescription>
