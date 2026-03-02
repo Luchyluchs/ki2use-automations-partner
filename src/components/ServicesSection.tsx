@@ -19,7 +19,7 @@ const services = [
   {
     icon: Euro,
     title: "Förderung",
-    description: "Bis zu 50% Zuschuss auf Ihre KI-Investition. KI2USE findet die passenden Förderprogramme für Ihr Vorhaben.",
+    description: "Staatliche Zuschüsse auf Ihre KI-Investition. KI2USE zeigt passende Förderprogramme auf und vermittelt an Experten.",
     link: "/foerderung",
     cta: "Förderung prüfen",
   },

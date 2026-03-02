@@ -37,7 +37,7 @@ const MobileBenefitCard = ({ icon: Icon, title, description, example, variant = 
 const MobileBenefitsCards = () => {
   const benefits = [
     { icon: Clock, title: "Zeit sparen", description: "Repetitive Aufgaben automatisieren", example: "Weniger Verwaltung, mehr wertschöpfende Arbeit", variant: "highlight" as const },
-    { icon: Euro, title: "Kosten senken", description: "Prozesse effizienter gestalten und Ressourcen nutzen", example: "Bis zu 50% Förderung möglich" },
+    { icon: Euro, title: "Kosten senken", description: "Prozesse effizienter gestalten und Ressourcen nutzen", example: "Staatliche Förderung möglich" },
     { icon: BarChart3, title: "Bessere Entscheidungen", description: "Datenbasierte Einblicke für Ihr Unternehmen", example: "Faktenbasiert statt Bauchgefühl" },
     { icon: Zap, title: "Wettbewerbsfähig bleiben", description: "Während andere zögern, starten Sie durch", example: "Frühzeitig KI-Vorteile nutzen" }
   ];

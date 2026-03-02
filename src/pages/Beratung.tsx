@@ -63,7 +63,7 @@ const Beratung = () => {
     {
       icon: Euro,
       title: "Fördermittel & Zuschüsse",
-      description: "Es gibt zahlreiche staatliche Förderprogramme, die bis zu 50% Ihrer KI-Investition decken können. KI2USE zeigt Ihnen die passenden Möglichkeiten auf.",
+      description: "Es gibt zahlreiche staatliche Förderprogramme für Digitalisierung und KI. KI2USE zeigt Ihnen die passenden Möglichkeiten auf.",
       points: ["Prüfung Ihrer Förderfähigkeit", "Überblick über passende Programme", "Vermittlung an Förderberater", "Maximierung Ihrer Fördersumme"]
     },
     {
@@ -217,7 +217,7 @@ const Beratung = () => {
                   <Euro className="w-7 h-7 text-primary" />
                 </div>
                 <h2 className="text-2xl md:text-3xl font-thin mb-4 tracking-tight">
-                  Bis zu 50% Förderung für Ihre KI-Investition
+                  Staatliche Förderung für Ihre KI-Investition
                 </h2>
                 <p className="text-muted-foreground font-light max-w-2xl mx-auto leading-relaxed">
                   Der Staat fördert die Digitalisierung des Mittelstands mit zahlreichen Programmen auf Bundes- und Landesebene. 

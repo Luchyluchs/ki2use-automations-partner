@@ -11,7 +11,7 @@ const faqs = [
   },
   {
     question: "Wir haben kein großes Budget – geht das trotzdem?",
-    answer: "Absolut. Es gibt zahlreiche staatliche Förderprogramme, die bis zu 50% der Investition abdecken können. KI2USE prüft kostenlos, welche Programme für Ihr Unternehmen in Frage kommen."
+    answer: "Absolut. Es gibt zahlreiche staatliche Förderprogramme für Digitalisierung und KI. KI2USE prüft kostenlos, welche für Ihr Unternehmen in Frage kommen und vermittelt an Förderexperten."
   },
   {
     question: "Ersetzt KI meine Mitarbeiter?",

@@ -16,7 +16,7 @@ const Foerderung = () => {
 
   useSEO({
     title: "KI-Förderung & Zuschüsse für den Mittelstand | KI2USE",
-    description: "Bis zu 50% Förderung für Ihre KI-Investition. KI2USE zeigt passende Förderprogramme auf und vermittelt an spezialisierte Förderberater. Kostenlose Erstprüfung.",
+    description: "Staatliche Förderung für Ihre KI-Investition. KI2USE zeigt passende Förderprogramme auf und vermittelt an spezialisierte Förderberater. Kostenlose Erstprüfung.",
     canonical: "/foerderung",
   });
 
@@ -24,8 +24,8 @@ const Foerderung = () => {
     {
       icon: Landmark,
       title: "Bundesförderung",
-      description: 'Programme wie "Digital Jetzt", "go-digital" oder "Innovationsförderung" des BMWK unterstützen KMUs bei der Digitalisierung.',
-      highlight: "Bis zu 50.000 € Zuschuss",
+      description: "Der Bund bietet verschiedene Programme zur Unterstützung von KMUs bei der Digitalisierung und KI-Einführung.",
+      highlight: "Zuschüsse für KMUs",
     },
     {
       icon: Building2,
@@ -36,14 +36,14 @@ const Foerderung = () => {
     {
       icon: Globe,
       title: "EU-Förderung",
-      description: "Europäische Programme wie der EIC Accelerator oder Horizon Europe fördern innovative KI-Projekte.",
+      description: "Europäische Programme fördern innovative KI-Projekte – besonders für ambitionierte Vorhaben.",
       highlight: "Für größere Vorhaben",
     },
     {
       icon: HandCoins,
-      title: "Günstige KfW-Kredite",
-      description: "Die KfW bietet zinsgünstige Darlehen für Digitalisierungsprojekte – auch kombinierbar mit Zuschüssen.",
-      highlight: "Ab 1% Zinsen",
+      title: "Günstige Kredite",
+      description: "Zinsgünstige Darlehen für Digitalisierungsprojekte – auch kombinierbar mit Zuschüssen.",
+      highlight: "Attraktive Konditionen",
     },
   ];
 
@@ -79,7 +79,7 @@ const Foerderung = () => {
             </Button>
 
             <h1 className="mb-6 font-thin tracking-tight">
-              Bis zu 50%{" "}
+              Staatliche{" "}
               <span className="text-primary font-light">Förderung</span>{" "}
               für Ihre KI-Investition
             </h1>
@@ -97,12 +97,12 @@ const Foerderung = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto scroll-reveal">
             <div className="border border-primary/20 rounded-2xl p-8 text-center">
-              <div className="text-3xl font-light text-primary mb-2">Bis 50%</div>
-              <p className="text-muted-foreground font-light">Zuschuss auf Ihre Investition</p>
+              <div className="text-3xl font-light text-primary mb-2">Vielfältig</div>
+              <p className="text-muted-foreground font-light">Fördermöglichkeiten auf Bund-, Landes- & EU-Ebene</p>
             </div>
             <div className="border border-primary/20 rounded-2xl p-8 text-center">
-              <div className="text-3xl font-light text-primary mb-2">10+</div>
-              <p className="text-muted-foreground font-light">Förderprogramme verfügbar</p>
+              <div className="text-3xl font-light text-primary mb-2">Zahlreich</div>
+              <p className="text-muted-foreground font-light">Programme für KMUs verfügbar</p>
             </div>
             <div className="border border-primary/20 rounded-2xl p-8 text-center">
               <div className="text-3xl font-light text-primary mb-2">Kostenlos</div>

@@ -16,7 +16,7 @@ const KIBenefitsSection = () => {
       icon: Euro,
       title: "Kosten senken",
       description: "Prozesse effizienter gestalten und Ressourcen optimal nutzen.",
-      example: "Förderprogramme können bis zu 50% der Kosten decken"
+      example: "Staatliche Förderprogramme können einen Teil der Kosten decken"
     },
     {
       icon: BarChart3,

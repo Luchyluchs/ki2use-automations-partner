@@ -84,7 +84,7 @@ export const EnhancedStructuredData: FC = () => {
         "name": "Gibt es Förderung für KI-Projekte?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Ja, es gibt zahlreiche staatliche Förderprogramme, die bis zu 50% der Investition abdecken können. KI2USE prüft kostenlos, welche für Ihr Unternehmen in Frage kommen."
+          "text": "Ja, es gibt zahlreiche staatliche Förderprogramme für Digitalisierung und KI. KI2USE prüft kostenlos, welche für Ihr Unternehmen in Frage kommen und vermittelt an Förderexperten."
         }
       },
       {
