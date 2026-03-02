@@ -10,9 +10,6 @@ const HeroSection = () => {
 
   return (
     <section className="relative overflow-hidden min-h-[80vh] flex items-center text-white">
-      <div className="absolute inset-0 bg-gradient-mesh"></div>
-      <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-cyan-500/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-1/3 left-1/4 w-[500px] h-[500px] bg-cyan-400/5 rounded-full blur-3xl"></div>
       
       <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 pt-0 pb-12 sm:pt-0 sm:pb-16 lg:py-0 xl:py-0">
         {/* Mobile Layout */}
