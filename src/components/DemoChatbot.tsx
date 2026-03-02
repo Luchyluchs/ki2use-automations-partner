@@ -159,7 +159,7 @@ const DemoChatbot: React.FC<DemoChatbotProps> = ({
       // Extract bot message
       const botMessage = {
         id: messages.length + 2,
-        text: responseData.message?.trim() || "Vielen Dank für Ihre Nachricht! Unser Team wird sich schnellstmöglich bei Ihnen melden.",
+        text: responseData.message?.trim() || "Vielen Dank für Ihre Nachricht! Das KI2USE-Team wird sich schnellstmöglich bei Ihnen melden.",
         isUser: false,
         timestamp: new Date(),
       };
@@ -187,7 +187,7 @@ const DemoChatbot: React.FC<DemoChatbotProps> = ({
           toastTitle = "Netzwerkfehler";
           toastDescription = "Verbindung zum Server fehlgeschlagen.";
         } else if (error.message.includes('HTTP')) {
-          errorText = `Server-Fehler (${error.message}). Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt.`;
+          errorText = `Server-Fehler (${error.message}). Bitte versuchen Sie es später erneut oder kontaktieren Sie KI2USE direkt.`;
           toastTitle = "Server-Fehler";
           toastDescription = error.message;
         }

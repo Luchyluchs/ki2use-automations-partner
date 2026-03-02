@@ -26,14 +26,14 @@ const Beratung = () => {
     {
       icon: Users,
       title: "Einzelberatung",
-      description: "Persönliche 1:1-Beratung, zugeschnitten auf Ihre Unternehmenssituation. Wir analysieren Ihre Prozesse und entwickeln eine individuelle KI-Strategie.",
+      description: "Persönliche 1:1-Beratung, zugeschnitten auf Ihre Unternehmenssituation. KI2USE analysiert Ihre Prozesse und entwickelt eine individuelle KI-Strategie.",
       details: ["Individuelle Prozessanalyse", "Maßgeschneiderter Fahrplan", "Persönlicher Ansprechpartner"],
       duration: "1–3 Stunden"
     },
     {
       icon: MapPin,
       title: "Vor-Ort-Beratung",
-      description: "Wir kommen zu Ihnen ins Unternehmen, erleben Ihre Abläufe hautnah und identifizieren Automatisierungspotenziale direkt am Arbeitsplatz.",
+      description: "KI2USE kommt zu Ihnen ins Unternehmen, erlebt Ihre Abläufe hautnah und identifiziert Automatisierungspotenziale direkt am Arbeitsplatz.",
       details: ["Begehung & Prozessaufnahme", "Workshop mit Ihrem Team", "Sofort umsetzbare Empfehlungen"],
       duration: "Halber oder ganzer Tag"
     },
@@ -57,34 +57,34 @@ const Beratung = () => {
     {
       icon: Lightbulb,
       title: "KI-Einführung & Strategie",
-      description: "Wo lohnt sich KI in Ihrem Unternehmen? Wir identifizieren die Prozesse mit dem größten Hebel und erstellen einen realistischen Umsetzungsplan.",
+      description: "Wo lohnt sich KI in Ihrem Unternehmen? KI2USE identifiziert die Prozesse mit dem größten Hebel und erstellt einen realistischen Umsetzungsplan.",
       points: ["Potenzialanalyse Ihrer Geschäftsprozesse", "Priorisierung nach Aufwand und Nutzen", "Technologie-Empfehlungen ohne Vendor-Lock-in", "Realistische Zeitplanung und Meilensteine"]
     },
     {
       icon: Euro,
       title: "Fördermittel & Zuschüsse",
-      description: "Es gibt zahlreiche staatliche Förderprogramme, die bis zu 50% Ihrer KI-Investition decken können. Wir prüfen, welche für Ihr Vorhaben in Frage kommen.",
+      description: "Es gibt zahlreiche staatliche Förderprogramme, die bis zu 50% Ihrer KI-Investition decken können. KI2USE prüft, welche für Ihr Vorhaben in Frage kommen.",
       points: ["Prüfung Ihrer Förderfähigkeit", "Unterstützung bei der Antragstellung", "Kombination mehrerer Programme", "Maximierung Ihrer Fördersumme"]
     },
     {
       icon: Shield,
       title: "DSGVO & Compliance",
-      description: "KI rechtssicher einsetzen. Wir beraten Sie zu Datenschutz, AI Act und branchenspezifischen Regularien – verständlich und praxisorientiert.",
+      description: "KI rechtssicher einsetzen. KI2USE berät Sie zu Datenschutz, AI Act und branchenspezifischen Regularien – verständlich und praxisorientiert.",
       points: ["DSGVO-konforme KI-Implementierung", "EU AI Act Einordnung", "Datenschutz-Folgenabschätzung", "Dokumentation & Nachweispflichten"]
     },
     {
       icon: TrendingUp,
       title: "Change Management",
-      description: "Die beste Technologie bringt nichts, wenn das Team nicht mitzieht. Wir helfen bei der Einführung und sorgen für Akzeptanz im Unternehmen.",
+      description: "Die beste Technologie bringt nichts, wenn das Team nicht mitzieht. KI2USE hilft bei der Einführung und sorgt für Akzeptanz im Unternehmen.",
       points: ["Mitarbeiter-Kommunikation", "Schulungskonzepte für Teams", "Pilotprojekte zum Einstieg", "Erfolgsmessung und Iteration"]
     }
   ];
 
   const whyUs = [
-    { icon: Building2, title: "Mittelstandserfahrung", description: "Wir kennen die Herausforderungen von KMUs – kein Enterprise-Overhead, sondern pragmatische Lösungen." },
-    { icon: BookOpen, title: "Verständliche Sprache", description: "Kein Tech-Jargon. Wir erklären KI so, dass jeder im Team es versteht und anwenden kann." },
-    { icon: Globe, title: "Herstellerunabhängig", description: "Wir empfehlen die beste Lösung für Sie – ohne Bindung an bestimmte Anbieter oder Plattformen." },
-    { icon: Shield, title: "DSGVO von Anfang an", description: "Datenschutz ist kein Nachgedanke, sondern Grundlage jeder unserer Empfehlungen." }
+    { icon: Building2, title: "Mittelstandserfahrung", description: "KI2USE kennt die Herausforderungen von KMUs – kein Enterprise-Overhead, sondern pragmatische Lösungen." },
+    { icon: BookOpen, title: "Verständliche Sprache", description: "Kein Tech-Jargon. KI2USE erklärt KI so, dass jeder im Team es versteht und anwenden kann." },
+    { icon: Globe, title: "Herstellerunabhängig", description: "KI2USE empfiehlt die beste Lösung für Sie – ohne Bindung an bestimmte Anbieter oder Plattformen." },
+    { icon: Shield, title: "DSGVO von Anfang an", description: "Datenschutz ist kein Nachgedanke, sondern Grundlage jeder Empfehlung." }
   ];
 
   return (
@@ -105,7 +105,7 @@ const Beratung = () => {
               <span className="text-primary font-light">Klarheit schafft</span>
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed font-light max-w-3xl mx-auto">
-              Von der ersten Orientierung bis zur fertigen Strategie – wir begleiten Sie 
+              Von der ersten Orientierung bis zur fertigen Strategie – KI2USE begleitet Sie 
               bei der KI-Einführung. Persönlich, verständlich und mit Blick auf Fördermöglichkeiten.
             </p>
           </div>
@@ -166,8 +166,8 @@ const Beratung = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 scroll-reveal">
             <h2 className="mb-6 font-thin tracking-tight">
-              Worüber wir{" "}
-              <span className="text-primary font-light">beraten</span>
+              Worüber KI2USE{" "}
+              <span className="text-primary font-light">berät</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-light">
               Von der strategischen Orientierung über Fördermittel bis zur 
@@ -221,7 +221,7 @@ const Beratung = () => {
                 </h2>
                 <p className="text-muted-foreground font-light max-w-2xl mx-auto leading-relaxed">
                   Der Staat fördert die Digitalisierung des Mittelstands mit zahlreichen Programmen auf Bundes- und Landesebene. 
-                  Welche davon für Ihr Unternehmen relevant sind, klären wir gemeinsam im Erstgespräch.
+                  Welche davon für Ihr Unternehmen relevant sind, klärt KI2USE gemeinsam mit Ihnen im Erstgespräch.
                 </p>
               </div>
 
@@ -289,10 +289,10 @@ const Beratung = () => {
           <div className="max-w-4xl mx-auto text-center scroll-reveal">
             <div className="border-t border-card-border/20 pt-12">
               <h2 className="mb-6 font-thin tracking-tight">
-                Lassen Sie uns sprechen
+                Lassen Sie sich beraten
               </h2>
               <p className="text-xl mb-8 text-muted-foreground leading-relaxed font-light">
-                In 30 Minuten finden wir heraus, wie KI Ihrem Unternehmen konkret helfen kann – 
+                In 30 Minuten finden Sie heraus, wie KI Ihrem Unternehmen konkret helfen kann – 
                 und welche Fördermittel Sie dabei unterstützen.
               </p>
 
@@ -305,7 +305,7 @@ const Beratung = () => {
 
               <div className="mt-8 border border-card-border/20 rounded-xl p-6">
                 <p className="text-sm leading-relaxed text-muted-foreground font-light">
-                  <span className="text-foreground">Unverbindlich & ehrlich:</span> Wir sagen Ihnen offen, 
+                  <span className="text-foreground">Unverbindlich & ehrlich:</span> KI2USE sagt Ihnen offen, 
                   ob und wo KI für Ihr Unternehmen Sinn macht – ohne Verkaufsdruck und ohne Tech-Blabla.
                 </p>
               </div>

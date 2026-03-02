@@ -67,7 +67,7 @@ const VoiceAgent: React.FC<VoiceAgentProps> = ({ className = '' }) => {
               ? conversation.isSpeaking 
                 ? 'Der Agent antwortet...' 
                 : 'Fragen Sie mich alles über KI2USE!'
-              : 'Sprechen Sie mit unserem KI-Experten'
+              : 'Sprechen Sie mit dem KI2USE-Experten'
             }
           </p>
 

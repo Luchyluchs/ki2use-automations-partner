@@ -28,7 +28,7 @@ const ExitIntentPopup = ({ isOpen, onClose }: ExitIntentPopupProps) => {
       
       toast({
         title: "KI-Potenzial Check angefordert!",
-        description: "Wir senden Ihnen in wenigen Minuten eine personalisierte KI-Analyse zu.",
+        description: "Sie erhalten in wenigen Minuten eine personalisierte KI-Analyse.",
       });
       
       onClose();

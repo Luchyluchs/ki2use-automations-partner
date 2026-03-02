@@ -48,9 +48,9 @@ const BusinessAnalysisTool = () => {
     currentStateQuestion: "Wie handhaben Sie aktuell Kundenanfragen außerhalb der Geschäftszeiten?",
     options: [
     { value: "manual", label: "Kunden müssen bis zum nächsten Tag warten", timeSpent: 0, painLevel: 3 },
-    { value: "phone", label: "Wir haben einen Anrufbeantworter", timeSpent: 2, painLevel: 2 },
+    { value: "phone", label: "Es gibt einen Anrufbeantworter", timeSpent: 2, painLevel: 2 },
     { value: "email", label: "E-Mails werden am nächsten Tag bearbeitet", timeSpent: 1, painLevel: 2 },
-    { value: "none", label: "Wir haben 24/7 Bereitschaft", timeSpent: 10, painLevel: 5 }],
+    { value: "none", label: "Es gibt 24/7 Bereitschaft", timeSpent: 10, painLevel: 5 }],
 
     automationPotential: {
       title: "24/7 KI-Chat-Assistent",

@@ -25,11 +25,10 @@ const WhyChooseUs = () => {
     description: "DSGVO-konforme Implementierung und volle Compliance für deutsche Unternehmen."
   }, {
     icon: Zap,
-    title: "Wir leben, was wir lehren",
-    description: "Unsere Prozesse sind selbst automatisiert – für maximale Effizienz und Zuverlässigkeit in unserer Zusammenarbeit mit Ihnen."
+    title: "Gelebte Automatisierung",
+    description: "Die eigenen Prozesse von KI2USE sind selbst automatisiert – für maximale Effizienz und Zuverlässigkeit in der Zusammenarbeit mit Ihnen."
   }];
   return <section className="section-padding bg-background relative overflow-hidden">
-      {/* Background Elements */}
       <div className="absolute top-1/4 right-0 w-72 h-72 bg-accent/8 rounded-full blur-3xl parallax-slow"></div>
       <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl parallax-slow"></div>
       
@@ -38,7 +37,7 @@ const WhyChooseUs = () => {
           <h2 className="scroll-reveal mb-6">
             Warum <span className="text-primary">KI2USE</span> für Ihr Unternehmen?
           </h2>
-          <p className="scroll-reveal stagger-delay-1 text-xl text-muted-foreground max-w-3xl mx-auto">Unsere Alleinstellungsmerkmale machen uns zum idealen Partner für deutsche Klein- und Mittelunternehmen auf dem Weg zur KI-Automatisierung.</p>
+          <p className="scroll-reveal stagger-delay-1 text-xl text-muted-foreground max-w-3xl mx-auto">Die Alleinstellungsmerkmale von KI2USE machen es zum idealen Partner für deutsche Klein- und Mittelunternehmen auf dem Weg zur KI-Automatisierung.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -63,8 +62,6 @@ const WhyChooseUs = () => {
               </div>;
         })}
         </div>
-
-        
       </div>
     </section>;
 };

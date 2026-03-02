@@ -61,7 +61,7 @@ const ContactForm = () => {
       logSecurityEvent('suspicious_activity', { type: 'honeypot_triggered', userAgent: navigator.userAgent });
       toast({
         title: "Nachricht erfolgreich versendet!",
-        description: "Wir werden uns innerhalb von 24 Stunden bei Ihnen melden.",
+        description: "KI2USE wird sich innerhalb von 24 Stunden bei Ihnen melden.",
       });
       return;
     }
@@ -105,7 +105,7 @@ const ContactForm = () => {
 
       toast({
         title: "Nachricht erfolgreich versendet!",
-        description: "Wir werden uns innerhalb von 24 Stunden bei Ihnen melden. Ihre Anfrage wird automatisch verarbeitet.",
+        description: "KI2USE wird sich innerhalb von 24 Stunden bei Ihnen melden. Ihre Anfrage wird automatisch verarbeitet.",
       });
 
       // Reset form and errors
@@ -138,7 +138,7 @@ const ContactForm = () => {
       } else {
         toast({
           title: "Fehler beim Versenden",
-          description: "Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt per E-Mail.",
+          description: "Bitte versuchen Sie es erneut oder kontaktieren Sie KI2USE direkt per E-Mail.",
           variant: "destructive",
         });
         

@@ -45,9 +45,9 @@ const CookieConsentBanner = () => {
                 <Shield className="h-5 w-5 text-primary" />
               </div>
               <div className="flex-1">
-                <h3 className="font-semibold text-base mb-1">Ihre Privatsphäre ist uns wichtig</h3>
+                <h3 className="font-semibold text-base mb-1">Ihre Privatsphäre ist wichtig</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Wir nutzen Cookies für die Website-Funktion und optional zur Analyse. 
+                  Diese Website nutzt Cookies für die Website-Funktion und optional zur Analyse. 
                   Sie entscheiden, welche Sie zulassen.{' '}
                   <Link to="/datenschutz" className="text-primary hover:underline">
                     Datenschutzerklärung
@@ -116,7 +116,7 @@ const CookieConsentBanner = () => {
                 <div className="flex-1 mr-4">
                   <Label className="text-base font-medium">Analyse-Cookies</Label>
                   <p className="text-sm text-muted-foreground mt-1">
-                    Helfen uns zu verstehen, wie Besucher mit der Website interagieren (Google Analytics). Alle Daten werden anonymisiert.
+                    Helfen zu verstehen, wie Besucher mit der Website interagieren (Google Analytics). Alle Daten werden anonymisiert.
                   </p>
                 </div>
                 <Switch 

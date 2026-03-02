@@ -54,7 +54,7 @@ const MobileServiceCards = () => {
   const services = [
     {
       title: "KI-Beratung",
-      description: "Wir finden heraus, wo KI in Ihrem Unternehmen echten Mehrwert bringt.",
+      description: "KI2USE findet heraus, wo KI in Ihrem Unternehmen echten Mehrwert bringt.",
       benefits: ["Prozessanalyse & Potenzialcheck", "Konkrete Handlungsempfehlungen", "Unverbindliches Erstgespräch"],
       cta: { text: "Beratung anfragen", href: "/kontakt" },
       variant: "primary" as const,
@@ -62,7 +62,7 @@ const MobileServiceCards = () => {
     },
     {
       title: "Umsetzung",
-      description: "Von der Konzeption bis zum Rollout – wir begleiten die Implementierung.",
+      description: "Von der Konzeption bis zum Rollout – KI2USE begleitet die Implementierung.",
       benefits: ["Individuelle Konzeption", "Schrittweise Implementierung", "Schulung Ihres Teams"],
       cta: { text: "Projekt besprechen", href: "/kontakt" },
       icon: <Rocket size={20} className="text-primary" />

@@ -123,7 +123,7 @@ const Contact = () => {
                 
                 <p className="text-muted-foreground font-light mb-6">
                   Beschreiben Sie Ihr Anliegen und erhalten Sie eine 
-                  persönliche Antwort von unseren Experten.
+                  persönliche Antwort von KI2USE.
                 </p>
                 
                 <ContactForm />
@@ -142,7 +142,7 @@ const Contact = () => {
                 </div>
                 
                 <p className="text-muted-foreground font-light mb-6">
-                  Starten Sie ein Gespräch mit unserem intelligenten Voice-Agent. 
+                  Starten Sie ein Gespräch mit dem intelligenten KI2USE Voice-Agent. 
                   Ideal für erste Fragen und schnelle Beratung.
                 </p>
                 
