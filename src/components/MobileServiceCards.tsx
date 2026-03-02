@@ -70,7 +70,7 @@ const MobileServiceCards = () => {
     {
       title: "Förderung sichern",
       description: "Staatliche Förderprogramme aufzeigen und an Experten vermitteln.",
-      benefits: ["Bis zu 50% Zuschuss möglich", "Passende Programme identifizieren", "Vermittlung an Förderberater"],
+      benefits: ["Staatliche Zuschüsse möglich", "Passende Programme identifizieren", "Vermittlung an Förderberater"],
       cta: { text: "Förderung prüfen", href: "/kontakt" },
       icon: <BadgeEuro size={20} className="text-primary" />
     }
