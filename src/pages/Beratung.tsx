@@ -63,8 +63,8 @@ const Beratung = () => {
     {
       icon: Euro,
       title: "Fördermittel & Zuschüsse",
-      description: "Es gibt zahlreiche staatliche Förderprogramme, die bis zu 50% Ihrer KI-Investition decken können. KI2USE prüft, welche für Ihr Vorhaben in Frage kommen.",
-      points: ["Prüfung Ihrer Förderfähigkeit", "Unterstützung bei der Antragstellung", "Kombination mehrerer Programme", "Maximierung Ihrer Fördersumme"]
+      description: "Es gibt zahlreiche staatliche Förderprogramme, die bis zu 50% Ihrer KI-Investition decken können. KI2USE zeigt Ihnen die passenden Möglichkeiten auf.",
+      points: ["Prüfung Ihrer Förderfähigkeit", "Überblick über passende Programme", "Vermittlung an Förderberater", "Maximierung Ihrer Fördersumme"]
     },
     {
       icon: Shield,
