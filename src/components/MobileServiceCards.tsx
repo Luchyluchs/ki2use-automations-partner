@@ -69,8 +69,8 @@ const MobileServiceCards = () => {
     },
     {
       title: "Förderung sichern",
-      description: "Staatliche Förderprogramme prüfen und Zuschüsse beantragen.",
-      benefits: ["Bis zu 50% Zuschuss möglich", "Passende Programme identifizieren", "Hilfe bei der Antragstellung"],
+      description: "Staatliche Förderprogramme aufzeigen und an Experten vermitteln.",
+      benefits: ["Bis zu 50% Zuschuss möglich", "Passende Programme identifizieren", "Vermittlung an Förderberater"],
       cta: { text: "Förderung prüfen", href: "/kontakt" },
       icon: <BadgeEuro size={20} className="text-primary" />
     }

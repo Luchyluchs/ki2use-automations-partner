@@ -16,7 +16,7 @@ const Foerderung = () => {
 
   useSEO({
     title: "KI-Förderung & Zuschüsse für den Mittelstand | KI2USE",
-    description: "Bis zu 50% Förderung für Ihre KI-Investition. KI2USE prüft passende Förderprogramme und unterstützt bei der Antragstellung. Kostenlose Erstprüfung.",
+    description: "Bis zu 50% Förderung für Ihre KI-Investition. KI2USE zeigt passende Förderprogramme auf und vermittelt an spezialisierte Förderberater. Kostenlose Erstprüfung.",
     canonical: "/foerderung",
   });
 
@@ -51,22 +51,17 @@ const Foerderung = () => {
     {
       step: "01",
       title: "Erstprüfung",
-      description: "Im kostenlosen Erstgespräch prüft KI2USE Ihre Förderfähigkeit und identifiziert passende Programme.",
+      description: "Im kostenlosen Erstgespräch prüft KI2USE Ihre Förderfähigkeit und zeigt passende Programme auf.",
     },
     {
       step: "02",
-      title: "Strategie",
-      description: "KI2USE erarbeitet eine Förderstrategie und kombiniert Programme für maximale Zuschüsse.",
+      title: "Überblick",
+      description: "KI2USE gibt Ihnen einen klaren Überblick über relevante Fördermöglichkeiten und deren Voraussetzungen.",
     },
     {
       step: "03",
-      title: "Antragstellung",
-      description: "KI2USE unterstützt Sie bei der Antragstellung – von der Projektbeschreibung bis zum Finanzierungsplan.",
-    },
-    {
-      step: "04",
-      title: "Umsetzung",
-      description: "Nach Bewilligung begleitet KI2USE die Umsetzung und kümmert sich um Verwendungsnachweise.",
+      title: "Vermittlung",
+      description: "KI2USE vermittelt Sie an spezialisierte Förderberater, die den Antragsprozess professionell begleiten.",
     },
   ];
 
@@ -90,7 +85,8 @@ const Foerderung = () => {
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed font-light max-w-3xl mx-auto">
               Der Staat fördert die Digitalisierung des Mittelstands mit zahlreichen Programmen. 
-              KI2USE findet die passenden Zuschüsse für Ihr Vorhaben und unterstützt bei der Antragstellung.
+              KI2USE zeigt Ihnen die passenden Fördermöglichkeiten für Ihr KI-Vorhaben auf 
+              und vermittelt Sie bei Bedarf an spezialisierte Förderberater.
             </p>
           </div>
         </div>
@@ -167,11 +163,11 @@ const Foerderung = () => {
               <span className="text-primary font-light">Förderung</span> ab
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-light">
-              Von der Erstprüfung bis zur Bewilligung – KI2USE begleitet Sie durch den gesamten Prozess.
+              Von der Erstprüfung bis zur Vermittlung an den richtigen Förderexperten – KI2USE zeigt Ihnen den Weg.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {steps.map((item, index) => (
               <div
                 key={index}
@@ -201,10 +197,10 @@ const Foerderung = () => {
                 {[
                   "KI2USE kennt die aktuellen Förderprogramme für KI-Projekte",
                   "Kostenlose Erstprüfung Ihrer Förderfähigkeit",
-                  "Unterstützung bei der kompletten Antragstellung",
-                  "Kombination mehrerer Programme für maximale Förderung",
-                  "Erfahrung mit erfolgreichen Förderanträgen im Mittelstand",
-                  "Begleitung von der Beantragung bis zum Verwendungsnachweis",
+                  "Vermittlung an spezialisierte Förderberater",
+                  "Überblick über kombinierbare Programme für maximale Förderung",
+                  "Ehrliche Einschätzung Ihrer Fördermöglichkeiten",
+                  "Keine versteckten Kosten – transparent und unverbindlich",
                 ].map((point, i) => (
                   <div key={i} className="flex items-start">
                     <CheckCircle className="w-5 h-5 text-accent mt-0.5 mr-3 flex-shrink-0" />
@@ -226,8 +222,8 @@ const Foerderung = () => {
                 Förderung sichern – jetzt prüfen lassen
               </h2>
               <p className="text-xl mb-8 text-muted-foreground leading-relaxed font-light">
-                In einem kostenlosen Erstgespräch prüft KI2USE, welche Förderprogramme 
-                für Ihr KI-Vorhaben in Frage kommen.
+                In einem kostenlosen Erstgespräch zeigt KI2USE Ihnen, welche Förderprogramme 
+                für Ihr KI-Vorhaben in Frage kommen – und vermittelt Sie an die richtigen Experten.
               </p>
 
               <CalendlyButton
