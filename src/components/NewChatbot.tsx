@@ -233,17 +233,15 @@ const NewChatbot = () => {
         </Button>
       </div>
 
-      {/* Chat Window - Adjusted positioning for mobile bottom nav */}
+      {/* Chat Window - overlays mobile nav, uses full visible viewport */}
       {isOpen && (
         <div 
           data-chatbot-window="true"
-          className={`fixed left-2 right-2 sm:right-6 sm:left-auto sm:w-96 md:w-[450px] lg:w-[500px] bg-card border border-card-border rounded-2xl shadow-elevated z-50 flex flex-col animate-scale-in ${vpOffsetTop === 0 ? 'bottom-2' : ''}`} 
+          className="fixed left-2 right-2 bottom-2 sm:right-6 sm:left-auto sm:w-96 md:w-[450px] lg:w-[500px] bg-card border border-card-border rounded-2xl shadow-elevated z-[70] flex flex-col animate-scale-in"
           style={{
-            bottom: vpOffsetTop > 0 ? 'auto' : undefined,
-            top: vpOffsetTop > 0 ? (vpOffsetTop + 8) + 'px' : undefined,
-            height: Math.min(600, vpHeight - (vpOffsetTop > 0 ? 16 : 120)) + 'px',
-            maxHeight: Math.min(600, vpHeight - (vpOffsetTop > 0 ? 16 : 120)) + 'px',
-            marginBottom: vpOffsetTop > 0 ? '0px' : (window.innerWidth < 1024 ? '64px' : '0px'),
+            ...(vpOffsetTop > 0 ? { top: (vpOffsetTop + 8) + 'px', bottom: 'auto' } : {}),
+            height: Math.min(600, vpHeight - 24) + 'px',
+            maxHeight: Math.min(600, vpHeight - 24) + 'px',
           }}
         >
           {/* Header */}
