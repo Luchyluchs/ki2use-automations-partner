@@ -5,7 +5,7 @@ const TrustIndicators = () => {
     { icon: Shield, text: "100% DSGVO-konform" },
     { icon: Lock, text: "Keine Vertragsbindung" },
     { icon: CheckCircle, text: "Komplett kostenlos" },
-    { icon: Users, text: "500+ zufriedene Kunden" },
+    { icon: Users, text: "Persönlicher Ansprechpartner" },
     { icon: Award, text: "Deutscher KI-Anbieter" },
     { icon: Clock, text: "Binnen 24h Antwort" }
   ];
