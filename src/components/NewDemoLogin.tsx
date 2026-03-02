@@ -55,8 +55,12 @@ const NewDemoLogin: React.FC<NewDemoLoginProps> = ({ onLogin }) => {
               </div>
             </div>
             <CardTitle className="text-2xl font-bold">KI2USE Demoportal</CardTitle>
-            <CardDescription>
-              Melden Sie sich mit Ihren personalisierten Zugangsdaten an
+            <CardDescription className="space-y-2">
+              <span className="block">Melden Sie sich mit Ihren personalisierten Zugangsdaten an</span>
+              <span className="block text-xs text-muted-foreground/70">
+                Nach einem kostenlosen Erstgespräch erstellen wir Ihre individuelle Demo – 
+                maßgeschneidert auf Ihr Unternehmen. Die Zugangsdaten erhalten Sie per E-Mail.
+              </span>
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
