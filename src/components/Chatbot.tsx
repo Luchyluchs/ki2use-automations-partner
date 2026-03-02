@@ -40,7 +40,7 @@ const Chatbot = () => {
   const [sessionId] = useState(() => crypto.randomUUID());
   const [messages, setMessages] = useState<Message[]>([{
     id: "welcome",
-    text: "Hallo! Ich bin Ihr KI-Assistent von KI2USE. Wie kann ich Ihnen bei Fragen zu unseren KI-Lösungen helfen?",
+    text: "Hallo! Ich bin der KI-Assistent von KI2USE. Wie kann ich Ihnen bei Fragen zu den KI-Lösungen helfen?",
     isUser: false,
     timestamp: new Date()
   }]);
@@ -151,14 +151,14 @@ const Chatbot = () => {
           toastTitle = "Netzwerkfehler";
           toastDescription = "Verbindung zum Server fehlgeschlagen.";
         } else if (error.message.includes('HTTP')) {
-          errorText = `Server-Fehler (${error.message}). Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt.`;
+          errorText = `Server-Fehler (${error.message}). Bitte versuchen Sie es später erneut oder kontaktieren Sie KI2USE direkt.`;
           toastTitle = "Server-Fehler";
           toastDescription = error.message;
         }
       }
       const botErrorMessage: Message = {
         id: (Date.now() + 1).toString(),
-        text: errorText + " Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt.",
+        text: errorText + " Bitte versuchen Sie es später erneut oder kontaktieren Sie KI2USE direkt.",
         isUser: false,
         timestamp: new Date()
       };

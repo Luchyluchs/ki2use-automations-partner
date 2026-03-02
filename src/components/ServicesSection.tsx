@@ -19,7 +19,7 @@ const services = [
   {
     icon: Euro,
     title: "Förderung",
-    description: "Bis zu 50% Zuschuss auf Ihre KI-Investition. Wir finden die passenden Förderprogramme für Ihr Vorhaben.",
+    description: "Bis zu 50% Zuschuss auf Ihre KI-Investition. KI2USE findet die passenden Förderprogramme für Ihr Vorhaben.",
     link: "/foerderung",
     cta: "Förderung prüfen",
   },
@@ -31,10 +31,10 @@ const ServicesSection = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="mb-10 sm:mb-14 lg:mb-20 scroll-reveal">
           <h2 className="mb-6 text-4xl lg:text-5xl font-thin text-foreground">
-            Was wir für Sie tun
+            Was KI2USE für Sie tut
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl font-light">
-            Von der ersten Idee bis zur fertigen Lösung – drei Wege, wie wir Ihnen helfen.
+            Von der ersten Idee bis zur fertigen Lösung – drei Wege, wie KI2USE Ihnen hilft.
           </p>
         </div>
 

@@ -123,10 +123,10 @@ const CustomAgents = () => {
                   Einzigartige Geschäftsanforderungen verdienen einzigartige Lösungen
                 </h2>
                 <p className="text-muted-foreground mb-6 leading-relaxed font-light">
-                  Hier analysieren wir spezifische Geschäftsanforderungen von Unternehmen und entwickeln einzigartige KI-Agenten oder Automatisierungsworkflows, die perfekt auf die individuellen Prozesse zugeschnitten sind.
+                  KI2USE analysiert spezifische Geschäftsanforderungen von Unternehmen und entwickelt einzigartige KI-Agenten oder Automatisierungsworkflows, die perfekt auf die individuellen Prozesse zugeschnitten sind.
                 </p>
                 <p className="text-muted-foreground leading-relaxed font-light">
-                  Durch agile Entwicklungsmethoden und bewährte Standards gewährleisten wir 
+                  Durch agile Entwicklungsmethoden und bewährte Standards gewährleistet KI2USE 
                   höchste Effizienz, Transparenz und eine kalkulierbare Projektumsetzung.
                 </p>
               </div>
@@ -271,8 +271,8 @@ const CustomAgents = () => {
               <div className="mt-8 border border-card-border/20 rounded-xl p-6">
                 <p className="text-sm leading-relaxed text-muted-foreground font-light">
                   <span className="text-foreground">Transparenz von Anfang an:</span> Ihre Anfrage wird automatisch verarbeitet, 
-                  kategorisiert und an unseren Experten für maßgeschneiderte Lösungen weitergeleitet. 
-                  So erleben Sie bereits im ersten Kontakt unsere Automatisierungs-Kompetenz.
+                  kategorisiert und an den KI2USE-Experten für maßgeschneiderte Lösungen weitergeleitet. 
+                  So erleben Sie bereits im ersten Kontakt die Automatisierungs-Kompetenz von KI2USE.
                 </p>
               </div>
             </div>

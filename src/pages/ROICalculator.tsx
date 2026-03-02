@@ -32,8 +32,8 @@ const ROICalculatorPage = () => {
               <span className="text-primary font-light">Ihre Kosteneinsparungen berechnen</span>
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed font-light max-w-3xl mx-auto">
-              Finden Sie heraus, wie viel Geld und Zeit Sie mit unseren KI-Agenten sparen können. 
-              Unser interaktiver Rechner zeigt Ihnen das Einsparpotential für Ihr Unternehmen.
+              Finden Sie heraus, wie viel Geld und Zeit Sie mit den KI-Agenten von KI2USE sparen können. 
+              Der interaktive Rechner zeigt Ihnen das Einsparpotential für Ihr Unternehmen.
             </p>
           </div>
         </div>
@@ -92,7 +92,7 @@ const ROICalculatorPage = () => {
               <span className="text-primary font-light">Agenten-Berechnung</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-light">
-              Unser Rechner basiert auf bewährten Berechnungsmethoden und realen Projekterfahrungen
+              Der Rechner basiert auf bewährten Berechnungsmethoden und realen Projekterfahrungen
             </p>
           </div>
 
@@ -149,8 +149,8 @@ const ROICalculatorPage = () => {
                 Überzeugt von den Zahlen?
               </h2>
               <p className="text-xl mb-8 text-muted-foreground leading-relaxed font-light">
-                Lassen Sie uns gemeinsam Ihre individuelle KI-Lösung besprechen 
-                und die konkreten Einsparmöglichkeiten für Ihr Unternehmen ermitteln.
+                Besprechen Sie Ihre individuelle KI-Lösung mit KI2USE 
+                und ermitteln Sie die konkreten Einsparmöglichkeiten für Ihr Unternehmen.
               </p>
               <CalendlyButton 
                 text="Kostenloses Erstgespräch sichern (30 Min.)"
@@ -162,7 +162,7 @@ const ROICalculatorPage = () => {
               <div className="mt-8 border border-card-border/20 rounded-xl p-6">
                 <p className="text-sm leading-relaxed text-muted-foreground font-light">
                   <span className="text-foreground">Individuelle Beratung:</span> Die im Rechner angezeigten Werte sind Richtwerte. 
-                  In einem persönlichen Gespräch erstellen wir eine präzise Analyse für Ihre spezifischen 
+                  In einem persönlichen Gespräch erstellt KI2USE eine präzise Analyse für Ihre spezifischen 
                   Geschäftsprozesse und Anforderungen.
                 </p>
               </div>

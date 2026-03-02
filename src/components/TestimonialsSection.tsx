@@ -7,13 +7,13 @@ const TestimonialsSection = () => {
     name: "Dr. Michael Weber",
     position: "Geschäftsführer",
     company: "Weber Consulting GmbH",
-    content: "Die Automatisierungslösungen von KI2USE haben unsere Effizienz um 60% gesteigert. Besonders beeindruckend ist, wie schnell und unkompliziert die Implementierung war.",
+    content: "Die Automatisierungslösungen von KI2USE haben die Effizienz um 60% gesteigert. Besonders beeindruckend ist, wie schnell und unkompliziert die Implementierung war.",
     rating: 5
   }, {
     name: "Sandra Müller",
     position: "Marketing Leiterin",
     company: "TechStart KMU",
-    content: "Der LinkedIn Agent hat unsere Lead-Generierung revolutioniert. Wir sparen 10 Stunden pro Woche und haben gleichzeitig bessere Ergebnisse.",
+    content: "Der LinkedIn Agent hat die Lead-Generierung revolutioniert. Das Unternehmen spart 10 Stunden pro Woche und hat gleichzeitig bessere Ergebnisse.",
     rating: 5
   }, {
     name: "Thomas Schmidt",
@@ -43,7 +43,7 @@ const TestimonialsSection = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-16">
           <h2 className="scroll-reveal mb-6">
-            Was unsere <span className="text-primary">Kunden sagen</span>
+            Was Kunden über <span className="text-primary">KI2USE sagen</span>
           </h2>
           <p className="scroll-reveal stagger-delay-1 text-xl text-muted-foreground max-w-3xl mx-auto">
             Vertrauen Sie auf die Erfahrungen deutscher Unternehmen, 

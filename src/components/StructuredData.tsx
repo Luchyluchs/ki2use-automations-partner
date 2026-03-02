@@ -139,19 +139,19 @@ export const KI2USEFAQs = [
   },
   {
     question: "Wie schnell amortisiert sich die Investition in KI-Agenten?",
-    answer: "Die meisten unserer KMU-Kunden amortisieren ihre Investition in 3-6 Monaten. Durch die enormen Zeitersparnisse (40-80% bei automatisierten Prozessen) und die 24/7-Verfügbarkeit rechnen sich KI-Agenten sehr schnell."
+    answer: "Die meisten KMU-Kunden von KI2USE amortisieren ihre Investition in 3-6 Monaten. Durch die enormen Zeitersparnisse (40-80% bei automatisierten Prozessen) und die 24/7-Verfügbarkeit rechnen sich KI-Agenten sehr schnell."
   },
   {
     question: "Sind KI-Agenten DSGVO-konform?",
-    answer: "Ja, alle unsere KI-Agenten werden DSGVO-konform entwickelt und implementiert. Wir achten streng auf Datenschutz und verwenden nur europäische Server. Ihre Kundendaten bleiben sicher und rechtskonform verarbeitet."
+    answer: "Ja, alle KI-Agenten von KI2USE werden DSGVO-konform entwickelt und implementiert. KI2USE achtet streng auf Datenschutz und verwendet nur europäische Server. Ihre Kundendaten bleiben sicher und rechtskonform verarbeitet."
   },
   {
     question: "Welche Geschäftsprozesse lassen sich automatisieren?",
-    answer: "Fast alle wiederkehrenden Aufgaben: E-Mail-Management, LinkedIn-Akquise, Kundenservice-Chats, Terminbuchungen, Social Media Posting, Lead-Qualifizierung, Rechnungsverarbeitung und vieles mehr. Wir analysieren Ihre Prozesse und identifizieren die besten Automatisierungsmöglichkeiten."
+    answer: "Fast alle wiederkehrenden Aufgaben: E-Mail-Management, LinkedIn-Akquise, Kundenservice-Chats, Terminbuchungen, Social Media Posting, Lead-Qualifizierung, Rechnungsverarbeitung und vieles mehr. KI2USE analysiert Ihre Prozesse und identifiziert die besten Automatisierungsmöglichkeiten."
   },
   {
     question: "Benötige ich technische Kenntnisse für KI-Agenten?",
-    answer: "Nein, unsere KI-Agenten sind benutzerfreundlich gestaltet. Nach einer kurzen Einführung können Sie und Ihr Team die Agenten problemlos bedienen. Wir übernehmen die komplette technische Implementierung und bieten kontinuierlichen Support."
+    answer: "Nein, die KI-Agenten von KI2USE sind benutzerfreundlich gestaltet. Nach einer kurzen Einführung können Sie und Ihr Team die Agenten problemlos bedienen. KI2USE übernimmt die komplette technische Implementierung und bietet kontinuierlichen Support."
   }
 ];
 

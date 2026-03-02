@@ -61,7 +61,7 @@ const Training = () => {
     { icon: Award, title: "Zertifizierung", description: "Offizielle Teilnahmezertifikate für alle absolvierten Schulungen." },
     { icon: Target, title: "KMU-Fokus", description: "Speziell für kleinere Betriebsstrukturen entwickelte Inhalte und Methoden." },
     { icon: TrendingUp, title: "Messbare Erfolge", description: "Konkrete KPIs und Agenten-Messungen für alle vermittelten Techniken." },
-    { icon: Zap, title: "Live-Beispiele", description: "Praktische Demonstrationen unserer eigenen Automatisierungen." }
+    { icon: Zap, title: "Live-Beispiele", description: "Praktische Demonstrationen der eigenen KI2USE-Automatisierungen." }
   ];
 
   const targetGroups = [
@@ -106,13 +106,13 @@ const Training = () => {
                   Praktisches KI-Wissen, das wirkt
                 </h2>
                 <p className="text-muted-foreground mb-6 leading-relaxed font-light">
-                  Unsere KI-Schulungen vermitteln praxisnahes, sofort anwendbares Wissen und 
+                  Die KI-Schulungen von KI2USE vermitteln praxisnahes, sofort anwendbares Wissen und 
                   konkrete Fähigkeiten, die KMUs befähigen, KI selbst zu nutzen und ihre 
                   Effizienz nachhaltig zu steigern.
                 </p>
                 <p className="text-muted-foreground leading-relaxed font-light">
-                  In unseren Schulungen zeigen wir auch praktische Beispiele, wie wir Automatisierung 
-                  intern zur Effizienzsteigerung einsetzen und vermitteln Best Practices, 
+                  In den Schulungen zeigt KI2USE auch praktische Beispiele, wie Automatisierung 
+                  intern zur Effizienzsteigerung eingesetzt wird und vermittelt Best Practices, 
                   die speziell für kleinere Betriebsstrukturen relevant und umsetzbar sind.
                 </p>
               </div>
@@ -143,7 +143,7 @@ const Training = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 scroll-reveal">
             <h2 className="mb-6 font-thin tracking-tight">
-              Unsere{" "}
+              Die{" "}
               <span className="text-primary font-light">Schulungsprogramme</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-light">
@@ -262,7 +262,7 @@ const Training = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 scroll-reveal">
             <h2 className="mb-6 font-thin tracking-tight">
-              Wer profitiert von unseren{" "}
+              Wer profitiert von den{" "}
               <span className="text-primary font-light">Schulungen</span>?
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-light">
@@ -316,7 +316,7 @@ const Training = () => {
               <div className="mt-8 border border-card-border/20 rounded-xl p-6">
                 <p className="text-sm leading-relaxed text-muted-foreground font-light">
                   <span className="text-foreground">Praxis von Anfang an:</span> Bereits bei der Schulungsplanung erleben Sie 
-                  unsere automatisierten Prozesse in Aktion – von der Bedarfsanalyse bis zur 
+                  die automatisierten KI2USE-Prozesse in Aktion – von der Bedarfsanalyse bis zur 
                   individuellen Lernpfad-Erstellung.
                 </p>
               </div>
