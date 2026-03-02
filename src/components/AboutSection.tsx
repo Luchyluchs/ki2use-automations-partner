@@ -3,7 +3,7 @@ import { Award, Shield, Users } from "lucide-react";
 const AboutSection = () => {
 
   return (
-    <section id="ueber-uns" className="section-padding relative overflow-hidden py-8 sm:py-10 lg:py-14 scroll-mt-24">
+    <section id="ueber-uns" className="relative overflow-hidden py-8 sm:py-10 lg:py-14 scroll-mt-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-4xl">
           <h2 className="scroll-reveal text-3xl sm:text-4xl lg:text-5xl font-thin text-foreground mb-6 sm:mb-8">
@@ -22,25 +22,25 @@ const AboutSection = () => {
           </div>
 
            <div className="scroll-scale stagger-delay-2 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 mt-8 sm:mt-12">
-             <div className="flex items-start space-x-3 sm:space-x-4 p-4 sm:p-5 bg-card/30 rounded-xl border border-card-border/50">
+             <div className="flex items-start space-x-3 sm:space-x-4 p-4 sm:p-5 border border-card-border/30 rounded-xl hover:border-primary/30 transition-all duration-300">
               <Award className="w-5 h-5 sm:w-6 sm:h-6 text-primary flex-shrink-0 mt-1" strokeWidth={1.5} />
               <div>
-                <h3 className="font-medium text-foreground mb-1 text-sm sm:text-base">IHK-zertifiziert</h3>
-                <p className="text-xs sm:text-sm text-muted-foreground">Geprüfter KI-Manager – IHK Düsseldorf</p>
+                <h3 className="font-light text-foreground mb-1 text-sm sm:text-base">IHK-zertifiziert</h3>
+                <p className="text-xs sm:text-sm text-muted-foreground font-light">Geprüfter KI-Manager – IHK Düsseldorf</p>
               </div>
             </div>
-             <div className="flex items-start space-x-3 sm:space-x-4 p-4 sm:p-5 bg-card/30 rounded-xl border border-card-border/50">
+             <div className="flex items-start space-x-3 sm:space-x-4 p-4 sm:p-5 border border-card-border/30 rounded-xl hover:border-primary/30 transition-all duration-300">
               <Shield className="w-5 h-5 sm:w-6 sm:h-6 text-primary flex-shrink-0 mt-1" strokeWidth={1.5} />
               <div>
-                <h3 className="font-medium text-foreground mb-1 text-sm sm:text-base">DSGVO-konform</h3>
-                <p className="text-xs sm:text-sm text-muted-foreground">Datenschutz von Anfang an mitgedacht</p>
+                <h3 className="font-light text-foreground mb-1 text-sm sm:text-base">DSGVO-konform</h3>
+                <p className="text-xs sm:text-sm text-muted-foreground font-light">Datenschutz von Anfang an mitgedacht</p>
               </div>
             </div>
-            <div className="flex items-start space-x-3 sm:space-x-4 p-4 sm:p-5 bg-card/30 rounded-xl border border-card-border/50">
+            <div className="flex items-start space-x-3 sm:space-x-4 p-4 sm:p-5 border border-card-border/30 rounded-xl hover:border-primary/30 transition-all duration-300">
               <Users className="w-5 h-5 sm:w-6 sm:h-6 text-primary flex-shrink-0 mt-1" strokeWidth={1.5} />
               <div>
-                <h3 className="font-medium text-foreground mb-1 text-sm sm:text-base">Deutschlandweit</h3>
-                <p className="text-xs sm:text-sm text-muted-foreground">Persönlicher Ansprechpartner für Ihr Projekt</p>
+                <h3 className="font-light text-foreground mb-1 text-sm sm:text-base">Deutschlandweit</h3>
+                <p className="text-xs sm:text-sm text-muted-foreground font-light">Persönlicher Ansprechpartner für Ihr Projekt</p>
               </div>
             </div>
           </div>
