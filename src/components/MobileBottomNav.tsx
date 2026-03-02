@@ -6,36 +6,11 @@ const MobileBottomNav = () => {
   const location = useLocation();
   
   const navItems = [
-    {
-      icon: Home,
-      label: "Start",
-      href: "/",
-      primary: false
-    },
-    {
-      icon: Zap,
-      label: "KI-Agenten",
-      href: "/standard-agenten",
-      primary: false
-    },
-    {
-      icon: Phone,
-      label: "Beratung",
-      href: "/beratung",
-      primary: true
-    },
-    {
-      icon: Calculator,
-      label: "Rechner",
-      href: "/roi-rechner",
-      primary: false
-    },
-    {
-      icon: MessageCircle,
-      label: "Demo",
-      href: "/demoportal",
-      primary: false
-    }
+    { icon: Home, label: "Start", href: "/" },
+    { icon: Phone, label: "Beratung", href: "/beratung" },
+    { icon: Zap, label: "KI-Agenten", href: "/standard-agenten" },
+    { icon: Calculator, label: "Rechner", href: "/roi-rechner" },
+    { icon: MessageCircle, label: "Demo", href: "/demoportal" },
   ];
 
   const isActive = (href: string) => {
@@ -59,14 +34,12 @@ const MobileBottomNav = () => {
                 "flex flex-col items-center justify-center space-y-1 transition-all duration-200",
                 active 
                   ? "text-primary" 
-                  : "text-muted-foreground hover:text-foreground",
-                item.primary && !active && "text-accent hover:text-accent-hover"
+                  : "text-muted-foreground hover:text-foreground"
               )}
             >
               <div className={cn(
                 "p-1.5 rounded-lg transition-all duration-200",
-                active && "bg-primary/10",
-                item.primary && !active && "bg-accent/10"
+                active && "bg-primary/10"
               )}>
                 <Icon size={18} />
               </div>

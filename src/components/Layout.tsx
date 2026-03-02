@@ -104,11 +104,11 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             <div>
               <h3 className="font-semibold text-white mb-3 sm:mb-4 text-sm sm:text-base">Angebot</h3>
               <ul className="space-y-2 text-sm sm:text-base">
-                <li><Link to="/beratung" className={`${isActive("/beratung") ? "text-primary" : "text-white/60 hover:text-white"} transition-smooth block py-1`}>Beratung</Link></li>
-                <li><Link to="/standard-agenten" className={`${isActive("/standard-agenten") ? "text-primary" : "text-white/60 hover:text-white"} transition-smooth block py-1`}>Agenten</Link></li>
-                <li><Link to="/roi-rechner" className={`${isActive("/roi-rechner") ? "text-primary" : "text-white/60 hover:text-white"} transition-smooth block py-1`}>Rechner</Link></li>
+                <li><Link to="/beratung" className={`${isActive("/beratung") ? "text-primary" : "text-white/60 hover:text-white"} transition-smooth block py-1`}>KI-Beratung</Link></li>
+                <li><Link to="/standard-agenten" className={`${isActive("/standard-agenten") ? "text-primary" : "text-white/60 hover:text-white"} transition-smooth block py-1`}>KI-Agenten</Link></li>
+                <li><Link to="/roi-rechner" className={`${isActive("/roi-rechner") ? "text-primary" : "text-white/60 hover:text-white"} transition-smooth block py-1`}>KI-Rechner</Link></li>
                 <li><Link to="/foerderung" className={`${isActive("/foerderung") ? "text-primary" : "text-white/60 hover:text-white"} transition-smooth block py-1`}>Förderung</Link></li>
-                <li><Link to="/demoportal" className={`${isActive("/demoportal") ? "text-primary" : "text-white/60 hover:text-white"} transition-smooth block py-1`}>Demo</Link></li>
+                <li><Link to="/demoportal" className={`${isActive("/demoportal") ? "text-primary" : "text-white/60 hover:text-white"} transition-smooth block py-1`}>Demoportal</Link></li>
               </ul>
             </div>
             
