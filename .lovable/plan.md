@@ -1,36 +1,49 @@
 
 
-## Footer: Reihenfolge angleichen, kurze Labels, aktive Seite hervorheben
+## Chat-Fenster: iPhone-Tastatur-Anpassung
 
-### Aenderungen in `src/components/Layout.tsx`
+### Problem
+Auf dem iPhone verschiebt sich das Chat-Fenster beim Oeffnen der Tastatur komplett nach oben. Header und erste Nachricht verschwinden, weil iOS Safari die `window.innerHeight` nicht aendert -- stattdessen aendert sich nur `visualViewport.height` und `visualViewport.offsetTop`.
 
-**1. Reihenfolge wie Navigation**
+### Loesung
 
-Aktuell: KI-Beratung, KI-Agenten, Foerderung, KI-Rechner, Demoportal
-Neu: Beratung, Agenten, Rechner, Foerderung, Demo
+**Datei: `src/components/NewChatbot.tsx`**
 
-**2. Kuerzere Labels fuer mobile Ansicht**
+1. **`visualViewport.height` statt `window.innerHeight` nutzen**: Die aktuelle Viewport-Hoehe wird korrekt aus `window.visualViewport?.height` gelesen (Fallback auf `window.innerHeight`).
 
-| Navigation | Footer (kurz) |
+2. **Chat-Fenster mit `position: fixed` am unteren Rand des sichtbaren Bereichs verankern**: Ueber `visualViewport.offsetTop` wird der vertikale Offset berechnet, sodass das Fenster immer im sichtbaren Bereich bleibt, auch wenn die Tastatur geoeffnet ist.
+
+3. **Hoehe dynamisch anpassen**: Die Chat-Fenster-Hoehe wird auf die verfuegbare `visualViewport.height` minus Abstand begrenzt, damit Header, Nachrichten und Input-Feld alle sichtbar bleiben.
+
+### Technische Details
+
+```text
+Vorher (Tastatur offen):
++------------------+
+| [versteckt]      |  <- Header + erste Nachrichten unsichtbar
+| ...              |
+| Nachrichten      |
+| [Input]          |
+| [Tastatur]       |
++------------------+
+
+Nachher (Tastatur offen):
++------------------+
+| [Header]         |  <- Alles sichtbar
+| Nachrichten      |
+| [Input]          |
+| [Tastatur]       |
++------------------+
+```
+
+- State `viewportHeight` wird durch zwei States ersetzt: `vpHeight` und `vpOffsetTop`
+- Im resize-Handler: `vpHeight = visualViewport.height`, `vpOffsetTop = visualViewport.offsetTop`
+- Style des Chat-Fensters: `top: vpOffsetTop + 'px'`, `height: min(600, vpHeight - 80) + 'px'`, `bottom: 'auto'`
+- Wenn Tastatur geschlossen: `vpOffsetTop` ist 0 und `vpHeight` ist die volle Fensterhoehe, also normales Verhalten
+
+### Aenderungen
+
+| Datei | Aenderung |
 |---|---|
-| Beratung | Beratung |
-| KI-Agenten | Agenten |
-| KI-Rechner | Rechner |
-| Foerderung | Foerderung |
-| Demo | Demo |
-
-**3. Aktive Seite farbig hervorheben**
-
-Der Link der aktuellen Seite wird farbig (`text-primary`) dargestellt, alle anderen bleiben grau (`text-white/60`). Dafuer wird die bestehende `isActive`-Funktion wiederverwendet.
-
-### Technische Umsetzung
-
-- Footer-Links in Zeilen 106-112 umordnen und Labels kuerzen
-- Klassennamen dynamisch setzen: aktiv = `text-primary`, inaktiv = `text-white/60 hover:text-white`
-
-### Datei
-
-| Datei | Aktion |
-|---|---|
-| `src/components/Layout.tsx` | Footer-Links umordnen, kuerzen, aktive Hervorhebung |
+| `src/components/NewChatbot.tsx` | visualViewport-basierte Positionierung und Hoehe fuer iOS-Tastatur-Kompatibilitaet |
 
