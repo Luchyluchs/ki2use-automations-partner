@@ -15,9 +15,9 @@ const AboutSection = () => {
               Der Mittelstand braucht keine überladenen Technologie-Versprechen, sondern praxisnahe Lösungen. 
               KI2USE steht dafür, dass KI kein Hexenwerk sein muss – sie sollte einfach nur funktionieren.
             </p>
-            <p>
-              Hinter KI2USE steht ein IHK-zertifizierter Berater, der Unternehmen dabei unterstützt, 
-              die richtigen Anwendungen zu finden, Fördermöglichkeiten zu nutzen und echte Mehrwerte zu schaffen.
+            <p>Hinter KI2USE steht ein IHK-zertifizierter KI-Manager, der Unternehmen dabei unterstützt, die richtigen Anwendungen zu finden, Fördermöglichkeiten zu nutzen und echte Mehrwerte zu schaffen.
+
+
             </p>
           </div>
 
@@ -46,8 +46,8 @@ const AboutSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default AboutSection;
