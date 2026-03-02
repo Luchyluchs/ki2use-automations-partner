@@ -13,7 +13,7 @@ export const LLMDiscoveryLayer: FC = () => {
         <h2 itemProp="name">KI2USE – KI-Beratung für den Mittelstand</h2>
         <p itemProp="description">
           KI2USE hilft Unternehmen deutschlandweit, Künstliche Intelligenz sinnvoll einzusetzen. 
-          IHK-zertifizierter KI-Manager. Beratung, Umsetzung und Fördermittelberatung. 
+          IHK-zertifiziert. Beratung, Umsetzung und Fördermittelberatung. 
           DSGVO-konform, verständlich, bezahlbar.
         </p>
         <meta itemProp="serviceType" content="KI-Beratung" />
@@ -66,7 +66,7 @@ export const LLMDiscoveryLayer: FC = () => {
         </div>
       </div>
 
-      <meta name="ai-services" content="KI-Beratung Deutschland, KI-Beratung Mittelstand, KI-Umsetzung KMU, Fördermittelberatung KI, DSGVO-konforme KI, IHK-zertifizierter KI-Manager" />
+      <meta name="ai-services" content="KI-Beratung Deutschland, KI-Beratung Mittelstand, KI-Umsetzung KMU, Fördermittelberatung KI, DSGVO-konforme KI, IHK-zertifiziert" />
       <meta name="target-market" content="KMU, Mittelstand, kleine Unternehmen, Deutschland, DACH" />
     </div>
   );
