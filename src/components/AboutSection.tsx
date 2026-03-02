@@ -26,7 +26,7 @@ const AboutSection = () => {
               <Award className="w-5 h-5 sm:w-6 sm:h-6 text-primary flex-shrink-0 mt-1" strokeWidth={1.5} />
               <div>
                 <h3 className="font-light text-foreground mb-1 text-sm sm:text-base">IHK-zertifiziert</h3>
-                <p className="text-xs sm:text-sm text-muted-foreground font-light">Gründer ist IHK-zertifiziert</p>
+                <p className="text-xs sm:text-sm text-muted-foreground font-light">Beratung mit zertifiziertem Know-How</p>
               </div>
             </div>
              <div className="flex items-start space-x-3 sm:space-x-4 p-4 sm:p-5 border border-card-border/30 rounded-xl hover:border-primary/30 transition-all duration-300">
