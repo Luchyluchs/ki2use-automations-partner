@@ -168,9 +168,11 @@ const StandardAgents = () => {
             <p className="leading-relaxed mb-6 text-muted-foreground font-light">
               Alle Standard-Agenten von KI2USE sind über ein persönliches, kostenloses Beratungsgespräch buchbar, in dem die unkomplizierte, schnelle und rechtssichere Integration für Ihr Unternehmen besprochen wird. Die internen Prozesse von der Anfrage bis zur Implementierung werden dabei automatisiert, was die Effizienz und Qualität in der Kundenbetreuung beweist.
             </p>
-            <Button variant="cta" size="lg" asChild>
-              <Link to="/kontakt">Jetzt Beratungsgespräch vereinbaren</Link>
-            </Button>
+            <div className="flex justify-center">
+              <Button variant="cta" size="lg" asChild>
+                <Link to="/kontakt">Beratungsgespräch vereinbaren</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
