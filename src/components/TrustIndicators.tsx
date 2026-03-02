@@ -2,34 +2,16 @@ import { Shield, Clock, CheckCircle, Award, Lock, Users } from 'lucide-react';
 
 const TrustIndicators = () => {
   const indicators = [
-    {
-      icon: Shield,
-      text: "100% DSGVO-konform"
-    },
-    {
-      icon: Lock,
-      text: "Keine Vertragsbindung"
-    },
-    {
-      icon: CheckCircle,
-      text: "Komplett kostenlos"
-    },
-    {
-      icon: Users,
-      text: "500+ zufriedene Kunden"
-    },
-    {
-      icon: Award,
-      text: "Deutscher KI-Anbieter"
-    },
-    {
-      icon: Clock,
-      text: "Binnen 24h Antwort"
-    }
+    { icon: Shield, text: "100% DSGVO-konform" },
+    { icon: Lock, text: "Keine Vertragsbindung" },
+    { icon: CheckCircle, text: "Komplett kostenlos" },
+    { icon: Users, text: "500+ zufriedene Kunden" },
+    { icon: Award, text: "Deutscher KI-Anbieter" },
+    { icon: Clock, text: "Binnen 24h Antwort" }
   ];
 
   return (
-    <div className="flex flex-wrap items-center justify-center gap-4 text-xs sm:text-sm text-white/70">
+    <div className="flex flex-wrap items-center justify-center gap-4 text-xs sm:text-sm text-muted-foreground">
       {indicators.map((indicator, index) => {
         const IconComponent = indicator.icon;
         return (
