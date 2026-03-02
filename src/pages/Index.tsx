@@ -36,7 +36,6 @@ const Index = () => {
       <LLMDiscoveryLayer />
       
       <ScrollProgressIndicator />
-      <ScrollProgressIndicator />
       <Layout>
         <div className="relative">
           <FloatingBackground />
