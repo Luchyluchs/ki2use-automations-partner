@@ -16,7 +16,7 @@ const AboutSection = () => {
               KI2USE steht dafür, dass KI kein Hexenwerk sein muss – sie sollte einfach nur funktionieren.
             </p>
             <p>
-              Als zertifizierter KI-Manager (IHK Düsseldorf) unterstütze ich Unternehmen dabei, 
+              Mit IHK-Zertifizierung als KI-Manager (IHK Düsseldorf) unterstützt KI2USE Unternehmen dabei, 
               die richtigen Anwendungen zu finden, Fördermöglichkeiten zu nutzen und echte Mehrwerte zu schaffen.
             </p>
           </div>
