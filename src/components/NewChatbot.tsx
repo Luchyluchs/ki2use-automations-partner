@@ -59,7 +59,8 @@ const NewChatbot = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   const [sessionId] = useState(() => crypto.randomUUID());
-  const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
+  const [vpHeight, setVpHeight] = useState(window.visualViewport?.height ?? window.innerHeight);
+  const [vpOffsetTop, setVpOffsetTop] = useState(0);
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "welcome",
@@ -85,22 +86,25 @@ const NewChatbot = () => {
 
   // iOS viewport height tracking for keyboard handling
   useEffect(() => {
-    const handleResize = () => {
-      setViewportHeight(window.innerHeight);
+    const update = () => {
+      const vv = window.visualViewport;
+      setVpHeight(vv?.height ?? window.innerHeight);
+      setVpOffsetTop(vv?.offsetTop ?? 0);
     };
 
-    window.addEventListener('resize', handleResize);
-    
-    // For iOS Safari, also listen to orientationchange and visual viewport changes
-    if ('visualViewport' in window) {
-      window.visualViewport?.addEventListener('resize', handleResize);
+    const vv = window.visualViewport;
+    if (vv) {
+      vv.addEventListener('resize', update);
+      vv.addEventListener('scroll', update);
     }
-    
+    window.addEventListener('resize', update);
+
     return () => {
-      window.removeEventListener('resize', handleResize);
-      if ('visualViewport' in window) {
-        window.visualViewport?.removeEventListener('resize', handleResize);
+      if (vv) {
+        vv.removeEventListener('resize', update);
+        vv.removeEventListener('scroll', update);
       }
+      window.removeEventListener('resize', update);
     };
   }, []);
 
@@ -233,11 +237,13 @@ const NewChatbot = () => {
       {isOpen && (
         <div 
           data-chatbot-window="true"
-          className="fixed bottom-2 left-2 right-2 sm:right-6 sm:left-auto sm:w-96 md:w-[450px] lg:w-[500px] bg-card border border-card-border rounded-2xl shadow-elevated z-50 flex flex-col animate-scale-in" 
+          className={`fixed left-2 right-2 sm:right-6 sm:left-auto sm:w-96 md:w-[450px] lg:w-[500px] bg-card border border-card-border rounded-2xl shadow-elevated z-50 flex flex-col animate-scale-in ${vpOffsetTop === 0 ? 'bottom-2' : ''}`} 
           style={{
-            height: Math.min(600, viewportHeight - 120) + 'px', // Adjusted for mobile bottom nav
-            maxHeight: Math.min(600, viewportHeight - 120) + 'px',
-            marginBottom: window.innerWidth < 1024 ? '64px' : '0px' // Space for mobile bottom nav
+            bottom: vpOffsetTop > 0 ? 'auto' : undefined,
+            top: vpOffsetTop > 0 ? (vpOffsetTop + 8) + 'px' : undefined,
+            height: Math.min(600, vpHeight - (vpOffsetTop > 0 ? 16 : 120)) + 'px',
+            maxHeight: Math.min(600, vpHeight - (vpOffsetTop > 0 ? 16 : 120)) + 'px',
+            marginBottom: vpOffsetTop > 0 ? '0px' : (window.innerWidth < 1024 ? '64px' : '0px'),
           }}
         >
           {/* Header */}
