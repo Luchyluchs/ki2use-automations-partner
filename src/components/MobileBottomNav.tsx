@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Calculator, MessageCircle, Phone, Home, Zap } from "lucide-react";
+import { Calculator, MessageCircle, Phone, Home, Zap, Euro } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const MobileBottomNav = () => {
@@ -8,8 +8,9 @@ const MobileBottomNav = () => {
   const navItems = [
     { icon: Home, label: "Start", href: "/" },
     { icon: Phone, label: "Beratung", href: "/beratung" },
-    { icon: Zap, label: "KI-Agenten", href: "/standard-agenten" },
+    { icon: Zap, label: "Agenten", href: "/standard-agenten" },
     { icon: Calculator, label: "Rechner", href: "/roi-rechner" },
+    { icon: Euro, label: "Förderung", href: "/foerderung" },
     { icon: MessageCircle, label: "Demo", href: "/demoportal" },
   ];
 
@@ -21,7 +22,7 @@ const MobileBottomNav = () => {
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-xl border-t border-border lg:hidden">
-      <div className="grid grid-cols-5 h-16">
+      <div className="grid grid-cols-6 h-16">
         {navItems.map((item) => {
           const Icon = item.icon;
           const active = isActive(item.href);
