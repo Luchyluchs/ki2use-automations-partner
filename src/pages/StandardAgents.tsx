@@ -138,12 +138,6 @@ const StandardAgents = () => {
                     </div>
                   </div>
 
-                  <Button variant="cta" size="sm" className="w-full transition-all duration-200" asChild>
-                    <Link to="/kontakt">
-                      <Calendar className="w-3 h-3 mr-2" />
-                      Kostenloser Beratungstermin
-                    </Link>
-                  </Button>
                 </div>
               </div>
             ))}
