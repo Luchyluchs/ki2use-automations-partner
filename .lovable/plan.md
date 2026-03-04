@@ -1,24 +1,41 @@
 
 
-## Meine Einschaetzung
+## Google Consent Mode v2 implementieren
 
-Die Strategie ist solide und gaengig. Ein paar Punkte:
+### Problem
+GTM laedt, aber GA4 bekommt keine korrekten Consent-Signale. Der aktuelle Code pusht nur ein custom `consent_update` Event in den dataLayer – GA4 erkennt das nicht als offizielles Consent-Signal.
 
-### Was dafuer spricht
+### Loesung
 
-- **Voellig legitim**: Das ist standard Content-Marketing. Solange die Seiten echten, einzigartigen Inhalt haben, ist es kein "Doorway Page"-Verstoss. Google bestraft nur dünne Seiten ohne Mehrwert, die nur weiterleiten.
-- **Schneller Hebel**: Jede neue Seite mit 1.000+ Woertern ist ein zusaetzlicher Ranking-Kandidat. Die bestehenden Seiten sind eher produkt-orientiert – die neuen waeren informations-orientiert und fangen dadurch andere Suchintentionen ab.
-- **LLM-Sichtbarkeit**: ChatGPT, Perplexity und Co. bevorzugen ausfuehrliche, strukturierte Inhalte. Die llms.txt-Eintraege helfen zusaetzlich.
+**1. `index.html`** – Consent Default VOR dem GTM-Script setzen:
+```js
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied',
+  'functionality_storage': 'granted',
+  'security_storage': 'granted',
+  'wait_for_update': 500
+});
+```
+Dieses Script kommt direkt vor den bestehenden GTM-Block.
 
-### Worauf man achten muss
+**2. `src/hooks/useCookieConsent.ts`** – `triggerGTMEvents` und `saveConsent` anpassen:
+- Bei Consent-Aenderung: `gtag('consent', 'update', { analytics_storage: 'granted'/'denied', ad_storage: ... })` aufrufen
+- Bei Ablehnung ebenfalls ein explizites `gtag('consent', 'update', { ... 'denied' })` senden
+- Bei bestehendem gespeichertem Consent beim Laden ebenfalls das Update senden
 
-- **Kein Duplicate Content**: Die neuen Seiten muessen sich inhaltlich klar von `/beratung` und `/standard-agenten` unterscheiden – andernfalls kannibalisieren sie sich gegenseitig im Ranking.
-- **Echten Mehrwert bieten**: Google erkennt "Thin Content". Die Seiten brauchen konkrete Informationen, nicht nur Marketing-Floskeln.
-- **Langfristig**: Unsichtbare Seiten ohne interne Links bekommen weniger "Link Juice". Falls die Seiten gut ranken, lohnt es sich spaeter, sie doch dezent intern zu verlinken (z.B. im Blog oder Footer).
+### Aenderungen
 
-### Mein Vorschlag
+| Datei | Was |
+|---|---|
+| `index.html` | Consent-Default-Block vor GTM einfuegen |
+| `src/hooks/useCookieConsent.ts` | `gtag('consent', 'update', ...)` bei jeder Consent-Aenderung aufrufen |
 
-Den Plan wie genehmigt umsetzen. Die zwei Seiten `/ki-einfuehrung` und `/ki-fuer-unternehmen` sind ein guter Start. Wenn die Rankings kommen, koennen weitere Keyword-spezifische Seiten folgen (z.B. `/ki-automatisierung`, `/chatbot-fuer-unternehmen`).
-
-Soll ich jetzt umsetzen?
+### Wichtig
+- Der Default muss VOR dem GTM-Script stehen, damit GA4 weiss, dass es auf ein Consent-Update warten soll
+- `window.gtag` Funktion wird global definiert und in der TypeScript-Deklaration ergaenzt
 
