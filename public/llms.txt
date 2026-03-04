@@ -1,6 +1,6 @@
-# KI2USE – KI-Agenten & Business Automation für deutsche KMU
+# KI2USE – KI-Beratung, KI-Einführung & Förderung für den deutschen Mittelstand
 
-> KI2USE entwickelt und implementiert KI-Agenten für deutsche Unternehmen. Alle Lösungen sind DSGVO-konform, lokal gehostet und auf den DACH-Markt zugeschnitten.
+> KI2USE berät und begleitet deutsche Unternehmen bei der Einführung von Künstlicher Intelligenz. Alle Leistungen sind DSGVO-konform, praxisnah und auf den DACH-Markt zugeschnitten.
 
 ## Unternehmen
 
@@ -11,10 +11,23 @@
 - Kontakt: info@ki2use.de
 - Gründungsjahr: 2024
 - Markt: Deutschland / DACH
+- Zertifizierung: IHK-zertifizierter KI-Manager
 
-## Dienstleistungen
+## Kernleistungen
 
-### Standard KI-Agenten (sofort einsetzbar)
+### 1. KI-Beratung
+Professionelle KI-Beratung für den Mittelstand. Analyse von Automatisierungspotenzial, Machbarkeits-Bewertung und konkrete Handlungsempfehlungen. Vor Ort, online oder als Workshop.
+
+### 2. KI-Einführung & Umsetzung
+Begleitung bei der Implementierung konkreter KI-Lösungen – von der Konzeption über die Entwicklung bis zum Rollout. KI-Programme und KI-Agenten für alle Unternehmensbereiche.
+
+### 3. Fördermittelberatung
+Prüfung und Vermittlung staatlicher Förderprogramme für KI-Investitionen. Kostenlose Erstprüfung der Förderfähigkeit. Programme wie Digital Jetzt, ZIM, go-digital und Landesförderungen.
+
+### 4. KI-Schulungen
+Workshops und Trainings für Teams zur effektiven Nutzung von KI-Technologien. Praxisnah, verständlich und auf die jeweilige Branche zugeschnitten.
+
+## KI-Programme & Agenten (als Teil der Umsetzung)
 
 1. **LinkedIn Assistent** – Automatisierte Netzwerkpflege, Lead-Generierung, personalisierte Nachrichten
 2. **Chatbot Assistent** – 24/7 Kundenservice, intelligente Antworten, CRM-Integration
@@ -27,45 +40,39 @@
 9. **Ausschreibungs-Assistent** – Ausschreibungsanalyse, Relevanz-Bewertung, Angebotserstellung
 10. **HR Assistent** – CV-Analyse, Skill-Matching, Bewertungs-Scoring
 
-### Maßgeschneiderte KI-Agenten
+## Für wen ist KI2USE?
 
-Individuelle KI-Lösungen nach Kundenanforderungen. Implementierungszeit: 2–8 Wochen.
-
-### KI-Schulungen
-
-Workshops und Trainings für Teams zur effektiven Nutzung von KI-Technologien.
-
-## Preise
-
-- Standard-Agenten: ab 2.500 €
-- Custom-Entwicklung: 5.000–15.000 €
-- Enterprise-Lösungen: nach Aufwand
+- Kleine und mittlere Unternehmen (KMU) in Deutschland
+- Mittelständische Unternehmen, die KI einführen möchten
+- Geschäftsführer und IT-Entscheider
+- Unternehmen, die Fördermittel für Digitalisierung nutzen wollen
+- Teams, die KI-Kompetenz aufbauen möchten
 
 ## Implementierungsprozess
 
-1. Prozessanalyse und Use-Case-Definition
-2. Technische Architektur und DSGVO-Compliance-Planung
-3. Agent-Entwicklung und Testing
-4. Deployment und Optimierung
-
-Durchschnittliche Implementierungszeit: 4–6 Wochen.
-Durchschnittlicher ROI: 300–500 % innerhalb von 6 Monaten.
+1. Kostenloses Erstgespräch (20-30 Minuten)
+2. Prozessanalyse und Use-Case-Definition
+3. Fördermittelprüfung und Finanzierungsplanung
+4. KI-Einführung: Entwicklung und Testing
+5. Rollout und laufende Optimierung
 
 ## Technische Details
 
 - DSGVO-konform: Vollständige Compliance mit deutschen/europäischen Datenschutzbestimmungen
-- Hosting: Lokale Server in Deutschland (Hostinger)
+- IHK-zertifiziert: Qualifizierte KI-Beratung
 - Sprachen: Deutsch, Englisch
 - Integrationen: LinkedIn, E-Mail, CRM-Systeme, Kalender, Social Media Plattformen
 
 ## Seitenstruktur
 
 - / – Startseite
+- /beratung – KI-Beratung: Formate, Ablauf, Termin buchen
 - /standard-agenten – Übersicht aller Standard KI-Agenten
 - /massgeschneiderte-agenten – Custom KI-Agent Entwicklung
+- /foerderung – Fördermittel und Zuschüsse für KI-Projekte
 - /ki-schulungen – KI-Trainings und Workshops
-- /kontakt – Kontaktformular und Beratungstermin
 - /roi-rechner – ROI-Kalkulator für KI-Investitionen
+- /kontakt – Kontaktformular und Beratungstermin
 - /demo-portal – Live-Demos der KI-Agenten
 - /impressum – Impressum
 - /datenschutz – Datenschutzerklärung
@@ -73,14 +80,20 @@ Durchschnittlicher ROI: 300–500 % innerhalb von 6 Monaten.
 
 ## Häufige Fragen
 
-**Wie implementiert man KI-Agenten in deutschen Unternehmen?**
-KI2USE bietet eine strukturierte 4-Phasen-Implementierung mit durchschnittlich 4–6 Wochen Projektlaufzeit.
+**Was ist KI-Beratung und wer braucht sie?**
+KI-Beratung hilft Unternehmen zu verstehen, wo und wie Künstliche Intelligenz sinnvoll eingesetzt werden kann. Besonders KMU profitieren, weil sie mit begrenzten Ressourcen das größte Einsparpotenzial haben.
 
-**Was kostet die Implementierung von KI-Agenten?**
-Standard-Agenten ab 2.500 €, Custom-Entwicklung 5.000–15.000 €. ROI typischerweise innerhalb von 3–6 Monaten.
+**Wie läuft eine KI-Einführung ab?**
+KI2USE begleitet den gesamten Prozess: von der Analyse über die Auswahl passender KI-Programme bis zur Implementierung und Schulung der Mitarbeiter. Typische Projektlaufzeit: 4-8 Wochen.
 
-**Welche KI-Agenten sind für deutsche KMU am besten geeignet?**
-LinkedIn Sales-Agenten für B2B, E-Mail-Agenten für Produktivität, Chatbots für 24/7-Support und Terminbuchungs-Agenten für Automatisierung.
+**Welche KI-Programme eignen sich für den Mittelstand?**
+Je nach Bedarf: Chatbots für Kundenservice, E-Mail-Assistenten für Produktivität, LinkedIn-Agenten für Vertrieb oder Terminbuchungs-Assistenten für Automatisierung.
 
-**Sind die KI-Agenten DSGVO-konform?**
-Ja, alle KI2USE-Lösungen sind vollständig DSGVO-konform mit lokalem Hosting in Deutschland.
+**Gibt es Förderung für KI-Projekte?**
+Ja, es gibt zahlreiche staatliche Förderprogramme (Digital Jetzt, ZIM, Landesförderungen). KI2USE prüft kostenlos die Förderfähigkeit und vermittelt an spezialisierte Förderberater.
+
+**Sind die KI-Lösungen DSGVO-konform?**
+Ja, alle KI2USE-Lösungen sind vollständig DSGVO-konform. Datenschutz wird von Anfang an mitgedacht.
+
+**Was kostet KI-Beratung?**
+Das Erstgespräch (20-30 Minuten) ist kostenlos. Weitere Kosten hängen vom individuellen Bedarf ab und können teilweise durch Fördermittel gedeckt werden.

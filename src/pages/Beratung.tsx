@@ -17,9 +17,10 @@ const Beratung = () => {
   useMagneticCursor();
 
   useSEO({
-    title: "KI-Beratung für den Mittelstand | KI2USE",
-    description: "Persönliche KI-Beratung für KMUs: Strategie, Einführung, Fördermittel. Vor Ort, online oder auf Events. Verständlich, bezahlbar, DSGVO-konform.",
-    canonical: "/beratung",
+    title: "KI-Beratung für den Mittelstand | Strategie & KI-Einführung | KI2USE",
+    description: "Professionelle KI-Beratung und Begleitung bei der KI-Einführung. Individuelle Analyse, konkrete Handlungsempfehlungen und Fördermittelberatung. IHK-zertifiziert, DSGVO-konform.",
+    keywords: "KI Beratung, KI Einführung, KI Beratung Mittelstand, KI Beratung Deutschland, Künstliche Intelligenz Beratung, KI für Unternehmen, KI Implementierung, KI Strategie, DSGVO-konforme KI",
+    canonical: "https://ki2use.de/beratung",
   });
 
   const formats = [

@@ -16,8 +16,9 @@ const Foerderung = () => {
 
   useSEO({
     title: "KI-Förderung & Zuschüsse für den Mittelstand | KI2USE",
-    description: "Staatliche Förderung für Ihre KI-Investition. KI2USE zeigt passende Förderprogramme auf und vermittelt an spezialisierte Förderberater. Kostenlose Erstprüfung.",
-    canonical: "/foerderung",
+    description: "Staatliche Förderprogramme für KI-Projekte: Digital Jetzt, ZIM, Landesförderungen. Kostenlose Erstprüfung der Förderfähigkeit. KI2USE vermittelt an spezialisierte Förderberater.",
+    keywords: "KI Förderung, Fördermittel KI, Förderung Digitalisierung, Digital Jetzt, ZIM Förderung, KI Zuschüsse, Förderung Mittelstand, Digitalisierungsprämie, KI Investition Förderung, Förderprogramme KMU",
+    canonical: "https://ki2use.de/foerderung",
   });
 
   const programs = [
