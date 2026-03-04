@@ -6,22 +6,29 @@ export const EnhancedStructuredData: FC = () => {
     "@type": "Organization",
     "name": "KI2USE",
     "url": "https://ki2use.de",
-    "description": "KI-Beratung und Umsetzung für den deutschen Mittelstand. IHK-zertifiziert, DSGVO-konform. Deutschlandweit verfügbar.",
+    "description": "KI-Beratung, KI-Einführung und Fördermittelberatung für den deutschen Mittelstand. IHK-zertifiziert, DSGVO-konform. Deutschlandweit verfügbar.",
     "foundingDate": "2024",
     "areaServed": "Deutschland",
     "knowsAbout": [
-      "Künstliche Intelligenz",
       "KI-Beratung",
+      "KI-Einführung",
+      "KI Programme",
+      "KI Implementierung",
+      "KI Förderung",
+      "Künstliche Intelligenz",
       "Digitalisierung Mittelstand",
       "Fördermittelberatung",
       "DSGVO-konforme KI-Lösungen",
-      "KI-Implementierung"
+      "KI-Schulungen",
+      "Business Process Automation",
+      "KI für KMU"
     ],
     "expertise": [
       "KI-Beratung für KMU",
-      "KI-Umsetzung und Implementierung",
+      "KI-Einführung und Implementierung",
       "Fördermittelberatung",
-      "DSGVO Compliance"
+      "DSGVO Compliance",
+      "KI-Schulungen"
     ],
     "serviceArea": {
       "@type": "Country",
@@ -29,7 +36,7 @@ export const EnhancedStructuredData: FC = () => {
     },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "KI-Beratung Services",
+      "name": "KI2USE Leistungen",
       "itemListElement": [
         {
           "@type": "Offer",
@@ -43,8 +50,8 @@ export const EnhancedStructuredData: FC = () => {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "KI-Umsetzung",
-            "description": "Begleitung bei der Implementierung konkreter KI-Lösungen – von der Konzeption bis zum Rollout"
+            "name": "KI-Einführung & Umsetzung",
+            "description": "Begleitung bei der Implementierung konkreter KI-Programme und KI-Lösungen – von der Konzeption bis zum Rollout"
           }
         },
         {
@@ -52,7 +59,15 @@ export const EnhancedStructuredData: FC = () => {
           "itemOffered": {
             "@type": "Service",
             "name": "Fördermittelberatung",
-            "description": "Prüfung und Beantragung staatlicher Förderprogramme für KI-Investitionen"
+            "description": "Prüfung und Vermittlung staatlicher Förderprogramme für KI-Investitionen"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "KI-Schulungen",
+            "description": "Workshops und Trainings für Teams zur effektiven Nutzung von KI-Technologien"
           }
         }
       ]
@@ -65,18 +80,18 @@ export const EnhancedStructuredData: FC = () => {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "Lohnt sich KI für kleine Unternehmen?",
+        "name": "Was ist KI-Beratung und wer braucht sie?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Ja! Gerade kleine Unternehmen profitieren oft am meisten, weil sie mit begrenzten Ressourcen besonders viel einsparen können."
+          "text": "KI-Beratung hilft Unternehmen zu verstehen, wo und wie Künstliche Intelligenz sinnvoll eingesetzt werden kann. Besonders KMU profitieren, weil sie mit begrenzten Ressourcen das größte Einsparpotenzial haben."
         }
       },
       {
         "@type": "Question",
-        "name": "Was kostet eine KI-Beratung?",
+        "name": "Wie läuft eine KI-Einführung ab?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "KI2USE bietet ein kostenloses Erstgespräch (20-30 Minuten). Weitere Kosten hängen vom individuellen Bedarf ab."
+          "text": "KI2USE begleitet den gesamten Prozess: von der Analyse über die Auswahl passender KI-Programme bis zur Implementierung und Schulung der Mitarbeiter. Typische Projektlaufzeit: 4-8 Wochen."
         }
       },
       {
@@ -84,15 +99,23 @@ export const EnhancedStructuredData: FC = () => {
         "name": "Gibt es Förderung für KI-Projekte?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Ja, es gibt zahlreiche staatliche Förderprogramme für Digitalisierung und KI. KI2USE prüft kostenlos, welche für Ihr Unternehmen in Frage kommen und vermittelt an Förderexperten."
+          "text": "Ja, es gibt zahlreiche staatliche Förderprogramme wie Digital Jetzt, ZIM und Landesförderungen. KI2USE prüft kostenlos die Förderfähigkeit und vermittelt an spezialisierte Förderberater."
         }
       },
       {
         "@type": "Question",
-        "name": "Ersetzt KI meine Mitarbeiter?",
+        "name": "Welche KI-Programme eignen sich für den Mittelstand?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Nein. KI unterstützt Ihre Mitarbeiter bei Routineaufgaben, damit sie sich auf wertschöpfende Arbeit konzentrieren können."
+          "text": "Je nach Bedarf: Chatbots für Kundenservice, E-Mail-Assistenten für Produktivität, LinkedIn-Agenten für Vertrieb oder individuelle KI-Lösungen für spezifische Geschäftsprozesse."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Was kostet KI-Beratung?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "KI2USE bietet ein kostenloses Erstgespräch (20-30 Minuten). Weitere Kosten hängen vom individuellen Bedarf ab und können teilweise durch Fördermittel gedeckt werden."
         }
       },
       {

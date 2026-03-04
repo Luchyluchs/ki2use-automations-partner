@@ -12,16 +12,14 @@ interface SEOConfig {
 
 /**
  * Custom hook for managing SEO metadata dynamically
- * Optimized for KI2USE's AI agents and automation keywords
+ * Optimized for KI2USE's AI consulting, implementation and funding keywords
  */
 export const useSEO = (config: SEOConfig) => {
   useEffect(() => {
-    // Update title
     if (config.title) {
       document.title = config.title;
     }
 
-    // Update meta description
     if (config.description) {
       let metaDescription = document.querySelector('meta[name="description"]');
       if (!metaDescription) {
@@ -32,7 +30,6 @@ export const useSEO = (config: SEOConfig) => {
       metaDescription.setAttribute('content', config.description);
     }
 
-    // Update keywords
     if (config.keywords) {
       let metaKeywords = document.querySelector('meta[name="keywords"]');
       if (!metaKeywords) {
@@ -43,7 +40,6 @@ export const useSEO = (config: SEOConfig) => {
       metaKeywords.setAttribute('content', config.keywords);
     }
 
-    // Update canonical URL
     if (config.canonical) {
       let linkCanonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
       if (!linkCanonical) {
@@ -51,12 +47,14 @@ export const useSEO = (config: SEOConfig) => {
         linkCanonical.setAttribute('rel', 'canonical');
         document.head.appendChild(linkCanonical);
       }
-      linkCanonical.href = config.canonical;
+      // Ensure absolute URL
+      const absoluteCanonical = config.canonical.startsWith('http') 
+        ? config.canonical 
+        : `https://ki2use.de${config.canonical}`;
+      linkCanonical.href = absoluteCanonical;
     }
 
-    // Update Open Graph tags
     if (config.title || config.description || config.ogImage) {
-      // OG Title
       if (config.title) {
         let ogTitle = document.querySelector('meta[property="og:title"]');
         if (!ogTitle) {
@@ -67,7 +65,6 @@ export const useSEO = (config: SEOConfig) => {
         ogTitle.setAttribute('content', config.title);
       }
 
-      // OG Description
       if (config.description) {
         let ogDescription = document.querySelector('meta[property="og:description"]');
         if (!ogDescription) {
@@ -78,7 +75,6 @@ export const useSEO = (config: SEOConfig) => {
         ogDescription.setAttribute('content', config.description);
       }
 
-      // OG Image
       if (config.ogImage) {
         let ogImage = document.querySelector('meta[property="og:image"]');
         if (!ogImage) {
@@ -90,7 +86,6 @@ export const useSEO = (config: SEOConfig) => {
       }
     }
 
-    // Add structured data
     if (config.structuredData) {
       const existingScript = document.querySelector('script[data-seo-structured]');
       if (existingScript) {
@@ -104,7 +99,6 @@ export const useSEO = (config: SEOConfig) => {
       document.head.appendChild(script);
     }
 
-    // Handle noindex
     if (config.noindex) {
       let robotsMeta = document.querySelector('meta[name="robots"]');
       if (!robotsMeta) {
@@ -121,38 +115,52 @@ export const useSEO = (config: SEOConfig) => {
  * Predefined SEO configurations for common pages
  */
 export const SEOTemplates = {
+  beratung: {
+    title: "KI-Beratung für den Mittelstand | Strategie & KI-Einführung | KI2USE",
+    description: "Professionelle KI-Beratung und Begleitung bei der KI-Einführung. Individuelle Analyse, konkrete Handlungsempfehlungen und Fördermittelberatung. IHK-zertifiziert, DSGVO-konform.",
+    keywords: "KI Beratung, KI Einführung, KI Beratung Mittelstand, KI Beratung Deutschland, Künstliche Intelligenz Beratung, KI für Unternehmen, KI Implementierung, KI Strategie, KI Beratung KMU, DSGVO-konforme KI",
+    canonical: "https://ki2use.de/beratung"
+  },
+
+  foerderung: {
+    title: "KI-Förderung & Zuschüsse für den Mittelstand | KI2USE",
+    description: "Staatliche Förderprogramme für KI-Projekte: Digital Jetzt, ZIM, Landesfoerderungen. Kostenlose Erstpruefung der Foerderfaehigkeit. KI2USE vermittelt an spezialisierte Foerderberater.",
+    keywords: "KI Förderung, Fördermittel KI, Förderung Digitalisierung, Digital Jetzt, ZIM Förderung, KI Zuschüsse, Förderung Mittelstand, Digitalisierungsprämie, KI Investition Förderung, Förderprogramme KMU",
+    canonical: "https://ki2use.de/foerderung"
+  },
+
   standardAgents: {
-    title: "Standard KI-Assistenten Deutschland - Sofortige Automatisierung | KI2USE",
-    description: "🚀 Sofort einsetzbare KI-Assistenten für deutsche KMU: LinkedIn, E-Mail, Chatbot, Sales & mehr. ✅ DSGVO-konform. Made in Germany. ⚡ 40-75% Zeitersparnis. 📞 Kostenlose Beratung!",
-    keywords: "Standard KI-Assistenten Deutschland, sofort einsetzbar Deutschland, LinkedIn Assistent DSGVO, E-Mail Automatisierung Deutschland, Chatbot Deutschland, Sales Assistent DACH, bewährte KI-Lösungen Deutschland, fertige Automatisierung DSGVO-konform, KI-Assistenten kaufen Deutschland, digitale Mitarbeiter Standard DACH",
+    title: "Standard KI-Assistenten Deutschland – Sofortige Automatisierung | KI2USE",
+    description: "Sofort einsetzbare KI-Assistenten fuer deutsche KMU: LinkedIn, E-Mail, Chatbot, Sales und mehr. DSGVO-konform. Made in Germany. 40-75% Zeitersparnis. Kostenlose Beratung.",
+    keywords: "Standard KI-Assistenten, KI Programme, KI Agenten, KI für Unternehmen, LinkedIn Assistent, Chatbot Deutschland, E-Mail Automatisierung, Sales Assistent, KI Lösungen KMU, DSGVO-konforme KI",
     canonical: "https://ki2use.de/standard-agenten"
   },
   
   customAgents: {
-    title: "Maßgeschneiderte KI-Assistenten Deutschland - Individuelle Automatisierung | KI2USE",
-    description: "🎯 Individuelle KI-Assistenten für deutsche Unternehmen. ⚙️ DSGVO-konforme Integration. 🔧 Made in Germany Entwicklung in 4-8 Wochen. 💡 100% passgenau für deutsche KMU.",
-    keywords: "maßgeschneiderte KI-Assistenten Deutschland, individuelle Automatisierung DACH, custom AI assistants Deutschland, Prozess-spezifische KI DSGVO, einzigartige KI-Lösungen Deutschland, individuelle Entwicklung DACH, maßgeschneiderte Digitalisierung Deutschland, Custom Process Automation DSGVO-konform",
+    title: "Maßgeschneiderte KI-Assistenten – Individuelle KI-Einführung | KI2USE",
+    description: "Individuelle KI-Assistenten und KI-Programme fuer deutsche Unternehmen. DSGVO-konforme Integration. Made in Germany Entwicklung in 4-8 Wochen. 100% passgenau fuer Ihre Prozesse.",
+    keywords: "maßgeschneiderte KI, individuelle KI-Einführung, Custom KI Programme, KI Implementierung, KI Entwicklung Deutschland, individuelle Automatisierung, KI-Lösung nach Maß, Prozessautomatisierung KI",
     canonical: "https://ki2use.de/massgeschneiderte-agenten"
   },
   
   roiCalculator: {
-    title: "KI-Assistenten ROI Rechner Deutschland - Kosteneinsparungen berechnen | KI2USE",
-    description: "💰 Berechnen Sie Kosteneinsparungen durch KI-Assistenten für deutsche Unternehmen! 📊 Realistische ROI-Prognose. ✨ DSGVO-konform. 🇩🇪 Speziell für deutsche KMU. Kostenlos!",
-    keywords: "ROI Rechner KI-Assistenten Deutschland, Kosteneinsparungen berechnen Deutschland, KI ROI Calculator DACH, Automatisierung Kostenersparnis Deutschland, KI-Assistenten Wirtschaftlichkeit DSGVO, Business Case KI Deutschland, Amortisation KI-Investition deutsche Unternehmen",
+    title: "KI ROI-Rechner – Kosteneinsparungen durch KI berechnen | KI2USE",
+    description: "Berechnen Sie Kosteneinsparungen durch KI-Einführung in Ihrem Unternehmen. Realistische ROI-Prognose. Speziell fuer deutsche KMU. Kostenlos und unverbindlich.",
+    keywords: "KI ROI Rechner, Kosteneinsparungen KI, KI Wirtschaftlichkeit, Return on Investment KI, KI Kosten Nutzen, Automatisierung Kostenersparnis, KI Business Case, KI Investition berechnen",
     canonical: "https://ki2use.de/agenten-rechner"
   },
   
   training: {
-    title: "KI-Schulungen Deutschland - Professionelles KI-Training für deutsche Unternehmen | KI2USE",
-    description: "🎓 KI-Schulungen speziell für deutsche Teams. 💼 DSGVO-konformes Training für ChatGPT & Automatisierung. 📈 Messbare Produktivitätssteigerung. 🇩🇪 Made in Germany Qualität.",
-    keywords: "KI-Schulungen Deutschland, KI-Training deutsche Unternehmen, ChatGPT Schulung DSGVO, AI Workshop Deutschland, KI Fortbildung DACH, Mitarbeiter KI-Training Deutschland, KI-Kompetenz Deutschland, Digital Skills Training DSGVO-konform",
+    title: "KI-Schulungen Deutschland – KI-Training für Unternehmen | KI2USE",
+    description: "KI-Schulungen speziell fuer deutsche Teams. DSGVO-konformes Training fuer ChatGPT und Automatisierung. Messbare Produktivitaetssteigerung. Praxisnah und verstaendlich.",
+    keywords: "KI Schulungen, KI Training, KI Workshop, KI Weiterbildung, ChatGPT Schulung, KI Kompetenz aufbauen, KI Fortbildung Deutschland, Mitarbeiter KI-Training, KI lernen Unternehmen",
     canonical: "https://ki2use.de/ki-schulungen"
   },
   
   contact: {
-    title: "Kontakt Deutschland - Kostenlose KI-Beratung für deutsche Unternehmen | KI2USE",  
-    description: "📞 Kostenlose KI-Beratung speziell für deutsche KMU! ✅ DSGVO-konforme Beratung. 🚀 Potentialanalyse deutscher Prozesse. 💡 Made in Germany Automatisierungs-Empfehlungen.",
-    keywords: "KI-Beratung kostenlos Deutschland, Kontakt KI2USE Deutschland, KI-Experte DACH, Automatisierung Beratung Deutschland, kostenlose Potentialanalyse DSGVO, KI-Consultant Deutschland, Erstberatung KI-Assistenten DACH, KI-Beratung deutsche Unternehmen",
+    title: "Kontakt – Kostenlose KI-Beratung für Unternehmen | KI2USE",  
+    description: "Kostenlose KI-Beratung fuer deutsche KMU. DSGVO-konforme Beratung. Potentialanalyse Ihrer Prozesse. Unverbindliches Erstgespraech in 20-30 Minuten.",
+    keywords: "KI Beratung kostenlos, KI Erstgespräch, KI Experte Deutschland, Automatisierung Beratung, KI Potentialanalyse, KI Consultant, KI Beratung buchen, KI Einführung Beratung",
     canonical: "https://ki2use.de/kontakt"
   }
 } as const;
