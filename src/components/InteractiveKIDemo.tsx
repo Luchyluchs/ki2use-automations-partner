@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { MessageCircle, Mic, Mail, Calendar, Linkedin, Bot, Newspaper, TrendingUp, ChevronLeft, ChevronRight } from "lucide-react";
+import { MessageCircle, Mic, Mail, Calendar, Linkedin, Bot, Newspaper, TrendingUp, ChevronLeft, ChevronRight, CheckCircle, ArrowUp, Flame, Target, Clock, Send, Phone, Zap, DollarSign } from "lucide-react";
 import { Button } from "./ui/button";
 
 const InteractiveKIDemo = () => {
@@ -28,7 +28,7 @@ const InteractiveKIDemo = () => {
     setTimeout(() => {
       setActiveDemoIndex((prev) => (prev + 1) % demoAgents.length);
       setIsAnimating(false);
-    }, 150);
+    }, 300);
   };
 
   const prevAgent = () => {
@@ -37,7 +37,7 @@ const InteractiveKIDemo = () => {
     setTimeout(() => {
       setActiveDemoIndex((prev) => (prev - 1 + demoAgents.length) % demoAgents.length);
       setIsAnimating(false);
-    }, 150);
+    }, 300);
   };
 
   useEffect(() => {
@@ -101,8 +101,8 @@ const InteractiveKIDemo = () => {
             )}
             {chatStep >= 3 && (
               <div className="border border-accent/30 bg-accent/10 rounded-lg p-2 text-center animate-scale-in">
-                <div className="text-xs text-accent font-light">
-                  ✅ Termin automatisch gebucht
+                <div className="text-xs text-accent font-light flex items-center justify-center gap-1.5">
+                  <CheckCircle className="w-3 h-3" /> Termin automatisch gebucht
                 </div>
               </div>
             )}
@@ -123,10 +123,12 @@ const InteractiveKIDemo = () => {
                 <div className="text-sm font-light text-foreground">Max Mustermann</div>
                 <div className="text-xs text-muted-foreground font-light">Sucht Ihre Dienstleistung</div>
               </div>
-              <div className="text-xs text-accent font-light">✓ Kontaktiert</div>
+              <div className="text-xs text-accent font-light flex items-center gap-1">
+                <CheckCircle className="w-3 h-3" /> Kontaktiert
+              </div>
             </div>
-            <div className="text-center text-xs text-primary bg-primary/10 px-3 py-1 rounded-full font-light">
-              📈 +12 neue potentielle Kunden diese Woche
+            <div className="text-center text-xs text-primary bg-primary/10 px-3 py-1 rounded-full font-light flex items-center justify-center gap-1.5">
+              <ArrowUp className="w-3 h-3" /> +12 neue potentielle Kunden diese Woche
             </div>
           </div>
         );
@@ -143,14 +145,14 @@ const InteractiveKIDemo = () => {
                 return (
                   <div 
                     key={index}
-                    className="w-2 bg-primary rounded-full transition-all duration-150 ease-in-out"
+                    className="w-2 bg-primary rounded-full transition-all duration-300 ease-out"
                     style={{ height: `${baseHeight + Math.abs(waveOffset)}px` }}
                   />
                 );
               })}
             </div>
-            <div className="text-sm font-light text-foreground animate-fade-in">
-              🎤 "Guten Abend! Ich kann Ihnen gerne helfen."
+            <div className="text-sm font-light text-foreground animate-fade-in flex items-center justify-center gap-1.5">
+              <Mic className="w-3.5 h-3.5 text-primary" /> "Guten Abend! Ich kann Ihnen gerne helfen."
             </div>
             <div className="border border-card-border/30 rounded-lg p-2 text-xs animate-scale-in">
               <div className="flex items-center gap-2 mb-1">
@@ -158,13 +160,13 @@ const InteractiveKIDemo = () => {
                 <span className="font-light text-foreground">Verknüpft mit Ihren Systemen:</span>
               </div>
               <div className="space-y-1 text-muted-foreground font-light">
-                <div>✓ CRM-System aktualisiert</div>
-                <div>✓ Termin automatisch vorgeschlagen</div>
-                <div>✓ Follow-up E-Mail geplant</div>
+                <div className="flex items-center gap-1.5"><CheckCircle className="w-3 h-3 text-accent" /> CRM-System aktualisiert</div>
+                <div className="flex items-center gap-1.5"><CheckCircle className="w-3 h-3 text-accent" /> Termin automatisch vorgeschlagen</div>
+                <div className="flex items-center gap-1.5"><CheckCircle className="w-3 h-3 text-accent" /> Follow-up E-Mail geplant</div>
               </div>
             </div>
             <div className="text-xs text-accent bg-accent/10 px-3 py-2 rounded-lg font-light">
-              💰 Kein verlorener Anruf = Kein verlorener Kunde
+              Kein verlorener Anruf = Kein verlorener Kunde
             </div>
           </div>
         );
@@ -178,13 +180,15 @@ const InteractiveKIDemo = () => {
             <div className="space-y-1">
               {emailStep >= 1 && (
                 <div className="flex items-center gap-2 p-2 border border-card-border/30 rounded border-l-4 border-l-accent text-xs animate-fade-in">
-                  <span className="flex-1 text-foreground font-light">🔥 WICHTIG: Große Anfrage von TechCorp</span>
+                  <Flame className="w-3 h-3 text-accent shrink-0" />
+                  <span className="flex-1 text-foreground font-light">WICHTIG: Große Anfrage von TechCorp</span>
                   <span className="text-accent font-light">Priorität 1</span>
                 </div>
               )}
               {emailStep >= 2 && (
                 <div className="flex items-center gap-2 p-2 border border-card-border/30 rounded border-l-4 border-l-primary text-xs animate-fade-in">
-                  <span className="flex-1 text-foreground font-light">📞 Rückruf: Interessent wartet</span>
+                  <Phone className="w-3 h-3 text-primary shrink-0" />
+                  <span className="flex-1 text-foreground font-light">Rückruf: Interessent wartet</span>
                   <span className="text-primary font-light">Heute</span>
                 </div>
               )}
@@ -194,8 +198,8 @@ const InteractiveKIDemo = () => {
                 </div>
               )}
             </div>
-            <div className="text-center text-xs text-primary bg-primary/10 px-3 py-1 rounded-full font-light">
-              ⚡ Wichtiges zuerst - Unwichtiges automatisch weg
+            <div className="text-center text-xs text-primary bg-primary/10 px-3 py-1 rounded-full font-light flex items-center justify-center gap-1.5">
+              <Zap className="w-3 h-3" /> Wichtiges zuerst – Unwichtiges automatisch weg
             </div>
           </div>
         );
@@ -207,25 +211,27 @@ const InteractiveKIDemo = () => {
               Jeden Montag automatisch...
             </div>
             <div className="border border-dashed border-card-border/40 rounded-lg p-3">
-              <div className="text-sm font-light mb-2 text-foreground">📧 Newsletter wird erstellt...</div>
+              <div className="text-sm font-light mb-2 text-foreground flex items-center gap-1.5">
+                <Send className="w-3.5 h-3.5 text-primary" /> Newsletter wird erstellt...
+              </div>
               <div className="text-xs text-muted-foreground mb-2 font-light">Für Ihre 847 Kunden</div>
               <div className="space-y-1">
                 <div className="flex justify-between text-xs font-light">
                   <span className="text-foreground">Personalisierte Betreffzeile</span>
-                  <span className="text-accent">✓ Fertig</span>
+                  <span className="text-accent flex items-center gap-1"><CheckCircle className="w-3 h-3" /> Fertig</span>
                 </div>
                 <div className="flex justify-between text-xs font-light">
                   <span className="text-foreground">Passende Inhalte ausgewählt</span>
-                  <span className="text-accent">✓ Fertig</span>
+                  <span className="text-accent flex items-center gap-1"><CheckCircle className="w-3 h-3" /> Fertig</span>
                 </div>
                 <div className="flex justify-between text-xs font-light">
                   <span className="text-foreground">Versand um 9:00 Uhr</span>
-                  <span className="text-primary">⏰ Geplant</span>
+                  <span className="text-primary flex items-center gap-1"><Clock className="w-3 h-3" /> Geplant</span>
                 </div>
               </div>
             </div>
             <div className="text-center text-xs text-primary bg-primary/10 px-3 py-1 rounded-full font-light">
-              🚀 Kunden bleiben automatisch informiert
+              Kunden bleiben automatisch informiert
             </div>
           </div>
         );
@@ -246,7 +252,7 @@ const InteractiveKIDemo = () => {
                       <div className="text-muted-foreground font-light">Budget: 50k€, braucht sofort</div>
                     </div>
                   </div>
-                  <span className="text-accent font-light">🔥 HEIß</span>
+                  <span className="text-accent font-light flex items-center gap-1"><Flame className="w-3 h-3" /> Heiss</span>
                 </div>
               )}
               {salesStep >= 2 && (
@@ -262,8 +268,8 @@ const InteractiveKIDemo = () => {
                 </div>
               )}
             </div>
-            <div className="text-center text-xs text-accent bg-accent/10 px-3 py-1 rounded-full font-light">
-              🎯 Ihre Zeit nur für die besten Chancen
+            <div className="text-center text-xs text-accent bg-accent/10 px-3 py-1 rounded-full font-light flex items-center justify-center gap-1.5">
+              <Target className="w-3 h-3" /> Ihre Zeit nur für die besten Chancen
             </div>
           </div>
         );
@@ -287,15 +293,17 @@ const InteractiveKIDemo = () => {
               </div>
               <div className="space-y-1 text-xs font-light">
                 <div className="flex items-center gap-2 p-2 bg-primary/10 rounded text-foreground">
-                  <span>✅ Mi 14:00 - Beratungstermin automatisch gebucht</span>
+                  <CheckCircle className="w-3 h-3 text-primary shrink-0" />
+                  <span>Mi 14:00 – Beratungstermin automatisch gebucht</span>
                 </div>
                 <div className="flex items-center gap-2 p-2 bg-accent/10 rounded text-foreground">
-                  <span>📧 Erinnerung an beide Seiten versendet</span>
+                  <Mail className="w-3 h-3 text-accent shrink-0" />
+                  <span>Erinnerung an beide Seiten versendet</span>
                 </div>
               </div>
             </div>
-            <div className="text-center text-xs text-primary bg-primary/10 px-3 py-1 rounded-full font-light">
-              📅 Terminbuchung ohne Ihr Zutun
+            <div className="text-center text-xs text-primary bg-primary/10 px-3 py-1 rounded-full font-light flex items-center justify-center gap-1.5">
+              <Calendar className="w-3 h-3" /> Terminbuchung ohne Ihr Zutun
             </div>
           </div>
         );
@@ -314,10 +322,10 @@ const InteractiveKIDemo = () => {
         </Button>
         
         <div className="flex items-center gap-2 min-w-0 flex-1 justify-center">
-          <div className={`w-8 h-8 ${currentAgent.color} rounded-lg flex items-center justify-center transition-all duration-500`}>
-            <currentAgent.icon className="w-4 h-4 text-primary-foreground transition-transform duration-300" />
+          <div className={`w-8 h-8 ${currentAgent.color} rounded-lg flex items-center justify-center transition-all duration-500 ease-out`}>
+            <currentAgent.icon className="w-4 h-4 text-primary-foreground transition-transform duration-500 ease-out" />
           </div>
-          <div className="text-center transition-all duration-300">
+          <div className="text-center transition-all duration-500 ease-out">
             <div className="font-light text-sm truncate animate-fade-in text-foreground">{currentAgent.name}</div>
             <div className="text-xs text-muted-foreground truncate animate-fade-in delay-75 font-light">{currentAgent.benefit}</div>
           </div>
@@ -333,7 +341,7 @@ const InteractiveKIDemo = () => {
         {demoAgents.map((_, index) => (
           <div
             key={index}
-            className={`h-2 rounded-full transition-all duration-500 cursor-pointer ${
+            className={`h-2 rounded-full transition-all duration-500 ease-out cursor-pointer ${
               index === activeDemoIndex 
                 ? 'bg-primary w-6' 
                 : 'bg-muted-foreground/30 w-2 hover:bg-muted-foreground/50'
@@ -344,7 +352,7 @@ const InteractiveKIDemo = () => {
                 setTimeout(() => {
                   setActiveDemoIndex(index);
                   setIsAnimating(false);
-                }, 150);
+                }, 300);
               }
             }}
           />
@@ -352,8 +360,8 @@ const InteractiveKIDemo = () => {
       </div>
 
       {/* Demo Interface */}
-      <div className={`border border-card-border/50 rounded-2xl bg-card/30 backdrop-blur-sm shadow-soft transition-all duration-500 ${
-        isAnimating ? 'opacity-70' : 'opacity-100'
+      <div className={`border border-card-border/50 rounded-2xl bg-card/30 backdrop-blur-sm shadow-soft transition-all duration-500 ease-out ${
+        isAnimating ? 'opacity-0 scale-[0.97]' : 'opacity-100 scale-100'
       }`}>
         <div className="p-5">
           <div className="flex items-center gap-3 pb-3 mb-1 border-b border-card-border/30 animate-fade-in">
@@ -361,21 +369,21 @@ const InteractiveKIDemo = () => {
             <span className="text-sm font-light text-foreground">{currentAgent.name} Demo</span>
           </div>
 
-          <div className={`min-h-[280px] max-h-[280px] py-4 transition-all duration-300 ${
-            isAnimating ? 'opacity-60 scale-95' : 'opacity-100 scale-100 animate-fade-in'
+          <div className={`min-h-[280px] max-h-[280px] py-4 transition-all duration-500 ease-out ${
+            isAnimating ? 'opacity-0 translate-y-2' : 'opacity-100 translate-y-0'
           }`}>
             {renderInterface()}
           </div>
 
           <div className="pt-3 border-t border-card-border/30 text-center animate-fade-in delay-200">
             <p className="text-xs text-muted-foreground font-light">
-              {currentAgent.interface === 'chat' && '💡 Aus jedem Website-Besucher kann ein Kunde werden'}
-              {currentAgent.interface === 'linkedin' && '🎯 Neue Kontakte finden sich selbst'}  
-              {currentAgent.interface === 'voice' && '📞 Jeder Anruf wird beantwortet'}
-              {currentAgent.interface === 'email' && '⚡ Wichtiges sofort erkennen'}
-              {currentAgent.interface === 'newsletter' && '📨 Kunden vergessen Sie nie'}
-              {currentAgent.interface === 'sales' && '💰 Beste Chancen zuerst bearbeiten'}
-              {currentAgent.interface === 'calendar' && '📅 Termine ohne Telefonieren'}
+              {currentAgent.interface === 'chat' && 'Aus jedem Website-Besucher kann ein Kunde werden'}
+              {currentAgent.interface === 'linkedin' && 'Neue Kontakte finden sich selbst'}  
+              {currentAgent.interface === 'voice' && 'Jeder Anruf wird beantwortet'}
+              {currentAgent.interface === 'email' && 'Wichtiges sofort erkennen'}
+              {currentAgent.interface === 'newsletter' && 'Kunden vergessen Sie nie'}
+              {currentAgent.interface === 'sales' && 'Beste Chancen zuerst bearbeiten'}
+              {currentAgent.interface === 'calendar' && 'Termine ohne Telefonieren'}
             </p>
           </div>
         </div>
@@ -384,11 +392,11 @@ const InteractiveKIDemo = () => {
       {/* Demo Stats */}
       <div className="mt-4 grid grid-cols-3 gap-2 text-center">
         <div className="border border-card-border/20 rounded-lg p-2">
-          <div className="text-lg text-primary">💰</div>
+          <DollarSign className="w-5 h-5 text-primary mx-auto mb-0.5" />
           <div className="text-xs text-muted-foreground font-light">Mehr Umsatz</div>
         </div>
         <div className="border border-card-border/20 rounded-lg p-2">
-          <div className="text-lg text-primary">⚡</div>
+          <Zap className="w-5 h-5 text-primary mx-auto mb-0.5" />
           <div className="text-xs text-muted-foreground font-light">Weniger Stress</div>
         </div>
         <div className="border border-card-border/20 rounded-lg p-2">
