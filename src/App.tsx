@@ -24,6 +24,8 @@ import Datenschutz from "./pages/Datenschutz";
 import AGB from "./pages/AGB";
 import NotFound from "./pages/NotFound";
 import DemoPortal from "./pages/DemoPortal";
+import KIEinfuehrung from "./pages/KIEinfuehrung";
+import KIFuerUnternehmen from "./pages/KIFuerUnternehmen";
 
 const queryClient = new QueryClient();
 
@@ -37,6 +39,8 @@ const App = () => (
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/ki-einfuehrung" element={<KIEinfuehrung />} />
+          <Route path="/ki-fuer-unternehmen" element={<KIFuerUnternehmen />} />
           <Route path="/standard-agenten" element={<StandardAgents />} />
           <Route path="/massgeschneiderte-agenten" element={<CustomAgents />} />
           <Route path="/agenten-rechner" element={<ROICalculatorPage />} />

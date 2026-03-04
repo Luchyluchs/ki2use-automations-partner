@@ -162,5 +162,19 @@ export const SEOTemplates = {
     description: "Kostenlose KI-Beratung fuer deutsche KMU. DSGVO-konforme Beratung. Potentialanalyse Ihrer Prozesse. Unverbindliches Erstgespraech in 20-30 Minuten.",
     keywords: "KI Beratung kostenlos, KI Erstgespräch, KI Experte Deutschland, Automatisierung Beratung, KI Potentialanalyse, KI Consultant, KI Beratung buchen, KI Einführung Beratung",
     canonical: "https://ki2use.de/kontakt"
+  },
+
+  kiEinfuehrung: {
+    title: "KI-Einführung im Mittelstand | Leitfaden & Prozess | KI2USE",
+    description: "Der komplette Leitfaden zur KI-Einführung für deutsche Unternehmen. 5-Schritte-Prozess, typische Fehler vermeiden, Fördermöglichkeiten nutzen. IHK-zertifiziert, DSGVO-konform.",
+    keywords: "KI Einführung, KI Einführung Mittelstand, KI implementieren, Künstliche Intelligenz einführen, KI Projekt starten, KI Integration Unternehmen, KI Einführung Leitfaden, KI Einführung Schritte, KI Einführung Kosten",
+    canonical: "https://ki2use.de/ki-einfuehrung"
+  },
+
+  kiFuerUnternehmen: {
+    title: "KI für Unternehmen | Programme, Kosten & Nutzen | KI2USE",
+    description: "Welche KI-Programme lohnen sich für Unternehmen? Überblick über KI-Anwendungen, Kosten-Nutzen-Vergleich und Checkliste. Speziell für deutsche KMU. DSGVO-konform.",
+    keywords: "KI für Unternehmen, KI Programme Unternehmen, Künstliche Intelligenz Unternehmen, KI Anwendungen Firma, KI Lösungen KMU, KI Tools Unternehmen, KI Software Mittelstand, KI Kosten Unternehmen",
+    canonical: "https://ki2use.de/ki-fuer-unternehmen"
   }
 } as const;
