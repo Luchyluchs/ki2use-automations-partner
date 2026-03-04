@@ -32,6 +32,9 @@ export const useCookieConsent = () => {
           setHasConsent(true);
           setConsentData(data.consent);
           setShowBanner(false);
+          if (data.consent.analytics || data.consent.marketing) {
+            updateConsentMode(data.consent);
+          }
           if (data.consent.analytics) {
             triggerGTMEvents();
           }
@@ -45,6 +48,20 @@ export const useCookieConsent = () => {
     setShowBanner(true);
   };
 
+  const updateConsentMode = (consent: ConsentData) => {
+    try {
+      if (typeof window === 'undefined' || typeof window.gtag !== 'function') return;
+      window.gtag('consent', 'update', {
+        'analytics_storage': consent.analytics ? 'granted' : 'denied',
+        'ad_storage': consent.marketing ? 'granted' : 'denied',
+        'ad_user_data': consent.marketing ? 'granted' : 'denied',
+        'ad_personalization': consent.marketing ? 'granted' : 'denied',
+      });
+    } catch {
+      // Consent mode update failed
+    }
+  };
+
   const saveConsent = (consent: ConsentData) => {
     const data = { version: CONSENT_VERSION, consent, timestamp: Date.now() };
     try {
@@ -54,6 +71,7 @@ export const useCookieConsent = () => {
       setHasConsent(true);
       setConsentData(consent);
       setShowBanner(false);
+      updateConsentMode(consent);
       if (consent.analytics) {
         triggerGTMEvents();
       }
@@ -79,7 +97,7 @@ export const useCookieConsent = () => {
 
   const trackPageView = (path: string) => {
     try {
-      if (window.dataLayer && consentData?.analytics) {
+      if (window.dataLayer) {
         window.dataLayer.push({
           event: 'page_view',
           page_path: path,
@@ -140,5 +158,6 @@ export const useCookieConsent = () => {
 declare global {
   interface Window {
     dataLayer: any[];
+    gtag: (...args: any[]) => void;
   }
 }
