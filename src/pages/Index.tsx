@@ -6,7 +6,6 @@ import LLMDiscoveryLayer from "@/components/LLMDiscoveryLayer";
 import EnhancedStructuredData from "@/components/EnhancedStructuredData";
 import LLMMetaTags from "@/components/LLMMetaTags";
 import { useScrollReveal, useEnhancedParallax, useMagneticCursor } from "@/hooks/useScrollAnimations";
-import { useExitIntent } from "@/hooks/useExitIntent";
 import { lazy, Suspense } from "react";
 
 const AboutSection = lazy(() => import("@/components/AboutSection"));
@@ -15,7 +14,7 @@ const KIBenefitsSection = lazy(() => import("@/components/KIBenefitsSection"));
 const LeadMagnetsSection = lazy(() => import("@/components/LeadMagnetsSection"));
 const FAQSection = lazy(() => import("@/components/FAQSection"));
 const CTASection = lazy(() => import("@/components/CTASection"));
-const ExitIntentPopup = lazy(() => import("@/components/ExitIntentPopup"));
+
 
 const SectionFallback = () => (
   <div className="py-20 flex items-center justify-center">
@@ -27,7 +26,6 @@ const Index = () => {
   useScrollReveal();
   useEnhancedParallax();
   useMagneticCursor();
-  const { showExitPopup, closePopup } = useExitIntent();
   
   return (
     <>
@@ -60,9 +58,6 @@ const Index = () => {
         </Suspense>
         <Suspense fallback={<SectionFallback />}>
           <CTASection />
-        </Suspense>
-        <Suspense fallback={null}>
-          <ExitIntentPopup isOpen={showExitPopup} onClose={closePopup} />
         </Suspense>
       </Layout>
     </>
