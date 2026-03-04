@@ -29,8 +29,10 @@ const FuturisticBackground = () => {
 
     const cacheColors = () => {
       const style = getComputedStyle(document.documentElement);
-      cachedColorsRef.current.primaryHsl = style.getPropertyValue('--primary').trim().replace(/\s+/g, ', ');
-      cachedColorsRef.current.accentHsl = style.getPropertyValue('--accent').trim().replace(/\s+/g, ', ');
+      const rawPrimary = style.getPropertyValue('--primary').trim();
+      const rawAccent = style.getPropertyValue('--accent').trim();
+      cachedColorsRef.current.primaryHsl = rawPrimary ? rawPrimary.replace(/\s+/g, ', ') : '217, 91%, 60%';
+      cachedColorsRef.current.accentHsl = rawAccent ? rawAccent.replace(/\s+/g, ', ') : '210, 40%, 50%';
     };
 
     const resizeCanvas = () => {
