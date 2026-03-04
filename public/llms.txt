@@ -74,6 +74,8 @@ Workshops und Trainings für Teams zur effektiven Nutzung von KI-Technologien. P
 - /roi-rechner – ROI-Kalkulator für KI-Investitionen
 - /kontakt – Kontaktformular und Beratungstermin
 - /demo-portal – Live-Demos der KI-Agenten
+- /ki-einfuehrung – Leitfaden zur KI-Einführung im Mittelstand: 5-Schritte-Prozess, typische Fehler, Branchenbeispiele
+- /ki-fuer-unternehmen – Überblick KI-Programme für Unternehmen: Anwendungen, Kosten-Nutzen, Checkliste
 - /impressum – Impressum
 - /datenschutz – Datenschutzerklärung
 - /agb – Allgemeine Geschäftsbedingungen
