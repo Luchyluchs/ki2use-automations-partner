@@ -42,9 +42,9 @@ const Foerderung = () => {
     },
     {
       icon: HandCoins,
-      title: "Günstige Kredite",
-      description: "Zinsgünstige Darlehen für Digitalisierungsprojekte – auch kombinierbar mit Zuschüssen.",
-      highlight: "Attraktive Konditionen",
+      title: "Gehaltsübernahme & Kredite",
+      description: "Bestimmte Programme übernehmen Gehälter für neue KI-Fachkräfte oder bieten zinsgünstige Darlehen – auch kombinierbar mit Zuschüssen.",
+      highlight: "Personal- & Finanzierungsförderung",
     },
   ];
 
@@ -85,8 +85,9 @@ const Foerderung = () => {
               für Ihre KI-Investition
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed font-light max-w-3xl mx-auto">
-              Der Staat fördert die Digitalisierung des Mittelstands mit zahlreichen Programmen. 
-              KI2USE zeigt Ihnen die passenden Fördermöglichkeiten für Ihr KI-Vorhaben auf 
+              Der Staat fördert die Digitalisierung des Mittelstands mit zahlreichen Programmen – 
+              von direkten Zuschüssen bis hin zur Übernahme von Gehältern für neue KI-Stellen. 
+              KI2USE zeigt Ihnen die passenden Fördermöglichkeiten auf 
               und vermittelt Sie bei Bedarf an spezialisierte Förderberater.
             </p>
           </div>
