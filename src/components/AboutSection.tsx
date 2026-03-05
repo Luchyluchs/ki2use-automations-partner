@@ -15,9 +15,7 @@ const AboutSection = () => {
               Der Mittelstand braucht keine überladenen Technologie-Versprechen, sondern praxisnahe Lösungen. 
               KI2USE steht dafür, dass KI kein Hexenwerk sein muss – sie sollte einfach nur funktionieren.
             </p>
-            <p>Hinter KI2USE steht ein IHK-zertifizierter KI-Manager, der Unternehmen dabei unterstützt, die richtigen Anwendungen zu finden, Fördermöglichkeiten zu nutzen und echte Mehrwerte zu schaffen.
-
-
+            <p>Hinter KI2USE steht ein erfahrener KI-Manager, der Unternehmen dabei unterstützt, die richtigen Anwendungen zu finden, Fördermöglichkeiten zu nutzen und echte Mehrwerte zu schaffen.
             </p>
           </div>
 
@@ -25,8 +23,8 @@ const AboutSection = () => {
              <div className="flex items-start space-x-3 sm:space-x-4 p-4 sm:p-5 border border-card-border/30 rounded-xl hover:border-primary/30 transition-all duration-300">
               <Award className="w-5 h-5 sm:w-6 sm:h-6 text-primary flex-shrink-0 mt-1" strokeWidth={1.5} />
               <div>
-                <h3 className="font-light text-foreground mb-1 text-sm sm:text-base">IHK-zertifiziert</h3>
-                <p className="text-xs sm:text-sm text-muted-foreground font-light">Beratung mit zertifiziertem Know-How</p>
+                <h3 className="font-light text-foreground mb-1 text-sm sm:text-base">Praxiserfahrung</h3>
+                <p className="text-xs sm:text-sm text-muted-foreground font-light">Beratung mit echtem Know-How aus der Praxis</p>
               </div>
             </div>
              <div className="flex items-start space-x-3 sm:space-x-4 p-4 sm:p-5 border border-card-border/30 rounded-xl hover:border-primary/30 transition-all duration-300">

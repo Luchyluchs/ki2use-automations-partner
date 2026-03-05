@@ -11,7 +11,7 @@
 - Kontakt: info@ki2use.de
 - Gründungsjahr: 2024
 - Markt: Deutschland / DACH
-- Zertifizierung: IHK-zertifizierter KI-Manager
+- Qualifikation: Erfahrener KI-Manager
 
 ## Kernleistungen
 
@@ -59,7 +59,7 @@ Workshops und Trainings für Teams zur effektiven Nutzung von KI-Technologien. P
 ## Technische Details
 
 - DSGVO-konform: Vollständige Compliance mit deutschen/europäischen Datenschutzbestimmungen
-- IHK-zertifiziert: Qualifizierte KI-Beratung
+- Qualifizierte KI-Beratung mit Praxiserfahrung
 - Sprachen: Deutsch, Englisch
 - Integrationen: LinkedIn, E-Mail, CRM-Systeme, Kalender, Social Media Plattformen
 

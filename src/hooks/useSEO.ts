@@ -117,7 +117,7 @@ export const useSEO = (config: SEOConfig) => {
 export const SEOTemplates = {
   beratung: {
     title: "KI-Beratung für den Mittelstand | Strategie & KI-Einführung | KI2USE",
-    description: "Professionelle KI-Beratung und Begleitung bei der KI-Einführung. Individuelle Analyse, konkrete Handlungsempfehlungen und Fördermittelberatung. IHK-zertifiziert, DSGVO-konform.",
+    description: "Professionelle KI-Beratung und Begleitung bei der KI-Einführung. Individuelle Analyse, konkrete Handlungsempfehlungen und Fördermittelberatung. DSGVO-konform.",
     keywords: "KI Beratung, KI Einführung, KI Beratung Mittelstand, KI Beratung Deutschland, Künstliche Intelligenz Beratung, KI für Unternehmen, KI Implementierung, KI Strategie, KI Beratung KMU, DSGVO-konforme KI",
     canonical: "https://ki2use.de/beratung"
   },
@@ -166,7 +166,7 @@ export const SEOTemplates = {
 
   kiEinfuehrung: {
     title: "KI-Einführung im Mittelstand | Leitfaden & Prozess | KI2USE",
-    description: "Der komplette Leitfaden zur KI-Einführung für deutsche Unternehmen. 5-Schritte-Prozess, typische Fehler vermeiden, Fördermöglichkeiten nutzen. IHK-zertifiziert, DSGVO-konform.",
+    description: "Der komplette Leitfaden zur KI-Einführung für deutsche Unternehmen. 5-Schritte-Prozess, typische Fehler vermeiden, Fördermöglichkeiten nutzen. DSGVO-konform.",
     keywords: "KI Einführung, KI Einführung Mittelstand, KI implementieren, Künstliche Intelligenz einführen, KI Projekt starten, KI Integration Unternehmen, KI Einführung Leitfaden, KI Einführung Schritte, KI Einführung Kosten",
     canonical: "https://ki2use.de/ki-einfuehrung"
   },

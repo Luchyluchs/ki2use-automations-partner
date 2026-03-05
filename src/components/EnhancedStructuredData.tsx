@@ -6,7 +6,7 @@ export const EnhancedStructuredData: FC = () => {
     "@type": "Organization",
     "name": "KI2USE",
     "url": "https://ki2use.de",
-    "description": "KI-Beratung, KI-Einführung und Fördermittelberatung für den deutschen Mittelstand. IHK-zertifiziert, DSGVO-konform. Deutschlandweit verfügbar.",
+    "description": "KI-Beratung, KI-Einführung und Fördermittelberatung für den deutschen Mittelstand. DSGVO-konform. Deutschlandweit verfügbar.",
     "foundingDate": "2024",
     "areaServed": "Deutschland",
     "knowsAbout": [
