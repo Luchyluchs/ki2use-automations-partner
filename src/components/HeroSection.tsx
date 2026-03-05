@@ -81,7 +81,7 @@ const HeroSection = () => {
           </div>
 
           <div className="lg:col-span-5 relative flex items-center justify-center">
-            <div className="enhanced-reveal stagger-delay-4 mt-8">
+            <div className="enhanced-reveal stagger-delay-4 mt-4">
               <InteractiveKIDemo />
             </div>
           </div>
