@@ -15,7 +15,7 @@ const HeroSection = () => {
         {/* Mobile Layout */}
         <div className="block lg:hidden text-left space-y-5 max-w-md mx-auto px-6 pt-6">
           <div className="enhanced-reveal inline-flex items-center rounded-full px-5 py-2 text-xs font-light bg-white/5 text-white/80 border border-white/10">
-            IHK-zertifiziert · Made in Germany
+            DSGVO-konform · Made in Germany
           </div>
           
           <div className="enhanced-reveal stagger-delay-1 space-y-6">
@@ -49,7 +49,7 @@ const HeroSection = () => {
         <div className="hidden lg:grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 items-center">
           <div className="lg:col-span-7 text-left space-y-8">
             <div className="enhanced-reveal inline-flex items-center rounded-full px-5 py-2 text-xs font-light bg-white/5 text-white/70 border border-white/10">
-              IHK-zertifiziert · Made in Germany
+              DSGVO-konform · Made in Germany
             </div>
             
             <div className="enhanced-reveal stagger-delay-1 mb-8">
