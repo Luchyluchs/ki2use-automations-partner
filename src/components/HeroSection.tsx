@@ -47,7 +47,7 @@ const HeroSection = () => {
 
         {/* Desktop Layout */}
         <div className="hidden lg:grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 items-center">
-          <div className="lg:col-span-7 text-left space-y-8">
+          <div className="lg:col-span-7 text-left space-y-8 -mt-6">
             <div className="enhanced-reveal inline-flex items-center rounded-full px-5 py-2 text-xs font-light bg-white/5 text-white/70 border border-white/10">
               DSGVO-konform · Made in Germany
             </div>
