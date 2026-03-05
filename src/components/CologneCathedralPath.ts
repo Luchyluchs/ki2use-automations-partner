@@ -25,8 +25,8 @@ export const drawCologneCathedral = (
 
   ctx.save();
   ctx.translate(offsetX, offsetY);
-  ctx.strokeStyle = `hsla(${primaryHsl}, 0.06)`;
-  ctx.lineWidth = 1;
+  ctx.strokeStyle = `hsla(${primaryHsl}, 0.15)`;
+  ctx.lineWidth = 1.2;
   ctx.lineJoin = 'round';
   ctx.lineCap = 'round';
 
@@ -116,7 +116,7 @@ export const drawCologneCathedral = (
   line(260, 50, 245, 100);
 
   // Secondary wireframe accent with even lower opacity
-  ctx.strokeStyle = `hsla(${primaryHsl}, 0.03)`;
+  ctx.strokeStyle = `hsla(${primaryHsl}, 0.08)`;
 
   // Vertical structural lines in towers
   line(15, 0, 15, 200);
