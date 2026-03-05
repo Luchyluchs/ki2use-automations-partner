@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { drawCologneCathedral } from './CologneCathedralPath';
 
 interface Particle {
   x: number;
@@ -60,6 +61,14 @@ const FuturisticBackground = () => {
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Draw Kölner Dom silhouette (behind particles)
+      drawCologneCathedral(ctx, {
+        canvasWidth: canvas.width,
+        canvasHeight: canvas.height,
+        primaryHsl: cachedColorsRef.current.primaryHsl,
+        accentHsl: cachedColorsRef.current.accentHsl,
+      });
 
       // Smooth mouse interpolation
       smoothMouseRef.current.x = lerp(smoothMouseRef.current.x, mouseRef.current.x, 0.08);
