@@ -86,7 +86,7 @@ const Foerderung = () => {
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed font-light max-w-3xl mx-auto">
               Der Staat fördert die Digitalisierung des Mittelstands mit zahlreichen Programmen – 
-              von direkten <strong>Zuschüssen</strong> bis hin zur <strong>Übernahme von Gehältern</strong> für neue KI-Stellen. 
+              von direkten <span className="font-bold text-foreground">Zuschüssen</span> bis hin zur <span className="font-bold text-foreground">Übernahme von Gehältern</span> für neue KI-Stellen. 
               KI2USE zeigt Ihnen die passenden Fördermöglichkeiten auf 
               und vermittelt Sie bei Bedarf an spezialisierte Förderberater.
             </p>
