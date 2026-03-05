@@ -1,30 +1,41 @@
 
 
-## Kölner Dom Silhouette im Background
+## Google Consent Mode v2 implementieren
 
-### Idee
-Eine minimalistische, geometrische Kölner Dom Silhouette als SVG direkt in den `FuturisticBackground.tsx` Canvas zeichnen – passend zum dunklen, spartanischen Design. Der Dom wird als feine Linien-Silhouette (Wireframe-Stil) gerendert, sehr dezent mit niedriger Opazität, sodass er sich nahtlos in die bestehenden Partikel und Verbindungslinien einfügt.
+### Problem
+GTM laedt, aber GA4 bekommt keine korrekten Consent-Signale. Der aktuelle Code pusht nur ein custom `consent_update` Event in den dataLayer – GA4 erkennt das nicht als offizielles Consent-Signal.
 
-### Umsetzung
+### Loesung
 
-**Datei: `src/components/FuturisticBackground.tsx`**
+**1. `index.html`** – Consent Default VOR dem GTM-Script setzen:
+```js
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied',
+  'functionality_storage': 'granted',
+  'security_storage': 'granted',
+  'wait_for_update': 500
+});
+```
+Dieses Script kommt direkt vor den bestehenden GTM-Block.
 
-- Eine SVG-Path-basierte Kölner Dom Silhouette als Canvas-Path2D zeichnen
-- Positionierung: unten rechts im Viewport, leicht versetzt
-- Stil: Nur Umrisslinien (stroke), keine Füllung – in der Primary/Accent-Farbe mit ~0.06-0.08 Opazität
-- Skalierung responsiv basierend auf Canvas-Größe
-- Der Dom wird VOR den Partikeln gezeichnet, sodass Partikel und Verbindungslinien darüber schweben
-- Partikel in der Nähe des Doms können subtil mit der Silhouette interagieren
+**2. `src/hooks/useCookieConsent.ts`** – `triggerGTMEvents` und `saveConsent` anpassen:
+- Bei Consent-Aenderung: `gtag('consent', 'update', { analytics_storage: 'granted'/'denied', ad_storage: ... })` aufrufen
+- Bei Ablehnung ebenfalls ein explizites `gtag('consent', 'update', { ... 'denied' })` senden
+- Bei bestehendem gespeichertem Consent beim Laden ebenfalls das Update senden
 
-### Visuelles Ergebnis
-- Sehr dezente, kaum sichtbare Dom-Silhouette im Hintergrund
-- Passt zum minimalistischen Neura-inspirierten Design
-- Lokaler Köln-Bezug ohne aufdringlich zu wirken
-- Wireframe/technischer Stil passend zum KI-Thema
-
-### Änderungen
+### Aenderungen
 
 | Datei | Was |
 |---|---|
-| `src/components/FuturisticBackground.tsx` | Kölner Dom Silhouette als Canvas-Linienzeichnung einfügen |
+| `index.html` | Consent-Default-Block vor GTM einfuegen |
+| `src/hooks/useCookieConsent.ts` | `gtag('consent', 'update', ...)` bei jeder Consent-Aenderung aufrufen |
+
+### Wichtig
+- Der Default muss VOR dem GTM-Script stehen, damit GA4 weiss, dass es auf ein Consent-Update warten soll
+- `window.gtag` Funktion wird global definiert und in der TypeScript-Deklaration ergaenzt
 
