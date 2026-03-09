@@ -26,6 +26,11 @@ import NotFound from "./pages/NotFound";
 import DemoPortal from "./pages/DemoPortal";
 import KIEinfuehrung from "./pages/KIEinfuehrung";
 import KIFuerUnternehmen from "./pages/KIFuerUnternehmen";
+import KIBeratungMittelstand from "./pages/blog/KIBeratungMittelstand";
+import KIFoerderung2025 from "./pages/blog/KIFoerderung2025";
+import ChatbotUnternehmen from "./pages/blog/ChatbotUnternehmen";
+import KIAutomatisierungKMU from "./pages/blog/KIAutomatisierungKMU";
+import KIKostenROI from "./pages/blog/KIKostenROI";
 
 const queryClient = new QueryClient();
 
