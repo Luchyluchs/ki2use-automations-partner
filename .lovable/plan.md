@@ -1,37 +1,41 @@
 
 
-# Blog-System für SEO (unsichtbar in Navigation)
+## Google Consent Mode v2 implementieren
 
-## Konzept
-Versteckte Blog-Seiten nach dem gleichen Muster wie `/ki-einfuehrung` und `/ki-fuer-unternehmen` — nicht in der Navigation, nicht im Footer, aber indexierbar via Sitemap und llms.txt.
+### Problem
+GTM laedt, aber GA4 bekommt keine korrekten Consent-Signale. Der aktuelle Code pusht nur ein custom `consent_update` Event in den dataLayer – GA4 erkennt das nicht als offizielles Consent-Signal.
 
-## Blog-Artikel (5 Stück zum Start)
+### Loesung
 
-| Route | Keyword-Fokus |
-|-------|--------------|
-| `/blog/ki-beratung-mittelstand` | KI Beratung Mittelstand |
-| `/blog/ki-foerderung-2025` | KI Förderung Unternehmen 2025 |
-| `/blog/chatbot-unternehmen` | Chatbot für Unternehmen |
-| `/blog/ki-automatisierung-kmu` | KI Automatisierung KMU |
-| `/blog/ki-kosten-roi` | KI Kosten ROI Unternehmen |
-
-Jeder Artikel: 1.000+ Wörter, SEO-Meta-Tags, Structured Data (Article Schema), interner Verlinkung zu Hauptseiten, CTA am Ende.
-
-## Technische Umsetzung
-
-1. **Blog-Layout-Komponente** (`src/components/BlogLayout.tsx`) — Wiederverwendbares Layout mit Article-Schema, Lesezeit, Autor, Datum, CTA-Sektion
-2. **5 Blog-Seiten** unter `src/pages/blog/` — Jeweils mit Layout-Komponente, 1.000+ Wörter Content
-3. **Routen in App.tsx** — `/blog/*` Routen hinzufügen (keine Navigation/Footer-Links)
-4. **Sitemap aktualisieren** — Alle 5 Blog-URLs mit `priority 0.7`
-5. **llms.txt aktualisieren** — Blog-Sektion hinzufügen
-6. **Interne Links** — Aus bestehenden Seiten (z.B. FAQ, Services) dezent auf Blog-Artikel verlinken (nur im Content, nicht in Navigation)
-
-## Structured Data pro Artikel
-```text
-Article Schema:
-- @type: Article
-- headline, author, datePublished
-- publisher: KI2USE
-- keywords pro Artikel
+**1. `index.html`** – Consent Default VOR dem GTM-Script setzen:
+```js
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied',
+  'functionality_storage': 'granted',
+  'security_storage': 'granted',
+  'wait_for_update': 500
+});
 ```
+Dieses Script kommt direkt vor den bestehenden GTM-Block.
+
+**2. `src/hooks/useCookieConsent.ts`** – `triggerGTMEvents` und `saveConsent` anpassen:
+- Bei Consent-Aenderung: `gtag('consent', 'update', { analytics_storage: 'granted'/'denied', ad_storage: ... })` aufrufen
+- Bei Ablehnung ebenfalls ein explizites `gtag('consent', 'update', { ... 'denied' })` senden
+- Bei bestehendem gespeichertem Consent beim Laden ebenfalls das Update senden
+
+### Aenderungen
+
+| Datei | Was |
+|---|---|
+| `index.html` | Consent-Default-Block vor GTM einfuegen |
+| `src/hooks/useCookieConsent.ts` | `gtag('consent', 'update', ...)` bei jeder Consent-Aenderung aufrufen |
+
+### Wichtig
+- Der Default muss VOR dem GTM-Script stehen, damit GA4 weiss, dass es auf ein Consent-Update warten soll
+- `window.gtag` Funktion wird global definiert und in der TypeScript-Deklaration ergaenzt
 

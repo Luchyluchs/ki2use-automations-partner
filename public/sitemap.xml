@@ -95,6 +95,38 @@
     <priority>0.8</priority>
   </url>
   
+  <!-- Blog -->
+  <url>
+    <loc>https://ki2use.de/blog/ki-beratung-mittelstand</loc>
+    <lastmod>2025-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ki2use.de/blog/ki-foerderung-2025</loc>
+    <lastmod>2025-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ki2use.de/blog/chatbot-unternehmen</loc>
+    <lastmod>2025-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ki2use.de/blog/ki-automatisierung-kmu</loc>
+    <lastmod>2025-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ki2use.de/blog/ki-kosten-roi</loc>
+    <lastmod>2025-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Legal -->
   <url>
     <loc>https://ki2use.de/impressum</loc>
