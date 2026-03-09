@@ -37,7 +37,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         <div className="container mx-auto px-6 lg:px-12">
           <div className="flex h-20 items-center justify-between">
             <Link to="/" className="flex items-center space-x-3">
-              <div className="text-2xl font-light text-white tracking-tight">KI2USE</div>
+              <div className="text-2xl lg:text-3xl font-light text-white tracking-tight">KI2USE</div>
             </Link>
 
             <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2">
