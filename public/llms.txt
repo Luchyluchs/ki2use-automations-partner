@@ -80,6 +80,14 @@ Workshops und Trainings für Teams zur effektiven Nutzung von KI-Technologien. P
 - /datenschutz – Datenschutzerklärung
 - /agb – Allgemeine Geschäftsbedingungen
 
+## Blog-Artikel (SEO-Ratgeber)
+
+- /blog/ki-beratung-mittelstand – KI-Beratung für den Mittelstand: Leitfaden mit Vorteilen, Ablauf und typischen Fehlern
+- /blog/ki-foerderung-2025 – KI-Förderung 2025: Alle staatlichen Förderprogramme für KI-Projekte im Überblick
+- /blog/chatbot-unternehmen – Chatbot für Unternehmen: Kundenservice automatisieren mit KI-Chatbots
+- /blog/ki-automatisierung-kmu – KI-Automatisierung für KMU: Top 10 Prozesse zum Automatisieren
+- /blog/ki-kosten-roi – KI-Kosten und ROI: Was Künstliche Intelligenz für Unternehmen wirklich kostet
+
 ## Häufige Fragen
 
 **Was ist KI-Beratung und wer braucht sie?**

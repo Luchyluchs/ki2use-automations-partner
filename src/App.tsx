@@ -62,6 +62,11 @@ const App = () => (
           <Route path="/datenschutz" element={<Datenschutz />} />
           <Route path="/agb" element={<AGB />} />
           <Route path="/demoportal" element={<DemoPortal />} />
+          <Route path="/blog/ki-beratung-mittelstand" element={<KIBeratungMittelstand />} />
+          <Route path="/blog/ki-foerderung-2025" element={<KIFoerderung2025 />} />
+          <Route path="/blog/chatbot-unternehmen" element={<ChatbotUnternehmen />} />
+          <Route path="/blog/ki-automatisierung-kmu" element={<KIAutomatisierungKMU />} />
+          <Route path="/blog/ki-kosten-roi" element={<KIKostenROI />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <NewChatbot />
