@@ -104,7 +104,7 @@ const Foerderung = () => {
               <p className="text-muted-foreground font-light">Fördermöglichkeiten auf Bund-, Landes- & EU-Ebene</p>
             </div>
             <div className="border border-primary/20 rounded-2xl p-8 text-center">
-              <div className="text-3xl font-light text-primary mb-2">Zahlreich</div>
+              <div className="text-3xl font-light text-primary mb-2">Umfangreich</div>
               <p className="text-muted-foreground font-light">Programme für KMUs verfügbar</p>
             </div>
             <div className="border border-primary/20 rounded-2xl p-8 text-center">
