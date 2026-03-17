@@ -228,7 +228,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600;700&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600;700&display=swap" /></noscript>
     
     <!-- Theme Color and Apple-specific Meta Tags -->
     <meta name="theme-color" content="#1e3a8a" />
@@ -258,11 +259,15 @@
     });
     </script>
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6PRXY6PQ5J"></script>
+    <!-- Google tag (gtag.js) - deferred for performance -->
     <script>
-    gtag('js', new Date());
-    gtag('config', 'G-6PRXY6PQ5J');
+    setTimeout(function(){
+      var s = document.createElement('script');
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-6PRXY6PQ5J';
+      s.async = true;
+      s.onload = function(){ gtag('js', new Date()); gtag('config', 'G-6PRXY6PQ5J'); };
+      document.head.appendChild(s);
+    }, 3000);
     </script>
 
     <!-- Enhanced Google Tag Manager with Error Handling -->
