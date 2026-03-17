@@ -8,6 +8,7 @@ import {
   ArrowRight, Building2, Landmark, Globe, HandCoins
 } from "lucide-react";
 import CalendlyButton from "@/components/CalendlyButton";
+import FoerderCheck from "@/components/FoerderCheck";
 
 const Foerderung = () => {
   useScrollReveal();
@@ -180,6 +181,23 @@ const Foerderung = () => {
                 <p className="text-muted-foreground text-sm font-light leading-relaxed">{item.description}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Fördercheck CTA */}
+      <section className="section-padding">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center scroll-reveal">
+            <div className="border border-primary/20 rounded-2xl p-8 md:p-12">
+              <h2 className="text-2xl md:text-3xl font-thin mb-4 tracking-tight">
+                Passt <span className="text-primary font-light">Förderung</span> zu Ihrem Vorhaben?
+              </h2>
+              <p className="text-lg text-muted-foreground font-light leading-relaxed mb-8 max-w-2xl mx-auto">
+                In nur 6 kurzen Schritten prüfen wir, welche Förderprogramme für Ihr Unternehmen in Frage kommen – kostenlos und unverbindlich.
+              </p>
+              <FoerderCheck />
+            </div>
           </div>
         </div>
       </section>
