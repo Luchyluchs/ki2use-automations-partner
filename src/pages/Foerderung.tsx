@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import {
   ArrowLeft, Euro, CheckCircle, FileText, Search,
-  ArrowRight, Building2, Landmark, Globe, HandCoins
-} from "lucide-react";
+  ArrowRight, Building2, Landmark, Globe, HandCoins } from
+"lucide-react";
 import CalendlyButton from "@/components/CalendlyButton";
 import FoerderCheck from "@/components/FoerderCheck";
 
@@ -19,53 +19,53 @@ const Foerderung = () => {
     title: "KI-Förderung & Zuschüsse für den Mittelstand | KI2USE",
     description: "Staatliche Förderprogramme für KI-Projekte: Digital Jetzt, ZIM, Landesförderungen. Kostenlose Erstprüfung der Förderfähigkeit. KI2USE vermittelt an spezialisierte Förderberater.",
     keywords: "KI Förderung, Fördermittel KI, Förderung Digitalisierung, Digital Jetzt, ZIM Förderung, KI Zuschüsse, Förderung Mittelstand, Digitalisierungsprämie, KI Investition Förderung, Förderprogramme KMU",
-    canonical: "https://ki2use.de/foerderung",
+    canonical: "https://ki2use.de/foerderung"
   });
 
   const programs = [
-    {
-      icon: Landmark,
-      title: "Bundesförderung",
-      description: "Der Bund bietet verschiedene Programme zur Unterstützung von KMUs bei der Digitalisierung und KI-Einführung.",
-      highlight: "Zuschüsse für KMUs",
-    },
-    {
-      icon: Building2,
-      title: "Landesförderung",
-      description: "Jedes Bundesland bietet eigene Programme – von Digitalisierungsprämien bis zu Innovationsgutscheinen.",
-      highlight: "Je nach Bundesland verschieden",
-    },
-    {
-      icon: Globe,
-      title: "EU-Förderung",
-      description: "Europäische Programme fördern innovative KI-Projekte – besonders für ambitionierte Vorhaben.",
-      highlight: "Für größere Vorhaben",
-    },
-    {
-      icon: HandCoins,
-      title: "Gehaltsübernahme & Kredite",
-      description: "Bestimmte Programme übernehmen Gehälter für neue KI-Fachkräfte oder bieten zinsgünstige Darlehen – auch kombinierbar mit Zuschüssen.",
-      highlight: "Personal- & Finanzierungsförderung",
-    },
-  ];
+  {
+    icon: Landmark,
+    title: "Bundesförderung",
+    description: "Der Bund bietet verschiedene Programme zur Unterstützung von KMUs bei der Digitalisierung und KI-Einführung.",
+    highlight: "Zuschüsse für KMUs"
+  },
+  {
+    icon: Building2,
+    title: "Landesförderung",
+    description: "Jedes Bundesland bietet eigene Programme – von Digitalisierungsprämien bis zu Innovationsgutscheinen.",
+    highlight: "Je nach Bundesland verschieden"
+  },
+  {
+    icon: Globe,
+    title: "EU-Förderung",
+    description: "Europäische Programme fördern innovative KI-Projekte – besonders für ambitionierte Vorhaben.",
+    highlight: "Für größere Vorhaben"
+  },
+  {
+    icon: HandCoins,
+    title: "Gehaltsübernahme & Kredite",
+    description: "Bestimmte Programme übernehmen Gehälter für neue KI-Fachkräfte oder bieten zinsgünstige Darlehen – auch kombinierbar mit Zuschüssen.",
+    highlight: "Personal- & Finanzierungsförderung"
+  }];
+
 
   const steps = [
-    {
-      step: "01",
-      title: "Erstprüfung",
-      description: "Im kostenlosen Erstgespräch prüft KI2USE Ihre Förderfähigkeit und zeigt passende Programme auf.",
-    },
-    {
-      step: "02",
-      title: "Überblick",
-      description: "KI2USE gibt Ihnen einen klaren Überblick über relevante Fördermöglichkeiten und deren Voraussetzungen.",
-    },
-    {
-      step: "03",
-      title: "Vermittlung",
-      description: "KI2USE vermittelt Sie an spezialisierte Förderberater, die den Antragsprozess professionell begleiten.",
-    },
-  ];
+  {
+    step: "01",
+    title: "Erstprüfung",
+    description: "Im kostenlosen Erstgespräch prüft KI2USE Ihre Förderfähigkeit und zeigt passende Programme auf."
+  },
+  {
+    step: "02",
+    title: "Überblick",
+    description: "KI2USE gibt Ihnen einen klaren Überblick über relevante Fördermöglichkeiten und deren Voraussetzungen."
+  },
+  {
+    step: "03",
+    title: "Vermittlung",
+    description: "KI2USE vermittelt Sie an spezialisierte Förderberater, die den Antragsprozess professionell begleiten."
+  }];
+
 
   return (
     <Layout>
@@ -136,8 +136,8 @@ const Foerderung = () => {
               return (
                 <div
                   key={index}
-                  className="border border-card-border/30 rounded-2xl p-8 scroll-reveal hover:border-primary/30 transition-all duration-300"
-                >
+                  className="border border-card-border/30 rounded-2xl p-8 scroll-reveal hover:border-primary/30 transition-all duration-300">
+                  
                   <div className="flex items-center gap-4 mb-4">
                     <div className="w-12 h-12 rounded-full border border-primary/30 flex items-center justify-center flex-shrink-0">
                       <IconComponent className="w-6 h-6 text-primary" />
@@ -150,8 +150,8 @@ const Foerderung = () => {
                   <p className="text-muted-foreground font-light leading-relaxed">
                     {program.description}
                   </p>
-                </div>
-              );
+                </div>);
+
             })}
           </div>
         </div>
@@ -171,16 +171,16 @@ const Foerderung = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {steps.map((item, index) => (
-              <div
-                key={index}
-                className="border border-card-border/30 rounded-2xl p-6 text-center scroll-reveal hover:border-primary/30 transition-all duration-300"
-              >
+            {steps.map((item, index) =>
+            <div
+              key={index}
+              className="border border-card-border/30 rounded-2xl p-6 text-center scroll-reveal hover:border-primary/30 transition-all duration-300">
+              
                 <div className="text-3xl font-thin text-primary/40 mb-4">{item.step}</div>
                 <h3 className="font-light mb-3 text-lg">{item.title}</h3>
                 <p className="text-muted-foreground text-sm font-light leading-relaxed">{item.description}</p>
               </div>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -215,18 +215,18 @@ const Foerderung = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {[
-                  "KI2USE kennt die aktuellen Förderprogramme für KI-Projekte",
-                  "Kostenlose Erstprüfung Ihrer Förderfähigkeit",
-                  "Vermittlung an spezialisierte Förderberater",
-                  "Überblick über kombinierbare Programme für maximale Förderung",
-                  "Ehrliche Einschätzung Ihrer Fördermöglichkeiten",
-                  "Keine versteckten Kosten – transparent und unverbindlich",
-                ].map((point, i) => (
-                  <div key={i} className="flex items-start">
+                "KI2USE kennt die aktuellen Förderprogramme für KI-Projekte",
+                "Kostenlose Erstprüfung Ihrer Förderfähigkeit",
+                "Vermittlung an spezialisierte Förderberater",
+                "Überblick über kombinierbare Programme für maximale Förderung",
+                "Ehrliche Einschätzung Ihrer Fördermöglichkeiten",
+                "Keine versteckten Kosten – transparent und unverbindlich"].
+                map((point, i) =>
+                <div key={i} className="flex items-start">
                     <CheckCircle className="w-5 h-5 text-accent mt-0.5 mr-3 flex-shrink-0" />
                     <span className="font-light">{point}</span>
                   </div>
-                ))}
+                )}
               </div>
             </div>
           </div>
@@ -235,36 +235,36 @@ const Foerderung = () => {
 
       {/* CTA */}
       <section className="section-padding">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center scroll-reveal">
-            <div className="border-t border-card-border/20 pt-12">
-              <h2 className="mb-6 font-thin tracking-tight">
-                Förderung sichern – jetzt prüfen lassen
-              </h2>
-              <p className="text-xl mb-8 text-muted-foreground leading-relaxed font-light">
-                In einem kostenlosen Erstgespräch zeigt KI2USE Ihnen, welche Förderprogramme 
-                für Ihr KI-Vorhaben in Frage kommen – und vermittelt Sie an die richtigen Experten.
-              </p>
+        
 
-              <CalendlyButton
-                text="Kostenlose Förderprüfung vereinbaren"
-                variant="cta"
-                size="xl"
-                icon={false}
-              />
 
-              <div className="mt-8 border border-card-border/20 rounded-xl p-6">
-                <p className="text-sm leading-relaxed text-muted-foreground font-light">
-                  <span className="text-foreground">Kein Risiko:</span> Die Erstprüfung ist kostenlos und unverbindlich. 
-                  Sie erfahren sofort, ob und welche Förderung für Ihr Unternehmen möglich ist.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
       </section>
-    </Layout>
-  );
+    </Layout>);
+
 };
 
 export default Foerderung;
