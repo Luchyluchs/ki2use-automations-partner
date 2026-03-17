@@ -8,6 +8,7 @@ import {
   ArrowRight, Building2, Landmark, Globe, HandCoins
 } from "lucide-react";
 import CalendlyButton from "@/components/CalendlyButton";
+import FoerderCheck from "@/components/FoerderCheck";
 
 const Foerderung = () => {
   useScrollReveal();
