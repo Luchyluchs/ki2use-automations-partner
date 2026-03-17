@@ -24,7 +24,7 @@ const HeroSection = () => {
               <span className="font-light text-primary">
                 verständlich, bezahlbar, umsetzbar
               </span>
-            </h1>
+            </div>
             <p className="text-lg text-white/60 leading-relaxed font-light">
               KI2USE hilft Unternehmen deutschlandweit, Künstliche Intelligenz sinnvoll einzusetzen – ohne Hype, mit echten Ergebnissen.
             </p>
