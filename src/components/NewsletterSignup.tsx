@@ -37,7 +37,7 @@ const NewsletterSignup = () => {
     }
   };
 
-  return;
+  return null;
 
 
 
