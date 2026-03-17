@@ -6,6 +6,12 @@ import Layout from "./Layout";
 import { Button } from "./ui/button";
 import CalendlyButton from "./CalendlyButton";
 
+interface RelatedArticle {
+  title: string;
+  slug: string;
+  description: string;
+}
+
 interface BlogLayoutProps {
   title: string;
   metaTitle: string;
@@ -15,6 +21,7 @@ interface BlogLayoutProps {
   publishDate: string;
   readingTime: string;
   children: ReactNode;
+  relatedArticles?: RelatedArticle[];
 }
 
 const BlogLayout = ({
@@ -26,6 +33,7 @@ const BlogLayout = ({
   publishDate,
   readingTime,
   children,
+  relatedArticles,
 }: BlogLayoutProps) => {
   const canonicalUrl = `https://ki2use.de/blog/${slug}`;
 
@@ -138,6 +146,25 @@ const BlogLayout = ({
               </Link>
             </div>
           </div>
+
+          {/* Related Articles */}
+          {relatedArticles && relatedArticles.length > 0 && (
+            <nav className="mt-16" aria-label="Weiterführende Artikel">
+              <h2 className="text-2xl font-light text-foreground mb-6">Weiterlesen</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {relatedArticles.map((article) => (
+                  <Link
+                    key={article.slug}
+                    to={`/blog/${article.slug}`}
+                    className="block p-6 rounded-2xl border border-card-border/30 hover:border-primary/30 transition-all duration-300"
+                  >
+                    <h3 className="text-lg font-light text-foreground mb-2">{article.title}</h3>
+                    <p className="text-sm text-muted-foreground font-light">{article.description}</p>
+                  </Link>
+                ))}
+              </div>
+            </nav>
+          )}
         </div>
       </article>
     </Layout>

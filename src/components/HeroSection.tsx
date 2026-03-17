@@ -19,12 +19,12 @@ const HeroSection = () => {
           </div>
           
           <div className="enhanced-reveal stagger-delay-1 space-y-6">
-            <h1 className="text-white text-4xl font-thin leading-[1.1] tracking-tight">
+            <div className="text-white text-4xl font-thin leading-[1.1] tracking-tight">
               KI für den Mittelstand –{" "}
               <span className="font-light text-primary">
                 verständlich, bezahlbar, umsetzbar
               </span>
-            </h1>
+            </div>
             <p className="text-lg text-white/60 leading-relaxed font-light">
               KI2USE hilft Unternehmen deutschlandweit, Künstliche Intelligenz sinnvoll einzusetzen – ohne Hype, mit echten Ergebnissen.
             </p>

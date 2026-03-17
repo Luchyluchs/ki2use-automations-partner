@@ -8,8 +8,12 @@ const KIFoerderung2025 = () => (
     metaDescription="KI Förderung 2025: Übersicht aller staatlichen Förderprogramme für KI-Projekte. Digital Jetzt, ZIM, go-digital & Landesförderungen. Bis zu 50% Zuschuss möglich."
     keywords="KI Förderung, KI Förderung 2025, Fördermittel KI, KI Zuschuss, Digital Jetzt, ZIM Förderung, go-digital, Digitalisierung Förderung"
     slug="ki-foerderung-2025"
-    publishDate="2025-03-01"
+    publishDate="2026-03-17"
     readingTime="10 Min."
+    relatedArticles={[
+      { title: "KI-Beratung für den Mittelstand", slug: "ki-beratung-mittelstand", description: "Wie professionelle KI-Beratung KMU zum Erfolg führt." },
+      { title: "KI-Kosten und ROI: Was kostet KI wirklich?", slug: "ki-kosten-roi", description: "Transparente Kostenübersicht und ROI-Berechnung für KI-Projekte." },
+    ]}
   >
     <p>
       Die Bundesregierung und die Landesregierungen stellen auch 2025 erhebliche Fördermittel für Digitalisierungs- und KI-Projekte bereit. Für kleine und mittlere Unternehmen bieten diese Programme eine einmalige Chance, KI-Investitionen mit staatlicher Unterstützung umzusetzen. Dieser Leitfaden gibt Ihnen einen vollständigen Überblick über alle relevanten Förderprogramme.
