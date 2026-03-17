@@ -173,8 +173,8 @@ Corporate design for German KMUs - trustworthy, modern, efficient
   }
   
   .section-padding {
-    padding-top: 1.5rem;
-    padding-bottom: var(--section-padding);
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
   }
   
   .container-padding {
