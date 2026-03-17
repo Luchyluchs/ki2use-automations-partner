@@ -1,10 +1,21 @@
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
-import CalendlyButton from "./CalendlyButton";
 import { lazy, Suspense } from "react";
 import { useScrollReveal, useEnhancedParallax } from "@/hooks/useScrollAnimations";
 
+const CalendlyButton = lazy(() => import("./CalendlyButton"));
 const InteractiveKIDemo = lazy(() => import("./InteractiveKIDemo"));
+
+const CalendlyFallback = ({ text, className }: { text: string; className?: string }) => (
+  <a
+    href="https://calendly.com/ki2use-info/30min"
+    target="_blank"
+    rel="noopener noreferrer"
+    className={`inline-flex items-center justify-center gap-2 rounded-lg font-medium bg-accent text-accent-foreground hover:bg-accent-hover shadow-primary font-semibold tracking-wide h-12 px-6 py-3 text-base w-full text-center ${className || ''}`}
+  >
+    {text}
+  </a>
+);
 
 const HeroSection = () => {
   useScrollReveal();

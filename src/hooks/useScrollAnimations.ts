@@ -88,6 +88,9 @@ export const useEnhancedParallax = () => {
 // Magnetic cursor effect with proper cleanup
 export const useMagneticCursor = () => {
   useEffect(() => {
+    // Skip on touch/mobile devices
+    if (!window.matchMedia('(pointer: fine)').matches) return;
+
     const magneticElements = document.querySelectorAll('.magnetic');
     const handlers = new Map<Element, { move: EventListener; leave: EventListener }>();
     
