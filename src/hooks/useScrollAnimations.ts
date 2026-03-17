@@ -34,7 +34,6 @@ export const useScrollReveal = () => {
       }
     );
 
-    // Observe current elements and watch for new ones via MutationObserver
     const SELECTORS = '.scroll-reveal, .scroll-scale, .fade-in-element, .scale-in-element, .enhanced-reveal';
 
     const observeAll = () => {
@@ -43,15 +42,12 @@ export const useScrollReveal = () => {
 
     observeAll();
 
-    // Watch for lazy-loaded content
-    const mutationObserver = new MutationObserver(() => {
-      observeAll();
-    });
-    mutationObserver.observe(document.body, { childList: true, subtree: true });
+    // Re-observe once after lazy content loads
+    const timer = setTimeout(observeAll, 1000);
 
     return () => {
       observer.disconnect();
-      mutationObserver.disconnect();
+      clearTimeout(timer);
     };
   }, []);
 };
