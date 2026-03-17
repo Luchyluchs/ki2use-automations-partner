@@ -44,13 +44,15 @@ const HeroSection = () => {
           </div>
           
           <div className="enhanced-reveal stagger-delay-2 space-y-6">
-            <CalendlyButton 
-              text="Kostenloses Erstgespräch vereinbaren" 
-              variant="cta" 
-              size="lg" 
-              className="text-base px-8 py-4 w-full font-medium" 
-              icon={false} 
-            />
+            <Suspense fallback={<CalendlyFallback text="Kostenloses Erstgespräch vereinbaren" className="text-base px-8 py-4 w-full font-medium" />}>
+              <CalendlyButton 
+                text="Kostenloses Erstgespräch vereinbaren" 
+                variant="cta" 
+                size="lg" 
+                className="text-base px-8 py-4 w-full font-medium" 
+                icon={false} 
+              />
+            </Suspense>
             
             <p className="text-xs text-white/50 text-center">
               ✓ Unverbindlich & kostenlos · ✓ 20–30 Min. · ✓ Keine Verpflichtung
