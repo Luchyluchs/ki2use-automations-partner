@@ -6,11 +6,13 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import ScrollToTop from "./components/ScrollToTop";
-import NewChatbot from "./components/NewChatbot";
-import FloatingVoiceAgent from "./components/FloatingVoiceAgent";
-import CookieConsentBanner from "./components/CookieConsentBanner";
-import SecurityMonitor from "./components/SecurityMonitor";
-import MobileBottomNav from "./components/MobileBottomNav";
+
+// Lazy load: Non-critical global components
+const NewChatbot = lazy(() => import("./components/NewChatbot"));
+const FloatingVoiceAgent = lazy(() => import("./components/FloatingVoiceAgent"));
+const CookieConsentBanner = lazy(() => import("./components/CookieConsentBanner"));
+const SecurityMonitor = lazy(() => import("./components/SecurityMonitor"));
+const MobileBottomNav = lazy(() => import("./components/MobileBottomNav"));
 
 // Eager load: Homepage (critical path)
 import Index from "./pages/Index";
