@@ -37,9 +37,7 @@ const NewsletterSignup = () => {
     }
   };
 
-  return (
-    <Card className="bg-gradient-to-r from-primary/5 to-accent/5 border-primary/20">
-      
+  return;
 
 
 
@@ -80,8 +78,10 @@ const NewsletterSignup = () => {
 
 
 
-      
-    </Card>);
+
+
+
+
 
 };
 
