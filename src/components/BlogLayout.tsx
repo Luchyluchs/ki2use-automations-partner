@@ -6,6 +6,12 @@ import Layout from "./Layout";
 import { Button } from "./ui/button";
 import CalendlyButton from "./CalendlyButton";
 
+interface RelatedArticle {
+  title: string;
+  slug: string;
+  description: string;
+}
+
 interface BlogLayoutProps {
   title: string;
   metaTitle: string;
@@ -15,6 +21,7 @@ interface BlogLayoutProps {
   publishDate: string;
   readingTime: string;
   children: ReactNode;
+  relatedArticles?: RelatedArticle[];
 }
 
 const BlogLayout = ({
