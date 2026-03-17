@@ -1,10 +1,21 @@
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
-import CalendlyButton from "./CalendlyButton";
 import { lazy, Suspense } from "react";
 import { useScrollReveal, useEnhancedParallax } from "@/hooks/useScrollAnimations";
 
+const CalendlyButton = lazy(() => import("./CalendlyButton"));
 const InteractiveKIDemo = lazy(() => import("./InteractiveKIDemo"));
+
+const CalendlyFallback = ({ text, className }: { text: string; className?: string }) => (
+  <a
+    href="https://calendly.com/ki2use-info/30min"
+    target="_blank"
+    rel="noopener noreferrer"
+    className={`inline-flex items-center justify-center gap-2 rounded-lg font-medium bg-accent text-accent-foreground hover:bg-accent-hover shadow-primary font-semibold tracking-wide h-12 px-6 py-3 text-base w-full text-center ${className || ''}`}
+  >
+    {text}
+  </a>
+);
 
 const HeroSection = () => {
   useScrollReveal();
@@ -33,13 +44,15 @@ const HeroSection = () => {
           </div>
           
           <div className="enhanced-reveal stagger-delay-2 space-y-6">
-            <CalendlyButton 
-              text="Kostenloses Erstgespräch vereinbaren" 
-              variant="cta" 
-              size="lg" 
-              className="text-base px-8 py-4 w-full font-medium" 
-              icon={false} 
-            />
+            <Suspense fallback={<CalendlyFallback text="Kostenloses Erstgespräch vereinbaren" className="text-base px-8 py-4 w-full font-medium" />}>
+              <CalendlyButton 
+                text="Kostenloses Erstgespräch vereinbaren" 
+                variant="cta" 
+                size="lg" 
+                className="text-base px-8 py-4 w-full font-medium" 
+                icon={false} 
+              />
+            </Suspense>
             
             <p className="text-xs text-white/50 text-center">
               ✓ Unverbindlich & kostenlos · ✓ 20–30 Min. · ✓ Keine Verpflichtung
@@ -68,13 +81,15 @@ const HeroSection = () => {
             </div>
             
             <div className="enhanced-reveal stagger-delay-3 flex flex-col sm:flex-row gap-4 items-start">
-              <CalendlyButton 
-                text="Kostenloses Erstgespräch vereinbaren" 
-                variant="cta" 
-                size="lg" 
-                className="font-light rounded-full px-8 py-6 text-base" 
-                icon={false} 
-              />
+              <Suspense fallback={<CalendlyFallback text="Kostenloses Erstgespräch vereinbaren" className="font-light rounded-full px-8 py-6 text-base" />}>
+                <CalendlyButton 
+                  text="Kostenloses Erstgespräch vereinbaren" 
+                  variant="cta" 
+                  size="lg" 
+                  className="font-light rounded-full px-8 py-6 text-base" 
+                  icon={false} 
+                />
+              </Suspense>
               
               <Button variant="ghost" size="lg" asChild className="text-white/80 hover:text-white bg-white/5 hover:bg-white/10 font-light rounded-full px-8 py-6 text-base border border-white/10">
                 <Link to="/kontakt">Mehr erfahren</Link>
