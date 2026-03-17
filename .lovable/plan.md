@@ -1,41 +1,42 @@
 
+# Interaktiver Foerdercheck auf der Foerderung-Seite
 
-## Google Consent Mode v2 implementieren
+## Uebersicht
+Ein mehrstufiges Formular (als Modal/Dialog) auf der Foerderung-Seite mit 6 Schritten, Fortschrittsanzeige, Webhook-Anbindung und Bestaetigungsscreen.
 
-### Problem
-GTM laedt, aber GA4 bekommt keine korrekten Consent-Signale. Der aktuelle Code pusht nur ein custom `consent_update` Event in den dataLayer – GA4 erkennt das nicht als offizielles Consent-Signal.
+## Umsetzung
 
-### Loesung
+### 1. Neue Komponente: `src/components/FoerderCheck.tsx`
+- React-Komponente mit internem State fuer aktuellen Schritt (1-6), Abschluss-Screen und Bestaetigungs-Screen
+- Nutzt den vorhandenen `Dialog` aus `src/components/ui/dialog.tsx`
+- State-Objekt fuer alle Formulardaten (`mitarbeiter`, `unternehmensalter`, `bundesland`, `branche`, `vorhaben[]`, `vorname`, `nachname`, `email`, `unternehmen`)
 
-**1. `index.html`** – Consent Default VOR dem GTM-Script setzen:
-```js
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('consent', 'default', {
-  'analytics_storage': 'denied',
-  'ad_storage': 'denied',
-  'ad_user_data': 'denied',
-  'ad_personalization': 'denied',
-  'functionality_storage': 'granted',
-  'security_storage': 'granted',
-  'wait_for_update': 500
-});
-```
-Dieses Script kommt direkt vor den bestehenden GTM-Block.
+**Schritt 1-4**: Radio-Button-Auswahl (Single Select) mit gestylten Karten
+**Schritt 3**: Dropdown (Select-Komponente) mit 16 Bundeslaendern
+**Schritt 5**: Checkbox-Auswahl (Mehrfachauswahl) mit gestylten Karten
+**Schritt 6**: Kontaktformular mit Input-Feldern, Validierung (Vorname, Nachname, E-Mail Pflicht)
 
-**2. `src/hooks/useCookieConsent.ts`** – `triggerGTMEvents` und `saveConsent` anpassen:
-- Bei Consent-Aenderung: `gtag('consent', 'update', { analytics_storage: 'granted'/'denied', ad_storage: ... })` aufrufen
-- Bei Ablehnung ebenfalls ein explizites `gtag('consent', 'update', { ... 'denied' })` senden
-- Bei bestehendem gespeichertem Consent beim Laden ebenfalls das Update senden
+**Abschluss-Screen**: "Fast geschafft!" mit Zusammenfassung-freiem Text und "Kostenlos pruefen lassen"-Button
+**Bestaetigungs-Screen**: "Ihre Anfrage ist eingegangen" mit CalendlyButton
 
-### Aenderungen
+**UI-Elemente pro Schritt**:
+- Fortschrittsbalken oben: "Schritt X von 6" + Progress-Bar
+- Zurueck-Button (ab Schritt 2)
+- Weiter-Button (disabled wenn keine Auswahl)
 
-| Datei | Was |
-|---|---|
-| `index.html` | Consent-Default-Block vor GTM einfuegen |
-| `src/hooks/useCookieConsent.ts` | `gtag('consent', 'update', ...)` bei jeder Consent-Aenderung aufrufen |
+### 2. Webhook-Anbindung
+- `fetch()` POST an `https://n8n.srv929188.hstgr.cloud/webhook/fe97e9e3-f45a-4bba-9e5f-82cead14235f`
+- JSON-Body mit allen Feldern wie spezifiziert
+- Loading-State waehrend des Sendens
+- Fehlerbehandlung mit Toast-Nachricht
 
-### Wichtig
-- Der Default muss VOR dem GTM-Script stehen, damit GA4 weiss, dass es auf ein Consent-Update warten soll
-- `window.gtag` Funktion wird global definiert und in der TypeScript-Deklaration ergaenzt
+### 3. Integration in `src/pages/Foerderung.tsx`
+- Neuer Abschnitt zwischen "Ablauf" und "Vorteile" mit CTA-Button "Jetzt Foerdercheck starten"
+- Button oeffnet den Dialog
+- Bestehendes Design beibehalten (border, rounded-2xl, font-light, text-primary)
 
+### Technische Details
+- Verwendet bestehende UI-Komponenten: `Dialog`, `Button`, `Input`, `Select`, `Progress`, `RadioGroup`, `Checkbox`
+- Zod-Validierung fuer E-Mail und Pflichtfelder in Schritt 6
+- Mobile-first: Karten-Optionen als volle Breite, Dialog responsive
+- Kein Emoji, gleiche Schriften/Farben wie Rest der Seite
