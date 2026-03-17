@@ -1,8 +1,10 @@
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
 import CalendlyButton from "./CalendlyButton";
-import InteractiveKIDemo from "./InteractiveKIDemo";
+import { lazy, Suspense } from "react";
 import { useScrollReveal, useEnhancedParallax } from "@/hooks/useScrollAnimations";
+
+const InteractiveKIDemo = lazy(() => import("./InteractiveKIDemo"));
 
 const HeroSection = () => {
   useScrollReveal();
