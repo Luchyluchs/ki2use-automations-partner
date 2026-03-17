@@ -81,13 +81,15 @@ const HeroSection = () => {
             </div>
             
             <div className="enhanced-reveal stagger-delay-3 flex flex-col sm:flex-row gap-4 items-start">
-              <CalendlyButton 
-                text="Kostenloses Erstgespräch vereinbaren" 
-                variant="cta" 
-                size="lg" 
-                className="font-light rounded-full px-8 py-6 text-base" 
-                icon={false} 
-              />
+              <Suspense fallback={<CalendlyFallback text="Kostenloses Erstgespräch vereinbaren" className="font-light rounded-full px-8 py-6 text-base" />}>
+                <CalendlyButton 
+                  text="Kostenloses Erstgespräch vereinbaren" 
+                  variant="cta" 
+                  size="lg" 
+                  className="font-light rounded-full px-8 py-6 text-base" 
+                  icon={false} 
+                />
+              </Suspense>
               
               <Button variant="ghost" size="lg" asChild className="text-white/80 hover:text-white bg-white/5 hover:bg-white/10 font-light rounded-full px-8 py-6 text-base border border-white/10">
                 <Link to="/kontakt">Mehr erfahren</Link>
