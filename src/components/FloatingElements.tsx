@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 
 interface FloatingBlobProps {
   className?: string;
@@ -22,82 +22,34 @@ const FloatingBlob: React.FC<FloatingBlobProps> = ({
   );
 };
 
-const FloatingParticles: React.FC = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-
-    const particles: Array<{
-      x: number;
-      y: number;
-      size: number;
-      speedX: number;
-      speedY: number;
-      opacity: number;
-    }> = [];
-
-    // Create particles
-    for (let i = 0; i < 50; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        size: Math.random() * 2 + 1,
-        speedX: (Math.random() - 0.5) * 0.5,
-        speedY: (Math.random() - 0.5) * 0.5,
-        opacity: Math.random() * 0.5 + 0.1
-      });
-    }
-
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
-      particles.forEach(particle => {
-        // Update position
-        particle.x += particle.speedX;
-        particle.y += particle.speedY;
-
-        // Wrap around edges
-        if (particle.x < 0) particle.x = canvas.width;
-        if (particle.x > canvas.width) particle.x = 0;
-        if (particle.y < 0) particle.y = canvas.height;
-        if (particle.y > canvas.height) particle.y = 0;
-
-        // Draw particle
-        ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-        ctx.fillStyle = `hsla(215, 60%, 25%, ${particle.opacity})`;
-        ctx.fill();
-      });
-
-      requestAnimationFrame(animate);
-    };
-
-    animate();
-
-    return () => {
-      window.removeEventListener('resize', resizeCanvas);
-    };
-  }, []);
+const CSSParticles: React.FC = () => {
+  const particles = [
+    { top: '15%', left: '20%', size: 3, delay: 0, duration: 18 },
+    { top: '45%', left: '70%', size: 2, delay: 3, duration: 22 },
+    { top: '70%', left: '35%', size: 2.5, delay: 6, duration: 20 },
+    { top: '25%', left: '85%', size: 1.5, delay: 9, duration: 25 },
+    { top: '80%', left: '60%', size: 2, delay: 2, duration: 19 },
+    { top: '55%', left: '10%', size: 3, delay: 7, duration: 23 },
+  ];
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="absolute inset-0 pointer-events-none z-0"
-      style={{ background: 'transparent' }}
-    />
+    <>
+      {particles.map((p, i) => (
+        <div
+          key={i}
+          className="absolute rounded-full animate-float"
+          style={{
+            top: p.top,
+            left: p.left,
+            width: `${p.size}px`,
+            height: `${p.size}px`,
+            backgroundColor: 'hsla(215, 60%, 25%, 0.3)',
+            animationDelay: `${p.delay}s`,
+            animationDuration: `${p.duration}s`,
+          }}
+        />
+      ))}
+    </>
   );
 };
 
@@ -121,8 +73,8 @@ export const FloatingBackground: React.FC = () => {
         duration={35}
       />
       
-      {/* Floating particles */}
-      <FloatingParticles />
+      {/* CSS particles (replaces Canvas for performance) */}
+      <CSSParticles />
       
       {/* Animated gradient mesh */}
       <div className="absolute inset-0 opacity-30">

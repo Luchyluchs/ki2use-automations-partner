@@ -1,35 +1,41 @@
 
 
-# Performance-Optimierung (ohne Design-Änderungen)
+## Google Consent Mode v2 implementieren
 
-Ja – folgende Optimierungen sind **risikofrei** und ändern nichts am Design:
+### Problem
+GTM laedt, aber GA4 bekommt keine korrekten Consent-Signale. Der aktuelle Code pusht nur ein custom `consent_update` Event in den dataLayer – GA4 erkennt das nicht als offizielles Consent-Signal.
 
-## 1. Font-Loading Fix (größter Impact auf FCP)
-**Problem:** `@import url(...)` in Zeile 1 von `index.css` blockiert das Rendering komplett.  
-**Lösung:** `@import` entfernen, stattdessen `<link>` mit `display=swap` in `index.html` einfügen (nach den bestehenden `preconnect`-Tags). Visuell identisch, aber nicht mehr render-blocking.
+### Loesung
 
-## 2. Ungültige Preload-Hints entfernen
-**Problem:** Zeile 231-232 in `index.html` preloaden `/src/main.tsx` und `/src/index.css` – das funktioniert bei Vite nicht (Dateien werden zur Buildzeit transformiert).  
-**Lösung:** Diese 2 Zeilen entfernen. Bringt keine visuelle Änderung, entfernt aber unnötige Netzwerk-Requests.
+**1. `index.html`** – Consent Default VOR dem GTM-Script setzen:
+```js
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied',
+  'functionality_storage': 'granted',
+  'security_storage': 'granted',
+  'wait_for_update': 500
+});
+```
+Dieses Script kommt direkt vor den bestehenden GTM-Block.
 
-## 3. GTM-Script verzögern
-**Problem:** Das GTM-Script (Zeile 270-361) mit Retry-Logik, Timeout und Fallback blockiert den Main Thread beim initialen Load.  
-**Lösung:** GTM erst nach 3 Sekunden laden (`setTimeout` um den `loadGTM()`-Aufruf). Consent-Default bleibt sofort. Analytics-Daten gehen nicht verloren (dataLayer puffert).
+**2. `src/hooks/useCookieConsent.ts`** – `triggerGTMEvents` und `saveConsent` anpassen:
+- Bei Consent-Aenderung: `gtag('consent', 'update', { analytics_storage: 'granted'/'denied', ad_storage: ... })` aufrufen
+- Bei Ablehnung ebenfalls ein explizites `gtag('consent', 'update', { ... 'denied' })` senden
+- Bei bestehendem gespeichertem Consent beim Laden ebenfalls das Update senden
 
-## 4. FloatingParticles Canvas durch CSS ersetzen
-**Problem:** 50-Partikel-Canvas mit endlosem `requestAnimationFrame`-Loop startet sofort beim Seitenaufbau.  
-**Lösung:** Canvas-Partikel durch 5-6 CSS-animierte `div`-Elemente ersetzen (gleicher visueller Effekt: kleine schwebende Punkte mit `opacity: 0.1-0.5`). Die FloatingBlobs und der Gradient-Mesh bleiben exakt gleich.
+### Aenderungen
 
-## 5. InteractiveKIDemo lazy laden
-**Problem:** Wird synchron in `HeroSection.tsx` importiert, ist aber nur auf Desktop sichtbar.  
-**Lösung:** `React.lazy()` + `Suspense` nur für diese Komponente. Auf Mobile wird sie gar nicht gerendert, auf Desktop lädt sie nach dem ersten Paint.
+| Datei | Was |
+|---|---|
+| `index.html` | Consent-Default-Block vor GTM einfuegen |
+| `src/hooks/useCookieConsent.ts` | `gtag('consent', 'update', ...)` bei jeder Consent-Aenderung aufrufen |
 
----
-
-**Erwartete Verbesserung:**
-- FCP: 4,3s → ~1,5-2s (Font-Fix + Script-Deferral)
-- LCP: 7,2s → ~3-4s (weniger Main Thread Blocking)
-- Speed Index: 5,7s → ~3-4s
-
-**Garantiert keine Design-Änderung:** Alle Maßnahmen betreffen nur Ladereihenfolge und Rendering-Strategie.
+### Wichtig
+- Der Default muss VOR dem GTM-Script stehen, damit GA4 weiss, dass es auf ein Consent-Update warten soll
+- `window.gtag` Funktion wird global definiert und in der TypeScript-Deklaration ergaenzt
 

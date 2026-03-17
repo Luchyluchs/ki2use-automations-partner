@@ -1,8 +1,10 @@
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
 import CalendlyButton from "./CalendlyButton";
-import InteractiveKIDemo from "./InteractiveKIDemo";
+import { lazy, Suspense } from "react";
 import { useScrollReveal, useEnhancedParallax } from "@/hooks/useScrollAnimations";
+
+const InteractiveKIDemo = lazy(() => import("./InteractiveKIDemo"));
 
 const HeroSection = () => {
   useScrollReveal();
@@ -82,7 +84,9 @@ const HeroSection = () => {
 
           <div className="lg:col-span-5 relative flex items-center justify-center">
             <div className="enhanced-reveal stagger-delay-4 mt-4">
-              <InteractiveKIDemo />
+              <Suspense fallback={<div className="w-full h-64 flex items-center justify-center"><div className="w-8 h-8 border-2 border-primary/30 border-t-primary rounded-full animate-spin" /></div>}>
+                <InteractiveKIDemo />
+              </Suspense>
             </div>
           </div>
         </div>
