@@ -33,6 +33,7 @@ const BlogLayout = ({
   publishDate,
   readingTime,
   children,
+  relatedArticles,
 }: BlogLayoutProps) => {
   const canonicalUrl = `https://ki2use.de/blog/${slug}`;
 
