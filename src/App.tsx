@@ -38,6 +38,14 @@ const ChatbotUnternehmen = lazy(() => import("./pages/blog/ChatbotUnternehmen"))
 const KIAutomatisierungKMU = lazy(() => import("./pages/blog/KIAutomatisierungKMU"));
 const KIKostenROI = lazy(() => import("./pages/blog/KIKostenROI"));
 
+// Lazy load: Long-Tail SEO Landing Pages
+const KIBeratungHandwerk = lazy(() => import("./pages/landing/KIBeratungHandwerk"));
+const KIBeratungSteuerberater = lazy(() => import("./pages/landing/KIBeratungSteuerberater"));
+const KIBeratungImmobilien = lazy(() => import("./pages/landing/KIBeratungImmobilien"));
+const KIKundenservice = lazy(() => import("./pages/landing/KIKundenservice"));
+const KIVertrieb = lazy(() => import("./pages/landing/KIVertrieb"));
+const ChatGPTSchulung = lazy(() => import("./pages/landing/ChatGPTSchulung"));
+
 const queryClient = new QueryClient();
 
 const PageFallback = () => (
@@ -80,6 +88,13 @@ const App = () => (
             <Route path="/blog/chatbot-unternehmen" element={<ChatbotUnternehmen />} />
             <Route path="/blog/ki-automatisierung-kmu" element={<KIAutomatisierungKMU />} />
             <Route path="/blog/ki-kosten-roi" element={<KIKostenROI />} />
+            {/* Long-Tail SEO Landing Pages */}
+            <Route path="/ki-beratung-handwerk" element={<KIBeratungHandwerk />} />
+            <Route path="/ki-beratung-steuerberater" element={<KIBeratungSteuerberater />} />
+            <Route path="/ki-beratung-immobilien" element={<KIBeratungImmobilien />} />
+            <Route path="/ki-kundenservice-automatisieren" element={<KIKundenservice />} />
+            <Route path="/ki-vertrieb-automatisieren" element={<KIVertrieb />} />
+            <Route path="/chatgpt-schulung-unternehmen" element={<ChatGPTSchulung />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

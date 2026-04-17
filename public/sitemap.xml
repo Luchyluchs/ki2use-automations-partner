@@ -127,6 +127,44 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Long-Tail Landing Pages -->
+  <url>
+    <loc>https://ki2use.de/ki-beratung-handwerk</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ki2use.de/ki-beratung-steuerberater</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ki2use.de/ki-beratung-immobilien</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ki2use.de/ki-kundenservice-automatisieren</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ki2use.de/ki-vertrieb-automatisieren</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ki2use.de/chatgpt-schulung-unternehmen</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Legal -->
   <url>
     <loc>https://ki2use.de/impressum</loc>
