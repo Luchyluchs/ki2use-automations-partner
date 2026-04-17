@@ -88,6 +88,15 @@ Workshops und Trainings für Teams zur effektiven Nutzung von KI-Technologien. P
 - /blog/ki-automatisierung-kmu – KI-Automatisierung für KMU: Top 10 Prozesse zum Automatisieren
 - /blog/ki-kosten-roi – KI-Kosten und ROI: Was Künstliche Intelligenz für Unternehmen wirklich kostet
 
+## Branchen- & anwendungsspezifische Landing Pages
+
+- /ki-beratung-handwerk – KI für Handwerksbetriebe: Angebote, Terminbuchung und Kundenkommunikation automatisieren
+- /ki-beratung-steuerberater – KI in der Steuerkanzlei: Mandantenkommunikation und Belegerfassung automatisieren
+- /ki-beratung-immobilien – KI für Immobilienmakler: Exposé-Erstellung und Lead-Qualifizierung
+- /ki-kundenservice-automatisieren – Kundenservice mit KI automatisieren: Chatbot, E-Mail-KI, 24/7 Service
+- /ki-vertrieb-automatisieren – KI im Vertrieb: Lead-Qualifizierung, Angebote und Follow-ups automatisieren
+- /chatgpt-schulung-unternehmen – ChatGPT-Schulungen für Mitarbeiter: praxisnah, branchenspezifisch, DSGVO-konform
+
 ## Häufige Fragen
 
 **Was ist KI-Beratung und wer braucht sie?**
