@@ -103,8 +103,10 @@ const DemoChatbot: React.FC<DemoChatbotProps> = ({
     setIsLoading(true);
 
     try {
-      console.log('Sending message to webhook:', webhookUrl);
-      console.log('Message data:', { message: currentMessage, sessionId, timestamp: new Date().toISOString() });
+      if (import.meta.env.DEV) {
+        console.log('Sending message to webhook:', webhookUrl);
+        console.log('Message data:', { message: currentMessage, sessionId, timestamp: new Date().toISOString() });
+      }
       
       // Enhanced fetch with CORS handling and timeout
       const controller = new AbortController();
