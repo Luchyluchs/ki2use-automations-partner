@@ -63,39 +63,43 @@ Workshops und Trainings für Teams zur effektiven Nutzung von KI-Technologien. P
 - Sprachen: Deutsch, Englisch
 - Integrationen: LinkedIn, E-Mail, CRM-Systeme, Kalender, Social Media Plattformen
 
-## Seitenstruktur
+## Pages
 
-- / – Startseite
-- /beratung – KI-Beratung: Formate, Ablauf, Termin buchen
-- /standard-agenten – Übersicht aller Standard KI-Agenten
-- /massgeschneiderte-agenten – Custom KI-Agent Entwicklung
-- /foerderung – Fördermittel und Zuschüsse für KI-Projekte
-- /ki-schulungen – KI-Trainings und Workshops
-- /roi-rechner – ROI-Kalkulator für KI-Investitionen
-- /kontakt – Kontaktformular und Beratungstermin
-- /demo-portal – Live-Demos der KI-Agenten
-- /ki-einfuehrung – Leitfaden zur KI-Einführung im Mittelstand: 5-Schritte-Prozess, typische Fehler, Branchenbeispiele
-- /ki-fuer-unternehmen – Überblick KI-Programme für Unternehmen: Anwendungen, Kosten-Nutzen, Checkliste
-- /impressum – Impressum
-- /datenschutz – Datenschutzerklärung
-- /agb – Allgemeine Geschäftsbedingungen
+- [Startseite](/): KI-Beratung & KI-Einführung für den Mittelstand
+- [KI-Beratung](/beratung): Formate, Ablauf, Termin buchen
+- [Standard KI-Agenten](/standard-agenten): Übersicht aller sofort einsetzbaren KI-Agenten
+- [Maßgeschneiderte KI-Agenten](/massgeschneiderte-agenten): Custom KI-Agent Entwicklung
+- [Förderung](/foerderung): Fördermittel und Zuschüsse für KI-Projekte
+- [KI-Schulungen](/ki-schulungen): KI-Trainings und Workshops
+- [ROI-Rechner](/roi-rechner): ROI-Kalkulator für KI-Investitionen
+- [Agenten-Rechner](/agenten-rechner): Kostenrechner für KI-Agenten
+- [Kontakt](/kontakt): Kontaktformular und Beratungstermin
+- [Demo-Portal](/demoportal): Live-Demos der KI-Agenten
+- [KI-Einführung](/ki-einfuehrung): Leitfaden zur KI-Einführung im Mittelstand
+- [KI für Unternehmen](/ki-fuer-unternehmen): Überblick KI-Programme für Unternehmen
 
-## Blog-Artikel (SEO-Ratgeber)
+## Blog
 
-- /blog/ki-beratung-mittelstand – KI-Beratung für den Mittelstand: Leitfaden mit Vorteilen, Ablauf und typischen Fehlern
-- /blog/ki-foerderung-2025 – KI-Förderung 2025: Alle staatlichen Förderprogramme für KI-Projekte im Überblick
-- /blog/chatbot-unternehmen – Chatbot für Unternehmen: Kundenservice automatisieren mit KI-Chatbots
-- /blog/ki-automatisierung-kmu – KI-Automatisierung für KMU: Top 10 Prozesse zum Automatisieren
-- /blog/ki-kosten-roi – KI-Kosten und ROI: Was Künstliche Intelligenz für Unternehmen wirklich kostet
+- [KI-Beratung Mittelstand](/blog/ki-beratung-mittelstand): Leitfaden mit Vorteilen, Ablauf und typischen Fehlern
+- [KI-Förderung 2025](/blog/ki-foerderung-2025): Staatliche Förderprogramme für KI-Projekte
+- [Chatbot Unternehmen](/blog/chatbot-unternehmen): Kundenservice automatisieren mit KI-Chatbots
+- [KI-Automatisierung KMU](/blog/ki-automatisierung-kmu): Top 10 Prozesse zum Automatisieren
+- [KI-Kosten & ROI](/blog/ki-kosten-roi): Was Künstliche Intelligenz für Unternehmen wirklich kostet
 
-## Branchen- & anwendungsspezifische Landing Pages
+## Branchen-Landingpages
 
-- /ki-beratung-handwerk – KI für Handwerksbetriebe: Angebote, Terminbuchung und Kundenkommunikation automatisieren
-- /ki-beratung-steuerberater – KI in der Steuerkanzlei: Mandantenkommunikation und Belegerfassung automatisieren
-- /ki-beratung-immobilien – KI für Immobilienmakler: Exposé-Erstellung und Lead-Qualifizierung
-- /ki-kundenservice-automatisieren – Kundenservice mit KI automatisieren: Chatbot, E-Mail-KI, 24/7 Service
-- /ki-vertrieb-automatisieren – KI im Vertrieb: Lead-Qualifizierung, Angebote und Follow-ups automatisieren
-- /chatgpt-schulung-unternehmen – ChatGPT-Schulungen für Mitarbeiter: praxisnah, branchenspezifisch, DSGVO-konform
+- [KI für Handwerk](/ki-beratung-handwerk): Angebote, Terminbuchung und Kundenkommunikation automatisieren
+- [KI für Steuerberater](/ki-beratung-steuerberater): Mandantenkommunikation und Belegerfassung automatisieren
+- [KI für Immobilien](/ki-beratung-immobilien): Exposé-Erstellung und Lead-Qualifizierung
+- [KI-Kundenservice](/ki-kundenservice-automatisieren): Chatbot, E-Mail-KI, 24/7 Service
+- [KI im Vertrieb](/ki-vertrieb-automatisieren): Lead-Qualifizierung, Angebote und Follow-ups
+- [ChatGPT-Schulungen](/chatgpt-schulung-unternehmen): praxisnah, branchenspezifisch, DSGVO-konform
+
+## Optional
+
+- [Impressum](/impressum): Impressum
+- [Datenschutz](/datenschutz): Datenschutzerklärung
+- [AGB](/agb): Allgemeine Geschäftsbedingungen
 
 ## Häufige Fragen
 
