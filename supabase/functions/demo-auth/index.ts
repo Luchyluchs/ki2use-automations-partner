@@ -82,7 +82,7 @@ Deno.serve(async (req) => {
       }
 
       // Best-effort cleanup of expired sessions
-      await supabase.rpc('cleanup_expired_demo_sessions').catch(() => {})
+      try { await supabase.rpc('cleanup_expired_demo_sessions'); } catch { /* ignore */ }
 
       return jsonResponse({ token, customer: customer.config, expiresAt })
     }

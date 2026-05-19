@@ -1,4 +1,5 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
+import { supabase } from '@/integrations/supabase/client';
 
 export interface CustomerConfig {
   id: string;
@@ -14,140 +15,116 @@ export interface CustomerConfig {
   contactFormWebhook: string;
 }
 
-interface CustomerCredentials {
-  username: string;
-  password: string;
-  customerConfig: CustomerConfig;
-}
-
-// Define customer credentials
-const customerCredentials: CustomerCredentials[] = [
-  {
-    username: 'C3',
-    password: 'KI2USE2026',
-    customerConfig: {
-      id: 'c3-marketing',
-      name: 'C3 Marketing Agentur',
-      chatbotWebhooks: {
-        support: 'https://n8n.srv929188.hstgr.cloud/webhook/295fef3d-10fd-43bb-95a2-de0cbd4512d1',
-        booking: 'https://n8n.srv929188.hstgr.cloud/webhook/placeholder-booking-chat'
-      },
-      voiceAgentIds: {
-        support: 'agent_9001k47yszvrfgb8xqy45xyhwcts',
-        booking: 'agent_placeholder_booking_voice'
-      },
-      contactFormWebhook: 'https://n8n.srv929188.hstgr.cloud/webhook/kontaktformular'
-    }
-  },
-  {
-    username: 'Surma',
-    password: 'KI2USE2026',
-    customerConfig: {
-      id: 'surma-marketing',
-      name: 'Surma Marketing Agentur',
-      chatbotWebhooks: {
-        support: 'https://n8n.srv929188.hstgr.cloud/webhook/00a1f4c2-eed6-4952-aee8-8fbeb90e8f17',
-        booking: 'https://n8n.srv929188.hstgr.cloud/webhook/placeholder-booking-chat'
-      },
-      voiceAgentIds: {
-        support: 'agent_7401k4mzx0nwfn3add3acghzk5wc',
-        booking: 'agent_placeholder_booking_voice'
-      },
-      contactFormWebhook: 'https://n8n.srv929188.hstgr.cloud/webhook/kontaktformular'
-    }
-  }
-];
-
 interface CustomerAuthConfig {
-  sessionDuration?: number; // in milliseconds, default 30 minutes
+  /** Optional client-side inactivity timeout; the server is the source of truth. */
+  sessionDuration?: number;
 }
 
-export const useCustomerAuth = (config: CustomerAuthConfig = {}) => {
+const TOKEN_KEY = 'demoportal_token';
+
+export const useCustomerAuth = (_config: CustomerAuthConfig = {}) => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [currentCustomer, setCurrentCustomer] = useState<CustomerConfig | null>(null);
-  
-  const sessionKey = 'demoportal_session';
-  const sessionDuration = config.sessionDuration || 30 * 60 * 1000; // 30 minutes default
+  const [expiresAt, setExpiresAt] = useState<number | null>(null);
+  const logoutTimerRef = useRef<number | null>(null);
 
-  // Check existing session on mount
-  useEffect(() => {
-    const checkSession = () => {
-      const sessionData = sessionStorage.getItem(sessionKey);
-      if (sessionData) {
-        try {
-          const { timestamp, authenticated, customer } = JSON.parse(sessionData);
-          const now = Date.now();
-          
-          if (authenticated && (now - timestamp) < sessionDuration && customer) {
-            setIsAuthenticated(true);
-            setCurrentCustomer(customer);
-            
-            // Set timeout to auto-logout when session expires
-            const remainingTime = sessionDuration - (now - timestamp);
-            setTimeout(() => {
-              logout();
-            }, remainingTime);
-          } else {
-            // Session expired
-            sessionStorage.removeItem(sessionKey);
-          }
-        } catch {
-          // Invalid session data
-          sessionStorage.removeItem(sessionKey);
-        }
-      }
-      setIsLoading(false);
-    };
-    
-    checkSession();
-  }, [sessionDuration]);
-
-  const authenticate = useCallback((username: string, password: string): boolean => {
-    const credentials = customerCredentials.find(
-      cred => cred.username === username && cred.password === password
-    );
-    
-    if (credentials) {
-      const sessionData = {
-        timestamp: Date.now(),
-        authenticated: true,
-        customer: credentials.customerConfig
-      };
-      
-      sessionStorage.setItem(sessionKey, JSON.stringify(sessionData));
-      setIsAuthenticated(true);
-      setCurrentCustomer(credentials.customerConfig);
-      
-      // Auto-logout after session duration
-      setTimeout(() => {
-        logout();
-      }, sessionDuration);
-      
-      return true;
+  const clearLogoutTimer = () => {
+    if (logoutTimerRef.current !== null) {
+      window.clearTimeout(logoutTimerRef.current);
+      logoutTimerRef.current = null;
     }
-    return false;
-  }, [sessionDuration]);
+  };
 
-  const logout = useCallback(() => {
-    sessionStorage.removeItem(sessionKey);
+  const logout = useCallback(async () => {
+    const token = sessionStorage.getItem(TOKEN_KEY);
+    sessionStorage.removeItem(TOKEN_KEY);
+    clearLogoutTimer();
     setIsAuthenticated(false);
     setCurrentCustomer(null);
+    setExpiresAt(null);
+    if (token) {
+      try {
+        await supabase.functions.invoke('demo-auth', { body: { action: 'logout', token } });
+      } catch {
+        /* ignore */
+      }
+    }
   }, []);
 
-  const getRemainingTime = useCallback((): number => {
-    const sessionData = sessionStorage.getItem(sessionKey);
-    if (!sessionData) return 0;
-    
-    try {
-      const { timestamp } = JSON.parse(sessionData);
-      const elapsed = Date.now() - timestamp;
-      const remaining = Math.max(0, sessionDuration - elapsed);
-      return Math.floor(remaining / 1000); // Return in seconds
-    } catch {
-      return 0;
+  const scheduleAutoLogout = useCallback((expiresAtMs: number) => {
+    clearLogoutTimer();
+    const remaining = expiresAtMs - Date.now();
+    if (remaining <= 0) {
+      void logout();
+      return;
     }
-  }, [sessionDuration]);
+    logoutTimerRef.current = window.setTimeout(() => {
+      void logout();
+    }, remaining);
+  }, [logout]);
+
+  // Verify existing token on mount
+  useEffect(() => {
+    let cancelled = false;
+    const verify = async () => {
+      const token = sessionStorage.getItem(TOKEN_KEY);
+      if (!token) {
+        setIsLoading(false);
+        return;
+      }
+      try {
+        const { data, error } = await supabase.functions.invoke('demo-auth', {
+          body: { action: 'verify', token },
+        });
+        if (cancelled) return;
+        if (error || !data || (data as any).error || !(data as any).customer) {
+          sessionStorage.removeItem(TOKEN_KEY);
+        } else {
+          const expMs = new Date((data as any).expiresAt).getTime();
+          setCurrentCustomer((data as any).customer as CustomerConfig);
+          setIsAuthenticated(true);
+          setExpiresAt(expMs);
+          scheduleAutoLogout(expMs);
+        }
+      } catch {
+        sessionStorage.removeItem(TOKEN_KEY);
+      } finally {
+        if (!cancelled) setIsLoading(false);
+      }
+    };
+    void verify();
+    return () => {
+      cancelled = true;
+      clearLogoutTimer();
+    };
+  }, [scheduleAutoLogout]);
+
+  const authenticate = useCallback(async (username: string, password: string): Promise<boolean> => {
+    try {
+      const { data, error } = await supabase.functions.invoke('demo-auth', {
+        body: { action: 'login', username, password },
+      });
+      if (error || !data || (data as any).error || !(data as any).token) {
+        return false;
+      }
+      const payload = data as { token: string; customer: CustomerConfig; expiresAt: string };
+      sessionStorage.setItem(TOKEN_KEY, payload.token);
+      const expMs = new Date(payload.expiresAt).getTime();
+      setCurrentCustomer(payload.customer);
+      setIsAuthenticated(true);
+      setExpiresAt(expMs);
+      scheduleAutoLogout(expMs);
+      return true;
+    } catch {
+      return false;
+    }
+  }, [scheduleAutoLogout]);
+
+  const getRemainingTime = useCallback((): number => {
+    if (!expiresAt) return 0;
+    return Math.max(0, Math.floor((expiresAt - Date.now()) / 1000));
+  }, [expiresAt]);
 
   return {
     isAuthenticated,
@@ -155,6 +132,6 @@ export const useCustomerAuth = (config: CustomerAuthConfig = {}) => {
     currentCustomer,
     authenticate,
     logout,
-    getRemainingTime
+    getRemainingTime,
   };
 };

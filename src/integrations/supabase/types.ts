@@ -79,6 +79,10 @@ export type Database = {
     }
     Functions: {
       cleanup_expired_demo_sessions: { Args: never; Returns: undefined }
+      verify_demo_password: {
+        Args: { _hash: string; _plain: string }
+        Returns: boolean
+      }
     }
     Enums: {
       [_ in never]: never
