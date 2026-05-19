@@ -140,43 +140,43 @@ export const useSEO = (config: SEOConfig) => {
  */
 export const SEOTemplates = {
   beratung: {
-    title: "KI-Beratung für den Mittelstand | Strategie & KI-Einführung | KI2USE",
-    description: "Professionelle KI-Beratung und Begleitung bei der KI-Einführung. Individuelle Analyse, konkrete Handlungsempfehlungen und Fördermittelberatung. DSGVO-konform.",
+    title: "KI-Beratung für den Mittelstand | KI2USE",
+    description: "Professionelle KI-Beratung und Begleitung bei der KI-Einführung. Individuelle Analyse, konkrete Empfehlungen, Fördermittelberatung. DSGVO-konform.",
     keywords: "KI Beratung, KI Einführung, KI Beratung Mittelstand, KI Beratung Deutschland, Künstliche Intelligenz Beratung, KI für Unternehmen, KI Implementierung, KI Strategie, KI Beratung KMU, DSGVO-konforme KI",
     canonical: "https://ki2use.de/beratung"
   },
 
   foerderung: {
     title: "KI-Förderung & Zuschüsse für den Mittelstand | KI2USE",
-    description: "Staatliche Förderprogramme für KI-Projekte: Digital Jetzt, ZIM, Landesfoerderungen. Kostenlose Erstpruefung der Foerderfaehigkeit. KI2USE vermittelt an spezialisierte Foerderberater.",
+    description: "Staatliche Förderprogramme für KI-Projekte: Digital Jetzt, ZIM, Landesförderungen. Kostenlose Erstprüfung der Förderfähigkeit über KI2USE.",
     keywords: "KI Förderung, Fördermittel KI, Förderung Digitalisierung, Digital Jetzt, ZIM Förderung, KI Zuschüsse, Förderung Mittelstand, Digitalisierungsprämie, KI Investition Förderung, Förderprogramme KMU",
     canonical: "https://ki2use.de/foerderung"
   },
 
   standardAgents: {
-    title: "Standard KI-Assistenten Deutschland – Sofortige Automatisierung | KI2USE",
-    description: "Sofort einsetzbare KI-Assistenten fuer deutsche KMU: LinkedIn, E-Mail, Chatbot, Sales und mehr. DSGVO-konform. Made in Germany. 40-75% Zeitersparnis. Kostenlose Beratung.",
+    title: "Standard KI-Assistenten für KMU | KI2USE",
+    description: "Sofort einsetzbare KI-Assistenten für deutsche KMU: LinkedIn, E-Mail, Chatbot, Sales. DSGVO-konform, Made in Germany. 40-75% Zeitersparnis.",
     keywords: "Standard KI-Assistenten, KI Programme, KI Agenten, KI für Unternehmen, LinkedIn Assistent, Chatbot Deutschland, E-Mail Automatisierung, Sales Assistent, KI Lösungen KMU, DSGVO-konforme KI",
     canonical: "https://ki2use.de/standard-agenten"
   },
   
   customAgents: {
-    title: "Maßgeschneiderte KI-Assistenten – Individuelle KI-Einführung | KI2USE",
-    description: "Individuelle KI-Assistenten und KI-Programme fuer deutsche Unternehmen. DSGVO-konforme Integration. Made in Germany Entwicklung in 4-8 Wochen. 100% passgenau fuer Ihre Prozesse.",
+    title: "Maßgeschneiderte KI-Assistenten | KI2USE",
+    description: "Individuelle KI-Assistenten für deutsche Unternehmen. DSGVO-konforme Integration, Made in Germany. Entwicklung in 4-8 Wochen, passgenau für Ihre Prozesse.",
     keywords: "maßgeschneiderte KI, individuelle KI-Einführung, Custom KI Programme, KI Implementierung, KI Entwicklung Deutschland, individuelle Automatisierung, KI-Lösung nach Maß, Prozessautomatisierung KI",
     canonical: "https://ki2use.de/massgeschneiderte-agenten"
   },
   
   roiCalculator: {
-    title: "KI ROI-Rechner – Kosteneinsparungen durch KI berechnen | KI2USE",
-    description: "Berechnen Sie Kosteneinsparungen durch KI-Einführung in Ihrem Unternehmen. Realistische ROI-Prognose. Speziell fuer deutsche KMU. Kostenlos und unverbindlich.",
+    title: "KI ROI-Rechner für Unternehmen | KI2USE",
+    description: "Berechnen Sie Kosteneinsparungen durch KI-Einführung in Ihrem Unternehmen. Realistische ROI-Prognose. Speziell für deutsche KMU. Kostenlos und unverbindlich.",
     keywords: "KI ROI Rechner, Kosteneinsparungen KI, KI Wirtschaftlichkeit, Return on Investment KI, KI Kosten Nutzen, Automatisierung Kostenersparnis, KI Business Case, KI Investition berechnen",
     canonical: "https://ki2use.de/agenten-rechner"
   },
   
   training: {
-    title: "KI-Schulungen Deutschland – KI-Training für Unternehmen | KI2USE",
-    description: "KI-Schulungen speziell fuer deutsche Teams. DSGVO-konformes Training fuer ChatGPT und Automatisierung. Messbare Produktivitaetssteigerung. Praxisnah und verstaendlich.",
+    title: "KI-Schulungen für Unternehmen | KI2USE",
+    description: "KI-Schulungen für deutsche Teams. DSGVO-konformes Training für ChatGPT und Automatisierung. Messbare Produktivitätssteigerung. Praxisnah und verständlich.",
     keywords: "KI Schulungen, KI Training, KI Workshop, KI Weiterbildung, ChatGPT Schulung, KI Kompetenz aufbauen, KI Fortbildung Deutschland, Mitarbeiter KI-Training, KI lernen Unternehmen",
     canonical: "https://ki2use.de/ki-schulungen"
   },
