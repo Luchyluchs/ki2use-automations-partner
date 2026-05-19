@@ -59,8 +59,18 @@ const Chatbot = () => {
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
+  const MAX_MESSAGE_LENGTH = 2000;
+
   const sendMessage = async () => {
     if (!inputMessage.trim() || isLoading) return;
+    if (inputMessage.trim().length > MAX_MESSAGE_LENGTH) {
+      toast({
+        title: "Nachricht zu lang",
+        description: `Bitte kürzen Sie Ihre Nachricht auf maximal ${MAX_MESSAGE_LENGTH} Zeichen.`,
+        variant: "destructive",
+      });
+      return;
+    }
     const userMessage: Message = {
       id: Date.now().toString(),
       text: inputMessage.trim(),
