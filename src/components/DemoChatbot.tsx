@@ -87,8 +87,18 @@ const DemoChatbot: React.FC<DemoChatbotProps> = ({
     }]);
   }, [type]);
 
+  const MAX_MESSAGE_LENGTH = 2000;
+
   const sendMessage = async () => {
     if (!inputMessage.trim() || isLoading) return;
+    if (inputMessage.trim().length > MAX_MESSAGE_LENGTH) {
+      toast({
+        title: "Nachricht zu lang",
+        description: `Bitte kürzen Sie Ihre Nachricht auf maximal ${MAX_MESSAGE_LENGTH} Zeichen.`,
+        variant: "destructive",
+      });
+      return;
+    }
 
     const userMessage = {
       id: messages.length + 1,
@@ -103,8 +113,10 @@ const DemoChatbot: React.FC<DemoChatbotProps> = ({
     setIsLoading(true);
 
     try {
-      console.log('Sending message to webhook:', webhookUrl);
-      console.log('Message data:', { message: currentMessage, sessionId, timestamp: new Date().toISOString() });
+      if (import.meta.env.DEV) {
+        console.log('Sending message to webhook:', webhookUrl);
+        console.log('Message data:', { message: currentMessage, sessionId, timestamp: new Date().toISOString() });
+      }
       
       // Enhanced fetch with CORS handling and timeout
       const controller = new AbortController();
@@ -154,7 +166,7 @@ const DemoChatbot: React.FC<DemoChatbotProps> = ({
         responseData = { message: "Antwort erhalten, aber konnte nicht verarbeitet werden." };
       }
       
-      console.log('Parsed response data:', responseData);
+      if (import.meta.env.DEV) console.log('Parsed response data:', responseData);
       
       // Extract bot message
       const botMessage = {
@@ -167,7 +179,7 @@ const DemoChatbot: React.FC<DemoChatbotProps> = ({
       setMessages(prev => [...prev, botMessage]);
 
     } catch (error) {
-      console.error('Webhook error:', error);
+      if (import.meta.env.DEV) console.error('Webhook error:', error);
       
       let errorText = "Entschuldigung, es gab ein technisches Problem.";
       let toastTitle = "Verbindungsfehler";
