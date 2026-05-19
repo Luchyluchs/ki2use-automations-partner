@@ -169,7 +169,7 @@ const DemoChatbot: React.FC<DemoChatbotProps> = ({
       setMessages(prev => [...prev, botMessage]);
 
     } catch (error) {
-      console.error('Webhook error:', error);
+      if (import.meta.env.DEV) console.error('Webhook error:', error);
       
       let errorText = "Entschuldigung, es gab ein technisches Problem.";
       let toastTitle = "Verbindungsfehler";
