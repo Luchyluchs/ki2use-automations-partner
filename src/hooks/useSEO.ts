@@ -86,6 +86,30 @@ export const useSEO = (config: SEOConfig) => {
       }
     }
 
+    // Always sync og:url + twitter:url to the canonical (or current location)
+    {
+      const absoluteUrl = config.canonical
+        ? (config.canonical.startsWith('http') ? config.canonical : `https://ki2use.de${config.canonical}`)
+        : (typeof window !== 'undefined' ? window.location.href.split('#')[0] : undefined);
+      if (absoluteUrl) {
+        let ogUrl = document.querySelector('meta[property="og:url"]');
+        if (!ogUrl) {
+          ogUrl = document.createElement('meta');
+          ogUrl.setAttribute('property', 'og:url');
+          document.head.appendChild(ogUrl);
+        }
+        ogUrl.setAttribute('content', absoluteUrl);
+
+        let twUrl = document.querySelector('meta[name="twitter:url"]');
+        if (!twUrl) {
+          twUrl = document.createElement('meta');
+          twUrl.setAttribute('name', 'twitter:url');
+          document.head.appendChild(twUrl);
+        }
+        twUrl.setAttribute('content', absoluteUrl);
+      }
+    }
+
     if (config.structuredData) {
       const existingScript = document.querySelector('script[data-seo-structured]');
       if (existingScript) {
