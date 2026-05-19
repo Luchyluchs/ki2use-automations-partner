@@ -1,0 +1,1 @@
+REVOKE EXECUTE ON FUNCTION public.cleanup_expired_demo_sessions() FROM PUBLIC, anon, authenticated;
