@@ -156,7 +156,7 @@ const DemoChatbot: React.FC<DemoChatbotProps> = ({
         responseData = { message: "Antwort erhalten, aber konnte nicht verarbeitet werden." };
       }
       
-      console.log('Parsed response data:', responseData);
+      if (import.meta.env.DEV) console.log('Parsed response data:', responseData);
       
       // Extract bot message
       const botMessage = {
