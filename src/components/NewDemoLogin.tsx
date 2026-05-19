@@ -8,7 +8,7 @@ import { Shield, User, Lock, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 interface NewDemoLoginProps {
-  onLogin: (username: string, password: string) => boolean;
+  onLogin: (username: string, password: string) => Promise<boolean> | boolean;
 }
 
 const NewDemoLogin: React.FC<NewDemoLoginProps> = ({ onLogin }) => {
@@ -22,15 +22,12 @@ const NewDemoLogin: React.FC<NewDemoLoginProps> = ({ onLogin }) => {
     setError('');
     setIsLoading(true);
 
-    // Simulate loading delay for better UX
-    await new Promise(resolve => setTimeout(resolve, 500));
+    const success = await Promise.resolve(onLogin(username, password));
 
-    const success = onLogin(username, password);
-    
     if (!success) {
       setError('Ungültige Anmeldedaten. Bitte überprüfen Sie Benutzername und Passwort.');
     }
-    
+
     setIsLoading(false);
   };
 
