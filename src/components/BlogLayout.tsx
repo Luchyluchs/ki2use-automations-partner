@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { ArrowLeft, Clock, Calendar, User } from "lucide-react";
+import { ArrowLeft, Clock, Calendar } from "lucide-react";
 import Layout from "./Layout";
 import { Button } from "./ui/button";
 import CalendlyButton from "./CalendlyButton";
@@ -42,8 +42,9 @@ const BlogLayout = ({
     "@type": "Article",
     headline: title,
     author: {
-      "@type": "Person",
-      name: "Alexander Lux",
+      "@type": "Organization",
+      name: "KI2USE",
+      url: "https://ki2use.de",
     },
     publisher: {
       "@type": "Organization",
@@ -109,9 +110,6 @@ const BlogLayout = ({
               {title}
             </h1>
             <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-              <span className="flex items-center gap-1.5">
-                <User className="w-4 h-4" /> Alexander Lux
-              </span>
               <span className="flex items-center gap-1.5">
                 <Calendar className="w-4 h-4" /> {publishDate}
               </span>
