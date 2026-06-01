@@ -38,6 +38,7 @@ const ChatbotUnternehmen = lazy(() => import("./pages/blog/ChatbotUnternehmen"))
 const KIAutomatisierungKMU = lazy(() => import("./pages/blog/KIAutomatisierungKMU"));
 const KIKostenROI = lazy(() => import("./pages/blog/KIKostenROI"));
 const EUAIActMittelstand = lazy(() => import("./pages/blog/EUAIActMittelstand"));
+const KIAgentenMittelstand = lazy(() => import("./pages/blog/KIAgentenMittelstand"));
 
 // Lazy load: Long-Tail SEO Landing Pages
 const KIBeratungHandwerk = lazy(() => import("./pages/landing/KIBeratungHandwerk"));
@@ -90,6 +91,7 @@ const App = () => (
             <Route path="/blog/ki-automatisierung-kmu" element={<KIAutomatisierungKMU />} />
             <Route path="/blog/ki-kosten-roi" element={<KIKostenROI />} />
             <Route path="/blog/eu-ai-act-mittelstand-2026" element={<EUAIActMittelstand />} />
+            <Route path="/blog/ki-agenten-mittelstand" element={<KIAgentenMittelstand />} />
             {/* Long-Tail SEO Landing Pages */}
             <Route path="/ki-beratung-handwerk" element={<KIBeratungHandwerk />} />
             <Route path="/ki-beratung-steuerberater" element={<KIBeratungSteuerberater />} />
