@@ -206,4 +206,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-</urlset>
+    <url>
+      <loc>https://ki2use.de/blog/ki-kompetenzpflicht-art-4</loc>
+      <lastmod>2026-06-15</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+  </urlset>
