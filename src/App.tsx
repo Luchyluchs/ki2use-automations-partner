@@ -41,6 +41,7 @@ const EUAIActMittelstand = lazy(() => import("./pages/blog/EUAIActMittelstand"))
 const KIAgentenMittelstand = lazy(() => import("./pages/blog/KIAgentenMittelstand"));
 const KIStrategieMittelstand = lazy(() => import("./pages/blog/KIStrategieMittelstand"));
 const KIKompetenzpflichtArt4 = lazy(() => import("./pages/blog/KIKompetenzpflichtArt4"));
+const Microsoft365CopilotMittelstand = lazy(() => import("./pages/blog/Microsoft365CopilotMittelstand"));
 
 // Lazy load: Long-Tail SEO Landing Pages
 const KIBeratungHandwerk = lazy(() => import("./pages/landing/KIBeratungHandwerk"));
@@ -96,6 +97,7 @@ const App = () => (
             <Route path="/blog/ki-agenten-mittelstand" element={<KIAgentenMittelstand />} />
             <Route path="/blog/ki-strategie-mittelstand" element={<KIStrategieMittelstand />} />
             <Route path="/blog/ki-kompetenzpflicht-art-4" element={<KIKompetenzpflichtArt4 />} />
+            <Route path="/blog/microsoft-365-copilot-mittelstand-roi" element={<Microsoft365CopilotMittelstand />} />
             {/* Long-Tail SEO Landing Pages */}
             <Route path="/ki-beratung-handwerk" element={<KIBeratungHandwerk />} />
             <Route path="/ki-beratung-steuerberater" element={<KIBeratungSteuerberater />} />
